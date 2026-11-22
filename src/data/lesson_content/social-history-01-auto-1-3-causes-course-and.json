@@ -1,0 +1,323 @@
+{
+  "section_id": "social-history-01-auto-1-3-causes-course-and",
+  "related_section_ids": [
+    "social-history-01-auto-1-2-rivalry-of-great-powers",
+    "social-history-01-auto-1-4-russian-revolution"
+  ],
+  "unit_id": "social-history-01",
+  "subject": "social_science",
+  "title": "Causes, Course and Results of World War I",
+  "subtitle": "Alliances, imperialism, the Sarajevo crisis, global theatres, Treaty of Versailles, and humanitarian impact",
+  "curiosity_hook": "How did a single assassination in Sarajevo in June 1914 pull empires across Europe, Asia, Africa, and India into four years of global conflict?",
+  "estimated_minutes": 7,
+  "source_pdf": "Class_10_Social_Science_English_2025_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2025 Revised Edition (SCERT 2019 Syllabus)",
+  "source_printed_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 11],
+  "source_pdf_pages": [7, 8, 9, 10, 11, 12, 13, 14, 15, 17],
+  "source_verified_by": "PASS0-PDF-AUDIT-2026-11-22 (Pending Human History Educator Sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Distinguish long-term structural causes (imperialism, rival alliance blocs, militant nationalism, Balkan instability) from the immediate trigger at Sarajevo (28 June 1914).",
+    "Locate major Alliance and Central Powers theatres on an evidence-labelled schematic map without trivializing human suffering.",
+    "Explain key provisions of the Treaty of Versailles (28 June 1919), the humanitarian toll, and the social/economic impact on India."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Two Armed Camps & Rival Nationalisms (pp. 4–5)",
+      "summary": "By 1907, European Great Powers were split into the Triple Alliance (1882: Germany, Austria-Hungary, Italy — though Italy later joined the Allies via the 1915 Treaty of London) and the Triple Entente (1907: Britain, France, Russia). Naval arms races, Franco-German hostility over Alsace–Lorraine (1871), and Balkan crises turned Europe into a powder keg.",
+      "worked_example": "Alliance domino chain (July–August 1914): Sarajevo assassination (28 June) → Austria targets Serbia → Russia mobilizes → Germany declares war on Russia (1 Aug) & crosses neutral Belgium → Britain enters the war."
+    },
+    {
+      "heading": "Industrial & Global Conflict (pp. 5–7)",
+      "summary": "Fighting spanned the Western Front (Marne 1914, Verdun & Somme 1916, trench warfare), Eastern Front (Tannenberg, Russian Revolution 1917, Brest-Litovsk 3 Mar 1918), Middle East, Africa, and naval theatres (Jutland 1916, cruiser Emden bombarding Madras, unrestricted submarine warfare & Lusitania leading to US entry in April 1917)."
+    },
+    {
+      "heading": "Armistice, Treaty of Versailles & Global Impact (pp. 7–9)",
+      "summary": "Following the 11 November 1918 armistice, the Treaty of Versailles (28 June 1919) imposed war guilt, reparations, army limits (100,000), loss of Alsace–Lorraine & colonies, and established the League of Nations. Eight million soldiers died, three empires collapsed (Germany, Austria-Hungary, Ottoman), and India faced heavy economic strain (£230M cash, £125M loans, £250M materials) alongside the rise of the Home Rule Movement."
+    }
+  ],
+  "key_terms": [
+    {
+      "term": "Triple Alliance (1882) vs Triple Entente (1907)",
+      "definition": "The two pre-war European alliance camps whose mutual defense pledges escalated a regional Balkan conflict into a world war (p. 4)."
+    },
+    {
+      "term": "Trench Warfare",
+      "definition": "Interconnected ditches dug along the Western Front to shelter troops from artillery and machine-gun fire, leading to prolonged stalemate and massive casualties (p. 6)."
+    },
+    {
+      "term": "Treaty of Versailles (28 June 1919)",
+      "definition": "Peace settlement signed in the Hall of Mirrors imposing reparations, military limits, and territorial losses on Germany (p. 8)."
+    },
+    {
+      "term": "League of Nations",
+      "definition": "First international collective-security organization proposed in President Wilson's Fourteen Points to prevent future wars (pp. 8, 11)."
+    }
+  ],
+  "interaction": {
+    "engine": "TimelineMap",
+    "version": "v2",
+    "scene_id": "ww1-evidence-timemap",
+    "representation_status": "Measured/Observed",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "timeline-stepper",
+        "label": "Chronological Timeline Selector (1882 → 1919)",
+        "type": "stepper",
+        "description": "Step across 6 documented turning points linking alliances, Sarajevo, industrial fronts, Russian withdrawal, US entry, and Versailles.",
+        "keyboard_equivalent": "Use Previous/Next event buttons or press individual year tabs."
+      },
+      {
+        "id": "schematic-theatre-map",
+        "label": "Schematic Theatre & Alliance Layer Map (Not to Scale)",
+        "type": "map_layer",
+        "description": "Toggle Triple Entente / Allies, Central Powers, and Key Turning-Point Markers (Sarajevo, Western Front, Eastern Front, Madras / Emden) with explicit historical date legend.",
+        "keyboard_equivalent": "Keyboard toggle buttons for layers and region focus cards."
+      },
+      {
+        "id": "cause-effect-matcher",
+        "label": "Cause → Consequence Evidence Matcher",
+        "type": "button_group",
+        "description": "Connect historical causes to their documented consequences without battle-score gamification.",
+        "keyboard_equivalent": "Select cause and matching consequence buttons via keyboard."
+      }
+    ],
+    "expected_observations": [
+      "Historians distinguish underlying structural causes (imperialism, alliances, arms races, nationalism) from the immediate spark at Sarajevo.",
+      "The war was truly global — directly affecting colonized societies including India (soldiers, wartime finance, Madras bombardment, and political awakening).",
+      "Humanitarian losses (8 million dead, millions wounded, 1918 influenza) and collapsed empires reshaped the 20th-century world map."
+    ],
+    "limitations": [
+      "The accompanying SVG map is a schematic educational diagram ('Not to Scale', reflecting 1914–1918 alliance groupings) rather than a precise cartographic border projection.",
+      "Historical causes and the fairness of the Treaty of Versailles remain subjects of scholarly interpretation; multiple perspectives are noted."
+    ],
+    "config": {
+      "includePerspectivesNote": true,
+      "noBattleGamification": true
+    }
+  },
+  "storyboard": [
+    {
+      "mode": "guided",
+      "step": 1,
+      "title": "Trace Pre-War Alliances (1882–1913)",
+      "learner_action": "Step through the 1882 Triple Alliance, 1907 Triple Entente, and 1912–13 Balkan Wars on the timeline and map.",
+      "expected_response": "Observe how Europe divided into two armed camps before June 1914."
+    },
+    {
+      "mode": "guided",
+      "step": 2,
+      "title": "Inspect 1914–1918 Escalation & Global Impact",
+      "learner_action": "Toggle alliance/theatre layers on the schematic map and inspect the humanitarian & Indian impact panel.",
+      "expected_response": "Connect European diplomatic decisions to civilian and colonial consequences."
+    },
+    {
+      "mode": "explore",
+      "step": 3,
+      "title": "Link Causes to Consequences (Evidence Check)",
+      "learner_action": "Match 4 documented historical triggers to their direct outcomes.",
+      "expected_response": "Receive date-cited feedback reinforcing causal reasoning rather than rote memorization."
+    }
+  ],
+  "accessible_equivalent": {
+    "mode": "evidence_timeline_table",
+    "summary": "Complete dated chronology table (1882–1919), alliance membership list, and Versailles provisions summary without requiring map interaction.",
+    "steps": [
+      {
+        "step_number": 1,
+        "heading": "1882–1907: Alliance Blocs Harden",
+        "description": "Triple Alliance (1882: Germany, Austria-Hungary, Italy) faced Franco-Russian Alliance (1894), Entente Cordiale (1904), and Triple Entente (1907: Britain, France, Russia).",
+        "key_takeaway": "Mutual defense commitments meant a local crisis could escalate rapidly."
+      },
+      {
+        "step_number": 2,
+        "heading": "1912–1913: Balkan Wars & Rivalries",
+        "description": "Ottoman retreat sparked the First and Second Balkan Wars (Treaties of London & Bucharest, 1913), sharpening Austro-Serbian hostility.",
+        "key_takeaway": "The Balkans became the immediate flashpoint of European power politics."
+      },
+      {
+        "step_number": 3,
+        "heading": "28 June – August 1914: Sarajevo Crisis & Outbreak",
+        "description": "Assassination of Archduke Francis Ferdinand in Sarajevo led Austria against Serbia, Germany against Russia & France, and Britain in after Germany violated Belgian neutrality.",
+        "key_takeaway": "Immediate trigger ignited decades of imperial and nationalist tension."
+      },
+      {
+        "step_number": 4,
+        "heading": "1914–1918: Industrial Warfare & Turning Points",
+        "description": "Trench stalemate on the Western Front (Marne, Verdun, Somme); Russian Revolution (1917) and Brest-Litovsk (Mar 1918); US entry (Apr 1917) after unrestricted submarine warfare.",
+        "key_takeaway": "First total industrial war affecting civilians, colonies, and global economies."
+      },
+      {
+        "step_number": 5,
+        "heading": "11 Nov 1918 & 28 June 1919: Armistice & Treaty of Versailles",
+        "description": "Germany surrendered Nov 1918; Treaty of Versailles imposed reparations, military caps, and territorial changes, while creating the League of Nations.",
+        "key_takeaway": "Three empires collapsed, Europe's map was redrawn, and harsh terms left deep tensions."
+      }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "ww1-q1",
+        "difficulty": "recall",
+        "prompt": "Which three countries originally formed the Triple Entente by 1907 (History Unit 1, p. 4)?",
+        "hint": "Look at the Entente Cordiale (1904) plus Britain's 1907 agreement.",
+        "options": [
+          {
+            "id": "a",
+            "label": "Britain, France, and Russia",
+            "is_correct": true,
+            "feedback": "Correct! Following the Franco-Russian Alliance (1894) and Entente Cordiale (1904), Britain, France, and Russia formed the Triple Entente in 1907."
+          },
+          {
+            "id": "b",
+            "label": "Germany, Austria-Hungary, and Italy",
+            "is_correct": false,
+            "feedback": "Those three nations formed the Triple Alliance in 1882, opposing the Entente."
+          },
+          {
+            "id": "c",
+            "label": "Germany, Turkey, and Bulgaria",
+            "is_correct": false,
+            "feedback": "Germany, Austria-Hungary, Turkey, and Bulgaria fought as the Central Powers during the war."
+          }
+        ],
+        "worked_explanation": "Social Science p. 4: Triple Alliance (1882) vs Triple Entente (1907: Britain, France, Russia)."
+      },
+      {
+        "id": "ww1-q2",
+        "difficulty": "conceptual",
+        "prompt": "What event directly brought Britain into World War I in August 1914 after Germany declared war on Russia and France (p. 5)?",
+        "hint": "Check which neutral country Germany marched through to attack France.",
+        "options": [
+          {
+            "id": "a",
+            "label": "The German army's violation of Belgian neutrality.",
+            "is_correct": true,
+            "feedback": "Correct! Germany's invasion of neutral Belgium forced Britain to enter the war on the Allied side."
+          },
+          {
+            "id": "b",
+            "label": "The signing of the Treaty of Brest-Litovsk.",
+            "is_correct": false,
+            "feedback": "The Treaty of Brest-Litovsk was signed much later (3 March 1918) between Russia and Germany."
+          },
+          {
+            "id": "c",
+            "label": "The Treaty of Versailles.",
+            "is_correct": false,
+            "feedback": "The Treaty of Versailles ended the war in June 1919."
+          }
+        ],
+        "worked_explanation": "Social Science p. 5: 'The German violation of Belgian neutrality forced Britain to enter War.'"
+      },
+      {
+        "id": "ww1-q3",
+        "difficulty": "application",
+        "prompt": "Which statement accurately describes the impact of World War I on India according to History Unit 1 (pp. 7–9)?",
+        "hint": "Consider both military/economic contributions and political movements in India.",
+        "options": [
+          {
+            "id": "a",
+            "label": "Indian soldiers served across three continents, Madras was bombarded by the Emden, India bore heavy wartime expenses and grain distress, and the Home Rule Movement grew.",
+            "is_correct": true,
+            "feedback": "Spot on! The war deeply affected Indian society, finances (£230M cash, £125M loans, £250M materials), and nationalist politics."
+          },
+          {
+            "id": "b",
+            "label": "India was untouched by the war because fighting stayed strictly inside Europe.",
+            "is_correct": false,
+            "feedback": "WWI was a global conflict — Indian troops served in Europe, Africa, and West Asia, and the German cruiser Emden even bombarded Madras."
+          },
+          {
+            "id": "c",
+            "label": "Britain immediately granted full independence to India in 1919.",
+            "is_correct": false,
+            "feedback": "Although many Indians hoped wartime loyalty would bring self-rule, disappointment followed and intensified the freedom struggle."
+          }
+        ],
+        "worked_explanation": "Social Science pp. 7–9 detail India's human and financial contributions, economic distress, and the rise of the Home Rule Movement."
+      },
+      {
+        "id": "ww1-q4",
+        "difficulty": "conceptual",
+        "prompt": "Why do historians distinguish long-term causes from the Sarajevo assassination when explaining the outbreak of World War I?",
+        "hint": "Ask whether a single assassination could start a global war without prior tensions.",
+        "options": [
+          {
+            "id": "a",
+            "label": "Because decades of imperial rivalry, arms races, militant nationalism, and rigid alliances created the volatile conditions that Sarajevo triggered.",
+            "is_correct": true,
+            "feedback": "Exactly! Distinguishing underlying structural causes from immediate triggers is essential to historical reasoning."
+          },
+          {
+            "id": "b",
+            "label": "Because the Sarajevo assassination happened after the war ended.",
+            "is_correct": false,
+            "feedback": "The assassination happened on 28 June 1914 — one month before war broke out."
+          },
+          {
+            "id": "c",
+            "label": "Because European powers had no colonies or alliances before 1914.",
+            "is_correct": false,
+            "feedback": "Colonial empires and rival alliances had been building across Europe since the late 19th century."
+          }
+        ],
+        "worked_explanation": "History Unit 1 (pp. 1–5) structures the outbreak into long-term imperialism/alliances/nationalism culminating in the immediate Sarajevo crisis."
+      }
+    ],
+    "worked_feedback": [
+      "Historians separate structural causes (imperialism, alliances, militarism, nationalism) from immediate catalysts (Sarajevo, 28 June 1914).",
+      "Evaluate wars through documented evidence and human/social consequences — never as simplified point-scoring contests."
+    ]
+  },
+  "flashcards": [
+    {
+      "id": "ww1-fc-1",
+      "card_type": "term",
+      "front": "What happened on 28 June 1914 and why was it the immediate trigger of WWI?",
+      "back": "Archduke Francis Ferdinand (heir to the Austro-Hungarian throne) was assassinated in Sarajevo, Bosnia, setting off the Austria–Serbia ultimatum and Europe's alliance chain (p. 5)."
+    },
+    {
+      "id": "ww1-fc-2",
+      "card_type": "apply",
+      "front": "Which three major empires collapsed as a direct aftermath of World War I?",
+      "back": "The German Empire, the Austro-Hungarian Empire, and the Ottoman (Turkish) Empire (p. 1)."
+    },
+    {
+      "id": "ww1-fc-3",
+      "card_type": "term",
+      "front": "When did the Armistice take effect, and when was the Treaty of Versailles signed?",
+      "back": "Armistice: 11 November 1918. Treaty of Versailles: 28 June 1919 in the Hall of Mirrors, Paris (pp. 7–8)."
+    },
+    {
+      "id": "ww1-fc-4",
+      "card_type": "why",
+      "front": "Why did the United States enter World War I in April 1917 after three years of neutrality?",
+      "back": "Germany declared unrestricted submarine warfare (Jan 1917) and torpedoed ships including the Lusitania, provoking US entry under President Woodrow Wilson (p. 7)."
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "ww1-schematic-theatre-svg",
+      "kind": "schematic_map",
+      "description": "Original Katrio schematic map (explicitly marked Not to Scale) of 1914–1918 WWI alliances and key turning-point locations.",
+      "license": "Original Katrio SVG (Apache-2.0)",
+      "source_reference": "Chronology and alliance groupings verified against TN Class 10 Social Science 2025 Edition, History Unit 1, pp. 1–11."
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Independently written historical summary and schematic SVG diagram; no copyrighted textbook maps scanned or reproduced."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

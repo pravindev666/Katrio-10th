@@ -1,0 +1,155 @@
+{
+  "section_id": "science-14-auto-14-13-blood-vessels",
+  "related_section_ids": [
+    "science-14-auto-14-14-types-of-circulatory"
+  ],
+  "unit_id": "science-14",
+  "subject": "science",
+  "title": "14.12–14.14 Blood, Blood Vessels & Circulatory System Types",
+  "subtitle": "Plasma, RBC/WBC/Platelets, Table 14.1 Arteries vs Veins vs Capillaries, and Open vs Closed circulation (pp. 204–207)",
+  "curiosity_hook": "Why do arteries have thick elastic walls without internal valves, while veins have thin walls WITH valves — and why do mature human RBCs discard their own nucleus?",
+  "estimated_minutes": 12,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [204, 205, 206, 207],
+  "source_pdf_pages": [212, 213, 214, 215],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human biology teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Explain the roles of blood plasma (55%) and formed elements — biconcave enucleated RBCs (120-day lifespan), WBCs (granulocytes & agranulocytes), and platelets (clotting).",
+    "Contrast Arteries, Veins, and single-cell-thick Capillaries (~8 µm) using Table 14.1 criteria including the pulmonary artery/vein exceptions.",
+    "Differentiate Open circulatory systems (haemocoel sinuses in Arthropods/Molluscs) from Closed circulatory systems discovered by William Harvey (1628)."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Composition of Blood (14.12, pp. 204–206)",
+      "summary": "Blood consists of 55% slightly alkaline plasma plus RBCs (erythrocytes: haemoglobin, no nucleus/mitochondria/ER so maximum O₂ capacity & capillary flexibility, lifespan 120 days), WBCs (neutrophils, eosinophils, basophils, lymphocytes producing antibodies, phagocytic monocytes), and platelets (thrombocytes: 2.5–4 lakh/mm³, clotting)."
+    },
+    {
+      "heading": "Arteries, Veins & Capillaries (14.13, Table 14.1, p. 206)",
+      "summary": "Arteries distribute high-pressure blood away from the heart through thick elastic deep walls without internal valves (all oxygenated EXCEPT pulmonary artery). Veins collect low-pressure blood back to the heart through thin superficial walls WITH internal valves (all deoxygenated EXCEPT pulmonary vein). Capillaries (~8 µm, single endothelial layer) exchange gases and nutrients."
+    },
+    {
+      "heading": "Open vs Closed Circulatory Systems (14.14, p. 207)",
+      "summary": "In Open systems (arthropods, molluscs, ascidians), blood enters open body cavities (haemocoel sinuses) without capillaries. In Closed systems (vertebrates, discovered by William Harvey in 1628), blood stays inside a closed circuit of arteries → capillaries → veins."
+    }
+  ],
+  "key_terms": [
+    { "term": "Erythrocytes (RBC)", "definition": "Biconcave, enucleated red blood cells containing haemoglobin for O₂ transport (lifespan ~120 days)." },
+    { "term": "Thrombocytes (Platelets)", "definition": "Small enucleated fragments (lifespan 8–10 days) essential for blood clotting at injury sites." },
+    { "term": "Pulmonary Exception", "definition": "Pulmonary artery carries deoxygenated blood (RV → lungs); Pulmonary veins carry oxygenated blood (lungs → LA)." },
+    { "term": "William Harvey (1628)", "definition": "Father of Modern Physiology who discovered the closed human blood circulatory system." }
+  ],
+  "interaction": {
+    "engine": "JourneyThrough",
+    "version": "1.0.0",
+    "scene_id": "unit14-cardiac-vessels",
+    "representation_status": "Conceptual schematic",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "vessels-tab",
+        "label": "Cardiac & Blood Vessels Explorer",
+        "type": "button_group",
+        "description": "Compare arteries, veins, cardiac cycle pressures, and open/closed circulation.",
+        "keyboard_equivalent": "Tab + Enter across phase and vessel panels."
+      }
+    ],
+    "expected_observations": [
+      "Arteries withstand peak systolic pressure (120 mm Hg) via thick elastic walls, whereas veins rely on internal valves against gravity.",
+      "Loss of mitochondria in mature mammalian RBCs prevents them from consuming the very oxygen they carry to body tissues."
+    ],
+    "limitations": [
+      "Reference summary aligned directly with Science Unit 14 Table 14.1 (pp. 205–207)."
+    ],
+    "config": {
+      "initial_tab": "cardiac"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Compare Arteries vs Veins", "learner_action": "Review the 7 Table 14.1 differences in pressure, wall thickness, depth, and valves.", "expected_response": "Clarifies why veins require internal valves while arteries do not." },
+    { "mode": "explore", "step": 2, "title": "Inspect Blood Cells & Open/Closed Circulation", "learner_action": "Check the RBC adaptations and William Harvey's closed circuit in the concept check.", "expected_response": "Connects blood cell structure directly to physiological function." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Structured Table 14.1 Artery vs Vein breakdown plus blood-cell and open/closed circulation notes.",
+    "steps": [
+      { "step_number": 1, "heading": "Blood = 55% Plasma + Formed Elements", "description": "RBCs carry O₂, WBCs defend via phagocytosis & antibodies, Platelets clot wounds.", "key_takeaway": "Anaemia = low RBC; Thrombocytopenia = low platelets." },
+      { "step_number": 2, "heading": "Arteries vs Veins vs Capillaries", "description": "Arteries = thick, high pressure, no valves; Veins = thin, low pressure, valves present; Capillaries = 8 µm single-cell exchange tubes.", "key_takeaway": "Remember the pulmonary artery & pulmonary vein oxygen exceptions." },
+      { "step_number": 3, "heading": "Open vs Closed Circulation", "description": "Open = haemocoel sinuses (insects/molluscs); Closed = continuous vessels + capillaries (vertebrates).", "key_takeaway": "Closed circulation was discovered by William Harvey (1628)." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "s14v-q1",
+        "difficulty": "conceptual",
+        "prompt": "Why does a mature mammalian Red Blood Corpuscle (RBC) lack mitochondria (p. 205)?",
+        "hint": "Think about what mitochondria consume during aerobic respiration.",
+        "options": [
+          { "id": "a", "label": "So the RBC does not consume oxygen itself and can deliver ALL its oxygen to tissues", "is_correct": true, "feedback": "Correct! Lack of mitochondria preserves oxygen for delivery; lack of nucleus makes it biconcave; lack of ER boosts capillary flexibility." },
+          { "id": "b", "label": "So it can produce antibodies faster", "is_correct": false, "feedback": "Lymphocytes (a type of WBC) produce antibodies, not RBCs." },
+          { "id": "c", "label": "To enable blood clotting", "is_correct": false, "feedback": "Platelets (thrombocytes) perform clotting." },
+          { "id": "d", "label": "So it can live for 10 years", "is_correct": false, "feedback": "RBC lifespan is ~120 days." }
+        ],
+        "worked_explanation": "Textbook p. 205 highlights all three adaptations: no nucleus (biconcave O₂ surface area), no mitochondria (saves O₂ for tissues), no ER (flexibility in narrow capillaries)."
+      },
+      {
+        "id": "s14v-q2",
+        "difficulty": "recall",
+        "prompt": "Which blood vessel is the ONLY vein in the human body that carries OXYGENATED blood (Table 14.1, p. 206)?",
+        "hint": "It returns freshly oxygenated blood from the lungs to the Left Atrium.",
+        "options": [
+          { "id": "a", "label": "Superior Vena Cava", "is_correct": false, "feedback": "Vena cava carries deoxygenated blood from the body to the right atrium." },
+          { "id": "b", "label": "Pulmonary Vein", "is_correct": true, "feedback": "Correct! Pulmonary veins bring oxygenated blood from lungs to the left atrium." },
+          { "id": "c", "label": "Pulmonary Artery", "is_correct": false, "feedback": "Pulmonary artery is an artery carrying deoxygenated blood to the lungs." },
+          { "id": "d", "label": "Coronary Sinus", "is_correct": false, "feedback": "Coronary sinus drains deoxygenated blood from cardiac muscle into the right atrium." }
+        ],
+        "worked_explanation": "All veins carry deoxygenated blood EXCEPT pulmonary veins; all arteries carry oxygenated blood EXCEPT pulmonary arteries."
+      },
+      {
+        "id": "s14v-q3",
+        "difficulty": "recall",
+        "prompt": "Who discovered the closed circulatory system in 1628 and is called the Father of Modern Physiology (p. 207)?",
+        "hint": "Check the 'More to Know' box on p. 207.",
+        "options": [
+          { "id": "a", "label": "Karl Landsteiner", "is_correct": false, "feedback": "Landsteiner discovered ABO blood groups (1900) and Rh factor (1940)." },
+          { "id": "b", "label": "William Harvey", "is_correct": true, "feedback": "Correct! William Harvey (1628) discovered closed blood circulation." },
+          { "id": "c", "label": "Wilhelm His", "is_correct": false, "feedback": "His (1893) discovered the atrioventricular Bundle of His." },
+          { "id": "d", "label": "Nehemiah Grew", "is_correct": false, "feedback": "Nehemiah Grew is the Father of Plant Anatomy (Unit 12)." }
+        ],
+        "worked_explanation": "William Harvey (1628) demonstrated closed circulation and is revered as the Father of Modern Physiology."
+      }
+    ],
+    "worked_feedback": [
+      "Always pair vessel structure with blood pressure: high pressure → thick elastic artery; low pressure → thin valved vein."
+    ]
+  },
+  "flashcards": [
+    { "id": "s14v-fc1", "card_type": "term", "front": "RBC, WBC & Platelet lifespans/roles (pp. 205–206)", "back": "RBC: ~120 days (O₂ transport); WBC: immunity (neutrophils/lymphocytes/monocytes); Platelets: 8–10 days (clotting)." },
+    { "id": "s14v-fc2", "card_type": "term", "front": "Artery vs Vein (Table 14.1)", "back": "Artery = thick, elastic, deep, high pressure, no internal valves. Vein = thin, non-elastic, superficial, low pressure, internal valves." },
+    { "id": "s14v-fc3", "card_type": "term", "front": "Open vs Closed Circulatory System", "back": "Open: blood enters haemocoel sinuses (arthropods, molluscs). Closed: blood stays in vessels + capillaries (vertebrates)." }
+  ],
+  "assets": [
+    {
+      "asset_id": "unit14-vessels-engine-v1",
+      "kind": "data_table",
+      "description": "Blood vessels & circulation comparison module for Science Unit 14.12–14.14.",
+      "license": "Original project educational asset",
+      "source_reference": "TN Class 10 Science 2024 Edition, Unit 14, pp. 204–207"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original structured summaries aligned to Unit 14.12–14.14."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

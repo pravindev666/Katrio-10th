@@ -1,0 +1,15 @@
+/* KATRIO v1 — provisional brand tokens */
+:root {
+  --ink:#13213A; --text:#35465D; --canvas:#F7F9FE; --surface:#FFFFFF;
+  --line:#DDE4F0; --primary:#4255D4; --primary-dark:#3041AF;
+  --science:#0B7773; --math:#7155C8; --english:#3478C0;
+  --tamil:#C04F75; --social:#9B631F; --arcade:#C35243;
+  --success:#137B55; --warning:#A86113; --error:#B43C4C;
+  --focus:#3041AF; --science-tint:#E8F6F4; --math-tint:#F0ECFC;
+  --english-tint:#E9F3FC; --tamil-tint:#FDECF2; --social-tint:#FFF3E3;
+  --arcade-tint:#FFF0EC; --radius-control:12px; --radius-card:20px;
+  --measure:72ch; --page-max:1240px;
+}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* Dark/contrast must be designed and audited separately; no automatic color inversion. */

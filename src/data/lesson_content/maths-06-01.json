@@ -1,0 +1,151 @@
+{
+  "section_id": "maths-06-01",
+  "unit_id": "maths-06",
+  "subject": "mathematics",
+  "title": "6.1 Introduction to Trigonometry — Ratios & Complementary Angles",
+  "subtitle": "History (Hipparchus & Aryabhata Jya), 6 trigonometric ratios, and visual complementary-angle proof (pp. 239–241)",
+  "curiosity_hook": "Why do all right-angled triangles with the same acute angle θ share the exact same sine, cosine, and tangent ratios no matter how large or small the triangle is?",
+  "estimated_minutes": 10,
+  "source_pdf": "Class_10_Mathematics_English_2025_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2025 Edition",
+  "source_printed_pages": [239, 240, 241],
+  "source_pdf_pages": [245, 246, 247],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human maths teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Recall and compute all six trigonometric ratios (sin, cos, tan, cosec, sec, cot) of an acute angle 0° < θ < 90° in right triangle OMP.",
+    "Derive complementary angle relationships such as sin(90° − θ) = cos θ using the unit-semicircle rectangle proof (pp. 240–241).",
+    "Recall exact ratio values for standard angles 0°, 30°, 45°, 60°, and 90°."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Origins of Trigonometry & Similarity Invariance (pp. 239–240)",
+      "summary": "Hipparchus of Rhodes (~200 BCE) built early chord tables, Indian astronomers including Aryabhata refined half-chords ('Jya' → Latin 'sinus' → sine), and Bartholomaeus Pitiscus coined 'Trigonometry'. Because all right triangles with acute angle θ are similar, ratios depend ONLY on θ."
+    },
+    {
+      "heading": "The Six Fundamental Ratios (p. 240)",
+      "summary": "From sin θ = Opp/Hyp and cos θ = Adj/Hyp come tan θ = sin θ / cos θ, cot θ = cos θ / sin θ, cosec θ = 1 / sin θ, and sec θ = 1 / cos θ."
+    },
+    {
+      "heading": "Complementary Angle Visual Proof (pp. 240–241)",
+      "summary": "In rectangle OPQR inscribed in a unit semicircle (OQ = 1), OP = cos θ = RQ = sin(90° − θ) and PQ = sin θ = OR = cos(90° − θ). Likewise tan(90° − θ) = cot θ and sec(90° − θ) = cosec θ."
+    }
+  ],
+  "key_terms": [
+    { "term": "Trigonometric Ratio", "definition": "Scale-invariant ratio of two sides of a right-angled triangle determined strictly by acute angle θ." },
+    { "term": "Complementary Angles", "definition": "Two acute angles summing to 90° (θ and 90° − θ), where sin(90° − θ) = cos θ." },
+    { "term": "Jya / Sinus", "definition": "Ancient Indian half-chord term ('Jya') that evolved through Arabic 'jiba' and Latin 'sinus' into modern 'sine'." }
+  ],
+  "interaction": {
+    "engine": "GeometryWorkbench",
+    "version": "1.0.0",
+    "scene_id": "maths-06-trig-identities",
+    "representation_status": "Equation-based simulation",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "theta-slider",
+        "label": "Acute Angle θ Slider & Presets",
+        "type": "slider",
+        "description": "Vary θ from 5° to 85° and inspect all 6 ratios alongside complementary angle (90° − θ).",
+        "keyboard_equivalent": "Arrow Left/Right on slider or Enter on 30°/45°/60° presets."
+      }
+    ],
+    "expected_observations": [
+      "Setting θ = 30° gives sin(30°) = 0.5000 = cos(60°), verifying sin(θ) = cos(90° − θ).",
+      "At θ = 45°, Opposite equals Adjacent, so sin(45°) = cos(45°) ≈ 0.7071 and tan(45°) = 1."
+    ],
+    "limitations": [
+      "Right-triangle visualizer covers acute angles 5°–85°; exact boundary values at 0° and 90° are summarized in the standard table."
+    ],
+    "config": {
+      "mode": "identities"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Test θ = 30° and θ = 60°", "learner_action": "Click θ = 30° then θ = 60° and compare sin and cos readouts.", "expected_response": "sin(30°) = cos(60°) = 0.5 and cos(30°) = sin(60°) ≈ 0.866." },
+    { "mode": "explore", "step": 2, "title": "Sweep θ Continuously", "learner_action": "Drag θ from 20° to 70° and observe tan θ = sin θ / cos θ.", "expected_response": "Reciprocal pairs (sin·cosec = 1, cos·sec = 1, tan·cot = 1) hold at every angle." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Complete standard ratio table (0°, 30°, 45°, 60°, 90°), reciprocal definitions, and complementary-angle equations.",
+    "steps": [
+      { "step_number": 1, "heading": "Primary Ratios", "description": "sin θ = Opp/Hyp, cos θ = Adj/Hyp, tan θ = Opp/Adj = sin θ / cos θ.", "key_takeaway": "All similar right triangles give identical ratios for the same θ." },
+      { "step_number": 2, "heading": "Reciprocal Ratios", "description": "cosec θ = 1/sin θ, sec θ = 1/cos θ, cot θ = 1/tan θ.", "key_takeaway": "Every reciprocal product equals 1 for 0° < θ < 90°." },
+      { "step_number": 3, "heading": "Complementary Pairs", "description": "sin(90° − θ) = cos θ; tan(90° − θ) = cot θ; sec(90° − θ) = cosec θ.", "key_takeaway": "Complementary angles swap sine↔cosine, tangent↔cotangent, secant↔cosecant." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "m61-q1",
+        "difficulty": "recall",
+        "prompt": "Who is regarded as 'The Father of Trigonometry' in Class 10 Mathematics (p. 239) for constructing chord tables?",
+        "hint": "Greek astronomer of Rhodes around 200 BCE.",
+        "options": [
+          { "id": "a", "label": "Hipparchus of Rhodes", "is_correct": true, "feedback": "Correct! Hipparchus (~200 BCE) built chord tables forming the foundation of trigonometry." },
+          { "id": "b", "label": "Pappus of Alexandria", "is_correct": false, "feedback": "Pappus is featured in Chapter 7 (Mensuration), p. 269." },
+          { "id": "c", "label": "Joseph Fourier", "is_correct": false, "feedback": "Fourier is quoted on p. 239, not called the Father of Trigonometry." },
+          { "id": "d", "label": "Bartholomaeus Pitiscus", "is_correct": false, "feedback": "Pitiscus coined the word 'Trigonometry' in the 17th century." }
+        ],
+        "worked_explanation": "Textbook p. 239 credits Hipparchus of Rhodes (~200 BCE) as the Father of Trigonometry."
+      },
+      {
+        "id": "m61-q2",
+        "difficulty": "application",
+        "prompt": "Using complementary angle identities (p. 240), what is the exact value of sin(37°) / cos(53°)?",
+        "hint": "Notice that 37° + 53° = 90°.",
+        "options": [
+          { "id": "a", "label": "0", "is_correct": false, "feedback": "Neither numerator nor denominator is zero." },
+          { "id": "b", "label": "1", "is_correct": true, "feedback": "Correct! Since 53° = 90° − 37°, cos(53°) = sin(37°), so the ratio equals 1." },
+          { "id": "c", "label": "√3", "is_correct": false, "feedback": "They are equal quantities divided by each other." },
+          { "id": "d", "label": "1/2", "is_correct": false, "feedback": "Check sin(37°) = cos(90° − 37°) = cos(53°)." }
+        ],
+        "worked_explanation": "cos(53°) = cos(90° − 37°) = sin(37°), hence sin(37°) / cos(53°) = 1."
+      },
+      {
+        "id": "m61-q3",
+        "difficulty": "conceptual",
+        "prompt": "Why do trigonometric ratios of an acute angle θ NOT change if you double all three side lengths of the right triangle?",
+        "hint": "Think about similar triangles (Note on p. 240).",
+        "options": [
+          { "id": "a", "label": "Because the scale factor cancels out in every ratio of two sides of similar right triangles", "is_correct": true, "feedback": "Correct! (2·Opp)/(2·Hyp) = Opp/Hyp — all right triangles with angle θ are similar." },
+          { "id": "b", "label": "Because θ also doubles", "is_correct": false, "feedback": "Scaling all sides proportionally keeps all interior angles unchanged." },
+          { "id": "c", "label": "Because sine only uses the hypotenuse", "is_correct": false, "feedback": "Sine is the ratio of Opposite to Hypotenuse." },
+          { "id": "d", "label": "Only when θ = 45°", "is_correct": false, "feedback": "Similarity invariance holds for every acute angle 0° < θ < 90°." }
+        ],
+        "worked_explanation": "All right triangles sharing acute angle θ are AA-similar, so corresponding side ratios stay invariant."
+      }
+    ],
+    "worked_feedback": [
+      "Memorize sin θ for 0°, 30°, 45°, 60°, 90° as √0/2, √1/2, √2/2, √3/2, √4/2 and reverse the row for cos θ."
+    ]
+  },
+  "flashcards": [
+    { "id": "m61-fc1", "card_type": "term", "front": "Exact values of sin 30°, sin 45°, sin 60°", "back": "sin 30° = 1/2; sin 45° = 1/√2; sin 60° = √3/2." },
+    { "id": "m61-fc2", "card_type": "term", "front": "Complementary angle identities (p. 240)", "back": "sin(90°−θ) = cos θ; tan(90°−θ) = cot θ; sec(90°−θ) = cosec θ." },
+    { "id": "m61-fc3", "card_type": "why", "front": "Origin of the word 'Sine'", "back": "Sanskrit 'Jya' (half-chord, Aryabhata) → Arabic 'jiba' → Latin 'sinus' → English 'sine'." }
+  ],
+  "assets": [
+    {
+      "asset_id": "trig-identities-workbench-v1",
+      "kind": "interactive_svg",
+      "description": "Interactive unit right-triangle visualizer and complementary-angle checker.",
+      "license": "Original project educational asset",
+      "source_reference": "TN Class 10 Mathematics 2025 Edition, Ch. 6.1, pp. 239–241"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original interactive SVG and KaTeX derivations aligned to Ch. 6.1."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

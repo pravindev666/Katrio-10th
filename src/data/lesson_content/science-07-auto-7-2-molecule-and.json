@@ -1,0 +1,168 @@
+{
+  "section_id": "science-07-auto-7-2-molecule-and",
+  "related_section_ids": [
+    "science-07-auto-7-1-atom-and-atomic-mass",
+    "science-07-auto-7-1-2-average-atomic-mass-aam",
+    "science-07-auto-7-2-1-classification-of-molecules",
+    "science-07-auto-7-3-difference-between",
+    "science-07-auto-7-5-percent-composition"
+  ],
+  "unit_id": "science-07",
+  "subject": "science",
+  "title": "3D Molecule Builder — Atoms, Molecular Mass & Percent Composition",
+  "subtitle": "Modern atomic theory, Relative Atomic Mass (C-12 scale), atomicity, and gram molecular mass",
+  "curiosity_hook": "How do chemists weigh invisible molecules like water (H₂O) or carbon dioxide (CO₂) using Carbon-12 as a balance standard?",
+  "estimated_minutes": 12,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [91, 92, 93, 94, 95, 96, 97],
+  "source_pdf_pages": [99, 100, 101, 102, 103, 104, 105],
+  "source_verified_by": "AGY Pass 2 3D Blueprint Build (pending human chemistry teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Inspect 3D molecular models (H₂O, CO₂, CH₄) to determine atomicity and classify homoatomic vs heteroatomic molecules.",
+    "Compute Relative Molecular Mass and Gram Molecular Mass from Table 7.1 C-12 Relative Atomic Masses (H=1, C=12, N=14, O=16).",
+    "Calculate percent composition by mass of each element in a compound and explain why atomic masses in the periodic table are weighted isotopic averages."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Relative Atomic Mass & Average Atomic Mass (7.1–7.1.2)",
+      "summary": "Unified atomic mass unit (u) equals 1/12th the mass of one Carbon-12 atom. Naturally occurring elements are mixtures of isotopes, so periodic-table atomic masses are weighted averages (e.g., Carbon = 12×0.989 + 13×0.011 = 12.011 amu)."
+    },
+    {
+      "heading": "Atomicity & Classification of Molecules (7.2–7.2.1)",
+      "summary": "Atomicity is the total number of atoms in one molecule. Homoatomic molecules contain identical elements (O₂, O₃, P₄); heteroatomic molecules contain different elements (H₂O, CO₂, CH₄)."
+    },
+    {
+      "heading": "Gram Molecular Mass & Percent Composition (7.5)",
+      "summary": "Summing relative atomic masses of all constituent atoms yields Relative Molecular Mass (expressed in grams = Gram Molecular Mass). Percent composition = (Mass of element in 1 mole / Molar mass) × 100."
+    }
+  ],
+  "key_terms": [
+    { "term": "Atomicity", "definition": "Total number of atoms constituting one molecule (e.g. H₂O has atomicity 3; CH₄ has atomicity 5)." },
+    { "term": "Relative Atomic Mass (Ar)", "definition": "Ratio of average mass of isotopes of an element to 1/12th the mass of one Carbon-12 atom (dimensionless)." },
+    { "term": "Heteroatomic Molecule", "definition": "A molecule made of atoms of two or more different elements, such as H₂O or CO₂." },
+    { "term": "Percent Composition", "definition": "Percentage by mass of each element present in a pure chemical compound." }
+  ],
+  "interaction": {
+    "engine": "ModelExplorer3D",
+    "version": "1.0.0",
+    "scene_id": "molecule-builder-3d-unit7",
+    "representation_status": "Conceptual schematic",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "molecule-picker",
+        "label": "3D Molecule Selector",
+        "type": "button_group",
+        "description": "Switch between H₂O, CO₂, CH₄, and organic molecules in 3D ball-and-stick mode.",
+        "keyboard_equivalent": "Tab + Enter on molecule buttons."
+      },
+      {
+        "id": "atom-inspect",
+        "label": "Click-to-Inspect Atoms",
+        "type": "select",
+        "description": "Click any 3D or 2D atom sphere to read its element symbol, Table 7.1 Ar value, and structural role.",
+        "keyboard_equivalent": "Inspect full element mass breakdown table alongside the 2D structural projection."
+      }
+    ],
+    "expected_observations": [
+      "Water (H₂O) has bent geometry (104.5°), atomicity 3, molecular mass 18 g/mol, and 88.89% Oxygen by mass.",
+      "Carbon dioxide (CO₂) is linear (180°) with two double bonds, atomicity 3, and molecular mass 44 g/mol."
+    ],
+    "limitations": [
+      "Ball-and-stick 3D models visualize covalent bond geometry and atom counts clearly; atomic radii are scaled schematically."
+    ],
+    "config": {
+      "default_molecule": "h2o"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Inspect Water (H₂O) in 3D", "learner_action": "Orbit H₂O and click the central red Oxygen atom.", "expected_response": "Atom readout shows Oxygen (Ar = 16); total Gram Molecular Mass = 18 g/mol." },
+    { "mode": "guided", "step": 2, "title": "Compare Linear CO₂ Double Bonds", "learner_action": "Select Carbon Dioxide (CO₂).", "expected_response": "Two parallel cylinders on each side of Carbon show O=C=O linear double bonding (44 g/mol)." },
+    { "mode": "explore", "step": 3, "title": "Verify Percent Composition", "learner_action": "Compare % Carbon in CO₂ (27.27%) vs CH₄ (75.00%).", "expected_response": "Hydrogen is much lighter (Ar = 1) than Oxygen (Ar = 16), so Carbon dominates CH₄ by mass." }
+  ],
+  "accessible_equivalent": {
+    "mode": "labelled_svg_steps",
+    "summary": "2D interactive structural SVG projection and complete Table 7.1 atomic-mass & percent-composition breakdown without WebGL.",
+    "steps": [
+      { "step_number": 1, "heading": "Count Every Atom (Atomicity)", "description": "Read subscripts in the formula: H₂O has 2 H + 1 O = 3 atoms (triatomic).", "key_takeaway": "Atomicity = total number of atoms in one molecule." },
+      { "step_number": 2, "heading": "Multiply by Table 7.1 Atomic Mass", "description": "Use H = 1, C = 12, N = 14, O = 16 to sum total molecular mass.", "key_takeaway": "CO₂ = 12 + 2(16) = 44 g/mol." },
+      { "step_number": 3, "heading": "Compute Percent by Mass", "description": "Divide each element's mass contribution by total molecular mass and multiply by 100.", "key_takeaway": "All element percentages always sum to 100%." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "s7-q1",
+        "difficulty": "recall",
+        "prompt": "Which isotope is used as the modern international standard for Relative Atomic Mass (Ar)?",
+        "hint": "Check Section 7.1.1 on p. 92.",
+        "options": [
+          { "id": "a", "label": "Hydrogen-1", "is_correct": false, "feedback": "Hydrogen was an early historical standard later replaced." },
+          { "id": "b", "label": "Carbon-12", "is_correct": true, "feedback": "Correct! 1 amu (u) is defined as 1/12th the mass of one stable Carbon-12 atom." },
+          { "id": "c", "label": "Oxygen-18", "is_correct": false, "feedback": "Oxygen was used historically before Carbon-12 became the unified standard." },
+          { "id": "d", "label": "Nitrogen-14", "is_correct": false, "feedback": "Nitrogen-14 is not the reference standard." }
+        ],
+        "worked_explanation": "Modern mass spectrometry and IUPAC define 1 u as 1/12th the mass of a Carbon-12 atom."
+      },
+      {
+        "id": "s7-q2",
+        "difficulty": "application",
+        "prompt": "Using Table 7.1 (H = 1, O = 16), what is the Gram Molecular Mass of Water (H₂O) and its atomicity?",
+        "hint": "Sum 2 × 1 + 1 × 16 and count total atoms.",
+        "options": [
+          { "id": "a", "label": "17 g/mol, atomicity 2", "is_correct": false, "feedback": "Water has TWO hydrogen atoms, not one." },
+          { "id": "b", "label": "18 g/mol, atomicity 3", "is_correct": true, "feedback": "Correct! 2(1) + 16 = 18 g/mol, and 2 H + 1 O = 3 atoms (heteroatomic triatomic)." },
+          { "id": "c", "label": "34 g/mol, atomicity 4", "is_correct": false, "feedback": "34 g/mol is Hydrogen Peroxide (H₂O₂)." },
+          { "id": "d", "label": "18 g/mol, atomicity 2", "is_correct": false, "feedback": "Water contains 2 different elements but 3 total atoms, so atomicity is 3." }
+        ],
+        "worked_explanation": "H₂O contains 2 H atoms and 1 O atom → atomicity = 3; Gram Molecular Mass = 2(1) + 16 = 18 g."
+      },
+      {
+        "id": "s7-q3",
+        "difficulty": "application",
+        "prompt": "Boron occurs naturally as 20% Boron-10 and 80% Boron-11 (Textbook p. 94). What is its Average Atomic Mass?",
+        "hint": "Calculate (10 × 0.20) + (11 × 0.80).",
+        "options": [
+          { "id": "a", "label": "10.5 amu", "is_correct": false, "feedback": "10.5 would require an equal 50%/50% mixture." },
+          { "id": "b", "label": "10.8 amu", "is_correct": true, "feedback": "Correct! (10 × 0.20) + (11 × 0.80) = 2.0 + 8.8 = 10.8 amu." },
+          { "id": "c", "label": "10.2 amu", "is_correct": false, "feedback": "Check which isotope has the 80% abundance (Boron-11)." },
+          { "id": "d", "label": "11.0 amu", "is_correct": false, "feedback": "The 20% Boron-10 pulls the weighted average down to 10.8 amu." }
+        ],
+        "worked_explanation": "Weighted average = 10(20/100) + 11(80/100) = 2 + 8.8 = 10.8 amu."
+      }
+    ],
+    "worked_feedback": [
+      "Distinguish carefully between number of elements (2 in H₂O) and atomicity (total atoms = 3 in H₂O).",
+      "Check that fractional isotopic abundances sum to 1.00 (100%)."
+    ]
+  },
+  "flashcards": [
+    { "id": "s7-fc1", "card_type": "term", "front": "1 Atomic Mass Unit (u)", "back": "Exactly 1/12th the mass of one Carbon-12 isotope atom." },
+    { "id": "s7-fc2", "card_type": "term", "front": "Homoatomic vs Heteroatomic Molecule", "back": "Homoatomic has identical atoms (O₂, O₃); Heteroatomic has different elements (H₂O, CO₂, CH₄)." },
+    { "id": "s7-fc3", "card_type": "apply", "front": "Percent of Carbon in CO₂ (C=12, O=16)", "back": "(12 / 44) × 100 = 27.27% Carbon and 72.73% Oxygen." }
+  ],
+  "assets": [
+    {
+      "asset_id": "threejs-molecule-builder-v1",
+      "kind": "procedural_3d",
+      "description": "Procedural Three.js 3D ball-and-stick molecular renderer with single/double/triple bonds and 2D SVG projection.",
+      "license": "Original project asset (MIT / educational)",
+      "source_reference": "TN Class 10 Science 2024 Edition, Unit 7, pp. 91–97"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original 3D procedural geometries and original educational explanations aligned to Table 7.1."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

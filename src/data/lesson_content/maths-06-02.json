@@ -1,0 +1,152 @@
+{
+  "section_id": "maths-06-02",
+  "unit_id": "maths-06",
+  "subject": "mathematics",
+  "title": "6.2 Trigonometric Identities — Pythagorean & Reciprocal Proofs",
+  "subtitle": "Deriving and proving identities with sin²θ + cos²θ = 1, 1 + tan²θ = sec²θ, and 1 + cot²θ = cosec²θ (pp. 242–249)",
+  "curiosity_hook": "How does Pythagoras' theorem (a² + b² = c²) on a single right triangle generate ALL THREE fundamental trigonometric identities at once?",
+  "estimated_minutes": 14,
+  "source_pdf": "Class_10_Mathematics_English_2025_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2025 Edition",
+  "source_printed_pages": [242, 243, 244, 245, 246, 248],
+  "source_pdf_pages": [248, 249, 250, 251, 252, 254],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human maths teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Derive all three Pythagorean trigonometric identities by dividing Opp² + Adj² = Hyp² by Hyp², Adj², and Opp² respectively.",
+    "Distinguish an identity (true for EVERY valid angle θ) from an equation (true only for specific angle values).",
+    "Simplify and prove Class 10 trigonometric expressions by converting ratios into sin θ and cos θ or applying difference-of-squares rearrangements."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Pythagoras → The Three Fundamental Identities (p. 242)",
+      "summary": "Starting from MP² + OM² = OP²: (1) divide by OP² → sin²θ + cos²θ = 1; (2) divide by OM² → 1 + tan²θ = sec²θ (so sec²θ − tan²θ = 1); (3) divide by MP² → 1 + cot²θ = cosec²θ (so cosec²θ − cot²θ = 1)."
+    },
+    {
+      "heading": "Algebraic Factorisation Trick — sec²θ − tan²θ = 1",
+      "summary": "Because sec²θ − tan²θ = (sec θ + tan θ)(sec θ − tan θ) = 1, (sec θ + tan θ) and (sec θ − tan θ) are exact reciprocals! Likewise (cosec θ + cot θ) and (cosec θ − cot θ) are exact reciprocals."
+    },
+    {
+      "heading": "Reliable Proof Strategy for Exercise 6.1 (pp. 243–249)",
+      "summary": "Work cleanly from one side (LHS → RHS): convert tan/cot/sec/cosec into sin θ and cos θ, find common denominators, factor using a² − b² or a³ ± b³, and apply sin²θ + cos²θ = 1."
+    }
+  ],
+  "key_terms": [
+    { "term": "Trigonometric Identity", "definition": "An equality involving trigonometric ratios that holds true for ALL permissible values of angle θ." },
+    { "term": "sin²θ + cos²θ = 1", "definition": "First Pythagorean identity; rearranges to sin²θ = 1 − cos²θ and cos²θ = 1 − sin²θ." },
+    { "term": "1 + tan²θ = sec²θ", "definition": "Second Pythagorean identity (for 0° ≤ θ < 90°); yields sec²θ − tan²θ = 1." },
+    { "term": "1 + cot²θ = cosec²θ", "definition": "Third Pythagorean identity (for 0° < θ ≤ 90°); yields cosec²θ − cot²θ = 1." }
+  ],
+  "interaction": {
+    "engine": "GeometryWorkbench",
+    "version": "1.0.0",
+    "scene_id": "maths-06-trig-identities",
+    "representation_status": "Equation-based simulation",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "identity-angle-slider",
+        "label": "Angle θ Identity Verifier",
+        "type": "slider",
+        "description": "Sweep θ across any acute angle to verify numerically that LHS = RHS for all three Pythagorean identities.",
+        "keyboard_equivalent": "Arrow keys on slider or preset angle buttons."
+      }
+    ],
+    "expected_observations": [
+      "As θ sweeps from 5° to 85°, individual ratios change rapidly, yet sin²θ + cos²θ stays locked at 1.0000.",
+      "1 + tan²θ matches sec²θ and 1 + cot²θ matches cosec²θ identically at every acute angle."
+    ],
+    "limitations": [
+      "Numerical verification builds intuition; formal proofs always use algebraic identities rather than plugging one angle."
+    ],
+    "config": {
+      "mode": "identities"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Sweep θ and Watch sin²θ + cos²θ", "learner_action": "Test θ = 20°, 45°, and 70° on the triangle workbench.", "expected_response": "All three green identity bars confirm LHS = RHS at every angle." },
+    { "mode": "explore", "step": 2, "title": "Check Boundary Behaviour", "learner_action": "Push θ near 85° and watch tan²θ and sec²θ grow together while their difference remains 1.", "expected_response": "Reinforces sec²θ − tan²θ = 1." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Structured KaTeX derivation of the 3 Pythagorean identities and their rearranged reciprocal forms.",
+    "steps": [
+      { "step_number": 1, "heading": "Identity 1: sin²θ + cos²θ = 1", "description": "Divide Opp² + Adj² = Hyp² by Hyp². Rearranges to 1 − sin²θ = cos²θ and 1 − cos²θ = sin²θ.", "key_takeaway": "True for all 0° ≤ θ ≤ 90°." },
+      { "step_number": 2, "heading": "Identity 2: 1 + tan²θ = sec²θ", "description": "Divide sin²θ + cos²θ = 1 by cos²θ. Gives (sec θ + tan θ)(sec θ − tan θ) = 1.", "key_takeaway": "sec θ − tan θ = 1 / (sec θ + tan θ)." },
+      { "step_number": 3, "heading": "Identity 3: 1 + cot²θ = cosec²θ", "description": "Divide sin²θ + cos²θ = 1 by sin²θ. Gives (cosec θ + cot θ)(cosec θ − cot θ) = 1.", "key_takeaway": "cosec θ − cot θ = 1 / (cosec θ + cot θ)." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "m62-q1",
+        "difficulty": "application",
+        "prompt": "If sec θ + tan θ = 5, what is the exact value of sec θ − tan θ?",
+        "hint": "Use (sec θ + tan θ)(sec θ − tan θ) = sec²θ − tan²θ = 1.",
+        "options": [
+          { "id": "a", "label": "5", "is_correct": false, "feedback": "Their product equals 1, so they are reciprocals." },
+          { "id": "b", "label": "1/5", "is_correct": true, "feedback": "Correct! Since sec²θ − tan²θ = 1, sec θ − tan θ = 1 / (sec θ + tan θ) = 1/5." },
+          { "id": "c", "label": "−5", "is_correct": false, "feedback": "Check the product (5)(−5) = −25 ≠ 1." },
+          { "id": "d", "label": "4", "is_correct": false, "feedback": "Use difference of squares: sec²θ − tan²θ = 1." }
+        ],
+        "worked_explanation": "(sec θ + tan θ)(sec θ − tan θ) = 1 ⇒ 5(sec θ − tan θ) = 1 ⇒ sec θ − tan θ = 1/5."
+      },
+      {
+        "id": "m62-q2",
+        "difficulty": "application",
+        "prompt": "Simplify the expression: 9 sec²A − 9 tan²A.",
+        "hint": "Factor out 9 and apply Identity 2.",
+        "options": [
+          { "id": "a", "label": "1", "is_correct": false, "feedback": "Don't forget the common factor 9!" },
+          { "id": "b", "label": "9", "is_correct": true, "feedback": "Correct! 9(sec²A − tan²A) = 9(1) = 9." },
+          { "id": "c", "label": "0", "is_correct": false, "feedback": "sec²A − tan²A equals 1, not 0." },
+          { "id": "d", "label": "9 sin²A", "is_correct": false, "feedback": "sec²A − tan²A simplifies completely to 1." }
+        ],
+        "worked_explanation": "9 sec²A − 9 tan²A = 9(sec²A − tan²A) = 9 × 1 = 9."
+      },
+      {
+        "id": "m62-q3",
+        "difficulty": "conceptual",
+        "prompt": "Dividing every term of sin²θ + cos²θ = 1 by sin²θ (for 0° < θ ≤ 90°) produces which identity?",
+        "hint": "Evaluate sin²θ/sin²θ + cos²θ/sin²θ = 1/sin²θ.",
+        "options": [
+          { "id": "a", "label": "1 + tan²θ = sec²θ", "is_correct": false, "feedback": "That comes from dividing by cos²θ." },
+          { "id": "b", "label": "1 + cot²θ = cosec²θ", "is_correct": true, "feedback": "Correct! 1 + (cos θ/sin θ)² = (1/sin θ)² ⇒ 1 + cot²θ = cosec²θ." },
+          { "id": "c", "label": "tan²θ − 1 = sec²θ", "is_correct": false, "feedback": "Watch the sign and denominator." },
+          { "id": "d", "label": "cot²θ + sec²θ = 1", "is_correct": false, "feedback": "1/sin²θ is cosec²θ, not sec²θ." }
+        ],
+        "worked_explanation": "sin²θ/sin²θ = 1, cos²θ/sin²θ = cot²θ, and 1/sin²θ = cosec²θ."
+      }
+    ],
+    "worked_feedback": [
+      "Remember the sign rule: sec²θ − tan²θ = +1 (not tan²θ − sec²θ), and cosec²θ − cot²θ = +1."
+    ]
+  },
+  "flashcards": [
+    { "id": "m62-fc1", "card_type": "term", "front": "All 3 Pythagorean Identities (Ch. 6.2)", "back": "sin²θ + cos²θ = 1; 1 + tan²θ = sec²θ; 1 + cot²θ = cosec²θ." },
+    { "id": "m62-fc2", "card_type": "apply", "front": "Factorised form of sec²θ − tan²θ = 1", "back": "(sec θ + tan θ)(sec θ − tan θ) = 1 ⇒ they are reciprocals." },
+    { "id": "m62-fc3", "card_type": "why", "front": "Difference between a Trigonometric Equation and an Identity", "back": "An equation holds only for specific θ values; an identity holds for EVERY valid θ." }
+  ],
+  "assets": [
+    {
+      "asset_id": "trig-identities-workbench-6-2-v1",
+      "kind": "interactive_svg",
+      "description": "Live KaTeX Pythagorean identity verifier and right-triangle angle workbench.",
+      "license": "Original project educational asset",
+      "source_reference": "TN Class 10 Mathematics 2025 Edition, Ch. 6.2, pp. 242–249"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original worked derivations and computational identity verifier."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

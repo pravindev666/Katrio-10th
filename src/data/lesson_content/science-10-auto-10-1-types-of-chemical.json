@@ -1,0 +1,334 @@
+{
+  "section_id": "science-10-auto-10-1-types-of-chemical",
+  "related_section_ids": [
+    "science-10-auto-10-2-rate-of-a-chemical"
+  ],
+  "unit_id": "science-10",
+  "subject": "science",
+  "title": "Types of Chemical Reactions & Conservation of Atoms",
+  "subtitle": "Combination, Decomposition, Single & Double Displacement, Activity Series, and Stoichiometric Balancing",
+  "curiosity_hook": "When two clear liquids suddenly turn bright yellow or a solid disappears into gas bubbles, where do the atoms actually go?",
+  "estimated_minutes": 7,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Reprint Edition (SCERT 2019 Syllabus)",
+  "source_printed_pages": [137, 138, 139, 140, 141, 142, 143, 144],
+  "source_pdf_pages": [145, 146, 147, 148, 149, 150, 151, 152],
+  "source_verified_by": "PASS0-PDF-AUDIT-2026-11-22 (Pending Human Chemistry Educator Sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Classify chemical reactions by atomic rearrangement: Combination, Decomposition, Single Displacement, Double Displacement (Precipitation & Neutralization), and Combustion.",
+    "Balance stoichiometric coefficients to verify the Law of Conservation of Matter (equal atom counts per element on reactant and product sides).",
+    "Predict whether a single displacement reaction is feasible using the Class 10 Activity Series and halogen reactivity order."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Bond Breaking, Bond Making & Conservation of Matter",
+      "summary": "In any chemical reaction, reactant bonds break (absorbing energy) and new product bonds form (releasing energy). Atoms are rearranged, never created or destroyed — so every chemical equation must balance element by element and denote physical states: (s), (l), (g), (aq).",
+      "worked_example": "CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(g) conserves 1 C, 4 H, and 4 O atoms across both sides."
+    },
+    {
+      "heading": "Five Rearrangement Classes",
+      "summary": "Combination (A + B → AB, usually exothermic), Decomposition (AB → A + B via heat/electricity/light, endothermic), Single Displacement (A + BC → AC + B when A is more reactive than B), Double Displacement / Metathesis (AB + CD → AD + CB producing precipitate or water), and Combustion (exothermic oxidation with O₂).",
+      "worked_example": "Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s)↓ + 2KNO₃(aq) swaps Pb²⁺ and K⁺ ions to yield an insoluble yellow precipitate of lead(II) iodide."
+    },
+    {
+      "heading": "Reactivity Series & Impossible Displacements",
+      "summary": "Not every written equation occurs in nature. A more reactive element displaces a less reactive element from its salt or acid (e.g., Zn displaces H from HCl, and F₂ displaces Cl from NaCl), whereas a less reactive element cannot (Cl₂ cannot displace F from NaF)."
+    }
+  ],
+  "key_terms": [
+    {
+      "term": "Combination (Synthesis) Reaction",
+      "definition": "Two or more elements or compounds combine to form a single product (A + B → AB); typically exothermic."
+    },
+    {
+      "term": "Thermolysis (Thermal Decomposition)",
+      "definition": "Breakdown of a single compound into simpler substances by absorbing heat energy (e.g., CaCO₃ → CaO + CO₂)."
+    },
+    {
+      "term": "Activity Series",
+      "definition": "Ordered list of elements from most reactive (K, Na, Li, Ca, Mg, Al, Zn, Fe...) to least reactive (Cu, Ag, Au, Pt) determining single displacement feasibility."
+    },
+    {
+      "term": "Precipitation Reaction",
+      "definition": "Double displacement reaction between aqueous solutions that produces an insoluble solid compound (precipitate ↓)."
+    },
+    {
+      "term": "Neutralization Reaction",
+      "definition": "Double displacement reaction where an acid reacts with a base to produce salt and water (e.g., NaOH + HCl → NaCl + H₂O)."
+    }
+  ],
+  "interaction": {
+    "engine": "SafeVirtualLab",
+    "version": "v2",
+    "scene_id": "unit10-reaction-bench-balancer",
+    "representation_status": "Equation-based simulation",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "reaction-selector",
+        "label": "Choose Approved Textbook Reaction (6 Scenarios including 1 Infeasible Test)",
+        "type": "select",
+        "description": "Switch between Combination, Thermal Decomposition, Single Displacement, Precipitation, Neutralization, and the NaF + Cl₂ activity-series limit.",
+        "keyboard_equivalent": "Tab to scenario buttons and press Enter or Space."
+      },
+      {
+        "id": "prediction-picker",
+        "label": "Step 1 — Predict Reaction Classification",
+        "type": "button_group",
+        "description": "Make an ungraded prediction before running the virtual bench.",
+        "keyboard_equivalent": "Select any prediction button via keyboard."
+      },
+      {
+        "id": "coefficient-balancer",
+        "label": "Step 2 — Interactive Stoichiometric Coefficient Balancer (+ / −)",
+        "type": "balancer",
+        "description": "Adjust integer coefficients (1–4) for each reactant and product and watch live particle-count bars prove conservation of atoms.",
+        "keyboard_equivalent": "Press Increment/Decrement buttons for each species."
+      }
+    ],
+    "expected_observations": [
+      "Every feasible balanced reaction produces identical reactant and product atom counts for every chemical element.",
+      "Lead(II) nitrate + potassium iodide yields a bright yellow insoluble precipitate (PbI₂).",
+      "Sodium fluoride + chlorine produces NO reaction because fluorine is higher in halogen reactivity than chlorine."
+    ],
+    "limitations": [
+      "Virtual bench models stoichiometry, particle counts, and qualitative observations under standard textbook conditions; it does not simulate kinetics or hazardous real-world side reactions.",
+      "Do not treat virtual experiments as instructions for mixing chemicals outside a teacher-supervised school laboratory."
+    ],
+    "safety_note": "Conceptual virtual simulation only. Acids, alkalis, halogen gases, and lead salts are hazardous and must never be handled at home.",
+    "config": {
+      "reactionIds": [
+        "combination-h2-cl2",
+        "decomposition-caco3",
+        "displacement-zn-hcl",
+        "double-displacement-precip",
+        "neutralization-naoh-hcl",
+        "infeasible-naf-cl2"
+      ]
+    }
+  },
+  "storyboard": [
+    {
+      "mode": "guided",
+      "step": 1,
+      "title": "Predict Before Mixing",
+      "learner_action": "Choose a reaction (e.g., Zn + HCl) and select its predicted reaction class before executing.",
+      "expected_response": "Prediction is recorded without grading penalty."
+    },
+    {
+      "mode": "guided",
+      "step": 2,
+      "title": "Run Bench & Inspect Particle Conservation",
+      "learner_action": "Run the virtual reaction and inspect the reactant vs product particle representation.",
+      "expected_response": "Observe the qualitative change (gas bubbles / yellow precipitate / no change) and unbalanced atom counts."
+    },
+    {
+      "mode": "explore",
+      "step": 3,
+      "title": "Balance Coefficients & Test the Impossible Reaction",
+      "learner_action": "Adjust stoichiometric coefficients until every element bar turns green (balanced), then test NaF + Cl₂ to verify reactivity-series limits.",
+      "expected_response": "Atom conservation is mathematically confirmed; NaF + Cl₂ explains why no reaction occurs."
+    }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Complete balanced-equation reference table, element-by-element atom count check, and activity-series comparison — fully keyboard operable.",
+    "steps": [
+      {
+        "step_number": 1,
+        "heading": "Combination: H₂(g) + Cl₂(g) → 2HCl(g)",
+        "description": "Reactants: 2 H, 2 Cl. Products: 2 H, 2 Cl. Two elements form one compound (exothermic).",
+        "key_takeaway": "Pattern: A + B → AB."
+      },
+      {
+        "step_number": 2,
+        "heading": "Thermal Decomposition: CaCO₃(s) —Heat→ CaO(s) + CO₂(g)",
+        "description": "Reactants: 1 Ca, 1 C, 3 O. Products: 1 Ca, 1 C, 3 O. One compound splits on heating (endothermic).",
+        "key_takeaway": "Pattern: AB → A + B (heat absorbed)."
+      },
+      {
+        "step_number": 3,
+        "heading": "Single Displacement: Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g)↑",
+        "description": "Reactants: 1 Zn, 2 H, 2 Cl. Products: 1 Zn, 2 H, 2 Cl. Zinc is above Hydrogen in the activity series.",
+        "key_takeaway": "Compare NaF + Cl₂: no reaction because Cl is less reactive than F."
+      },
+      {
+        "step_number": 4,
+        "heading": "Double Displacement (Precipitation): Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s)↓ + 2KNO₃(aq)",
+        "description": "Reactants: 1 Pb, 2 N, 6 O, 2 K, 2 I. Products: identical counts. Yellow solid PbI₂ precipitates.",
+        "key_takeaway": "Cations exchange partners to form an insoluble precipitate."
+      },
+      {
+        "step_number": 5,
+        "heading": "Double Displacement (Neutralization): NaOH(aq) + HCl(aq) → NaCl(aq) + H₂O(l)",
+        "description": "Reactants: 1 Na, 1 O, 2 H, 1 Cl. Products: identical counts. Acid + Base → Salt + Water.",
+        "key_takeaway": "Every balanced equation strictly obeys the Law of Conservation of Matter."
+      }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "chem10-q1",
+        "difficulty": "conceptual",
+        "prompt": "Why does the reaction 2NaF(aq) + Cl₂(g) → 2NaCl(aq) + F₂(g) NOT occur spontaneously, whereas 2NaCl(aq) + F₂(g) → 2NaF(aq) + Cl₂(g) does?",
+        "hint": "Check the relative reactivity of Fluorine and Chlorine in the textbook (p. 141).",
+        "options": [
+          {
+            "id": "a",
+            "label": "Fluorine is more reactive than Chlorine, so Chlorine cannot displace Fluorine from NaF.",
+            "is_correct": true,
+            "feedback": "Correct! In single displacement reactions, only a more reactive element can displace a less reactive element from its aqueous compound."
+          },
+          {
+            "id": "b",
+            "label": "Chlorine has fewer atoms than Fluorine in the equation.",
+            "is_correct": false,
+            "feedback": "Both sides have 2 Na, 2 F, and 2 Cl atoms — feasibility depends on chemical reactivity, not just balancing symbols on paper."
+          },
+          {
+            "id": "c",
+            "label": "Sodium cannot combine with Chlorine in aqueous solution.",
+            "is_correct": false,
+            "feedback": "NaCl is completely stable in water; the barrier is that Cl₂ cannot replace the more reactive F⁻ ion."
+          }
+        ],
+        "worked_explanation": "Science p. 141: Fluorine occupies a higher position in Group 17 and is more active than Chlorine, so F₂ displaces Cl⁻ from NaCl, not the reverse."
+      },
+      {
+        "id": "chem10-q2",
+        "difficulty": "application",
+        "prompt": "What stoichiometric coefficients balance the precipitation equation: ___ Pb(NO₃)₂(aq) + ___ KI(aq) → ___ PbI₂(s)↓ + ___ KNO₃(aq)?",
+        "hint": "Count the two NO₃ groups on the left and the two I atoms in PbI₂ on the right.",
+        "options": [
+          {
+            "id": "a",
+            "label": "1, 2, 1, 2",
+            "is_correct": true,
+            "feedback": "Spot on! 1 Pb, 2 N, 6 O, 2 K, and 2 I atoms appear on both sides."
+          },
+          {
+            "id": "b",
+            "label": "1, 1, 1, 1",
+            "is_correct": false,
+            "feedback": "With 1 KI you only have 1 I atom on the left, which cannot form PbI₂ (2 I atoms) or balance the 2 nitrate groups."
+          },
+          {
+            "id": "c",
+            "label": "2, 1, 2, 1",
+            "is_correct": false,
+            "feedback": "That creates 4 nitrate groups on the left vs 1 on the right and 4 iodine atoms on the right vs 1 on the left."
+          }
+        ],
+        "worked_explanation": "Pb(NO₃)₂ + 2KI → PbI₂↓ + 2KNO₃ balances Pb (1=1), N (2=2), O (6=6), K (2=2), and I (2=2)."
+      },
+      {
+        "id": "chem10-q3",
+        "difficulty": "recall",
+        "prompt": "Using the Class 10 Activity Series (p. 141), which metal will displace hydrogen gas from dilute hydrochloric acid: Zinc (Zn) or Silver (Ag)?",
+        "hint": "Find where Hydrogen sits in the activity series compared to Zn and Ag.",
+        "options": [
+          {
+            "id": "a",
+            "label": "Zinc (Zn), because Zinc is placed above Hydrogen in the activity series.",
+            "is_correct": true,
+            "feedback": "Correct! Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g)↑ proceeds because Zn is more reactive than H, whereas Ag sits below H."
+          },
+          {
+            "id": "b",
+            "label": "Silver (Ag), because Silver is a precious metal below Hydrogen.",
+            "is_correct": false,
+            "feedback": "Metals below Hydrogen (Cu, Ag, Au, Pt) are less reactive than Hydrogen and do not displace H₂ from dilute HCl."
+          },
+          {
+            "id": "c",
+            "label": "Neither Zinc nor Silver can react with hydrochloric acid.",
+            "is_correct": false,
+            "feedback": "Zinc readily displaces hydrogen from dilute HCl, releasing H₂ gas bubbles."
+          }
+        ],
+        "worked_explanation": "In the activity series K > Na > Li > Ca > Mg > Al > Zn > Fe > Pb > [H] > Cu > Ag > Au > Pt, Zinc lies above Hydrogen while Silver lies below it."
+      },
+      {
+        "id": "chem10-q4",
+        "difficulty": "conceptual",
+        "prompt": "How do combination reactions and thermal decomposition reactions generally differ in terms of heat energy?",
+        "hint": "Compare bond formation in synthesis vs bond breaking in thermolysis (Table 10.1, p. 142).",
+        "options": [
+          {
+            "id": "a",
+            "label": "Combination reactions generally release energy (exothermic), whereas thermal decomposition absorbs heat (endothermic).",
+            "is_correct": true,
+            "feedback": "Correct! Forming new bonds in combination reactions releases heat, while breaking bonds in thermal decomposition requires continuous heat input."
+          },
+          {
+            "id": "b",
+            "label": "Both always absorb heat and never release energy.",
+            "is_correct": false,
+            "feedback": "Most combination reactions release energy as new bonds form."
+          },
+          {
+            "id": "c",
+            "label": "Decomposition creates new atoms from heat energy.",
+            "is_correct": false,
+            "feedback": "Heat breaks existing chemical bonds to rearrange atoms; it never creates new atoms."
+          }
+        ],
+        "worked_explanation": "Table 10.1 (p. 142): Combination joins reactants into a single product releasing energy; decomposition splits a single compound absorbing energy."
+      }
+    ],
+    "worked_feedback": [
+      "Always check atom conservation element-by-element after adjusting coefficients.",
+      "In single displacement reactions, verify feasibility with the activity series before assuming products form."
+    ]
+  },
+  "flashcards": [
+    {
+      "id": "chem10-fc-1",
+      "card_type": "term",
+      "front": "What do the physical-state symbols (s), (l), (g), and (aq) mean in a chemical equation?",
+      "back": "(s) = Solid, (l) = Liquid, (g) = Gas, (aq) = Aqueous solution (dissolved in water)."
+    },
+    {
+      "id": "chem10-fc-2",
+      "card_type": "apply",
+      "front": "Name the three classes of decomposition reactions by energy source.",
+      "back": "Thermal decomposition (heat — Thermolysis), Electrolytic decomposition (electricity — Electrolysis), and Photo decomposition (light — Photolysis, e.g., 2AgBr → 2Ag + Br₂)."
+    },
+    {
+      "id": "chem10-fc-3",
+      "card_type": "why",
+      "front": "Why does whitewashing walls with slaked lime Ca(OH)₂ produce a shiny finish after 2–3 days?",
+      "back": "Slaked lime reacts slowly with atmospheric CO₂ to form a thin layer of solid calcium carbonate (CaCO₃): Ca(OH)₂(aq) + CO₂(g) → CaCO₃(s) + H₂O(l)."
+    },
+    {
+      "id": "chem10-fc-4",
+      "card_type": "diagram_label",
+      "front": "What visible change occurs when aqueous Pb(NO₃)₂ and KI are mixed?",
+      "back": "A bright yellow insoluble precipitate of Lead(II) iodide (PbI₂↓) forms via double displacement."
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "unit10-reaction-bench-svg",
+      "kind": "interactive_svg",
+      "description": "Original Katrio virtual reaction beaker SVG and particle conservation bar chart.",
+      "license": "Original Katrio SVG (Apache-2.0)",
+      "source_reference": "Stoichiometric reactions & activity series verified against TN Class 10 Science 2024 Reprint, pp. 137–144."
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "All descriptions and visual apparatus are independently authored; textbook equations cited as scientific facts."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

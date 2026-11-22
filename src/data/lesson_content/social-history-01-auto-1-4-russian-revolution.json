@@ -1,0 +1,152 @@
+{
+  "section_id": "social-history-01-auto-1-4-russian-revolution",
+  "unit_id": "social-history-01",
+  "subject": "social_science",
+  "title": "1.4 Russian Revolution (1917), Its Global Impact & League of Nations",
+  "subtitle": "Bloody Sunday (1905), March & November 1917 Revolutions, Bharathiyar's response, Brest-Litovsk (1918), and League of Nations (pp. 9–12)",
+  "curiosity_hook": "Why did Russia undergo TWO revolutions in the same year (March and November 1917), and why did Tamil poet Bharathiyar hail the fall of the Tsar?",
+  "estimated_minutes": 14,
+  "source_pdf": "Class_10_Social_Science_English_2025_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2025 Edition",
+  "source_printed_pages": [9, 10, 11, 12],
+  "source_pdf_pages": [15, 16, 17, 18],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human history teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Trace the social and political causes of the Russian Revolution from serf emancipation (1861) and Bloody Sunday (22 Jan 1905) to wartime bread shortages in 1917.",
+    "Distinguish the March 1917 Revolution (abdication of Tsar Nicholas II & Provisional Government) from the November 1917 Bolshevik takeover led by Lenin ('Bread, Peace and Land').",
+    "Explain the Treaty of Brest-Litovsk (March 1918), global impact (including Bharathiyar's literary tribute), and the structure and failure of the League of Nations (1920–1946)."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Autocracy, Bloody Sunday (1905) & March 1917 Abdication (pp. 9–10)",
+      "summary": "Landless peasants after 1861 emancipation, low industrial wages, and defeat by Japan fueled unrest. After troops fired on Father Gapon's peaceful march on 22 Jan 1905 ('Bloody Sunday'), Nicholas II reluctantly granted a Duma. Wartime bread strikes by Petrograd women textile workers in Feb/March 1917 triggered army mutinies and Nicholas II's abdication on 15 March 1917."
+    },
+    {
+      "heading": "Bolshevik Takeover (Nov 1917) & Treaty of Brest-Litovsk (pp. 10–11)",
+      "summary": "The Provisional Government made two fatal mistakes: postponing land redistribution and continuing WWI. Lenin's slogans ('All power to the Soviets' and 'Bread, Peace and Land') rallied workers and soldiers. On 7–8 November 1917, Bolsheviks led by Lenin and Trotsky seized power, redistributed land, nationalised banks/industry, and exited WWI via the Treaty of Brest-Litovsk (March 1918)."
+    },
+    {
+      "heading": "League of Nations — Structure, Early Successes & Failure (Section 1.5, pp. 11–12)",
+      "summary": "Formed in 1920 (Secretariat at Geneva; Court of Justice at The Hague) with 5 bodies, the League settled disputes over Aaland Islands (1920), Upper Silesia (1921), and Greece–Bulgaria (1925). Lacking its own military force and weakened by US absence and withdrawals of Japan, Germany (1933), and Italy (1937), it failed to prevent WWII and dissolved in 1946."
+    }
+  ],
+  "key_terms": [
+    { "term": "Bloody Sunday (22 Jan 1905)", "definition": "Firing by Tsar's troops on Father Gapon's peaceful workers' march to the Winter Palace in St. Petersburg." },
+    { "term": "Pravda", "definition": "Russian word meaning 'Truth'; official newspaper of the Communist Party of the Soviet Union (1918–1991)." },
+    { "term": "Treaty of Brest-Litovsk (March 1918)", "definition": "Peace treaty signed by Lenin's new government withdrawing Russia from World War I." },
+    { "term": "League of Nations (1920–1946)", "definition": "First international peace organisation (headquartered in Geneva) aimed at arbitration and collective security." }
+  ],
+  "interaction": {
+    "engine": "TimelineMap",
+    "version": "1.0.0",
+    "scene_id": "history-01-russian-rev-timemap",
+    "representation_status": "Measured/Observed",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "chronology-stepper",
+        "label": "1905–1946 Chronology & Cause-Consequence Matcher",
+        "type": "stepper",
+        "description": "Compare March vs November 1917 revolutions and trace post-war peace institutions.",
+        "keyboard_equivalent": "Tab + Enter across timeline milestones and cause-consequence match buttons."
+      }
+    ],
+    "expected_observations": [
+      "The Provisional Government fell primarily because it stayed in WWI and delayed land reform.",
+      "The League of Nations solved small disputes in 1920–25 but lacked enforcement power against aggressive great powers in the 1930s."
+    ],
+    "limitations": [
+      "Concise textbook chronology & evidence summary; presents balanced historical context without ideological bias."
+    ],
+    "config": {
+      "focus": "russian_revolution"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Compare the Two 1917 Revolutions", "learner_action": "Contrast March 1917 (Tsar abdicates → Provisional Government) with November 1917 (Bolshevik takeover under Lenin).", "expected_response": "Clarifies why a second revolution followed eight months after the first." },
+    { "mode": "explore", "step": 2, "title": "Examine League of Nations Strengths & Limits", "learner_action": "Review 1920–25 arbitration successes versus 1931–39 resignations and collective-security failure.", "expected_response": "Connects WWI's aftermath directly to Unit 2–3 interwar tensions." }
+  ],
+  "accessible_equivalent": {
+    "mode": "evidence_timeline_table",
+    "summary": "Chronological table of Russian Revolution milestones (1861–1918) and League of Nations events (1920–1946).",
+    "steps": [
+      { "step_number": 1, "heading": "1905 Bloody Sunday → Duma & St. Petersburg Soviet", "description": "Violent suppression of Father Gapon's march forced Tsar Nicholas II to create the Duma parliament.", "key_takeaway": "Repeated dissolution of the Duma left autocracy unreformed." },
+      { "step_number": 2, "heading": "March & November 1917 Revolutions", "description": "Women textile workers' bread strike ended Tsardom (15 March); Bolsheviks seized Winter Palace (7–8 Nov) promising Bread, Peace and Land.", "key_takeaway": "Lenin exited WWI via the Treaty of Brest-Litovsk (March 1918)." },
+      { "step_number": 3, "heading": "1920–1946 League of Nations", "description": "Settled Aaland Islands, Upper Silesia, and Greece–Bulgaria disputes, but failed without US membership or military power.", "key_takeaway": "Dissolved in 1946, paving the way for the United Nations." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "h14-q1",
+        "difficulty": "conceptual",
+        "prompt": "What two grave mistakes caused the Russian Provisional Government of 1917 to lose popular support (p. 10)?",
+        "hint": "Compare its actions against Lenin's slogan 'Bread, Peace and Land'.",
+        "options": [
+          { "id": "a", "label": "Postponing land redistribution and deciding to continue fighting in World War I", "is_correct": true, "feedback": "Correct! Delaying land reform and staying in WWI drove peasants and soldiers to support the Bolsheviks." },
+          { "id": "b", "label": "Signing the Treaty of Brest-Litovsk too early", "is_correct": false, "feedback": "It was Lenin's Bolshevik government that signed Brest-Litovsk in March 1918." },
+          { "id": "c", "label": "Joining the Triple Alliance with Germany", "is_correct": false, "feedback": "Russia fought on the Entente side against Germany." },
+          { "id": "d", "label": "Moving the capital to Geneva", "is_correct": false, "feedback": "Geneva was the headquarters of the League of Nations." }
+        ],
+        "worked_explanation": "Textbook p. 10 specifies that postponing land redistribution and continuing WWI doomed the Provisional Government."
+      },
+      {
+        "id": "h14-q2",
+        "difficulty": "recall",
+        "prompt": "Which peace treaty withdrew Russia from World War I in March 1918 (p. 11)?",
+        "hint": "Signed by Lenin's new government with the Central Powers.",
+        "options": [
+          { "id": "a", "label": "Treaty of Versailles", "is_correct": false, "feedback": "Versailles (1919) settled peace terms with Germany." },
+          { "id": "b", "label": "Treaty of Brest-Litovsk", "is_correct": true, "feedback": "Correct! Signed in March 1918 despite harsh terms so Russia could exit WWI." },
+          { "id": "c", "label": "Locarno Treaty", "is_correct": false, "feedback": "Locarno (1925) guaranteed Western European borders." },
+          { "id": "d", "label": "Entente Cordiale", "is_correct": false, "feedback": "Entente Cordiale (1904) was between Britain and France." }
+        ],
+        "worked_explanation": "Lenin withdrew Russia from WWI via the Treaty of Brest-Litovsk in March 1918."
+      },
+      {
+        "id": "h14-q3",
+        "difficulty": "recall",
+        "prompt": "Where were the Secretariat and the Permanent Court of International Justice of the League of Nations located (pp. 11–12)?",
+        "hint": "Switzerland for Secretariat; Netherlands for the Court.",
+        "options": [
+          { "id": "a", "label": "Paris and London", "is_correct": false, "feedback": "Paris hosted the Peace Conference, not the permanent Secretariat." },
+          { "id": "b", "label": "Geneva and The Hague", "is_correct": true, "feedback": "Correct! Secretariat at Geneva (first Secretary-General Sir Eric Drummond) and International Court of Justice at The Hague." },
+          { "id": "c", "label": "Berlin and Vienna", "is_correct": false, "feedback": "Germany was initially excluded from the League until 1926." },
+          { "id": "d", "label": "New York and Washington", "is_correct": false, "feedback": "The United States never joined the League of Nations." }
+        ],
+        "worked_explanation": "The League Secretariat sat at Geneva and its 15-judge Permanent Court of Justice sat at The Hague."
+      }
+    ],
+    "worked_feedback": [
+      "Note the global connection highlighted on p. 10: Tamil revolutionary poet Bharathiyar celebrated the fall of Russian autocracy in verse."
+    ]
+  },
+  "flashcards": [
+    { "id": "h14-fc1", "card_type": "term", "front": "Bloody Sunday (22 Jan 1905)", "back": "Peaceful march led by Father Gapon to St. Petersburg Winter Palace fired upon by Tsar's troops, sparking the 1905 Duma & Soviet." },
+    { "id": "h14-fc2", "card_type": "term", "front": "Lenin's 1917 Slogans & Takeover Date", "back": "'All power to the Soviets' & 'Bread, Peace and Land'; Bolshevik government took office 7–8 November 1917." },
+    { "id": "h14-fc3", "card_type": "why", "front": "Why did the League of Nations fail (p. 12)?", "back": "US absence, no standing military force to enforce sanctions, unanimous veto rule, and dictator regimes withdrawing in the 1930s." }
+  ],
+  "assets": [
+    {
+      "asset_id": "timemap-history-01-russian-rev-v1",
+      "kind": "schematic_map",
+      "description": "Evidence-led chronology & League of Nations summary for History Unit 1 Section 1.4–1.5.",
+      "license": "Original project educational asset",
+      "source_reference": "TN Class 10 Social Science 2025 Edition, History Unit 1, pp. 9–12"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original concise historical notes; no verbatim textbook prose or copyrighted poems reproduced."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

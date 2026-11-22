@@ -1,0 +1,162 @@
+{
+  "section_id": "science-14-auto-14-1-means-of-transport",
+  "related_section_ids": [
+    "science-14-auto-14-1-1-diffusion",
+    "science-14-auto-14-1-2-active-transport",
+    "science-14-auto-14-1-3-osmosis",
+    "science-14-auto-14-2-root-hair-water",
+    "science-14-auto-14-3-pathway-of-water",
+    "science-14-auto-14-4-types-of-movement-of",
+    "science-14-auto-14-4-1-apoplast-pathway",
+    "science-14-auto-14-4-2-symplast-pathway"
+  ],
+  "unit_id": "science-14",
+  "subject": "science",
+  "title": "14.1–14.4 Means of Plant Transport & Root Water Pathways",
+  "subtitle": "Diffusion, Active Transport (ATP pumps), Osmosis, Plasmolysis, Root Hairs, Apoplast & Symplast pathways (pp. 201–202)",
+  "curiosity_hook": "How do root hairs pull water and scarce mineral ions out of the soil without a heart or muscles?",
+  "estimated_minutes": 12,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [200, 201, 202],
+  "source_pdf_pages": [208, 209, 210],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human biology teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Compare passive transport (Diffusion, Osmosis, Imbibition) against ATP-dependent Active Transport ('uphill' pumping against a gradient).",
+    "Explain how unicellular epidermal root hairs maximize absorption area and pass water from soil → root hair → cortex → xylem.",
+    "Distinguish Apoplast pathway (fast, cell walls & intercellular spaces) from Symplast pathway (slow, through plasma membrane, cytoplasm, and plasmodesmata)."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Diffusion, Active Transport & Osmosis (14.1.1–14.1.3, p. 201)",
+      "summary": "Diffusion passively moves molecules from high to low concentration without energy. Active transport uses ATP membrane pumps to push molecules 'uphill' from low to high concentration. Osmosis moves water passively through a semi-permeable membrane; placing a plant cell in hypertonic solution causes plasmolysis (protoplasm shrinks away from cell wall)."
+    },
+    {
+      "heading": "Root Hairs & Soil-to-Xylem Route (14.2–14.3, pp. 201–202)",
+      "summary": "Millions of thin-walled epidermal root hairs increase surface area. Water enters root hairs, raising their water concentration above cortical cells, so water flows inward by osmosis through the cortex to xylem vessels."
+    },
+    {
+      "heading": "Apoplast vs Symplast Pathways (14.4.1–14.4.2, p. 202)",
+      "summary": "Apoplastic water travels exclusively through cell walls and intercellular spaces without crossing membranes (until stopped by the endodermal Casparian strip). Symplastic water crosses the plasma membrane and travels slowly via cytoplasm and plasmodesmata."
+    }
+  ],
+  "key_terms": [
+    { "term": "Active Transport", "definition": "Energy-requiring ('uphill') pumping of molecules from lower to higher concentration via membrane-bound protein pumps." },
+    { "term": "Plasmolysis", "definition": "Shrinkage of protoplasm away from the plant cell wall when water exits into a surrounding hypertonic solution." },
+    { "term": "Imbibition", "definition": "Diffusion-based absorption of water by dry solid plant materials (like dry seeds/raisins), causing swelling." },
+    { "term": "Apoplast vs Symplast", "definition": "Apoplast = movement via cell walls & intercellular spaces; Symplast = movement via plasma membrane, cytoplasm & plasmodesmata." }
+  ],
+  "interaction": {
+    "engine": "JourneyThrough",
+    "version": "1.0.0",
+    "scene_id": "unit14-plant-transport",
+    "representation_status": "Conceptual schematic",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "apoplast-symplast-toggle",
+        "label": "Apoplast vs Symplast Pathway Switch",
+        "type": "toggle",
+        "description": "Compare cell-wall water flow versus plasmodesmata cytoplasmic flow into the root xylem.",
+        "keyboard_equivalent": "Tab + Enter on pathway buttons."
+      }
+    ],
+    "expected_observations": [
+      "Apoplast movement avoids crossing plasma membranes and is faster, whereas Symplast moves through living cytoplasm and plasmodesmata.",
+      "Active transport is mandatory whenever mineral concentration is lower in soil than inside root cells."
+    ],
+    "limitations": [
+      "Conceptual cellular pathway model aligned to Science Unit 14 pp. 201–202."
+    ],
+    "config": {
+      "initial_tab": "plant"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Toggle Apoplast vs Symplast", "learner_action": "Switch between Apoplast and Symplast pathways in the Plant Transport panel.", "expected_response": "Contrasts cell-wall transport against plasma-membrane / plasmodesmata transport." },
+    { "mode": "explore", "step": 2, "title": "Review Cellular Transport Mechanisms", "learner_action": "Test Diffusion, Osmosis, and Active Transport in the concept check below.", "expected_response": "Distinguishes passive downhill movement from ATP-powered uphill transport." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Ordered cellular route from soil to root xylem with comparison notes on passive vs active transport.",
+    "steps": [
+      { "step_number": 1, "heading": "Passive vs Active Transport", "description": "Diffusion and osmosis require zero ATP (downhill); active transport burns ATP (uphill).", "key_takeaway": "Root mineral uptake often requires active transport." },
+      { "step_number": 2, "heading": "Root Hair Absorption", "description": "Unicellular epidermal extensions absorb water & dissolved minerals across large surface area.", "key_takeaway": "Soil → Root hair → Cortex → Endodermis → Xylem." },
+      { "step_number": 3, "heading": "Apoplast vs Symplast", "description": "Apoplast travels along cell walls/spaces; Symplast passes through plasma membrane and plasmodesmata.", "key_takeaway": "Symplast is slower because water crosses membranes." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "s14p1-q1",
+        "difficulty": "recall",
+        "prompt": "Which transport process requires energy (ATP) to pump molecules 'uphill' from lower to higher concentration (p. 201)?",
+        "hint": "Textbook Exercise I.1 & I.5 on p. 213.",
+        "options": [
+          { "id": "a", "label": "Diffusion", "is_correct": false, "feedback": "Diffusion is passive (high → low concentration)." },
+          { "id": "b", "label": "Osmosis", "is_correct": false, "feedback": "Osmosis is passive solvent movement across a semi-permeable membrane." },
+          { "id": "c", "label": "Active transport", "is_correct": true, "feedback": "Correct! Membrane pumps expend ATP energy to carry substances uphill against a gradient." },
+          { "id": "d", "label": "Imbibition", "is_correct": false, "feedback": "Imbibition is a passive type of diffusion in dry plant solids." }
+        ],
+        "worked_explanation": "Active transport uses ATP and membrane protein pumps to move molecules from low to high concentration."
+      },
+      {
+        "id": "s14p1-q2",
+        "difficulty": "conceptual",
+        "prompt": "What happens when a living plant cell is placed in a hypertonic (high solute) solution (p. 201)?",
+        "hint": "Water moves out of the cell by osmosis.",
+        "options": [
+          { "id": "a", "label": "Plasmolysis — protoplasm shrinks away from the cell wall", "is_correct": true, "feedback": "Correct! Water exits into the hypertonic solution, causing protoplasm to pull away from the cell wall." },
+          { "id": "b", "label": "Imbibition — cell wall dissolves", "is_correct": false, "feedback": "Imbibition is water absorption by dry solids like seeds." },
+          { "id": "c", "label": "Cell bursts immediately", "is_correct": false, "feedback": "Losing water shrinks protoplasm; it does not burst the cell." },
+          { "id": "d", "label": "Active transport stops photosynthesis", "is_correct": false, "feedback": "Plasmolysis specifically describes osmotic shrinkage of protoplasm." }
+        ],
+        "worked_explanation": "In a hypertonic solution, water leaves the plant cell by osmosis and the protoplasm shrinks away from the cell wall (plasmolysis)."
+      },
+      {
+        "id": "s14p1-q3",
+        "difficulty": "conceptual",
+        "prompt": "How does the Apoplast pathway differ from the Symplast pathway inside root cells (p. 202)?",
+        "hint": "Check which pathway avoids crossing the plasma membrane.",
+        "options": [
+          { "id": "a", "label": "Apoplast moves exclusively through cell walls & intercellular spaces without crossing the plasma membrane", "is_correct": true, "feedback": "Correct! Symplast crosses the plasma membrane and flows through cytoplasm and plasmodesmata." },
+          { "id": "b", "label": "Apoplast carries sugars downward in phloem", "is_correct": false, "feedback": "Both apoplast and symplast describe radial water movement in roots." },
+          { "id": "c", "label": "Symplast skips cell membranes completely", "is_correct": false, "feedback": "Symplast explicitly crosses the plasma membrane and moves through plasmodesmata." },
+          { "id": "d", "label": "Apoplast only occurs in animal capillaries", "is_correct": false, "feedback": "Both are plant root water pathways." }
+        ],
+        "worked_explanation": "Apoplastic water travels via cell walls & intercellular spaces; symplastic water crosses plasma membranes and plasmodesmata."
+      }
+    ],
+    "worked_feedback": [
+      "Remember Root Hairs are BOTH unicellular AND projections of epidermal cells (Textbook p. 213 MCQ #4)."
+    ]
+  },
+  "flashcards": [
+    { "id": "s14p1-fc1", "card_type": "term", "front": "Diffusion vs Osmosis vs Active Transport", "back": "Diffusion & Osmosis = passive (no ATP, high→low); Active Transport = uphill (low→high, uses ATP pumps)." },
+    { "id": "s14p1-fc2", "card_type": "term", "front": "Imbibition (p. 201)", "back": "Absorption of water by solid plant materials causing swelling (e.g., dry seeds emerging from soil)." },
+    { "id": "s14p1-fc3", "card_type": "why", "front": "Why is Symplast movement slower than Apoplast?", "back": "Symplastic water must cross the plasma membrane and travel through living cytoplasm and plasmodesmata." }
+  ],
+  "assets": [
+    {
+      "asset_id": "unit14-plant-transport-engine-v1",
+      "kind": "data_table",
+      "description": "Interactive Plant Transport JourneyThrough panel aligned to Science Unit 14.1–14.4.",
+      "license": "Original project educational asset",
+      "source_reference": "TN Class 10 Science 2024 Edition, Unit 14, pp. 200–202"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original educational explanations aligned to Unit 14.1–14.4."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

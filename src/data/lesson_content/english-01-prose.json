@@ -1,0 +1,303 @@
+{
+  "section_id": "english-01-prose",
+  "related_section_ids": [
+    "english-01-poem",
+    "english-01-supplementary"
+  ],
+  "unit_id": "english-01",
+  "subject": "english",
+  "title": "His First Flight — Visual Narrative & Perspective Lab",
+  "subtitle": "Character motivation, turning-point sequencing, contextual vocabulary, and Parts of Speech",
+  "curiosity_hook": "What pushes someone who is frozen by self-doubt to finally trust their own abilities and take the first leap?",
+  "estimated_minutes": 6,
+  "source_pdf": "Class_10_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Reprint Edition (SCERT 2019 Syllabus)",
+  "source_printed_pages": [1, 2, 3, 4, 5, 6],
+  "source_pdf_pages": [5, 6, 7, 8, 9, 10],
+  "source_verified_by": "PASS0-PDF-AUDIT-2026-11-22 (Pending Human English Educator & Rights Sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Reconstruct the causal sequence of events in Liam O'Flaherty's 'His First Flight' from hesitation to mastery.",
+    "Compare the inner motivations of the young seagull and his parents using evidence pointers to textbook pages 2–5.",
+    "Match contextual vocabulary (ledge, precipice, preening, whet, plaintively, beckoning) and transform words across Parts of Speech (p. 6)."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Setting & Internal Conflict (Textbook pp. 2–3)",
+      "summary": "Isolated on a steep south-facing cliff ledge above a vast sea, the young seagull doubts his own wings even though his younger siblings with shorter wings have already flown. His fear makes the drop appear insurmountable.",
+      "worked_example": "Contrast evidence: while his family celebrates his brother's first herring catch on the opposite plateau, the young seagull searches an empty straw nest and pretends to sleep on one leg to attract sympathy."
+    },
+    {
+      "heading": "The Turning Point — Hunger Overcomes Fear (Textbook p. 4)",
+      "summary": "Only the mother notices him. By tearing fish on the opposite rock and flying close enough to dangle food just beyond his reach without landing, she triggers an instinctive dive into open air.",
+      "worked_example": "Cause → Effect: Momentary terror gives way to aerodynamic lift as wind spreads his wings, turning falling into soaring."
+    },
+    {
+      "heading": "Vocabulary & Parts of Speech Transformation (Textbook pp. 5–6)",
+      "summary": "Authors convey tension through precise sensory verbs and adverbs ('shrilly', 'plaintively', 'swoop', 'beckoning'). Sentences can be rewritten by shifting words between noun, verb, adjective, and adverb forms without losing meaning."
+    }
+  ],
+  "key_terms": [
+    {
+      "term": "Precipice (n.)",
+      "definition": "A very steep or nearly vertical rock face of a cliff or mountain (p. 5)."
+    },
+    {
+      "term": "Preening (v.)",
+      "definition": "Cleaning and straightening feathers carefully with a beak (p. 5)."
+    },
+    {
+      "term": "Whet (v.)",
+      "definition": "To sharpen a beak or blade (and figuratively, to sharpen appetite or curiosity) (p. 5)."
+    },
+    {
+      "term": "Plaintively (adv.)",
+      "definition": "Calling or speaking in a sad, mournful, pleading tone (p. 5)."
+    },
+    {
+      "term": "Beckoning (v.)",
+      "definition": "Gesturing or calling to encourage someone to approach or follow (p. 5)."
+    }
+  ],
+  "interaction": {
+    "engine": "StoryStage",
+    "version": "v2",
+    "scene_id": "his-first-flight-story-stage",
+    "representation_status": "Illustrative reconstruction",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "perspective-toggle",
+        "label": "Character Perspective Switcher (Young Seagull vs Mother / Family)",
+        "type": "toggle",
+        "description": "Compare how each turning point looks through the fearful fledgling's eyes versus his parents' strategic encouragement.",
+        "keyboard_equivalent": "Tab to perspective buttons and press Enter or Space."
+      },
+      {
+        "id": "scene-sequencer",
+        "label": "Interactive Narrative Sequence Puzzle (Move Up / Down)",
+        "type": "sequence",
+        "description": "Reorder 5 scrambled story moments into chronological cause-and-effect order without requiring mouse drag.",
+        "keyboard_equivalent": "Use Move Earlier (↑) and Move Later (↓) buttons on each scene card."
+      },
+      {
+        "id": "vocab-matcher",
+        "label": "Contextual Vocabulary & Parts of Speech Lab",
+        "type": "button_group",
+        "description": "Match textbook glossary words to their meaning and inspect noun/verb/adjective/adverb transformations.",
+        "keyboard_equivalent": "Select matching word and definition buttons by keyboard."
+      }
+    ],
+    "expected_observations": [
+      "Parental strictness (withholding food while staying nearby) is shown as purposeful encouragement rather than cruelty.",
+      "The climax occurs not when the bird feels fearless, but when an urgent motive (hunger) pushes him past hesitation so his wings can catch the wind.",
+      "Unit 1 links prose ('His First Flight'), poem ('Life' by Henry Van Dyke, p. 17), and supplementary ('The Tempest', p. 21) around courage and journey."
+    ],
+    "limitations": [
+      "Uses original paraphrased scene summaries and textbook page citations rather than reproducing full copyrighted prose verbatim.",
+      "Rights review must be completed before adding any quoted excerpts or audio narration."
+    ],
+    "config": {
+      "unitCompanionLinks": [
+        { "label": "Poem: Life (p. 17)", "route": "/class-10/english/english-01/english-01-poem" },
+        { "label": "Supplementary: The Tempest (p. 21)", "route": "/class-10/english/english-01/english-01-supplementary" }
+      ]
+    }
+  },
+  "storyboard": [
+    {
+      "mode": "guided",
+      "step": 1,
+      "title": "Compare Character Viewpoints",
+      "learner_action": "Toggle between Young Seagull and Mother/Family across the narrative arc.",
+      "expected_response": "Observe contrasting emotional motives at the exact same moment in the plot."
+    },
+    {
+      "mode": "guided",
+      "step": 2,
+      "title": "Reconstruct the 5-Moment Cause-Effect Sequence",
+      "learner_action": "Reorder scrambled story event cards using keyboard-accessible Up/Down controls and verify the causal chain.",
+      "expected_response": "Each misplaced card explains why the preceding trigger had to happen first."
+    },
+    {
+      "mode": "explore",
+      "step": 3,
+      "title": "Practice Vocabulary & Parts of Speech",
+      "learner_action": "Complete the contextual word match and inspect p. 6 word-family shifts (joyful / joy / joyfully).",
+      "expected_response": "Immediate feedback linking vocabulary to the narrative scene."
+    }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Text-first chronological scene guide, dual-perspective comparison table, and Unit 1 cross-links to Poem ('Life') and Supplementary ('The Tempest').",
+    "steps": [
+      {
+        "step_number": 1,
+        "heading": "Isolation on the Ledge (p. 2)",
+        "description": "The young seagull watches his siblings take flight but retreats to his shelter convinced his wings will fail.",
+        "key_takeaway": "Fear of failure paralyzes action even when physical ability is already present."
+      },
+      {
+        "step_number": 2,
+        "heading": "24 Hours of Hunger & Failed Tricks (pp. 2–3)",
+        "description": "With no food left on the ledge and sheer cliffs on every side, he pretends to sleep on one leg to draw attention.",
+        "key_takeaway": "Avoiding a challenge only deepens helplessness."
+      },
+      {
+        "step_number": 3,
+        "heading": "The Mother's Strategic Bait (pp. 3–4)",
+        "description": "Only his mother watches him; she flies across holding fish and halts just out of reach beside the ledge.",
+        "key_takeaway": "Sometimes supportive mentors create a motivating push instead of doing the task for us."
+      },
+      {
+        "step_number": 4,
+        "heading": "The Leap & Discovering Lift (p. 4)",
+        "description": "Driven by hunger, he dives toward the fish; after a brief moment of terror, his wings spread naturally and catch the wind.",
+        "key_takeaway": "Confidence often arrives after taking the first step, not before it."
+      },
+      {
+        "step_number": 5,
+        "heading": "Landing on the Green Sea & Family Celebration (pp. 4–5)",
+        "description": "Exhausted, he drops onto the sea, realizes he floats safely, and is cheered and fed scraps of dog-fish by his proud family.",
+        "key_takeaway": "Courage transforms an intimidating unknown into a supportive new home."
+      }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "eng1-q1",
+        "difficulty": "conceptual",
+        "prompt": "Why did the mother seagull halt in mid-air just out of reach of the ledge instead of placing the fish directly into the young seagull's beak?",
+        "hint": "Think about what would have happened if she had fed him on the ledge.",
+        "options": [
+          {
+            "id": "a",
+            "label": "To motivate him to leap forward into open air so he would discover that his wings could carry him.",
+            "is_correct": true,
+            "feedback": "Correct! Feeding him on the ledge would have reinforced his fear; pausing just out of reach triggered the plunge that unlocked his natural ability to fly."
+          },
+          {
+            "id": "b",
+            "label": "Because she was afraid to fly close to the cliff rock.",
+            "is_correct": false,
+            "feedback": "She was an experienced flier who easily hovered opposite the ledge and swooped upward."
+          },
+          {
+            "id": "c",
+            "label": "Because she forgot which bird was hungry.",
+            "is_correct": false,
+            "feedback": "She was the only family member watching him intently on the plateau before flying over with fish."
+          }
+        ],
+        "worked_explanation": "On textbook pp. 3–4, the mother deliberately uses hunger as a catalyst to help the young bird overcome fear."
+      },
+      {
+        "id": "eng1-q2",
+        "difficulty": "recall",
+        "prompt": "Which word from the Unit 1 glossary (p. 5) means 'calling in a sad, pleading way'?",
+        "hint": "The young seagull cried this way when begging his mother for food on p. 4.",
+        "options": [
+          {
+            "id": "a",
+            "label": "Plaintively",
+            "is_correct": true,
+            "feedback": "Spot on! 'Plaintively' (adv.) describes calling sadly or mournfully."
+          },
+          {
+            "id": "b",
+            "label": "Preening",
+            "is_correct": false,
+            "feedback": "'Preening' (v.) means cleaning feathers with a beak — what the father was doing on the plateau."
+          },
+          {
+            "id": "c",
+            "label": "Beckoning",
+            "is_correct": false,
+            "feedback": "'Beckoning' (v.) means gesturing or calling to invite someone to approach."
+          }
+        ],
+        "worked_explanation": "English p. 5 Glossary: plaintively (adv.) — sadly, calling in a sad way."
+      },
+      {
+        "id": "eng1-q3",
+        "difficulty": "application",
+        "prompt": "Following the Parts of Speech transformation model on p. 6, how is the sentence 'The young seagull uttered a joyful scream' transformed using the adverb form of 'joyful'?",
+        "hint": "Turn the adjective 'joyful' into an adverb ending in '-ly' modifying the verb 'screamed'.",
+        "options": [
+          {
+            "id": "a",
+            "label": "The young seagull screamed joyfully.",
+            "is_correct": true,
+            "feedback": "Correct! Changing adjective 'joyful' to adverb 'joyfully' keeps the exact meaning while transforming sentence structure."
+          },
+          {
+            "id": "b",
+            "label": "The young seagull screamed with joy.",
+            "is_correct": false,
+            "feedback": "That version uses the noun form ('joy'), not the adverb form ('joyfully')."
+          },
+          {
+            "id": "c",
+            "label": "The young seagull had joyfulness.",
+            "is_correct": false,
+            "feedback": "'Joyfulness' is a noun and drops the action of screaming."
+          }
+        ],
+        "worked_explanation": "English p. 6 Set 1 demonstrates adjective ('joyful'), noun ('joy'), and adverb ('joyfully') transformations."
+      }
+    ],
+    "worked_feedback": [
+      "Support every literary interpretation with a specific event or page reference from the text.",
+      "Notice how English Unit 1 connects 'His First Flight', 'Life', and 'The Tempest' under the shared theme of courage and transformation."
+    ]
+  },
+  "flashcards": [
+    {
+      "id": "eng1-fc-1",
+      "card_type": "term",
+      "front": "Who is the author of 'His First Flight'?",
+      "back": "Liam O'Flaherty (1896–1984), an Irish novelist and short-story writer (p. 5)."
+    },
+    {
+      "id": "eng1-fc-2",
+      "card_type": "term",
+      "front": "What does 'precipice' mean in the story?",
+      "back": "A very steep cliff face or sheer vertical drop (p. 5)."
+    },
+    {
+      "id": "eng1-fc-3",
+      "card_type": "why",
+      "front": "How did the young seagull try to get his family's attention before his mother flew over?",
+      "back": "He stepped to the brink, stood on one leg hiding the other under his wing, closed both eyes, and pretended to fall asleep (p. 3)."
+    },
+    {
+      "id": "eng1-fc-4",
+      "card_type": "apply",
+      "front": "Give the Noun, Verb, Adjective, and Adverb forms of 'mad' (p. 6 chart).",
+      "back": "Noun: madness · Verb: madden · Adjective: mad · Adverb: madly."
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "story-stage-flight-svg",
+      "kind": "interactive_svg",
+      "description": "Original Katrio schematic coastal-cliff storyboard panels for 'His First Flight'.",
+      "license": "Original Katrio SVG (Apache-2.0)",
+      "source_reference": "Plot arc and glossary verified against TN Class 10 English 2024 Reprint, pp. 2–6; zero verbatim story paragraphs copied."
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Independently paraphrased educational summary and vocabulary activities; full copyrighted story prose is NOT reproduced."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

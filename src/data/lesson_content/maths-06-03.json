@@ -1,0 +1,334 @@
+{
+  "section_id": "maths-06-03",
+  "related_section_ids": [
+    "maths-06-auto-6-3-1-problems-involving-angle-of-elevation",
+    "maths-06-auto-6-3-2-problems-involving-angle-of-depression",
+    "maths-06-auto-6-3-3-problems-involving-angle-of-elevation-and-depression"
+  ],
+  "related_section_ids": [
+    "maths-06-auto-6-3-1-problems-involving-angle-of-elevation",
+    "maths-06-auto-6-3-2-problems-involving-angle-of-depression",
+    "maths-06-auto-6-3-3-problems-involving-angle-of-elevation-and-depression"
+  ],
+  "unit_id": "maths-06",
+  "subject": "mathematics",
+  "title": "Heights and Distances — Clinometer Workbench",
+  "subtitle": "Line of sight, Angle of Elevation, Angle of Depression, exact ratios (30°, 45°, 60°), and boundary edge cases",
+  "curiosity_hook": "How can surveyors calculate the exact height of a lighthouse or tower without ever climbing it?",
+  "estimated_minutes": 6,
+  "source_pdf": "Class_10_Mathematics_English_2025_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2025 Revised Edition (SCERT 2019 Syllabus)",
+  "source_printed_pages": [250, 251, 252, 253, 254, 258, 262],
+  "source_pdf_pages": [256, 257, 258, 259, 260, 264, 268],
+  "source_verified_by": "PASS0-PDF-AUDIT-2026-11-22 (Pending Human Mathematics Educator Sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Distinguish Line of Sight, Horizontal Level, Angle of Elevation (looking upward), and Angle of Depression (looking downward).",
+    "Apply tan(θ) = Opposite / Adjacent (including observer eye height h₀ and exact surds for 30°, 45°, 60°) with consistent metric units.",
+    "Diagnose tricky boundary cases: how θ grows as distance shrinks, why θ = 0° gives zero height, and why tan(90°) is undefined."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Line of Sight, Clinometer & Theodolite",
+      "summary": "The Line of Sight connects the observer's eye to the viewed point. Instruments such as a clinometer or theodolite measure the angle θ between the horizontal line and the line of sight.",
+      "worked_example": "If an observer of eye height h₀ = 1.5 m stands d = 40 m from a building and measures an angle of elevation θ = 45°, then vertical height above eye level = 40 · tan(45°) = 40 m, so total building height H = 40 + 1.5 = 41.5 m."
+    },
+    {
+      "heading": "Angle of Elevation vs Angle of Depression",
+      "summary": "Elevation occurs when looking above the horizontal; depression occurs when looking below the horizontal from a tower or cliff. Because the upper horizontal and ground line are parallel, alternate interior angles make Angle of Depression = Angle of Elevation.",
+      "worked_example": "Standing on a tower 48 m horizontally from a target at θ = 30°: H = 48 · tan(30°) = 48 / √3 = 16√3 m ≈ 27.71 m (exact surd form)."
+    },
+    {
+      "heading": "Qualitative Rules & Edge Cases",
+      "summary": "At a fixed distance, taller objects produce larger angles of elevation. Moving closer to a tower increases the angle of elevation. At θ = 0°, tan(0°) = 0 (flat horizontal line). At θ = 90°, tan(90°) is undefined because adjacent distance d = 0."
+    }
+  ],
+  "key_terms": [
+    {
+      "term": "Line of Sight",
+      "definition": "Straight ray drawn from the observer's eye to the point being observed on an object."
+    },
+    {
+      "term": "Angle of Elevation (θ)",
+      "definition": "Angle between the horizontal level and the line of sight when looking upward at an elevated object."
+    },
+    {
+      "term": "Angle of Depression (θ)",
+      "definition": "Angle between the horizontal level and the line of sight when looking downward; equals the alternate interior angle of elevation from the target."
+    },
+    {
+      "term": "Clinometer / Theodolite",
+      "definition": "Optical/angle-measuring instruments used in surveying to read vertical (and horizontal) angles."
+    }
+  ],
+  "interaction": {
+    "engine": "GeometryWorkbench",
+    "version": "v2",
+    "scene_id": "clinometer-heights-distances",
+    "representation_status": "Equation-based simulation",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "mode-toggle",
+        "label": "Survey Mode: Angle of Elevation vs Angle of Depression",
+        "type": "toggle",
+        "description": "Switch between measuring upward from ground level and sighting downward from a cliff/lighthouse with alternate interior angle overlay.",
+        "keyboard_equivalent": "Tab to mode buttons and press Enter or Space."
+      },
+      {
+        "id": "distance-slider",
+        "label": "Horizontal Distance d (5 m – 100 m)",
+        "type": "slider",
+        "description": "Adjust horizontal distance between observer and building foot.",
+        "keyboard_equivalent": "Focus slider and use Left/Right Arrow keys."
+      },
+      {
+        "id": "angle-slider",
+        "label": "Clinometer Angle θ (0° – 90°, including boundary tests)",
+        "type": "slider",
+        "description": "Adjust θ freely or snap to exact textbook presets (30°, 45°, 60°) and invalid boundary cases (0°, 90°).",
+        "keyboard_equivalent": "Arrow keys on slider or preset angle buttons."
+      },
+      {
+        "id": "eye-height-slider",
+        "label": "Observer Eye Height h₀ (0.0 m – 2.0 m)",
+        "type": "slider",
+        "description": "Include or zero out observer height to see its direct additive effect on building height.",
+        "keyboard_equivalent": "Arrow keys on slider."
+      }
+    ],
+    "expected_observations": [
+      "At θ = 45°, vertical rise strictly equals horizontal distance d (tan 45° = 1).",
+      "At θ = 30° and θ = 60°, height scales by 1/√3 and √3 respectively (exact surd ratios).",
+      "Testing θ = 0° or θ = 90° triggers clear mathematical boundary diagnostics instead of producing misleading numbers."
+    ],
+    "limitations": [
+      "Assumes flat horizontal ground and a strictly vertical building/cliff perpendicular to the ground (90° base angle).",
+      "Neglects Earth curvature and optical refraction, which are standard Class 10 textbook modelling assumptions."
+    ],
+    "config": {
+      "defaultMode": "elevation",
+      "defaultDistanceM": 48,
+      "defaultAngleDeg": 30,
+      "defaultEyeHeightM": 0,
+      "presetAngles": [0, 30, 45, 60, 85, 90]
+    }
+  },
+  "storyboard": [
+    {
+      "mode": "guided",
+      "step": 1,
+      "title": "Test Exact Textbook Presets (30°, 45°, 60°)",
+      "learner_action": "Set d = 48 m, h₀ = 0 m, and θ = 30° (matching Example 6.19) to see exact surd height 16√3 m.",
+      "expected_response": "KaTeX derivation shows tan(30°) = 1/√3 and H = 16√3 m ≈ 27.71 m."
+    },
+    {
+      "mode": "guided",
+      "step": 2,
+      "title": "Switch to Angle of Depression",
+      "learner_action": "Toggle to 'Angle of Depression' mode and observe how the dashed parallel horizontal line makes the depression angle equal the base elevation angle.",
+      "expected_response": "Alternate interior angle highlight explains why tan(θ) still links cliff height and horizontal distance."
+    },
+    {
+      "mode": "explore",
+      "step": 3,
+      "title": "Probe Invalid Edge Cases (0° and 90°)",
+      "learner_action": "Click the 0° and 90° edge-case buttons to test why right-triangle tangent fails at boundaries.",
+      "expected_response": "Workbench displays exact mathematical explanation for tan(0°) = 0 and undefined tan(90°)."
+    }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Exact trigonometric ratio table (30°, 45°, 60°), worked numerical examples with metric units, and boundary-case explanations.",
+    "steps": [
+      {
+        "step_number": 1,
+        "heading": "Identify the Right Triangle Sides",
+        "description": "Vertical rise above eye level = Opposite side; Horizontal ground distance d = Adjacent side; Line of Sight = Hypotenuse.",
+        "key_takeaway": "Choose tan(θ) = Opposite / Adjacent whenever linking height and ground distance."
+      },
+      {
+        "step_number": 2,
+        "heading": "Substitute Exact Textbook Tangent Values",
+        "description": "tan(30°) = 1/√3 ≈ 0.5774; tan(45°) = 1; tan(60°) = √3 ≈ 1.7321.",
+        "key_takeaway": "At 45°, height above eye level equals horizontal distance."
+      },
+      {
+        "step_number": 3,
+        "heading": "Add Observer Eye Height (h₀) When Given",
+        "description": "Total Height H = d · tan(θ) + h₀. Always keep d and h₀ in the same unit (metres).",
+        "key_takeaway": "Forgetting h₀ underestimates building height by the observer's eye level."
+      },
+      {
+        "step_number": 4,
+        "heading": "Handle Angle of Depression via Parallel Lines",
+        "description": "A horizontal ray from a cliff top is parallel to ground level, so angle of depression equals the alternate interior angle of elevation at the target.",
+        "key_takeaway": "Distance d = H / tan(θ)."
+      }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "trig-q1",
+        "difficulty": "application",
+        "prompt": "From a point on level ground 48 m away from the foot of a vertical tower, the angle of elevation of the top is 30°. What is the exact height of the tower?",
+        "hint": "Use tan(30°) = 1/√3 = H / 48 and rationalize the denominator.",
+        "options": [
+          {
+            "id": "a",
+            "label": "16√3 m (≈ 27.71 m)",
+            "is_correct": true,
+            "feedback": "Correct! H = 48 / √3 = (48√3) / 3 = 16√3 m."
+          },
+          {
+            "id": "b",
+            "label": "48√3 m (≈ 83.14 m)",
+            "is_correct": false,
+            "feedback": "48√3 m would be the answer for θ = 60° (since tan 60° = √3), not 30°."
+          },
+          {
+            "id": "c",
+            "label": "24 m",
+            "is_correct": false,
+            "feedback": "24 m uses sin(30°) = 1/2 as if 48 m were the hypotenuse rather than the horizontal ground distance."
+          }
+        ],
+        "worked_explanation": "Matches Maths Example 6.19 (p. 253): tan(30°) = h/48 ⇒ h = 48/√3 = 16√3 m."
+      },
+      {
+        "id": "trig-q2",
+        "difficulty": "conceptual",
+        "prompt": "An observer whose eye level is 1.8 m above the ground stands 25.2 m from a chimney and measures an angle of elevation of 45° to its top. What is the total height of the chimney?",
+        "hint": "First compute the rise above eye level using tan(45°) = 1, then add the observer's eye height h₀.",
+        "options": [
+          {
+            "id": "a",
+            "label": "27.0 m",
+            "is_correct": true,
+            "feedback": "Spot on! Rise above eye level = 25.2 × tan(45°) = 25.2 m; adding eye height 1.8 m gives 25.2 + 1.8 = 27.0 m."
+          },
+          {
+            "id": "b",
+            "label": "25.2 m",
+            "is_correct": false,
+            "feedback": "25.2 m is only the height above the observer's eyes — remember to add h₀ = 1.8 m!"
+          },
+          {
+            "id": "c",
+            "label": "23.4 m",
+            "is_correct": false,
+            "feedback": "Observer eye height is added to, not subtracted from, the vertical rise."
+          }
+        ],
+        "worked_explanation": "H = d · tan(45°) + h₀ = 25.2(1) + 1.8 = 27.0 m (based on Activity 2, p. 252)."
+      },
+      {
+        "id": "trig-q3",
+        "difficulty": "conceptual",
+        "prompt": "As a student walks closer toward the foot of a tall flagpole on flat ground, what happens to the angle of elevation of the top of the flagpole?",
+        "hint": "Look at tan(θ) = H / d when H stays constant and d becomes smaller.",
+        "options": [
+          {
+            "id": "a",
+            "label": "The angle of elevation increases because you must tilt your head steeper upward.",
+            "is_correct": true,
+            "feedback": "Correct! Since d decreases while H is fixed, H/d = tan(θ) grows larger, so θ increases (p. 251 Note)."
+          },
+          {
+            "id": "b",
+            "label": "The angle of elevation decreases toward 0°.",
+            "is_correct": false,
+            "feedback": "The angle decreases only when moving farther away from the flagpole."
+          },
+          {
+            "id": "c",
+            "label": "The angle stays identical because the flagpole height never changes.",
+            "is_correct": false,
+            "feedback": "Angle depends on the ratio H/d — changing horizontal distance d changes θ."
+          }
+        ],
+        "worked_explanation": "Maths p. 251 Note: If d₂ < d₁ for the same height, then β > α."
+      },
+      {
+        "id": "trig-q4",
+        "difficulty": "conceptual",
+        "prompt": "Why does the formula H = d · tan(θ) fail if someone enters θ = 90°?",
+        "hint": "Recall tan(θ) = sin(θ) / cos(θ) and check cos(90°).",
+        "options": [
+          {
+            "id": "a",
+            "label": "cos(90°) = 0, so tan(90°) is undefined — looking straight up means horizontal offset d must be 0.",
+            "is_correct": true,
+            "feedback": "Exactly! You cannot form a right triangle with two 90° angles; tan(90°) involves division by zero."
+          },
+          {
+            "id": "b",
+            "label": "tan(90°) equals 0, so every building would have zero height.",
+            "is_correct": false,
+            "feedback": "tan(0°) = 0, whereas tan(90°) is undefined (grows without bound)."
+          },
+          {
+            "id": "c",
+            "label": "Clinometers only measure in radians, not degrees.",
+            "is_correct": false,
+            "feedback": "The limitation is purely mathematical (division by zero at cos 90° = 0), regardless of angle unit."
+          }
+        ],
+        "worked_explanation": "In a right triangle with acute angle θ, 0° < θ < 90°. At θ = 90°, cos(90°) = 0 makes tan(90°) undefined."
+      }
+    ],
+    "worked_feedback": [
+      "Draw the horizontal level first; measure elevation upward and depression downward from that horizontal ray.",
+      "Always check units (metres vs centimetres) and verify whether observer eye height h₀ is specified."
+    ]
+  },
+  "flashcards": [
+    {
+      "id": "trig-fc-1",
+      "card_type": "term",
+      "front": "What is the exact value of tan(30°), tan(45°), and tan(60°)?",
+      "back": "tan(30°) = 1/√3, tan(45°) = 1, tan(60°) = √3 (≈ 1.732)."
+    },
+    {
+      "id": "trig-fc-2",
+      "card_type": "why",
+      "front": "Why does the Angle of Depression from a lighthouse top equal the Angle of Elevation from a boat?",
+      "back": "The horizontal line at the lighthouse top and the sea level line are parallel, so the line of sight acts as a transversal creating equal alternate interior angles."
+    },
+    {
+      "id": "trig-fc-3",
+      "card_type": "apply",
+      "front": "Which trigonometric ratio should you use if you know the height of a kite and the inclination angle, and want the string length?",
+      "back": "Use sin(θ) = Opposite (height) / Hypotenuse (string length), as in Example 6.20 (p. 253)."
+    },
+    {
+      "id": "trig-fc-4",
+      "card_type": "term",
+      "front": "What instruments are used to measure angles of elevation and depression?",
+      "back": "A clinometer (simple vertical angle device) and a theodolite (precision surveying instrument with horizontal & vertical graduated wheels)."
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "clinometer-workbench-svg-v2",
+      "kind": "interactive_svg",
+      "description": "Original scaled SVG right-triangle clinometer diagram supporting elevation, depression, parallel-line transversal, and boundary diagnostics.",
+      "license": "Original Katrio SVG (Apache-2.0)",
+      "source_reference": "Formulas and definitions verified against TN Class 10 Mathematics 2025 Edition, pp. 250–258."
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "All copy and SVG diagrams are independently created; mathematical formulas are non-copyrightable facts."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

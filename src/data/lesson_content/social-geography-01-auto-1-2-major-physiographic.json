@@ -1,0 +1,164 @@
+{
+  "section_id": "social-geography-01-auto-1-2-major-physiographic",
+  "related_section_ids": [
+    "social-geography-01-auto-1-3-drainage-system-of"
+  ],
+  "unit_id": "social-geography-01",
+  "subject": "social_science",
+  "title": "3D India Relief & Drainage Explorer — Physiographic Divisions",
+  "subtitle": "Northern Mountains, Great Plains, Peninsular Plateau, Coastal Plains, Islands & Himalayan vs Peninsular rivers",
+  "curiosity_hook": "How do the towering Himalayas in the north and the tilted Deccan Plateau in the south decide which ocean India's great rivers flow into?",
+  "estimated_minutes": 14,
+  "source_pdf": "Class_10_Social_Science_English_2025_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2025 Edition",
+  "source_printed_pages": [129, 130, 131, 132, 134, 138],
+  "source_pdf_pages": [135, 136, 137, 138, 140, 144],
+  "source_verified_by": "AGY Pass 2 3D Blueprint Build (pending human geography teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Locate and compare India's 5 major physiographic divisions (Northern Mountains, Northern Plains, Peninsular Plateau, Coastal Plains, Islands) on an interactive schematic 3D relief model.",
+    "State India's geographic extent (8°4′N–37°6′N, 68°7′E–97°25′E), area (32,87,263 sq. km), and Indian Standard Time meridian (82°30′E, GMT +5:30).",
+    "Differentiate perennial Himalayan rivers (Indus, Ganga, Brahmaputra) from seasonal east- and west-flowing Peninsular rivers."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Location, Extent & IST (1.1, pp. 129–130)",
+      "summary": "India is the 7th largest country (32,87,263 sq. km; 2.4% of world area) extending 3,214 km N–S (Indira Col to Kanniyakumari) and 2,933 km E–W. The Tropic of Cancer (23°30′N) bisects India; IST uses the central meridian 82°30′E (Mirzapur), 5 hrs 30 min ahead of GMT."
+    },
+    {
+      "heading": "Five Major Physiographic Divisions (1.2, pp. 131–137)",
+      "summary": "1. Northern Mountains (Trans-Himalayas, Himadri/Himachal/Siwaliks, Purvanchal), 2. Northern Great Plains (alluvial Indus-Ganga-Brahmaputra basin), 3. Peninsular Plateau (ancient Gondwana block with Aravalli, Vindhya, Western & Eastern Ghats), 4. Western & Eastern Coastal Plains, 5. Andaman-Nicobar & Lakshadweep Islands."
+    },
+    {
+      "heading": "Drainage System — Himalayan vs Peninsular Rivers (1.3, pp. 138–141)",
+      "summary": "Himalayan rivers are perennial (snowmelt + monsoon) and long. Most Peninsular rivers (Mahanadi, Godavari, Krishna, Kaveri) flow eastward into the Bay of Bengal forming deltas, while Narmada and Tapti flow westward through rift valleys into the Arabian Sea forming estuaries."
+    }
+  ],
+  "key_terms": [
+    { "term": "Himadri (Greater Himalayas)", "definition": "Northernmost loftiest Himalayan range (average height ~6,000 m) containing Mt. Everest (8,848 m) and Kanchenjunga (8,586 m)." },
+    { "term": "Indian Standard Time (IST)", "definition": "Local time of India's central meridian 82°30′E passing through Mirzapur (GMT + 5:30 hrs)." },
+    { "term": "Peninsular Plateau", "definition": "Oldest, largest physiographic division of India (~16 lakh sq. km), bordered by Aravalli, Western Ghats, and Eastern Ghats." },
+    { "term": "Perennial vs Seasonal Rivers", "definition": "Himalayan rivers flow year-round from glaciers and rain; Peninsular rivers depend primarily on seasonal monsoon rainfall." }
+  ],
+  "interaction": {
+    "engine": "GeoMap",
+    "version": "1.0.0",
+    "scene_id": "india-relief-3d",
+    "representation_status": "Conceptual schematic",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "division-pick",
+        "label": "3D Physiographic Division Picker",
+        "type": "select",
+        "description": "Click any of the 5 extruded landform regions in 3D or via the keyboard list.",
+        "keyboard_equivalent": "Tab + Enter across the 5 physiographic division buttons."
+      },
+      {
+        "id": "river-layer",
+        "label": "Drainage Rivers Overlay Toggle",
+        "type": "map_layer",
+        "description": "Toggle schematic Himalayan and Peninsular river flow tubes over the 3D relief.",
+        "keyboard_equivalent": "Enter/Space on Drainage Rivers toggle button."
+      }
+    ],
+    "expected_observations": [
+      "The Northern Mountains form a tall northern arc rising steeply above the flat green Northern Plains.",
+      "Most Peninsular rivers drain eastward down the gentle Deccan tilt toward the Bay of Bengal, whereas Narmada flows westward into the Arabian Sea."
+    ],
+    "limitations": [
+      "Explicitly labelled 'Schematic 3D Relief Model · Not to Scale' with vertical exaggeration to make relative landform elevations clear for classroom study; does not represent official international survey boundaries."
+    ],
+    "config": {
+      "show_rivers": true
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Inspect the Himalayan Arc", "learner_action": "Click the Northern Mountains peaks in the 3D relief model.", "expected_response": "Shows Trans-Himalayas, Himadri (6,000 m avg), Himachal, Siwaliks, and Purvanchal." },
+    { "mode": "guided", "step": 2, "title": "Toggle River Drainage Overlay", "learner_action": "Toggle Drainage Rivers ON/OFF and trace Ganga vs Narmada vs Kaveri.", "expected_response": "Highlights perennial snow-fed northern rivers vs east- and west-flowing peninsular rivers." },
+    { "mode": "explore", "step": 3, "title": "Compare Coastal Plains & Islands", "learner_action": "Select Coastal Plains and Islands to check Lakshadweep (coral) vs Andaman & Nicobar (volcanic).", "expected_response": "Displays exact textbook coastline length (6,100 km mainland; 7,516.6 km with islands)." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Structured text & table guide covering India's latitudinal/longitudinal extent, 5 physiographic divisions, and Himalayan vs Peninsular drainage — zero WebGL required.",
+    "steps": [
+      { "step_number": 1, "heading": "Extent & IST Meridian", "description": "8°4′N to 37°6′N; 68°7′E to 97°25′E; Tropic of Cancer (23°30′N) divides India; IST is 82°30′E (GMT +5:30).", "key_takeaway": "30° east-west longitude span creates ~2 hours sunrise gap between Arunachal Pradesh and Gujarat." },
+      { "step_number": 2, "heading": "Five Landform Divisions", "description": "Northern Mountains, Northern Great Plains, Peninsular Plateau, Coastal Plains, and Islands.", "key_takeaway": "Himalayas are young fold mountains; Aravalli & Peninsular Plateau are ancient landmasses." },
+      { "step_number": 3, "heading": "Drainage Systems", "description": "Indus, Ganga, Brahmaputra (perennial Himalayan) vs Godavari, Krishna, Kaveri (east-flowing) & Narmada, Tapti (west-flowing).", "key_takeaway": "East-flowing peninsular rivers build deltas; west-flowing rift rivers form estuaries." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "g1-q1",
+        "difficulty": "recall",
+        "prompt": "Which longitude serves as India's central meridian for Indian Standard Time (IST, GMT +5:30)?",
+        "hint": "Check p. 130 (passes through Mirzapur).",
+        "options": [
+          { "id": "a", "label": "23°30′ N", "is_correct": false, "feedback": "23°30′ N is the Tropic of Cancer (a latitude, not a longitude)." },
+          { "id": "b", "label": "82°30′ E", "is_correct": true, "feedback": "Correct! 82°30′ E longitude passes through Mirzapur and sets IST = GMT + 5 hrs 30 min." },
+          { "id": "c", "label": "68°7′ E", "is_correct": false, "feedback": "68°7′ E is India's westernmost longitude." },
+          { "id": "d", "label": "97°25′ E", "is_correct": false, "feedback": "97°25′ E is India's easternmost longitude." }
+        ],
+        "worked_explanation": "82°30′ E roughly bisects India's 30° longitudinal span (68°7′E to 97°25′E), avoiding a 2-hour local time split."
+      },
+      {
+        "id": "g1-q2",
+        "difficulty": "recall",
+        "prompt": "Which two Peninsular rivers flow WESTWARD into the Arabian Sea through rift valleys?",
+        "hint": "Look at the river flowing west across the northern Peninsular Plateau.",
+        "options": [
+          { "id": "a", "label": "Godavari and Krishna", "is_correct": false, "feedback": "Godavari and Krishna flow eastward into the Bay of Bengal." },
+          { "id": "b", "label": "Narmada and Tapti", "is_correct": true, "feedback": "Correct! Narmada and Tapti flow westward into the Arabian Sea, forming estuaries." },
+          { "id": "c", "label": "Kaveri and Mahanadi", "is_correct": false, "feedback": "Both flow eastward into the Bay of Bengal." },
+          { "id": "d", "label": "Ganga and Brahmaputra", "is_correct": false, "feedback": "These are Himalayan rivers draining into the Bay of Bengal." }
+        ],
+        "worked_explanation": "Unlike most Deccan rivers that follow the eastward slope, Narmada and Tapti flow west through tectonic rift valleys."
+      },
+      {
+        "id": "g1-q3",
+        "difficulty": "conceptual",
+        "prompt": "Which mountain range in India is cited in Class 10 Geography (p. 131) as one of the OLDEST fold mountain ranges in the world?",
+        "hint": "Contrast young fold Himalayas with ancient northwestern plateau mountains.",
+        "options": [
+          { "id": "a", "label": "The Himalayas (Himadri)", "is_correct": false, "feedback": "The Himalayas are young fold mountains formed by Tethys uplift." },
+          { "id": "b", "label": "The Aravalli Range", "is_correct": true, "feedback": "Correct! The Aravalli Range is one of the oldest fold mountain systems on Earth." },
+          { "id": "c", "label": "The Siwaliks", "is_correct": false, "feedback": "Siwaliks are the youngest outer foothills of the Himalayas." },
+          { "id": "d", "label": "Purvanchal Hills", "is_correct": false, "feedback": "Purvanchal Hills are the eastern extension of the young Himalayas." }
+        ],
+        "worked_explanation": "Textbook p. 131 box explicitly highlights the Aravalli Range as one of the world's oldest fold mountain ranges."
+      }
+    ],
+    "worked_feedback": [
+      "Keep schematic 3D terrain models clearly distinguished from official political survey maps.",
+      "Compare origin + seasonality when contrasting Himalayan (snow-fed perennial) and Peninsular (rain-fed seasonal) rivers."
+    ]
+  },
+  "flashcards": [
+    { "id": "g1-fc1", "card_type": "term", "front": "India's Total Area & Southernmost Point", "back": "Area: 32,87,263 sq. km (7th largest). Southernmost point: Indira Point (6°45′N, Andaman & Nicobar); mainland tip: Kanniyakumari." },
+    { "id": "g1-fc2", "card_type": "term", "front": "Three parallel ranges of the Himalayas", "back": "Greater Himalayas (Himadri), Lesser Himalayas (Himachal), and Outer Himalayas (Siwaliks)." },
+    { "id": "g1-fc3", "card_type": "why", "front": "Lakshadweep vs Andaman & Nicobar Islands", "back": "Lakshadweep (Arabian Sea) are coral islands; Andaman & Nicobar (Bay of Bengal) are elevated volcanic/submerged mountain peaks." }
+  ],
+  "assets": [
+    {
+      "asset_id": "threejs-india-relief-schematic-v1",
+      "kind": "procedural_3d",
+      "description": "Original procedural Three.js schematic 3D physiographic relief model of India (Not to Scale) with river layer toggle.",
+      "license": "Original project asset (MIT / educational)",
+      "source_reference": "TN Class 10 Social Science 2025 Edition, Geography Unit 1, pp. 129–141"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Schematic Not-to-Scale original procedural 3D relief model; no copyrighted atlas scans reproduced."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

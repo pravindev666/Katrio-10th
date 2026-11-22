@@ -1,0 +1,159 @@
+{
+  "section_id": "science-14-auto-14-5-transpiration",
+  "related_section_ids": [
+    "science-14-auto-14-5-1-factors-affecting",
+    "science-14-auto-14-6-root-pressure",
+    "science-14-auto-14-7-uptake-of-minerals",
+    "science-14-auto-14-10-translocation-of-sugars",
+    "science-14-auto-14-11-ascent-of-sap-and-its"
+  ],
+  "unit_id": "science-14",
+  "subject": "science",
+  "title": "14.5–14.11 Transpiration, Ascent of Sap & Phloem Translocation",
+  "subtitle": "Stomatal guard cells, transpiration pull, root pressure, guttation, active mineral uptake, and pressure-flow sugar transport (pp. 202–204)",
+  "curiosity_hook": "How can a 50-metre tall tree pull water continuously from underground roots to its highest leaves while simultaneously shipping sugars both upward and downward?",
+  "estimated_minutes": 13,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [202, 203, 204],
+  "source_pdf_pages": [210, 211, 212],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human biology teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Explain how guard-cell turgidity opens stomata during the day and drives transpiration pull across xylem columns.",
+    "Sequence the four physical forces behind Ascent of Sap (root pressure, capillary action, cohesion–adhesion, and transpiration pull).",
+    "Contrast unidirectional upward water transport in Xylem against bidirectional Source-to-Sink sucrose translocation in Phloem (Pressure Flow Hypothesis)."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Stomatal Transpiration & Guard Cell Turgidity (14.5–14.5.1, pp. 202–203)",
+      "summary": "Transpiration is evaporation of water mainly through leaf stomata. When water enters guard cells they swell (turgid) opening the stoma; losing water makes them flaccid closing the stoma. External factors include temperature, light, humidity, and wind speed."
+    },
+    {
+      "heading": "Root Pressure, Active Mineral Uptake & Ascent of Sap (14.6–14.8, 14.11, pp. 203–204)",
+      "summary": "Soil minerals exist as charged ions at lower concentration than inside roots, so roots absorb them actively using ATP. Water follows, creating Root Pressure (which causes early-morning guttation via hydathodes). Upward Ascent of Sap combines Root Pressure, Capillary Action, Cohesion–Adhesion, and Transpiration Pull."
+    },
+    {
+      "heading": "Bidirectional Phloem Pressure Flow Hypothesis (14.9–14.10, pp. 203–204)",
+      "summary": "Glucose made at the source (leaf) converts to sucrose and is actively loaded into phloem sieve tubes. This hypertonic state draws water from adjacent xylem by osmosis, building osmotic pressure that drives sap toward lower-pressure sinks (roots, fruits, or buds) in either upward or downward directions."
+    }
+  ],
+  "key_terms": [
+    { "term": "Transpiration Pull", "definition": "Suction force generated at leaves when stomatal water evaporation lowers mesophyll water concentration." },
+    { "term": "Cohesion & Adhesion", "definition": "Cohesion = attraction between water molecules; Adhesion = attraction between water molecules and xylem walls." },
+    { "term": "Guttation (Hydathodes)", "definition": "Exudation of excess liquid water droplets at leaf margins on humid mornings due to root pressure (p. 204)." },
+    { "term": "Pressure Flow Hypothesis", "definition": "Active sucrose loading into phloem draws xylem water osmotically, pushing sap from high-pressure Source to low-pressure Sink." }
+  ],
+  "interaction": {
+    "engine": "JourneyThrough",
+    "version": "1.0.0",
+    "scene_id": "unit14-plant-transport",
+    "representation_status": "Conceptual schematic",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "stomata-phloem-toggles",
+        "label": "Guard Cell Turgidity & Phloem Season Controls",
+        "type": "toggle",
+        "description": "Toggle stomata Open (Turgid) vs Closed (Flaccid) and switch phloem Source→Sink direction by season.",
+        "keyboard_equivalent": "Enter/Space on Guard Cell and Phloem Season buttons."
+      }
+    ],
+    "expected_observations": [
+      "Xylem water flow is always strictly unidirectional (upward from roots to leaves).",
+      "Phloem sucrose flow reverses between growing season (leaf → root) and early spring (stored root → new buds), making it bidirectional."
+    ],
+    "limitations": [
+      "Conceptual physiological state simulator aligned to Unit 14 pp. 202–204."
+    ],
+    "config": {
+      "initial_tab": "plant"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Toggle Guard Cells (Day vs Night)", "learner_action": "Switch Guard Cells between Turgid (OPEN) and Flaccid (CLOSED).", "expected_response": "Shows how water uptake swells guard cells to open stomata and drive transpiration pull." },
+    { "mode": "explore", "step": 2, "title": "Reverse Phloem Source & Sink", "learner_action": "Toggle Phloem Season between Summer and Early Spring.", "expected_response": "Illustrates bidirectional sucrose transport under the Pressure Flow Hypothesis." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Step-by-step comparison of Xylem Ascent of Sap vs Phloem Pressure Flow Translocation.",
+    "steps": [
+      { "step_number": 1, "heading": "Guard Cells Control Transpiration", "description": "Turgid = Stoma Open (day); Flaccid = Stoma Closed (night).", "key_takeaway": "Transpiration cools leaves, supplies photosynthetic water, and generates pull." },
+      { "step_number": 2, "heading": "Four Forces of Ascent of Sap", "description": "Root Pressure → Capillary Action → Cohesion–Adhesion column → Transpiration Pull.", "key_takeaway": "Xylem transport is unidirectional (upward only)." },
+      { "step_number": 3, "heading": "Phloem Sucrose Translocation", "description": "Active sucrose loading → water enters from xylem → osmotic pressure drives sap from Source to Sink.", "key_takeaway": "Phloem transport is bidirectional (upward or downward)." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "s14p2-q1",
+        "difficulty": "conceptual",
+        "prompt": "How does transport direction in Phloem compare with transport direction in Xylem (p. 203)?",
+        "hint": "Recall whether Source and Sink can reverse with the seasons.",
+        "options": [
+          { "id": "a", "label": "Xylem is unidirectional (upward); Phloem is bidirectional (upward or downward)", "is_correct": true, "feedback": "Correct! Xylem carries water strictly upward, while phloem moves sucrose from variable Source to Sink in either direction." },
+          { "id": "b", "label": "Both Xylem and Phloem move strictly downward", "is_correct": false, "feedback": "Xylem moves water upward from roots to shoots." },
+          { "id": "c", "label": "Xylem is bidirectional; Phloem is unidirectional", "is_correct": false, "feedback": "Reversed! Phloem is bidirectional and xylem is unidirectional." },
+          { "id": "d", "label": "Neither transports dissolved substances", "is_correct": false, "feedback": "Xylem transports water + minerals; phloem transports sucrose." }
+        ],
+        "worked_explanation": "Because leaf/root source-sink roles reverse seasonally, phloem is bidirectional whereas xylem is strictly unidirectional upward."
+      },
+      {
+        "id": "s14p2-q2",
+        "difficulty": "recall",
+        "prompt": "Which mineral element listed on p. 203 is NOT easily remobilised from older dying leaves to younger leaves?",
+        "hint": "P, S, N, and K are easily mobilised; one structural element is NOT.",
+        "options": [
+          { "id": "a", "label": "Nitrogen", "is_correct": false, "feedback": "Nitrogen is easily remobilised." },
+          { "id": "b", "label": "Potassium", "is_correct": false, "feedback": "Potassium is easily remobilised." },
+          { "id": "c", "label": "Calcium", "is_correct": true, "feedback": "Correct! Section 14.8 (p. 203) specifically notes that phosphorus, sulphur, nitrogen, and potassium are remobilised, whereas calcium is NOT." },
+          { "id": "d", "label": "Phosphorus", "is_correct": false, "feedback": "Phosphorus is easily remobilised." }
+        ],
+        "worked_explanation": "Calcium is bound structurally in cell walls and is not remobilised from older leaves."
+      },
+      {
+        "id": "s14p2-q3",
+        "difficulty": "recall",
+        "prompt": "What is the early-morning exudation of liquid water droplets through hydathodes on grass leaves due to root pressure called (p. 204)?",
+        "hint": "Check the 'More to Know' box on p. 204.",
+        "options": [
+          { "id": "a", "label": "Plasmolysis", "is_correct": false, "feedback": "Plasmolysis is cell shrinkage in hypertonic solution." },
+          { "id": "b", "label": "Guttation", "is_correct": true, "feedback": "Correct! Guttation exudes excess liquid water via specialized hydathodes under root pressure." },
+          { "id": "c", "label": "Translocation", "is_correct": false, "feedback": "Translocation is bulk transport through vascular tissues." },
+          { "id": "d", "label": "Cohesion", "is_correct": false, "feedback": "Cohesion is water-to-water molecular attraction." }
+        ],
+        "worked_explanation": "Guttation occurs on humid mornings when root pressure pushes liquid water droplets out through hydathodes."
+      }
+    ],
+    "worked_feedback": [
+      "Remember the exact sugar translocated in phloem: photosynthetic Glucose is converted into Sucrose before active loading."
+    ]
+  },
+  "flashcards": [
+    { "id": "s14p2-fc1", "card_type": "term", "front": "Guard cells: Turgid vs Flaccid", "back": "Turgid (water enters) = Stoma OPEN; Flaccid (water leaves) = Stoma CLOSED." },
+    { "id": "s14p2-fc2", "card_type": "term", "front": "Cohesion vs Adhesion in Xylem (p. 204)", "back": "Cohesion = water attracted to water; Adhesion = water sticking to xylem vessel walls." },
+    { "id": "s14p2-fc3", "card_type": "why", "front": "Why must roots absorb most soil minerals by Active Transport (ATP)?", "back": "Minerals occur as charged ions AND their soil concentration is usually lower than inside root cells (p. 203)." }
+  ],
+  "assets": [
+    {
+      "asset_id": "unit14-transpiration-phloem-v1",
+      "kind": "data_table",
+      "description": "Interactive Plant Transpiration & Phloem Pressure-Flow panel for Science Unit 14.5–14.11.",
+      "license": "Original project educational asset",
+      "source_reference": "TN Class 10 Science 2024 Edition, Unit 14, pp. 202–204"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original summaries and checks aligned to Unit 14.5–14.11."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

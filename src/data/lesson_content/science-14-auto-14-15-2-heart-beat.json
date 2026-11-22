@@ -1,0 +1,156 @@
+{
+  "section_id": "science-14-auto-14-15-2-heart-beat",
+  "related_section_ids": [
+    "science-14-auto-14-15-3-cardiac-cycle",
+    "science-14-auto-14-15-4-heart-sound"
+  ],
+  "unit_id": "science-14",
+  "subject": "science",
+  "title": "14.15.2–14.16 Heart Beat, 0.8 s Cardiac Cycle, Heart Sounds & Blood Pressure",
+  "subtitle": "SA node pacemaker, Bundle of His, Purkinje fibres, LUBB/DUPP sounds, stethoscope & 120/80 mm Hg sphygmomanometer (pp. 209–211)",
+  "curiosity_hook": "What starts each heartbeat inside your chest without waiting for a brain signal, and which closing valves create the 'LUBB–DUPP' rhythm a doctor hears?",
+  "estimated_minutes": 12,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [209, 210, 211],
+  "source_pdf_pages": [217, 218, 219],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human biology teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Trace myogenic impulse conduction in the human heart: SA Node (pacemaker) → Atria → AV Node → Bundle of His → Purkinje fibres → Ventricles.",
+    "Break down one 0.8-second Cardiac Cycle into Atrial Systole (0.1 s), Ventricular Systole (0.3 s), and Ventricular Diastole (0.4 s).",
+    "Match LUBB (AV valves closing) and DUPP (semilunar valves closing) to stethoscope diagnostics and interpret resting blood pressure (120 / 80 mm Hg)."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Myogenic Heartbeat & Pacemaker Conduction (14.15.2, p. 209)",
+      "summary": "Human heartbeat is myogenic (72–75 beats/min), initiated by the Sino-Atrial (SA) node ('pacemaker') in the right atrial wall near the superior vena cava. The wave spreads over both atria → AV node → Bundle of His (discovered by His, 1893) → Purkinje fibres → ventricular walls."
+    },
+    {
+      "heading": "0.8 s Cardiac Cycle & LUBB–DUPP Heart Sounds (14.15.3–14.15.4, p. 210)",
+      "summary": "One cycle (0.8 s) comprises Atrial systole (0.1 s) + Ventricular systole (0.3 s) + Ventricular diastole (0.4 s). First sound LUBB (longer) comes from tricuspid & bicuspid valves closing at the start of ventricular systole; second sound DUPP (shorter) comes from semilunar valves closing at the end of ventricular systole."
+    },
+    {
+      "heading": "Blood Pressure, Stethoscope & Sphygmomanometer (14.16, pp. 210–211)",
+      "summary": "Normal adult resting BP is 120 mm Hg (systolic) / 80 mm Hg (diastolic), measured on the brachial artery with a sphygmomanometer. Prolonged high BP is hypertension; low BP is hypotension."
+    }
+  ],
+  "key_terms": [
+    { "term": "Sino-Atrial (SA) Node", "definition": "Specialized cardiac muscle fibres in the right atrium that act as the natural pacemaker of the heart." },
+    { "term": "Cardiac Cycle (0.8 s)", "definition": "Atrial systole (0.1 s) + Ventricular systole (0.3 s) + Ventricular diastole (0.4 s)." },
+    { "term": "LUBB & DUPP", "definition": "LUBB = closure of tricuspid & bicuspid valves; DUPP = closure of pulmonary & aortic semilunar valves." },
+    { "term": "Sphygmomanometer", "definition": "Clinical instrument measuring brachial-artery systolic/diastolic blood pressure (normal 120/80 mm Hg)." }
+  ],
+  "interaction": {
+    "engine": "JourneyThrough",
+    "version": "1.0.0",
+    "scene_id": "unit14-cardiac-cycle",
+    "representation_status": "Conceptual schematic",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "cardiac-phase-stepper",
+        "label": "0.8 s Cardiac Cycle Phase Stepper",
+        "type": "stepper",
+        "description": "Step across Atrial Systole (0.1 s), Ventricular Systole (0.3 s), and Ventricular Diastole (0.4 s) to inspect valve states and LUBB/DUPP sounds.",
+        "keyboard_equivalent": "Tab + Enter across the 3 phase buttons."
+      }
+    ],
+    "expected_observations": [
+      "0.1 s + 0.3 s + 0.4 s = 0.8 s per heartbeat (~75 beats per minute).",
+      "Heart sounds are created by valve CLOSURE, never valve opening."
+    ],
+    "limitations": [
+      "Educational physiology stepper — clinical blood pressure readings should always be interpreted by qualified healthcare professionals."
+    ],
+    "config": {
+      "initial_tab": "cardiac"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Step Through All 3 Phases of 0.8 s", "learner_action": "Click Atrial Systole → Ventricular Systole → Ventricular Diastole.", "expected_response": "Pairs exact durations (0.1 s, 0.3 s, 0.4 s) with valve closures and LUBB / DUPP." },
+    { "mode": "explore", "step": 2, "title": "Verify Pacemaker Sequence", "learner_action": "Answer the SA Node → AV Node → Bundle of His → Purkinje fibres concept check.", "expected_response": "Confirms myogenic impulse path." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Ordered 0.8-second cardiac cycle breakdown, pacemaker pathway, and BP instrument definitions.",
+    "steps": [
+      { "step_number": 1, "heading": "0.0–0.1 s: Atrial Systole", "description": "SA node fires; atria contract pushing blood through open tricuspid/bicuspid valves into ventricles.", "key_takeaway": "Duration = 0.1 s." },
+      { "step_number": 2, "heading": "0.1–0.4 s: Ventricular Systole (LUBB)", "description": "AV valves snap shut producing 'LUBB'; ventricles contract ejecting blood through semilunar valves.", "key_takeaway": "Duration = 0.3 s; generates systolic peak (~120 mm Hg)." },
+      { "step_number": 3, "heading": "0.4–0.8 s: Ventricular Diastole (DUPP)", "description": "Semilunar valves snap shut producing 'DUPP'; ventricles relax and refill passively.", "key_takeaway": "Duration = 0.4 s; diastolic pressure ~80 mm Hg." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "s14cc-q1",
+        "difficulty": "recall",
+        "prompt": "Why is the Sino-Atrial (SA) node called the 'pacemaker of the heart' (p. 209)?",
+        "hint": "Remember the human heart is myogenic.",
+        "options": [
+          { "id": "a", "label": "It spontaneously initiates the electrical impulse that stimulates cardiac muscle contraction", "is_correct": true, "feedback": "Correct! Located in the right atrium near the superior vena cava, the SA node initiates each beat." },
+          { "id": "b", "label": "It pumps blood directly into the aorta", "is_correct": false, "feedback": "The left ventricle pumps blood into the aorta." },
+          { "id": "c", "label": "It filters lymph from tissues", "is_correct": false, "feedback": "Lymph nodes filter lymph." },
+          { "id": "d", "label": "It measures brachial artery blood pressure", "is_correct": false, "feedback": "A sphygmomanometer measures blood pressure." }
+        ],
+        "worked_explanation": "The SA node initiates impulses that spread via atria → AV node → Bundle of His → Purkinje fibres."
+      },
+      {
+        "id": "s14cc-q2",
+        "difficulty": "conceptual",
+        "prompt": "What causes the first heart sound 'LUBB' and the second heart sound 'DUPP' (p. 210)?",
+        "hint": "Match longer LUBB with AV valves and shorter DUPP with semilunar valves.",
+        "options": [
+          { "id": "a", "label": "LUBB = closure of tricuspid & bicuspid valves; DUPP = closure of semilunar valves", "is_correct": true, "feedback": "Correct! Valve closure produces both heart sounds heard through a stethoscope." },
+          { "id": "b", "label": "LUBB = opening of aorta; DUPP = closing of vena cava", "is_correct": false, "feedback": "Heart sounds come from valve closure, not opening." },
+          { "id": "c", "label": "LUBB = closure of semilunar valves; DUPP = closure of AV valves", "is_correct": false, "feedback": "Reversed! LUBB happens first (AV valves), DUPP happens second (semilunar valves)." },
+          { "id": "d", "label": "Both are caused by lung breathing", "is_correct": false, "feedback": "LUBB and DUPP are purely cardiac valve sounds." }
+        ],
+        "worked_explanation": "Closure of tricuspid/bicuspid valves at start of ventricular systole makes LUBB; closure of semilunar valves at its end makes DUPP."
+      },
+      {
+        "id": "s14cc-q3",
+        "difficulty": "recall",
+        "prompt": "What is the total duration of one cardiac cycle and the normal resting adult blood pressure (p. 210)?",
+        "hint": "Sum 0.1 s + 0.3 s + 0.4 s.",
+        "options": [
+          { "id": "a", "label": "0.8 second; 120 / 80 mm Hg", "is_correct": true, "feedback": "Correct! 0.1 + 0.3 + 0.4 = 0.8 s per beat, and normal resting BP is 120/80 mm Hg." },
+          { "id": "b", "label": "1.5 seconds; 80 / 120 mm Hg", "is_correct": false, "feedback": "Systolic (120) is higher than diastolic (80), and one beat lasts 0.8 s." },
+          { "id": "c", "label": "0.4 second; 160 / 100 mm Hg", "is_correct": false, "feedback": "0.4 s is only ventricular diastole; 160/100 is elevated pressure." },
+          { "id": "d", "label": "2.0 seconds; 100 / 60 mm Hg", "is_correct": false, "feedback": "Check p. 210: 0.8 s cycle and 120 / 80 mm Hg resting BP." }
+        ],
+        "worked_explanation": "One cardiac cycle lasts 0.8 s (75 beats/min), and healthy resting BP is 120 mm / 80 mm Hg."
+      }
+    ],
+    "worked_feedback": [
+      "Remember the conduction acronym: SA → AV → His → Purkinje."
+    ]
+  },
+  "flashcards": [
+    { "id": "s14cc-fc1", "card_type": "term", "front": "Cardiac Conduction Pathway (p. 209)", "back": "SA Node (pacemaker) → Atria → AV Node → Bundle of His → Purkinje fibres → Ventricles." },
+    { "id": "s14cc-fc2", "card_type": "term", "front": "0.8 s Cardiac Cycle Breakdown (p. 210)", "back": "Atrial systole (0.1 s) + Ventricular systole (0.3 s) + Ventricular diastole (0.4 s)." },
+    { "id": "s14cc-fc3", "card_type": "term", "front": "Stethoscope vs Sphygmomanometer", "back": "Stethoscope detects internal organ/heart sounds (LUBB–DUPP); Sphygmomanometer measures brachial artery blood pressure." }
+  ],
+  "assets": [
+    {
+      "asset_id": "unit14-cardiac-cycle-v1",
+      "kind": "data_table",
+      "description": "Interactive 0.8 s Cardiac Cycle stepper and physiology guide for Unit 14.15.2–14.16.",
+      "license": "Original project educational asset",
+      "source_reference": "TN Class 10 Science 2024 Edition, Unit 14, pp. 209–211"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original physiological summaries aligned to Unit 14 pp. 209–211."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

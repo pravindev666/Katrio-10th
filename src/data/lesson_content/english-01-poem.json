@@ -1,0 +1,153 @@
+{
+  "section_id": "english-01-poem",
+  "unit_id": "english-01",
+  "subject": "english",
+  "title": "Life (Sonnet by Henry Van Dyke)",
+  "subtitle": "Sonnet structure (octave + sestet), rhyme scheme, poetic devices, and joyful resilience",
+  "curiosity_hook": "How can 14 measured lines of a sonnet capture an entire lifetime's journey without rushing past the present or fearing the future?",
+  "estimated_minutes": 10,
+  "source_pdf": "Class_10_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [17, 18, 19],
+  "source_pdf_pages": [21, 22, 23],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human English teacher & rights sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Identify the formal features of a 14-line Petrarchan/Italian sonnet (8-line octave + 6-line sestet in iambic pentameter) and trace its rhyme scheme.",
+    "Interpret the poet's central attitude toward past losses, future uncertainties, and life's ups and downs using original paraphrased commentary.",
+    "Apply textbook vocabulary terms (unreluctant, mourning, veils, crown, quest) accurately in context."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Sonnet Form & Octave–Sestet Structure (p. 18)",
+      "summary": "Derived from Italian 'sonetto' (little song), a sonnet has 14 lines in iambic pentameter (10 syllables alternating unstressed/stressed). The first 8 lines (octave, rhyming abba abba) state the poet's steady, fearless mindset; the closing 6 lines (sestet) embrace life's winding hills with enduring curiosity."
+    },
+    {
+      "heading": "Core Theme — Present Courage Without Regret or Fear",
+      "summary": "Henry Van Dyke (1852–1933) contrasts hurried anxiety and sorrow over the faded past against an open, willing ('unreluctant') spirit that pays its fair share to both youth and old age, trusting the final turn of the road to be the best."
+    },
+    {
+      "heading": "Imagery, Metaphor & Coinage (pp. 17–19)",
+      "summary": "Life is framed through an extended journey metaphor (winding road, rough or smooth terrain, last turn). Key devices include personification (what the future veils), contrast (Youth and Age, rough or smooth, up or down), and the poet's coined adjective 'unreluctant' for emphasis."
+    }
+  ],
+  "key_terms": [
+    { "term": "Unreluctant (adj.)", "definition": "Willing and eager to act without hesitation (a poetic coinage emphasized on p. 18)." },
+    { "term": "Octave & Sestet", "definition": "The opening 8 lines (octave) and concluding 6 lines (sestet) that form a 14-line sonnet." },
+    { "term": "Veils (v.)", "definition": "Hides or conceals what lies ahead so it cannot yet be seen clearly." },
+    { "term": "Quest (n.)", "definition": "A sustained, purposeful search for meaningful friendship, adventure, and excellence ('crown')." }
+  ],
+  "interaction": {
+    "engine": "StoryStage",
+    "version": "1.0.0",
+    "scene_id": "english-01-poem-life",
+    "representation_status": "Illustrative reconstruction",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "perspective-tabs",
+        "label": "Poem Movement & Perspective Explorer",
+        "type": "button_group",
+        "description": "Compare octave vs sestet attitude, vocabulary clues, and literary devices without copying copyrighted verse verbatim.",
+        "keyboard_equivalent": "Tab + Enter across interactive tabs and keyboard-operable sequence buttons."
+      }
+    ],
+    "expected_observations": [
+      "The octave establishes emotional balance between past and future; the sestet translates that mindset into joyful travel through life's hills.",
+      "The opening quatrain follows the enclosed rhyme pattern a-b-b-a (year / soul / goal / disappear)."
+    ],
+    "limitations": [
+      "Paraphrased commentary and concise analytical phrases only — learners read the full printed poem directly in their Class 10 English textbook (p. 17)."
+    ],
+    "config": {
+      "unit_focus": "english-01-poem"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Inspect Octave vs Sestet Structure", "learner_action": "Examine how the 14 lines split into an 8-line opening reflection and 6-line journey resolve.", "expected_response": "Connects form (14 lines, iambic pentameter) to emotional progression." },
+    { "mode": "explore", "step": 2, "title": "Match Glossary & Devices", "learner_action": "Test textbook glossary clues (unreluctant, mourning, veils, crown, quest) and identify rhyme pattern.", "expected_response": "Confirms abba enclosed rhyme in lines 1–4 and core thematic takeaways." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Keyboard-accessible structured sonnet breakdown, glossary table, and poetic device notes (original rights-safe commentary).",
+    "steps": [
+      { "step_number": 1, "heading": "Sonnet Blueprint (14 Lines)", "description": "8-line Octave + 6-line Sestet written in iambic pentameter.", "key_takeaway": "Italian 'sonetto' = little song." },
+      { "step_number": 2, "heading": "Attitude to Past & Future", "description": "Neither grieving lost yesterdays nor shrinking in fear from what tomorrow hides.", "key_takeaway": "Live wholeheartedly from year to year with an 'unreluctant' soul." },
+      { "step_number": 3, "heading": "Lifelong Quest", "description": "Keep childhood wonder alive—seeking friendship, adventure, and achievement ('crown') on rough or smooth roads.", "key_takeaway": "Optimism expects the road's final turn to be the best." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "e1p-q1",
+        "difficulty": "recall",
+        "prompt": "How many lines make up a sonnet, and what are its two main parts called (p. 18)?",
+        "hint": "Recall the Italian sonnet structure explained on p. 18.",
+        "options": [
+          { "id": "a", "label": "12 lines: three quatrains", "is_correct": false, "feedback": "A sonnet always has 14 lines." },
+          { "id": "b", "label": "14 lines: an 8-line octave and a 6-line sestet", "is_correct": true, "feedback": "Correct! 8 (octave) + 6 (sestet) = 14 lines in iambic pentameter." },
+          { "id": "c", "label": "16 lines: four quatrains", "is_correct": false, "feedback": "Sonnets contain 14 lines, not 16." },
+          { "id": "d", "label": "10 lines: five couplets", "is_correct": false, "feedback": "10 refers to syllables per iambic pentameter line, not total lines." }
+        ],
+        "worked_explanation": "As noted on p. 18, a sonnet has 14 lines divided into an 8-line octave and a 6-line sestet."
+      },
+      {
+        "id": "e1p-q2",
+        "difficulty": "application",
+        "prompt": "What is the rhyme scheme of the first four lines of 'Life' (ending in year, soul, goal, disappear)?",
+        "hint": "Assign 'a' to year/disappear and 'b' to soul/goal.",
+        "options": [
+          { "id": "a", "label": "a b a b", "is_correct": false, "feedback": "Lines 2 and 3 rhyme with each other (soul / goal), not alternating." },
+          { "id": "b", "label": "a b b a", "is_correct": true, "feedback": "Correct! year (a), soul (b), goal (b), disappear (a) forms an enclosed Petrarchan quatrain." },
+          { "id": "c", "label": "a a b b", "is_correct": false, "feedback": "Lines 1 and 2 (year / soul) do not rhyme." },
+          { "id": "d", "label": "a b c b", "is_correct": false, "feedback": "Both line 1 & 4 and line 2 & 3 rhyme." }
+        ],
+        "worked_explanation": "year (a) – soul (b) – goal (b) – disappear (a) gives rhyme scheme a b b a."
+      },
+      {
+        "id": "e1p-q3",
+        "difficulty": "conceptual",
+        "prompt": "In the poem's glossary (p. 18), why does Henry Van Dyke use the coined word 'unreluctant'?",
+        "hint": "Break down the prefix 'un-' + 'reluctant'.",
+        "options": [
+          { "id": "a", "label": "To show he is reluctant and hesitant about growing old", "is_correct": false, "feedback": "'Un-' negates reluctant, expressing eagerness rather than hesitation." },
+          { "id": "b", "label": "To emphasize a willing, eager spirit ready to embrace life", "is_correct": true, "feedback": "Correct! 'Unreluctant' stresses cheerful willingness without holding back." },
+          { "id": "c", "label": "To describe someone mourning the past", "is_correct": false, "feedback": "The speaker explicitly avoids mourning disappeared things." },
+          { "id": "d", "label": "To refer to a hidden road ahead", "is_correct": false, "feedback": "'Veils' refers to hiding the future, not 'unreluctant'." }
+        ],
+        "worked_explanation": "The poet coins 'unreluctant' to highlight active willingness to meet every year cheerfully."
+      }
+    ],
+    "worked_feedback": [
+      "Read the poem aloud from p. 17 to hear the steady five-beat rhythm (iambic pentameter) in each line.",
+      "Notice how contrasts (Youth/Age, rough/smooth, up/down) reinforce resilience across every stage of life."
+    ]
+  },
+  "flashcards": [
+    { "id": "e1p-fc1", "card_type": "term", "front": "Author & Form of 'Life' (Unit 1 Poem)", "back": "Henry Van Dyke (1852–1933); 14-line sonnet (8-line octave + 6-line sestet)." },
+    { "id": "e1p-fc2", "card_type": "term", "front": "Meaning of 'unreluctant' & 'veils' (p. 18)", "back": "unreluctant = willing to do something; veils = hides or conceals from clear view." },
+    { "id": "e1p-fc3", "card_type": "why", "front": "What three things does the poet keep seeking since boyhood?", "back": "New friendship, high adventure, and a crown (a worthy prize/achievement)." }
+  ],
+  "assets": [
+    {
+      "asset_id": "storystage-english-01-poem-v1",
+      "kind": "data_table",
+      "description": "Rights-safe analytical sonnet study module for English Unit 1 Poem 'Life'.",
+      "license": "Original project educational commentary",
+      "source_reference": "TN Class 10 English 2024 Edition, Unit 1 Poem, pp. 17–19"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original paraphrased commentary & textbook glossary references only; full printed poem is NOT reproduced verbatim."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

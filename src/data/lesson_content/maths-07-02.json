@@ -1,0 +1,251 @@
+{
+  "section_id": "maths-07-02",
+  "related_section_ids": [
+    "maths-07-01",
+    "maths-07-auto-7-2-1-right-circular-cylinder",
+    "maths-07-auto-7-2-2-hollow-cylinder",
+    "maths-07-auto-7-2-3-right-circular-cone",
+    "maths-07-auto-7-2-4-the-sphere",
+    "maths-07-auto-7-2-5-hemisphere",
+    "maths-07-auto-7-2-6-hollow-hemisphere",
+    "maths-07-auto-7-2-7-frustum-of-a-right-circular-cone",
+    "maths-07-03",
+    "maths-07-auto-7-3-1-volume-of-a-solid-right-circular-cylinder",
+    "maths-07-auto-7-3-2-volume-of-a-hollow-cylinder-volume-of-the-material-used",
+    "maths-07-auto-7-3-3-volume-of-a-right-circular-cone",
+    "maths-07-auto-7-3-4-volume-of-sphere",
+    "maths-07-auto-7-3-5-volume-of-a-hollow-sphere-spherical-shell-volume-of-the-material-used",
+    "maths-07-auto-7-3-6-volume-of-solid-hemisphere",
+    "maths-07-auto-7-3-7-volume-of-hollow-hemisphere-volume-of-the-material-used",
+    "maths-07-auto-7-3-8-volume-of-frustum-of-a-cone",
+    "maths-07-04",
+    "maths-07-05"
+  ],
+  "unit_id": "maths-07",
+  "subject": "mathematics",
+  "title": "3D Mensuration Solids — Surface Area, Volume & Net Unfolder",
+  "subtitle": "Right circular cylinder, hollow cylinder, cone, sphere, hemisphere, frustum, and combined solids (π = 22/7)",
+  "curiosity_hook": "When a hemisphere is glued onto a cylinder to make a medicine capsule, why do their volumes add directly while their total surface areas do not?",
+  "estimated_minutes": 15,
+  "source_pdf": "Class_10_Mathematics_English_2025_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2025 Edition",
+  "source_printed_pages": [269, 270, 271, 272, 273, 276, 277, 280, 282, 290],
+  "source_pdf_pages": [275, 276, 277, 278, 279, 282, 283, 286, 288, 296],
+  "source_verified_by": "AGY Pass 2 3D Blueprint Build (pending human maths teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Visualize and orbit 3D solids (cylinder, hollow cylinder, cone, sphere, hemisphere, frustum, and combined capsule) with slice cutaway and 2D net equivalents.",
+    "Compute Curved Surface Area (CSA), Total Surface Area (TSA), slant height l, and Volume using π = 22/7 per Class 10 textbook convention.",
+    "Distinguish why joined faces vanish from exposed TSA in combined solids while total volume remains strictly conserved during shape conversion."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Right Circular Cylinder & Hollow Cylinder (7.2.1–7.2.2)",
+      "summary": "Revolving a rectangle about one side generates a cylinder. Unfolding its curved surface produces a rectangle of width 2πr and height h (CSA = 2πrh; TSA = 2πr(h + r); V = πr²h).",
+      "worked_example": "Textbook Example 7.1 (p. 271): Drum with r = 14 cm, h = 20 cm → CSA = 2 × (22/7) × 14 × 20 = 1760 cm²; TSA = 2992 cm²."
+    },
+    {
+      "heading": "Cone, Sphere, Hemisphere & Frustum (7.2.3–7.2.7, 7.3)",
+      "summary": "A cone's slant height satisfies l = √(r² + h²) and its volume is exactly 1/3 of a cylinder with the same base and height. Slicing a cone parallel to its base creates a frustum (CSA = π(R + r)l, V = (1/3)πh(R² + Rr + r²)).",
+      "worked_example": "For a cone with r = 7 cm and h = 24 cm, slant height l = √(49 + 576) = 25 cm, CSA = (22/7) × 7 × 25 = 550 cm², V = 1232 cm³."
+    },
+    {
+      "heading": "Combined Solids & Volume Conservation (7.4–7.5)",
+      "summary": "In combined solids (like a cylinder + two hemispheres), total volume equals the sum of component volumes, whereas exposed TSA sums ONLY the outer curved surfaces — excluding internal joined circular bases."
+    }
+  ],
+  "key_terms": [
+    {
+      "term": "Curved Surface Area (CSA)",
+      "definition": "The lateral curved area of a 3D solid excluding its flat circular top or bottom bases."
+    },
+    {
+      "term": "Slant Height (l)",
+      "definition": "Distance along the slanted side of a cone (√(r² + h²)) or frustum (√(h² + (R − r)²))."
+    },
+    {
+      "term": "Frustum of a Cone",
+      "definition": "The bottom bucket-shaped portion remaining when a right circular cone is sliced parallel to its base."
+    },
+    {
+      "term": "Conservation of Volume",
+      "definition": "Melting and recasting a solid from one 3D shape into another preserves total material volume unchanged."
+    }
+  ],
+  "interaction": {
+    "engine": "ModelExplorer3D",
+    "version": "1.0.0",
+    "scene_id": "mensuration-3d-solids",
+    "representation_status": "Equation-based simulation",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "solid-picker",
+        "label": "3D Solid Selector",
+        "type": "button_group",
+        "description": "Switch between all 7 Class 10 Mensuration solids and combined shapes.",
+        "keyboard_equivalent": "Tab + Enter across the 7 solid buttons."
+      },
+      {
+        "id": "dim-sliders",
+        "label": "Radius (r), Outer Radius (R), Height (h)",
+        "type": "slider",
+        "description": "Adjust dimensions in cm and watch both 3D geometry and exact CSA/TSA/Volume update.",
+        "keyboard_equivalent": "Arrow Left/Right on range sliders or click textbook presets."
+      },
+      {
+        "id": "cutaway-net-toggle",
+        "label": "Slice Cutaway & 2D Unfolded Net Toggle",
+        "type": "toggle",
+        "description": "Slice open the 3D solid or switch to the 2D SVG unfolded net without WebGL.",
+        "keyboard_equivalent": "Enter/Space on Slice Cutaway or 2D Net buttons."
+      }
+    ],
+    "expected_observations": [
+      "A cone's volume is always exactly one-third the volume of a cylinder with identical r and h.",
+      "Solid hemisphere TSA is 3πr² (2πr² curved dome + πr² newly exposed flat circular base), not 2πr².",
+      "Setting r = 14 cm, h = 20 cm on Cylinder reproduces Textbook Example 7.1: CSA = 1760 cm² and TSA = 2992 cm²."
+    ],
+    "limitations": [
+      "3D viewport scales dimensions proportionally to fit comfortably in frame while exact numerical formulas use unscaled cm values."
+    ],
+    "config": {
+      "default_solid": "cylinder"
+    }
+  },
+  "storyboard": [
+    {
+      "mode": "guided",
+      "step": 1,
+      "title": "Test Textbook Example 7.1",
+      "learner_action": "Click the 'Ex 7.1 Drum (r=14, h=20)' preset and inspect CSA vs TSA.",
+      "expected_response": "CSA reads 1760 cm² and TSA reads 2992 cm² (adding two bases of 616 cm² each)."
+    },
+    {
+      "mode": "guided",
+      "step": 2,
+      "title": "Slice Open a Frustum & Cone",
+      "learner_action": "Select Frustum of Cone and toggle Slice Cutaway ON.",
+      "expected_response": "Top radius r, bottom radius R, vertical height h, and slant height l = √(h² + (R−r)²) are clearly visible."
+    },
+    {
+      "mode": "explore",
+      "step": 3,
+      "title": "Compare Combined Solid Surface Area",
+      "learner_action": "Select Combined Solid (Cylinder + 2 Hemispheres) and compare its TSA formula with summing separate TSAs.",
+      "expected_response": "Internal circular ends cancel out, leaving TSA = 2πrh + 4πr² = 2πr(h + 2r)."
+    }
+  ],
+  "accessible_equivalent": {
+    "mode": "labelled_svg_steps",
+    "summary": "2D unfolded net SVG diagrams paired with KaTeX surface area and volume formulas using π = 22/7 — full keyboard support without WebGL.",
+    "steps": [
+      {
+        "step_number": 1,
+        "heading": "Cylinder Net (2πrh + 2πr²)",
+        "description": "Unrolling a cylinder yields a rectangle of width 2πr and height h plus two circular bases.",
+        "key_takeaway": "CSA = 2πrh; TSA = 2πr(h + r); V = πr²h."
+      },
+      {
+        "step_number": 2,
+        "heading": "Cone & Frustum Slant Height",
+        "description": "Use Pythagoras to compute slant height l before finding CSA = πrl (cone) or π(R + r)l (frustum).",
+        "key_takeaway": "Cone volume = (1/3)πr²h; Frustum volume = (1/3)πh(R² + Rr + r²)."
+      },
+      {
+        "step_number": 3,
+        "heading": "Hemisphere & Combined Solids",
+        "description": "A solid hemisphere exposes one flat circle (TSA = 3πr²), whereas joined internal faces in combined solids are NOT part of exposed TSA.",
+        "key_takeaway": "Always sum only externally visible curved/flat surfaces for combined TSA."
+      }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "m7-q1",
+        "difficulty": "recall",
+        "prompt": "What is the Total Surface Area (TSA) of a solid hemisphere of radius r?",
+        "hint": "Remember to include the newly exposed flat circular base along with the curved dome.",
+        "options": [
+          { "id": "a", "label": "2πr²", "is_correct": false, "feedback": "2πr² is only the Curved Surface Area (CSA) of the dome." },
+          { "id": "b", "label": "3πr²", "is_correct": true, "feedback": "Correct! Curved dome (2πr²) + flat circular base (πr²) = 3πr²." },
+          { "id": "c", "label": "4πr²", "is_correct": false, "feedback": "4πr² is the surface area of a full sphere." },
+          { "id": "d", "label": "(2/3)πr³", "is_correct": false, "feedback": "(2/3)πr³ is the volume of a solid hemisphere, not its surface area." }
+        ],
+        "worked_explanation": "Slicing a sphere in half gives curved area 2πr² plus one circular cross-section of area πr², totaling 3πr²."
+      },
+      {
+        "id": "m7-q2",
+        "difficulty": "application",
+        "prompt": "A right circular cylinder has base radius r = 14 cm and height h = 20 cm (π = 22/7). What is its Curved Surface Area?",
+        "hint": "Substitute directly into CSA = 2πrh.",
+        "options": [
+          { "id": "a", "label": "880 cm²", "is_correct": false, "feedback": "Remember the factor of 2 in 2πrh." },
+          { "id": "b", "label": "1760 cm²", "is_correct": true, "feedback": "Correct! 2 × (22/7) × 14 × 20 = 2 × 44 × 20 = 1760 cm² (Textbook Example 7.1)." },
+          { "id": "c", "label": "2992 cm²", "is_correct": false, "feedback": "2992 cm² is the Total Surface Area including both circular bases." },
+          { "id": "d", "label": "12320 cm²", "is_correct": false, "feedback": "12320 cm³ is the volume (πr²h), not the curved surface area." }
+        ],
+        "worked_explanation": "CSA = 2 × (22/7) × 14 × 20 = 4 × 22 × 20 = 1760 cm²."
+      },
+      {
+        "id": "m7-q3",
+        "difficulty": "conceptual",
+        "prompt": "A right circular cone and a cylinder have the same base radius r and height h. What is the ratio of Volume(Cone) : Volume(Cylinder)?",
+        "hint": "Compare (1/3)πr²h with πr²h.",
+        "options": [
+          { "id": "a", "label": "1 : 2", "is_correct": false, "feedback": "A cone holds less than half of a cylinder with the same base and height." },
+          { "id": "b", "label": "1 : 3", "is_correct": true, "feedback": "Correct! V_cone = (1/3)πr²h is exactly one-third of V_cylinder = πr²h." },
+          { "id": "c", "label": "2 : 3", "is_correct": false, "feedback": "2 : 3 is the ratio of a sphere/hemisphere inside a circumscribed cylinder." },
+          { "id": "d", "label": "1 : 4", "is_correct": false, "feedback": "Re-check the cone volume formula V = (1/3)πr²h." }
+        ],
+        "worked_explanation": "Because V_cone = (1/3)πr²h and V_cyl = πr²h, their ratio is always 1 : 3."
+      },
+      {
+        "id": "m7-q4",
+        "difficulty": "conceptual",
+        "prompt": "When a metallic solid sphere is melted and recast into several small identical cones, which quantity remains unchanged?",
+        "hint": "Think about what is conserved when the same amount of metal changes shape.",
+        "options": [
+          { "id": "a", "label": "Total surface area", "is_correct": false, "feedback": "Breaking one sphere into many smaller shapes greatly increases total exposed surface area." },
+          { "id": "b", "label": "Total volume of metal", "is_correct": true, "feedback": "Correct! Section 7.5 Conversion of Solids relies on Volume before = Total Volume after." },
+          { "id": "c", "label": "Radius", "is_correct": false, "feedback": "The radius changes completely when recast into cones." },
+          { "id": "d", "label": "Curved surface area", "is_correct": false, "feedback": "CSA changes whenever geometry changes." }
+        ],
+        "worked_explanation": "Neglecting wastage, recasting conserves material volume: V_sphere = N × V_cone."
+      }
+    ],
+    "worked_feedback": [
+      "Always check whether a problem asks for CSA (curved walls only) or TSA (exposed walls + exposed bases).",
+      "In TN Class 10 Mensuration, use π = 22/7 unless π = 3.14 is explicitly stated."
+    ]
+  },
+  "flashcards": [
+    { "id": "m7-fc1", "card_type": "term", "front": "CSA & TSA of a Right Circular Cylinder", "back": "CSA = 2πrh; TSA = 2πr(h + r); Volume = πr²h." },
+    { "id": "m7-fc2", "card_type": "term", "front": "Slant height (l) and Volume of a Frustum of a Cone", "back": "l = √(h² + (R − r)²); Volume = (1/3)πh(R² + Rr + r²)." },
+    { "id": "m7-fc3", "card_type": "why", "front": "Why is TSA of a solid hemisphere 3πr² instead of 2πr²?", "back": "Slicing a sphere exposes a flat circular base (πr²) in addition to half the curved shell (2πr²)." },
+    { "id": "m7-fc4", "card_type": "apply", "front": "Combined Solid TSA Rule (Section 7.4)", "back": "Add only the externally visible curved/flat surfaces — never add internal faces glued together." }
+  ],
+  "assets": [
+    {
+      "asset_id": "threejs-mensuration-solids-v1",
+      "kind": "procedural_3d",
+      "description": "Procedural Three.js 3D solid & cutaway renderer for all 7 Class 10 Mensuration shapes with 2D unfolded net SVG.",
+      "license": "Original project asset (MIT / educational)",
+      "source_reference": "TN Class 10 Mathematics 2025 Edition, Ch. 7, pp. 269–293"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "All 3D geometry, unfolded 2D SVG nets, and worked examples are freshly generated original educational assets."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

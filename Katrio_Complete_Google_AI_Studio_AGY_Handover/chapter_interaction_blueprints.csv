@@ -1,0 +1,73 @@
+﻿subject,strand,unit_id,unit_title,source_start_page,source_end_page,hero_visual,suggested_engine,learning_evidence,initial_status,editorial_status
+mathematics,,maths-01,Relations and Functions,1,35,Input/output machine and relation graph,GraphSandbox + drag-to-map,Classify relations/functions and compare representations,placeholder,not_audited
+mathematics,,maths-02,Numbers and Sequences,36,84,"Number machine, AP/GP staircase and clock arithmetic",PatternBuilder + NumberLine,Predict next values and justify the rule,placeholder,not_audited
+mathematics,,maths-03,Algebra,85,160,Equation balance and quadratic trajectory,EquationWorkbench + Plotter,Explain valid algebraic transformations and check roots,placeholder,not_audited
+mathematics,,maths-04,Geometry,161,202,"Dynamic triangles, tangents and theorem constructions",GeometryWorkbench 2D,Show conditions that make each theorem true,placeholder,not_audited
+mathematics,,maths-05,Coordinate Geometry,203,238,Map grid with draggable points and dynamic straight lines,CoordinateCanvas,Derive distance/area/line behavior from points,placeholder,not_audited
+mathematics,,maths-06,Trigonometry,239,268,Virtual building survey with angles and distance,TrigonometryFieldTool,Select correct ratios and solve with units,placeholder,not_audited
+mathematics,,maths-07,Mensuration,269,300,"Unfold, slice, fill and combine solids",ModelExplorer3D + NetUnfolder,Compare surface area and volume correctly,placeholder,not_audited
+mathematics,,maths-08,Statistics and Probability,301,333,"Data lab with distributions, dice and event probability",DataStudio + ExperimentRepeater,Distinguish data spread and empirical probability,placeholder,not_audited
+science,,science-01,Laws of Motion,1,15,Force and Newton law sandbox,Physics2D,Manipulate mass/force/friction; show force arrows and units,placeholder,not_audited
+science,,science-02,Optics,16,31,Light-ray and lens workbench,RayOptics2D,Change object position and validate image formation,placeholder,not_audited
+science,,science-03,Thermal Physics,32,41,Heat transfer and expansion simulator,HeatLab2D,Predict temperature/expansion outcomes,placeholder,not_audited
+science,,science-04,Electricity,42,58,Build circuits and measure readings,CircuitWorkbench,Diagnose connections and test current/voltage behavior,placeholder,not_audited
+science,,science-05,Acoustics,59,73,Wave and sound studio,WaveLab2D,Tune frequency/amplitude and hear optional safe sound,placeholder,not_audited
+science,,science-06,Nuclear Physics,74,90,Atomic nucleus and radiation concept model,ScientificConceptModel2D,Explain decay and risk without dangerous experimentation,placeholder,not_audited
+science,,science-07,Atoms and Molecules,91,105,"Atoms, molecules and conservation assembly",MoleculeBuilder3D,Explain atom counts and molecular mass calculations,placeholder,not_audited
+science,,science-08,Periodic Classification of Elements,106,123,Periodic table explorer,PeriodicTable2D,Find trends and justify classifications,placeholder,not_audited
+science,,science-09,Solutions,124,136,Solutions mixer with concentrations,SolutionLab2D,Estimate concentrations and distinguish solution types,placeholder,not_audited
+science,,science-10,Types of Chemical Reactions,137,154,Safe simulated reaction workbench,ReactionLab2D,"Predict, balance and classify reaction types",placeholder,not_audited
+science,,science-11,Carbon and its Compounds,155,172,Carbon bond builder,MoleculeBuilder3D,Compare structures and properties of compounds,placeholder,not_audited
+science,,science-12,Plant Anatomy and Plant Physiology,173,186,"Plant tissue, roots and photosynthesis zoom",PlantExplorer2D3D,"Trace processes between parts, water and light",placeholder,not_audited
+science,,science-13,Structural Organisation of Animals,187,199,Animal tissues and organ structures,AnatomyLayerViewer,Compare tissues and organ organisation,placeholder,not_audited
+science,,science-14,Transportation in Plants and Circulation in Animals,200,217,Human heart blood-flow and xylem/phloem journey,ModelExplorer3D + JourneyThrough,Trace circulation and transport without mislabeling flow,placeholder,not_audited
+science,,science-15,Nervous System,218,228,Neuron and reflex pathway switchboard,NeuralPathway2D,Predict stimulus-response sequence,placeholder,not_audited
+science,,science-16,Plant and Animal Hormones,229,242,Hormone signaling network,FeedbackSystem2D,Follow organ-to-organ hormone effects,placeholder,not_audited
+science,,science-17,Reproduction in Plants and Animals,243,260,Reproduction process visual timeline,LifecycleTimeline,Sequence biological stages with age-appropriate diagrams,placeholder,not_audited
+science,,science-18,Genetics,261,273,Trait inheritance workbench,PunnettWorkbench,Calculate expected ratios and distinguish genotype/phenotype,placeholder,not_audited
+science,,science-19,Origin and Evolution of Life,274,285,Evolution evidence tree,EvolutionTree2D,Compare evidence and distinguish mechanisms,placeholder,not_audited
+science,,science-20,Breeding and Biotechnology,286,299,Selective breeding and biotechnology concept lab,TraitSelection2D,Explain selection outcomes and bioethics,placeholder,not_audited
+science,,science-21,Health and Diseases,300,314,Immune response and prevention decision simulator,HealthLearning2D,"Connect causes, transmission and prevention evidence",placeholder,not_audited
+science,,science-22,Environmental Management,315,328,Ecosystem resources and waste flow,EcosystemFlow2D,Predict consequences of environmental choices,placeholder,not_audited
+science,,science-23,Visual Communication,329,333,Digital media and visual communication studio,CommunicationStudio,Evaluate visual messages and responsible digital choices,placeholder,not_audited
+social_science,history,social-history-01,Outbreak of World War I and Its Aftermath,1,15,World War I cause-and-consequence map,HistoricalTimeMap,"Differentiate chronology, causes and consequences",placeholder,not_audited
+social_science,history,social-history-02,The World between two World Wars,16,26,Interwar world comparison map,HistoricalTimeMap,Explain interwar social/economic changes,placeholder,not_audited
+social_science,history,social-history-03,World War II,27,39,World War II chronology and consequences,HistoricalTimeMap,Study humanitarian effects without war-as-game scoring,placeholder,not_audited
+social_science,history,social-history-04,The World after World War II,40,52,Post-1945 world shifts and global organisations,TimelineNetwork,Explain changing geopolitical relations,placeholder,not_audited
+social_science,history,social-history-05,Social and Religious Reform Movements in the 19th Century,53,62,19th-century reform movement idea cards,EvidenceTimeline,"Compare reform ideas, context, and limitations",placeholder,not_audited
+social_science,history,social-history-06,Early Revolts against British Rule in Tamil Nadu,63,74,Tamil Nadu early anti-colonial events,TamilNaduHistoryMap,Locate actors/events and explain context,placeholder,not_audited
+social_science,history,social-history-07,Anti-Colonial Movements and the Birth of Nationalism,75,88,Anti-colonial network and nationalism timeline,HistoricalTimeMap,Recognize interlocking regional developments,placeholder,not_audited
+social_science,history,social-history-08,Nationalism: Gandhian Phase,89,104,Gandhian movement decision and consequence tree,EvidenceTimeline,Interpret nonviolent mobilisation and context,placeholder,not_audited
+social_science,history,social-history-09,Freedom Struggle in Tamil Nadu,105,114,Tamil Nadu freedom struggle layered timeline,TamilNaduHistoryMap,Name events/figures with documented evidence,placeholder,not_audited
+social_science,history,social-history-10,Social Transformation in Tamil Nadu,115,128,Social change in Tamil Nadu then-and-now evidence gallery,EvidenceGallery,"Recognize continuity, change, and diverse contributors",placeholder,not_audited
+social_science,geography,social-geography-01,"India - Location, Relief and Drainage",129,143,"India terrain, rivers and drainage layered map",GeoMap2D3D,Identify relief features and drainage patterns,placeholder,not_audited
+social_science,geography,social-geography-02,Climate and Natural Vegetation of India,144,153,"Climate, rainfall and biome controls",ClimateGeoMap,Interpret seasonal causes and natural vegetation,placeholder,not_audited
+social_science,geography,social-geography-03,India - Agriculture,154,169,Crop/soil/season/agriculture map,AgricultureMap,Explain environmental and human agricultural drivers,placeholder,not_audited
+social_science,geography,social-geography-04,India - Resources and Industries,170,185,Resource extraction to industry chain,ResourceFlowMap,Trace raw materials and impacts,placeholder,not_audited
+social_science,geography,social-geography-05,"India - Population, Transport, Communication and Trade",186,199,"Population, trade and transport route map",FlowMap,Interpret migration/transport data responsibly,placeholder,not_audited
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,200,218,"Tamil Nadu landform, river and climate atlas",TamilNaduGeoMap,Identify physical geography accurately,placeholder,not_audited
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,219,238,Tamil Nadu settlement and economic activity map,TamilNaduGeoMap,Connect population and resource use,placeholder,not_audited
+social_science,civics,social-civics-01,Indian Constitution,239,247,Constitution concept and rights/duties explorer,CivicConceptExplorer,Explain constitutional values without legal advice,placeholder,not_audited
+social_science,civics,social-civics-02,Central Government,248,258,Union government institutional relationship map,GovernmentOrgMap,Describe separation of roles accurately,placeholder,not_audited
+social_science,civics,social-civics-03,State Government,259,268,State government institutions and responsibilities,GovernmentOrgMap,Map functions and citizen processes,placeholder,not_audited
+social_science,civics,social-civics-04,India’s Foreign Policy,269,277,Foreign policy choices and documented objectives,PolicyConceptMap,Explain terms and evidence-based constraints,placeholder,not_audited
+social_science,civics,social-civics-05,India’s International Relations,278,291,International bodies and bilateral relationships,NetworkMap,Map facts with dated references,placeholder,not_audited
+social_science,economics,social-economics-01,Gross Domestic Product and its Growth: an Introduction,292,302,GDP production/services concept sliders,DataStory,Read GDP without inventing official statistics,placeholder,not_audited
+social_science,economics,social-economics-02,Globalization and Trade,303,310,Trade and globalization supply-chain path,FlowMap,Explain who contributes and who is affected,placeholder,not_audited
+social_science,economics,social-economics-03,Food Security and Nutrition,311,320,Farm-to-table food security chain,FoodSystem2D,"Identify supply, access and nutrition concepts",placeholder,not_audited
+social_science,economics,social-economics-04,Government and Taxes,321,327,Simple household budget and tax allocation,BudgetSimulator,Interpret tax concepts without real tax advice,placeholder,not_audited
+social_science,economics,social-economics-05,Industrial Clusters in Tamil Nadu,328,338,Tamil Nadu industrial clusters locator,GeoDataMap,Locate industry clusters using verified sources,placeholder,not_audited
+english,,english-01,Unit 1,1,28,Scene map of “His First Flight” and “The Tempest”,StoryStage + VerseLab,"Track character motivation, language, and theme",placeholder,not_audited
+english,,english-02,Unit 2,29,58,Mystery sequencing for “The Night the Ghost Got In”,StoryStage + VerseLab,Use textual clues to infer and sequence,placeholder,not_audited
+english,,english-03,Unit 3,59,92,Perspective and voice studio for women-focused texts,StoryStage + VerseLab,Compare viewpoints without stereotyping,placeholder,not_audited
+english,,english-04,Unit 4,93,124,Interactive setting and moral-choice evidence board,StoryStage + VerseLab,Describe settings and draw text-supported inferences,placeholder,not_audited
+english,,english-05,Unit 5,125,160,Invention timeline and technology language puzzles,StoryStage + VerseLab,"Compare imagination, evidence, vocabulary",placeholder,not_audited
+english,,english-06,Unit 6,161,187,"Language, identity and empathy discussion studio",StoryStage + VerseLab,Support nuanced interpretations and respectful dialogue,placeholder,not_audited
+english,,english-07,Unit 7,188,210,Detective evidence and suspense scene reconstruction,StoryStage + VerseLab,Use clues and narrative structure to justify claims,placeholder,not_audited
+tamil,,tamil-01,அமுதஊற்று,1,22,"தமிழ்மொழி சொற்கள், பாடல், உரை மற்றும் இலக்கண ஆராய்வகம்",TamilLanguageStudio,"சொல், பொருள், இலக்கணம் ஆகியவற்றைச் சூழலுடன் கற்றல்",placeholder,not_audited
+tamil,,tamil-02,உயிரின் ஓசை,23,44,இயற்கை-ஒலி கருத்து வரைபடம் மற்றும் தொடர் பயிற்சி,TamilLanguageStudio + SoundOptional,கவிதை மற்றும் இலக்கணப் புரிதலை மேம்படுத்தல்,placeholder,not_audited
+tamil,,tamil-03,கூட்டாஞ்சோறு,45,70,"விருந்து, பண்பாடு, குறள் பொருள் காட்சி அரங்கு",TamilCultureStoryStage,பண்பாட்டையும் இலக்கியச் சூழலையும் புரிதல்,placeholder,not_audited
+tamil,,tamil-04,மணற்கேணி,71,92,"மொழிபெயர்ப்பு, உரைநடை மற்றும் இலக்கணப் பயிற்சி",TamilTranslationStudio,பொருள் மாறாமல் மாற்றிச் சொல்லுதல்,placeholder,not_audited
+tamil,,tamil-05,நிலா முற்றம்,93,120,"கலை, கவிதை, இலக்கண தொகுப்பு ஆய்வகம்",TamilVerseStudio,கவிதை/இலக்கண கூறுகளை விளக்குதல்,placeholder,not_audited
+tamil,,tamil-06,விதை நெல்,121,142,"நாகரிகம், சமூக சிந்தனை, புறப்பொருள் பயிற்சி",TamilCultureStoryStage,இலக்கியச் சூழல் மற்றும் சொற்பொருள் விளக்கம்,placeholder,not_audited
+tamil,,tamil-07,பெருவழி,143,173,"அறம், நாடகம், யாப்பு மற்றும் குறள் பயிற்சி",TamilVerseStudio + DramaStage,நயமும் பொருளும் மதிப்பீடும் இணைத்தல்,placeholder,not_audited

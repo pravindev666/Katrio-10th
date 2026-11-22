@@ -1,0 +1,159 @@
+:root {
+  /* Core Brand Tokens (Katrio Museum & Learning Lab Palette — BRAND-2026-11-v1) */
+  --ink: #13213A;
+  --text: #35465D;
+  --text-muted: #4E5F76;
+  --canvas: #F7F9FE;
+  --surface: #FFFFFF;
+  --surface-subtle: #EEF3FB;
+  --surface-elevated: #FFFFFF;
+  --line: #DDE4F0;
+
+  /* Primary Interactive */
+  --primary: #4255D4;
+  --primary-dark: #3041AF;
+  --primary-tint: #EEF1FF;
+  --info-bg: #EEF1FF;
+
+  /* Subject Signpost Accents */
+  --science: #0B7773;
+  --science-tint: #E8F6F4;
+  --math: #7155C8;
+  --math-tint: #F0ECFC;
+  --english: #3478C0;
+  --english-tint: #E9F3FC;
+  --tamil: #C04F75;
+  --tamil-tint: #FDECF2;
+  --social: #9B631F;
+  --social-tint: #FFF3E3;
+  --arcade: #C35243;
+  --arcade-tint: #FFF0EC;
+
+  /* 3D & Interactive Viewer Surface */
+  --viewer-bg: #EDF1F8;
+
+  /* Semantic States (Always paired with icon + text, never colour alone) */
+  --success: #137B55;
+  --success-bg: #E6F6F0;
+  --warning: #A86113;
+  --warning-bg: #FEF4E8;
+  --error: #B43C4C;
+  --error-bg: #FDF0F2;
+  --focus: #3041AF;
+
+  /* Layout, Spacing & Radius Tokens (8-point rhythm) */
+  --radius-control: 12px;
+  --radius-card: 20px;
+  --radius-canvas: 24px;
+  --max-width-main: 1240px;
+  --font-scale: 1;
+
+  /* Restrained Subtle Elevation */
+  --shadow-card: 0 2px 10px -2px rgba(19, 33, 58, 0.05);
+  --shadow-pop: 0 12px 32px -4px rgba(19, 33, 58, 0.12);
+}
+
+html.dark {
+  --ink: #F1F5F9;
+  --text: #D4DEE9;
+  --text-muted: #94A3B8;
+  --canvas: #0B111E;
+  --surface: #131C2E;
+  --surface-subtle: #1A263D;
+  --surface-elevated: #182338;
+  --line: #283756;
+
+  --primary: #7282F8;
+  --primary-dark: #8E9BFF;
+  --primary-tint: #1B2448;
+  --info-bg: #1B2448;
+
+  --science: #34D1CB;
+  --science-tint: #0E2B2D;
+  --math: #AC96F4;
+  --math-tint: #1E1A36;
+  --english: #60A5FA;
+  --english-tint: #13253D;
+  --tamil: #F4729B;
+  --tamil-tint: #321627;
+  --social: #F5A64C;
+  --social-tint: #2E2112;
+  --arcade: #F28275;
+  --arcade-tint: #311918;
+
+  --viewer-bg: #0F172A;
+
+  --success: #34D399;
+  --success-bg: #0D2D23;
+  --warning: #FBBF24;
+  --warning-bg: #2D220E;
+  --error: #F87171;
+  --error-bg: #311419;
+  --focus: #93C5FD;
+
+  --shadow-card: 0 2px 12px -2px rgba(0, 0, 0, 0.35);
+  --shadow-pop: 0 14px 36px -4px rgba(0, 0, 0, 0.55);
+}
+
+html.high-contrast {
+  --ink: #000000;
+  --text: #000000;
+  --text-muted: #111827;
+  --canvas: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-subtle: #F3F4F6;
+  --surface-elevated: #FFFFFF;
+  --line: #000000;
+  --primary: #0018A8;
+  --primary-dark: #000D6B;
+  --primary-tint: #E0E7FF;
+  --info-bg: #E0E7FF;
+  --focus: #000000;
+  --shadow-card: none;
+  --shadow-pop: none;
+}
+
+html.dark.high-contrast {
+  --ink: #FFFFFF;
+  --text: #FFFFFF;
+  --text-muted: #F3F4F6;
+  --canvas: #000000;
+  --surface: #0A0A0A;
+  --surface-subtle: #171717;
+  --surface-elevated: #171717;
+  --line: #FFFFFF;
+  --primary: #93C5FD;
+  --primary-dark: #BFDBFE;
+  --primary-tint: #1E293B;
+  --info-bg: #1E293B;
+  --focus: #FFFF00;
+}
+
+html[data-font-scale="large"] {
+  font-size: 112.5%;
+}
+
+html[data-font-scale="xlarge"] {
+  font-size: 125%;
+}
+
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

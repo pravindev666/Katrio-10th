@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "policy": "Original and licensed procedural/SVG assets only; zero unverified textbook scans.",
+  "assets": [
+    {
+      "id": "science-preview",
+      "path": "/preview-art/science-preview.svg",
+      "license": "Original Katrio SVG"
+    },
+    {
+      "id": "mathematics-preview",
+      "path": "/preview-art/mathematics-preview.svg",
+      "license": "Original Katrio SVG"
+    },
+    {
+      "id": "english-preview",
+      "path": "/preview-art/english-preview.svg",
+      "license": "Original Katrio SVG"
+    },
+    {
+      "id": "tamil-preview",
+      "path": "/preview-art/tamil-preview.svg",
+      "license": "Original Katrio SVG"
+    },
+    {
+      "id": "social_science-preview",
+      "path": "/preview-art/social_science-preview.svg",
+      "license": "Original Katrio SVG"
+    }
+  ]
+}

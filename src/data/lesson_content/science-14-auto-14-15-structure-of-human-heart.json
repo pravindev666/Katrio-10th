@@ -1,0 +1,358 @@
+{
+  "section_id": "science-14-auto-14-15-structure-of-human-heart",
+  "related_section_ids": [
+    "science-14-auto-14-14-types-of-circulatory",
+    "science-14-auto-14-15-2-heart-beat",
+    "science-14-auto-14-15-4-heart-sound"
+  ],
+  "unit_id": "science-14",
+  "subject": "science",
+  "title": "Structure of Human Heart & Double Circulation",
+  "subtitle": "Four chambers, four one-way valves, major vessels, and systemic + pulmonary loops",
+  "curiosity_hook": "Why does oxygen-rich blood never mix with oxygen-poor blood inside the human heart, even though both pass through it on every beat?",
+  "estimated_minutes": 7,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Reprint Edition (SCERT 2019 Syllabus)",
+  "source_printed_pages": [207, 208, 209, 210],
+  "source_pdf_pages": [215, 216, 217, 218],
+  "source_verified_by": "PASS0-PDF-AUDIT-2026-11-22 (Pending Human Science Educator Sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Identify the four chambers of the human heart, the interatrial/interventricular septum, and the major vessels (vena cava, pulmonary artery, pulmonary veins, aorta).",
+    "Explain how the four one-way valves (tricuspid, bicuspid/mitral, pulmonary semilunar, aortic semilunar) prevent backward blood flow.",
+    "Trace one complete double circulation cycle (pulmonary circuit + systemic circuit) and explain why the left ventricular wall is ~3× thicker than the right."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Four Chambers & Protective Sac",
+      "summary": "Situated between the lungs in the thoracic cavity and tilted slightly left, the heart is enclosed in a double-walled pericardium filled with friction-reducing pericardial fluid. Two thin-walled upper atria receive blood, and two thick-walled lower ventricles pump blood out, separated by a muscular septum.",
+      "worked_example": "Patient-perspective orientation: In anatomical diagrams facing you, the patient's Right Atrium and Right Ventricle appear on the viewer's LEFT side, while the Left Atrium and Left Ventricle appear on the viewer's RIGHT side."
+    },
+    {
+      "heading": "One-Way Valves & Heart Sounds (LUBB–DUPP)",
+      "summary": "The tricuspid valve (3 flaps anchored by chordae tendineae to papillary muscles) guards the right atrioventricular opening, and the bicuspid (mitral) valve (2 cusps) guards the left. Semilunar valves guard the pulmonary trunk and aorta. Closure of AV valves creates 'LUBB'; closure of semilunar valves creates 'DUPP'.",
+      "worked_example": "During a single 0.8 s cardiac cycle: Atrial systole lasts 0.1 s, Ventricular systole lasts 0.3 s, and Ventricular diastole lasts 0.4 s."
+    },
+    {
+      "heading": "Double Circulation & Myogenic Pacemaker",
+      "summary": "Blood passes through the heart twice per full loop: deoxygenated blood travels Right Ventricle → Pulmonary Artery → Lungs → Pulmonary Veins → Left Atrium (pulmonary circulation), while oxygenated blood travels Left Ventricle → Aorta → Body → Vena Cava → Right Atrium (systemic circulation). The SA node in the right atrium initiates each myogenic beat (~72–75/min)."
+    }
+  ],
+  "key_terms": [
+    {
+      "term": "Pericardium",
+      "definition": "Double-walled protective sac enclosing the heart; contains pericardial fluid that reduces friction and protects against mechanical shock."
+    },
+    {
+      "term": "Septum",
+      "definition": "Muscular partition (interatrial and interventricular) that keeps oxygenated blood on the left completely separate from deoxygenated blood on the right."
+    },
+    {
+      "term": "Tricuspid & Bicuspid (Mitral) Valves",
+      "definition": "Atrioventricular valves allowing blood to move strictly from atria to ventricles; their closure produces the first heart sound (LUBB)."
+    },
+    {
+      "term": "Semilunar Valves",
+      "definition": "Pulmonary and aortic valves at the exit of the ventricles that stop blood from flowing back into the ventricles; their closure produces DUPP."
+    },
+    {
+      "term": "Sino-Atrial (SA) Node",
+      "definition": "Natural pacemaker in the upper wall of the right atrium that initiates contraction impulses spreading to the AV node, Bundle of His, and Purkinje fibres."
+    }
+  ],
+  "interaction": {
+    "engine": "ModelExplorer3D",
+    "version": "v2",
+    "scene_id": "human-heart-double-circulation",
+    "representation_status": "Conceptual schematic",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "cutaway-slider",
+        "label": "Anterior Cutaway Cross-Section (0%–100%)",
+        "type": "slider",
+        "description": "Opens the non-graphic front cutaway wall to reveal the four internal chambers, septum, and valves.",
+        "keyboard_equivalent": "Focus slider and press Left/Right Arrow keys."
+      },
+      {
+        "id": "layer-isolate",
+        "label": "Anatomical Layer Filter (All / Chambers / Vessels / Valves)",
+        "type": "button_group",
+        "description": "Isolates chambers, major vessels (vena cava, pulmonary trunk, pulmonary veins, aorta), or one-way valves + septum.",
+        "keyboard_equivalent": "Tab to layer buttons and press Enter or Space."
+      },
+      {
+        "id": "circulation-sequencer",
+        "label": "Trace Double Circulation Sequence Builder",
+        "type": "sequence",
+        "description": "Order the 6 canonical blood-flow stations from Vena Cava through Lungs to Aorta using accessible click/keyboard controls.",
+        "keyboard_equivalent": "Select stations in order or move steps using Up/Down buttons."
+      },
+      {
+        "id": "camera-controls",
+        "label": "Camera Presets, Rotate & Zoom Buttons",
+        "type": "button_group",
+        "description": "Switch between Front, Cutaway, and Top Vessels views or rotate/zoom without mouse dragging.",
+        "keyboard_equivalent": "Dedicated Rotate Left, Rotate Right, Zoom +, Zoom −, and Reset buttons."
+      }
+    ],
+    "expected_observations": [
+      "Opening the cutaway reveals the muscular interventricular septum preventing blue (deoxygenated) and red (oxygenated) streams from mixing.",
+      "The Left Ventricle has a noticeably thicker muscular wall than the Right Ventricle because it pumps oxygenated blood through the entire systemic circuit.",
+      "Red/blue colour is strictly an educational oxygenation convention paired with explicit text labels (deoxygenated blood is dark red in reality, not bright blue)."
+    ],
+    "limitations": [
+      "Procedural 3D cutaway is a conceptual educational schematic, not a clinical or surgical scan.",
+      "Particle markers show qualitative double-circuit flow order rather than exact haemodynamic fluid velocity.",
+      "Anatomical left/right follows the patient's body perspective (patient's right appears on the viewer's left)."
+    ],
+    "safety_note": "Non-graphic educational cutaway model only; does not represent surgical dissection procedures.",
+    "config": {
+      "defaultCutaway": 40,
+      "showPatientOrientationLegend": true,
+      "cardiacCycleSeconds": 0.8
+    }
+  },
+  "storyboard": [
+    {
+      "mode": "guided",
+      "step": 1,
+      "title": "Check Anatomical Orientation",
+      "learner_action": "Inspect the exterior heart and note why the patient's Right Atrium sits on the viewer's left.",
+      "expected_response": "Orient left vs right chambers accurately before looking inside."
+    },
+    {
+      "mode": "guided",
+      "step": 2,
+      "title": "Open Cutaway & Isolate Valves",
+      "learner_action": "Slide cutaway to ≥ 50% and filter to 'Valves' to inspect the septum, tricuspid, bicuspid (mitral), and semilunar valves.",
+      "expected_response": "Observe how each valve enforces strict one-way movement."
+    },
+    {
+      "mode": "explore",
+      "step": 3,
+      "title": "Sequence the 6-Station Double Circulation Loop",
+      "learner_action": "Use either the 3D view or the 2D interactive SVG cutaway to arrange the 6 blood-flow stations in exact order.",
+      "expected_response": "Immediate feedback confirming every step from Vena Cava → Lungs → Aorta."
+    }
+  ],
+  "accessible_equivalent": {
+    "mode": "labelled_svg_steps",
+    "summary": "Interactive 2D SVG cutaway diagram of the four chambers, septum, four valves, and major vessels paired with a 6-step text walkthrough and keyboard sequence check — zero WebGL required.",
+    "steps": [
+      {
+        "step_number": 1,
+        "heading": "Body → Vena Cava → Right Atrium",
+        "description": "Deoxygenated blood from body tissues enters the thin-walled Right Atrium via the superior and inferior vena cava (and coronary sinus).",
+        "key_takeaway": "Right side handles deoxygenated (low-O₂) blood."
+      },
+      {
+        "step_number": 2,
+        "heading": "Right Atrium → Tricuspid Valve → Right Ventricle",
+        "description": "Atrial contraction pushes blood through the 3-flap tricuspid valve into the Right Ventricle.",
+        "key_takeaway": "Tricuspid valve snaps shut during ventricular contraction (part of 'LUBB')."
+      },
+      {
+        "step_number": 3,
+        "heading": "Right Ventricle → Pulmonary Semilunar Valve → Pulmonary Artery → Lungs",
+        "description": "Right Ventricle pumps deoxygenated blood via the pulmonary trunk to the lungs, where CO₂ diffuses out and O₂ diffuses in.",
+        "key_takeaway": "Pulmonary artery is the artery that carries deoxygenated blood to the lungs."
+      },
+      {
+        "step_number": 4,
+        "heading": "Lungs → Pulmonary Veins → Left Atrium",
+        "description": "Oxygen-rich blood returns from both lungs through the pulmonary veins into the Left Atrium.",
+        "key_takeaway": "Pulmonary veins carry freshly oxygenated blood back to the heart."
+      },
+      {
+        "step_number": 5,
+        "heading": "Left Atrium → Bicuspid (Mitral) Valve → Left Ventricle",
+        "description": "Oxygenated blood moves through the 2-cusp bicuspid valve into the thick-walled Left Ventricle.",
+        "key_takeaway": "Left Ventricle wall is ~3× thicker than the Right Ventricle wall."
+      },
+      {
+        "step_number": 6,
+        "heading": "Left Ventricle → Aortic Semilunar Valve → Aorta → Body",
+        "description": "High-pressure contraction sends oxygenated blood through the aortic semilunar valve into the aorta to nourish body organs and coronary arteries.",
+        "key_takeaway": "Blood passes through the heart twice per complete loop (double circulation)."
+      }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "heart-q1",
+        "difficulty": "recall",
+        "prompt": "Which vessel carries deoxygenated blood from the Right Ventricle to the lungs for oxygenation?",
+        "hint": "Look at the vessel leaving the lower-right chamber (patient's right) heading toward the lungs.",
+        "options": [
+          {
+            "id": "a",
+            "label": "Pulmonary artery (via pulmonary trunk)",
+            "is_correct": true,
+            "feedback": "Correct! The pulmonary trunk bifurcates into left and right pulmonary arteries carrying deoxygenated blood from the Right Ventricle to the lungs."
+          },
+          {
+            "id": "b",
+            "label": "Pulmonary vein",
+            "is_correct": false,
+            "feedback": "Pulmonary veins bring freshly oxygenated blood back from the lungs into the Left Atrium."
+          },
+          {
+            "id": "c",
+            "label": "Aorta",
+            "is_correct": false,
+            "feedback": "The aorta arises from the Left Ventricle and carries oxygenated blood to body organs."
+          }
+        ],
+        "worked_explanation": "Arteries carry blood away from the heart. The pulmonary artery carries deoxygenated blood away from the Right Ventricle to the lungs."
+      },
+      {
+        "id": "heart-q2",
+        "difficulty": "conceptual",
+        "prompt": "Why is the muscular wall of the Left Ventricle roughly three times thicker than that of the Right Ventricle?",
+        "hint": "Compare how far blood must travel from the Left Ventricle versus the Right Ventricle.",
+        "options": [
+          {
+            "id": "a",
+            "label": "It must pump oxygenated blood at high pressure to the entire body through the aorta.",
+            "is_correct": true,
+            "feedback": "Exactly! Systemic circulation covers the entire body, requiring far higher pumping pressure than the short pulmonary loop to the nearby lungs."
+          },
+          {
+            "id": "b",
+            "label": "It stores three times more blood volume than the Right Ventricle.",
+            "is_correct": false,
+            "feedback": "Both ventricles pump approximately equal blood volumes per beat so the two circuits stay balanced; the difference is wall muscle thickness for pressure."
+          },
+          {
+            "id": "c",
+            "label": "It receives deoxygenated blood directly from the vena cava.",
+            "is_correct": false,
+            "feedback": "The vena cava empties into the Right Atrium, not the Left Ventricle."
+          }
+        ],
+        "worked_explanation": "As noted on Science p. 208, the Left Ventricle is longer, narrower, and has walls ~3× thicker than the Right Ventricle because it generates systemic pressure for the aorta."
+      },
+      {
+        "id": "heart-q3",
+        "difficulty": "application",
+        "prompt": "A doctor listens with a stethoscope and hears the first heart sound 'LUBB' followed by 'DUPP'. What mechanical valve events create these two sounds?",
+        "hint": "Think about which pair of valves closes at the start of ventricular systole versus the end.",
+        "options": [
+          {
+            "id": "a",
+            "label": "LUBB: closure of tricuspid & bicuspid (AV) valves; DUPP: closure of pulmonary & aortic semilunar valves.",
+            "is_correct": true,
+            "feedback": "Spot on! Closure of the AV valves prevents backflow into the atria (LUBB), and closure of the semilunar valves prevents backflow into the ventricles (DUPP)."
+          },
+          {
+            "id": "b",
+            "label": "LUBB: opening of the vena cava; DUPP: opening of the septum.",
+            "is_correct": false,
+            "feedback": "The septum is a solid muscular wall that never opens, and heart sounds come from rhythmic valve closures."
+          },
+          {
+            "id": "c",
+            "label": "LUBB: closure of semilunar valves; DUPP: closure of tricuspid valve.",
+            "is_correct": false,
+            "feedback": "That order is reversed — AV valves close first as ventricular systole begins (LUBB), followed by semilunar valves at the end of ventricular systole (DUPP)."
+          }
+        ],
+        "worked_explanation": "Science p. 210: 'LUBB' (longer) results from AV valve closure; 'DUPP' (shorter) results from semilunar valve closure."
+      },
+      {
+        "id": "heart-q4",
+        "difficulty": "conceptual",
+        "prompt": "Why is the Sino-Atrial (SA) node called the 'pacemaker' of the human heart?",
+        "hint": "Remember whether the human heart is neurogenic or myogenic (p. 209).",
+        "options": [
+          {
+            "id": "a",
+            "label": "It initiates electrical contraction impulses within the right atrial wall to trigger each heartbeat.",
+            "is_correct": true,
+            "feedback": "Correct! Because the human heart is myogenic, the SA node autonomously generates impulses that travel through the AV node, Bundle of His, and Purkinje fibres."
+          },
+          {
+            "id": "b",
+            "label": "It filters carbon dioxide directly out of blood inside the aorta.",
+            "is_correct": false,
+            "feedback": "Gas exchange happens in lung capillaries, not in the SA node or aorta."
+          },
+          {
+            "id": "c",
+            "label": "It physically blocks blood from entering the Left Atrium.",
+            "is_correct": false,
+            "feedback": "The SA node is conducting cardiac muscle tissue, not a valve."
+          }
+        ],
+        "worked_explanation": "The SA node near the superior vena cava opening initiates rhythmic waves of contraction across the atria and into the ventricles via the AV node and Purkinje fibres."
+      }
+    ],
+    "worked_feedback": [
+      "Always separate the two sides conceptually: Right heart → Pulmonary loop (deoxygenated → lungs); Left heart → Systemic loop (oxygenated → body).",
+      "In anatomical diagrams, 'Right' and 'Left' always refer to the patient's body, not the viewer's screen side."
+    ]
+  },
+  "flashcards": [
+    {
+      "id": "heart-fc-1",
+      "card_type": "diagram_label",
+      "front": "Which valve separates the Right Atrium and Right Ventricle, and how many flaps does it have?",
+      "back": "The Tricuspid valve (Right Atrioventricular valve) — it has 3 triangular flaps anchored by chordae tendineae to papillary muscles."
+    },
+    {
+      "id": "heart-fc-2",
+      "card_type": "diagram_label",
+      "front": "Which valve separates the Left Atrium and Left Ventricle?",
+      "back": "The Bicuspid (Mitral) valve — it has 2 cusps and prevents oxygenated blood from flowing backward into the Left Atrium."
+    },
+    {
+      "id": "heart-fc-3",
+      "card_type": "why",
+      "front": "What is 'Double Circulation' in humans?",
+      "back": "Blood passes through the heart twice in one complete cycle (Pulmonary circulation to lungs + Systemic circulation to body) without mixing oxygenated and deoxygenated blood."
+    },
+    {
+      "id": "heart-fc-4",
+      "card_type": "term",
+      "front": "What are the three phases and total duration of one human cardiac cycle?",
+      "back": "Total ≈ 0.8 seconds: Atrial systole (0.1 s) + Ventricular systole (0.3 s) + Ventricular diastole (0.4 s)."
+    },
+    {
+      "id": "heart-fc-5",
+      "card_type": "apply",
+      "front": "Which blood vessel supplies oxygenated blood to the heart muscle itself?",
+      "back": "Coronary arteries (originating from the aortic arch) supply cardiac muscles; coronary circulation drains back to the Right Atrium via the coronary sinus."
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "heart-procedural-3d-v2",
+      "kind": "procedural_3d",
+      "description": "Original procedural Three.js cutaway model showing 4 chambers, septum, 4 valves, vena cava, pulmonary trunk, pulmonary veins, and aorta.",
+      "license": "Original Katrio Code (Apache-2.0)",
+      "source_reference": "Anatomical nomenclature verified against TN Class 10 Science 2024 Reprint, pp. 207–210 (Figs. 14.11–14.13)."
+    },
+    {
+      "asset_id": "heart-cutaway-svg-2d-v2",
+      "kind": "interactive_svg",
+      "description": "Original interactive 2D SVG anatomical cutaway diagram with keyboard-selectable chambers, valves, and double-circulation flow indicators.",
+      "license": "Original Katrio SVG (Apache-2.0)",
+      "source_reference": "TN Class 10 Science 2024 Reprint, pp. 207–210."
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "All text, 3D geometry, and 2D SVG diagrams are independently authored; zero scanned textbook figures reproduced."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

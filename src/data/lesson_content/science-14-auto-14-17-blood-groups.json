@@ -1,0 +1,155 @@
+{
+  "section_id": "science-14-auto-14-17-blood-groups",
+  "related_section_ids": [
+    "science-14-auto-14-18-lymphatic-system"
+  ],
+  "unit_id": "science-14",
+  "subject": "science",
+  "title": "14.17–14.18 ABO & Rh Blood Groups and the Lymphatic System",
+  "subtitle": "Karl Landsteiner's ABO antigens/antibodies (Table 14.2), Universal Donor/Recipient, Rh factor & Lymph functions (pp. 211–212)",
+  "curiosity_hook": "Why can Group O donate blood to everyone while Group AB can receive from anyone — and what happens if mismatched blood mixes?",
+  "estimated_minutes": 12,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [211, 212],
+  "source_pdf_pages": [219, 220],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human biology teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Map RBC surface antigens (A, B, none) and plasma antibodies (anti-a, anti-b, none) across all four ABO blood groups (Table 14.2).",
+    "Evaluate donor-to-recipient ABO + Rh transfusion compatibility and explain why mismatched transfusions cause dangerous agglutination (clumping).",
+    "Describe the lymphatic system (capillaries, vessels, nodes, ducts, intestinal lacteals) and its four physiological functions."
+  ],
+  "concept_outline": [
+    {
+      "heading": "ABO Antigens, Antibodies & Transfusion Rules (14.17, Table 14.2, pp. 211–212)",
+      "summary": "Karl Landsteiner (1900) discovered A, B, and O groups; Decastello & Sturli (1902) identified AB. Group O RBCs have NO A/B antigens (Universal Donor); Group AB plasma has NO anti-a/anti-b antibodies (Universal Recipient). Mismatched donor antigens react with recipient plasma antibodies causing lethal agglutination."
+    },
+    {
+      "heading": "Rh Factor (Landsteiner & Wiener, 1940, pp. 211–212)",
+      "summary": "Discovered in Rhesus monkeys: Rh+ RBCs carry Rh antigen while Rh− RBCs lack it. An Rh− recipient must never receive Rh+ blood because anti-Rh antibodies develop."
+    },
+    {
+      "heading": "Lymphatic System & Lacteals (14.18, p. 212)",
+      "summary": "Lymph is colourless tissue fluid with less protein and no RBCs, containing WBCs (lymphocytes). It drains excess interstitial fluid back to blood, absorbs digested fats from intestinal villi via lacteals, supplies nutrients where blood capillaries cannot reach, and fights infections."
+    }
+  ],
+  "key_terms": [
+    { "term": "Agglutination", "definition": "Dangerous clumping of donor RBCs when donor antigens clash with recipient plasma antibodies." },
+    { "term": "Universal Donor (Group O)", "definition": "Group O RBCs carry neither Antigen A nor Antigen B, so they trigger no ABO clumping in any recipient." },
+    { "term": "Universal Recipient (Group AB)", "definition": "Group AB plasma contains neither anti-a nor anti-b antibodies, allowing ABO reception from A, B, AB, or O." },
+    { "term": "Lacteals", "definition": "Lymphatic capillaries inside small-intestine villi that absorb digested fats into the lymphatic stream." }
+  ],
+  "interaction": {
+    "engine": "JourneyThrough",
+    "version": "1.0.0",
+    "scene_id": "unit14-blood-groups-lab",
+    "representation_status": "Equation-based simulation",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "donor-recipient-picker",
+        "label": "Donor & Recipient ABO + Rh Compatibility Tester",
+        "type": "button_group",
+        "description": "Pair any donor (A/B/AB/O, Rh+/−) with any recipient to test agglutination safety per Table 14.2.",
+        "keyboard_equivalent": "Tab + Enter across Donor and Recipient blood-group buttons."
+      }
+    ],
+    "expected_observations": [
+      "O− is compatible with every ABO and Rh recipient (no A, B, or Rh antigens on donor RBCs).",
+      "Donating Group A blood to a Group B recipient triggers agglutination because B plasma holds anti-a antibodies."
+    ],
+    "limitations": [
+      "Educational biology model only; real clinical blood transfusions always require certified hospital cross-matching."
+    ],
+    "config": {
+      "initial_tab": "blood"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Test Universal Donor (O−) → AB+", "learner_action": "Select Donor O− and Recipient AB+.", "expected_response": "Displays COMPATIBLE because O− RBCs carry zero A/B/Rh antigens." },
+    { "mode": "explore", "step": 2, "title": "Trigger an Agglutination Warning", "learner_action": "Pair Donor A+ with Recipient B−.", "expected_response": "Flags both Antigen A vs anti-a AND Rh+ vs Rh− conflicts." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Full Table 14.2 ABO antigen/antibody compatibility matrix, Rh rule, and 4 lymphatic system functions.",
+    "steps": [
+      { "step_number": 1, "heading": "Check Donor RBC Antigens", "description": "A has Ag A; B has Ag B; AB has Ag A & B; O has no Ag.", "key_takeaway": "Antigens sit on the RBC membrane surface." },
+      { "step_number": 2, "heading": "Check Recipient Plasma Antibodies", "description": "A has anti-b; B has anti-a; AB has none; O has both anti-a & anti-b.", "key_takeaway": "Never introduce an antigen matching the recipient's antibody." },
+      { "step_number": 3, "heading": "Lymphatic System Roles", "description": "Drains excess tissue fluid, absorbs fats via intestinal lacteals, returns proteins, and defends via lymphocytes.", "key_takeaway": "Lymph is colourless and lacks RBCs." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "s14bg-q1",
+        "difficulty": "conceptual",
+        "prompt": "Why is Blood Group AB called the 'Universal Recipient' in the ABO system (Table 14.2, p. 212)?",
+        "hint": "Check which antibodies are present in AB plasma.",
+        "options": [
+          { "id": "a", "label": "Its plasma contains NO anti-a or anti-b antibodies to attack donor RBCs", "is_correct": true, "feedback": "Correct! With no ABO antibodies in plasma, AB recipients can receive A, B, AB, or O blood." },
+          { "id": "b", "label": "Its RBCs have no antigens at all", "is_correct": false, "feedback": "Group O RBCs lack antigens; Group AB RBCs carry BOTH Antigen A and Antigen B." },
+          { "id": "c", "label": "It has both anti-a and anti-b antibodies", "is_correct": false, "feedback": "Group O plasma carries both antibodies." },
+          { "id": "d", "label": "It contains no blood plasma", "is_correct": false, "feedback": "All human blood has ~55% plasma." }
+        ],
+        "worked_explanation": "Group AB plasma lacks both anti-a and anti-b antibodies, preventing ABO agglutination with any donor group."
+      },
+      {
+        "id": "s14bg-q2",
+        "difficulty": "application",
+        "prompt": "Can a Group O recipient safely receive blood from a Group A donor?",
+        "hint": "Check what antibodies Group O plasma carries.",
+        "options": [
+          { "id": "a", "label": "Yes, Group O can receive from anyone", "is_correct": false, "feedback": "Group O is the Universal DONOR, NOT the Universal Recipient!" },
+          { "id": "b", "label": "No — Group O plasma carries anti-a antibodies that will clump Group A donor RBCs", "is_correct": true, "feedback": "Correct! Group O individuals can only receive Group O blood." },
+          { "id": "c", "label": "Yes, if both are Rh+", "is_correct": false, "feedback": "ABO incompatibility still causes severe agglutination regardless of Rh." },
+          { "id": "d", "label": "Only in winter", "is_correct": false, "feedback": "Antigen–antibody compatibility never depends on season." }
+        ],
+        "worked_explanation": "Group O plasma contains both anti-a and anti-b antibodies, so Group O recipients can only receive from Group O donors."
+      },
+      {
+        "id": "s14bg-q3",
+        "difficulty": "recall",
+        "prompt": "What is the specialized role of lymphatic capillaries called 'lacteals' in small-intestine villi (p. 212)?",
+        "hint": "Check the third bullet under 'Functions of Lymph' on p. 212.",
+        "options": [
+          { "id": "a", "label": "Absorbing digested fats from the small intestine into lymph and then blood", "is_correct": true, "feedback": "Correct! Intestinal lacteals absorb digested fats and transport them into the bloodstream." },
+          { "id": "b", "label": "Pumping oxygenated blood to the brain", "is_correct": false, "feedback": "The left ventricle and carotid arteries supply the brain." },
+          { "id": "c", "label": "Producing haemoglobin for RBCs", "is_correct": false, "feedback": "Bone marrow forms RBCs." },
+          { "id": "d", "label": "Generating the LUBB heart sound", "is_correct": false, "feedback": "AV valves generate the LUBB sound." }
+        ],
+        "worked_explanation": "Textbook p. 212 notes that lymphatic capillaries in intestinal villi (lacteals) absorb digested fats."
+      }
+    ],
+    "worked_feedback": [
+      "Don't mix up Universal Donor (Group O — no RBC antigens) and Universal Recipient (Group AB — no plasma antibodies)."
+    ]
+  },
+  "flashcards": [
+    { "id": "s14bg-fc1", "card_type": "term", "front": "Discoverers of ABO & Rh Blood Groups", "back": "ABO (A, B, O): Karl Landsteiner (1900); AB: Decastello & Sturli (1902); Rh: Landsteiner & Wiener (1940)." },
+    { "id": "s14bg-fc2", "card_type": "term", "front": "Table 14.2: Group O vs Group AB", "back": "Group O = no RBC antigens, both anti-a & anti-b (Universal Donor). Group AB = both A & B antigens, no antibodies (Universal Recipient)." },
+    { "id": "s14bg-fc3", "card_type": "term", "front": "What are Lacteals (p. 212)?", "back": "Lymphatic capillaries in small-intestine villi that absorb digested fats into lymph." }
+  ],
+  "assets": [
+    {
+      "asset_id": "unit14-blood-compatibility-lab-v1",
+      "kind": "data_table",
+      "description": "Deterministic ABO + Rh transfusion compatibility lab for Science Unit 14.17–14.18.",
+      "license": "Original project educational asset",
+      "source_reference": "TN Class 10 Science 2024 Edition, Unit 14, pp. 211–212"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original compatibility logic and educational notes aligned to Table 14.2."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

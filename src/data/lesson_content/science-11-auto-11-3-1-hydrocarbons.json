@@ -1,0 +1,170 @@
+{
+  "section_id": "science-11-auto-11-3-1-hydrocarbons",
+  "related_section_ids": [
+    "science-11-auto-11-2-classification-of",
+    "science-11-auto-11-3-classes-of-organic",
+    "science-11-auto-11-3-2-characteristics-of",
+    "science-11-auto-11-4-homologous-series",
+    "science-11-auto-11-6-ethanol-ch3ch2oh",
+    "science-11-auto-11-7-ethanoic-acid-ch3cooh"
+  ],
+  "unit_id": "science-11",
+  "subject": "science",
+  "title": "3D Carbon Bond Builder — Hydrocarbons, Ethanol & Ethanoic Acid",
+  "subtitle": "Tetravalency, catenation, alkanes/alkenes/alkynes, bromine water test, and –OH / –COOH functional groups",
+  "curiosity_hook": "Why is Methane (CH₄) a 3D pyramid (109.5°) while Ethene (C₂H₄) is flat and Ethyne (C₂H₂) is a straight line?",
+  "estimated_minutes": 14,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [155, 156, 157, 158, 163, 165],
+  "source_pdf_pages": [163, 164, 165, 166, 171, 173],
+  "source_verified_by": "AGY Pass 2 3D Blueprint Build (pending human chemistry teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Explore 3D molecular shapes of saturated alkanes (CH₄), unsaturated alkenes (C₂H₄) and alkynes (C₂H₂), and functional-group derivatives (Ethanol, Ethanoic Acid).",
+    "Apply general formulas CnH2n+2 (Alkane), CnH2n (Alkene), and CnH2n−2 (Alkyne) and predict the bromine water test result.",
+    "Identify functional groups (–OH alcohol in Ethanol, –COOH carboxylic acid in Ethanoic Acid) and compute their molecular masses."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Catenation, Tetravalency & Saturated vs Unsaturated Hydrocarbons (11.2–11.3.1)",
+      "summary": "Carbon forms 4 covalent bonds and chains with itself (catenation). Alkanes (CnH2n+2) have only C–C single bonds (saturated), whereas Alkenes (C=C, CnH2n) and Alkynes (C≡C, CnH2n−2) are unsaturated."
+    },
+    {
+      "heading": "Bromine Water Test & Reactivity Order (11.3.2)",
+      "summary": "Unsaturated hydrocarbons (alkenes and alkynes) decolourise reddish-brown bromine water, whereas saturated alkanes do not. Alkynes are the most reactive class due to their triple bond."
+    },
+    {
+      "heading": "Ethanol (CH₃CH₂OH) & Ethanoic Acid (CH₃COOH) (11.6–11.7)",
+      "summary": "Replacing a hydrogen atom with –OH gives an alcohol (Ethanol, 46 g/mol), while –COOH gives a carboxylic acid (Ethanoic Acid / acetic acid, 60 g/mol, found as 5–8% solution in vinegar)."
+    }
+  ],
+  "key_terms": [
+    { "term": "Catenation", "definition": "Carbon's unique ability to form strong covalent chains and rings with other carbon atoms." },
+    { "term": "Saturated Hydrocarbon (Alkane)", "definition": "Hydrocarbon containing only C–C single covalent bonds (CnH2n+2); does not decolourise bromine water." },
+    { "term": "Unsaturated Hydrocarbon", "definition": "Hydrocarbon containing at least one C=C double bond (alkene) or C≡C triple bond (alkyne)." },
+    { "term": "Functional Group", "definition": "An atom or group of atoms (like –OH or –COOH) that determines the characteristic chemical properties of an organic compound." }
+  ],
+  "interaction": {
+    "engine": "ModelExplorer3D",
+    "version": "1.0.0",
+    "scene_id": "molecule-builder-3d-unit11",
+    "representation_status": "Conceptual schematic",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "organic-selector",
+        "label": "Organic Molecule Switcher",
+        "type": "button_group",
+        "description": "Orbit Methane, Ethene, Ethyne, Ethanol, and Ethanoic Acid in 3D.",
+        "keyboard_equivalent": "Tab + Enter on molecule buttons."
+      },
+      {
+        "id": "bromine-test",
+        "label": "Virtual Bromine Water Test",
+        "type": "button_group",
+        "description": "Test whether the selected molecule is saturated or unsaturated.",
+        "keyboard_equivalent": "Enter on Run Test button."
+      }
+    ],
+    "expected_observations": [
+      "Methane forms a 3D tetrahedron (109.5°) and does not decolourise bromine water.",
+      "Ethene (double bond, 120° planar) and Ethyne (triple bond, 180° linear) both decolourise bromine water."
+    ],
+    "limitations": [
+      "Virtual bromine water test is conceptual only — liquid bromine is corrosive and toxic and not handled outside supervised labs."
+    ],
+    "safety_note": "Conceptual virtual test only. Bromine and concentrated organic chemicals require supervised laboratory fume-hood controls.",
+    "config": {
+      "default_molecule": "ch4"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Orbit Tetrahedral Methane (CH₄)", "learner_action": "Rotate CH₄ in 3D to see why its 4 H atoms point to corners of a tetrahedron.", "expected_response": "Bond angle reads 109.5°, saturated alkane (16 g/mol)." },
+    { "mode": "guided", "step": 2, "title": "Compare C=C vs C≡C Bonds", "learner_action": "Switch to Ethene (C₂H₄) and Ethyne (C₂H₂) and click Run Test.", "expected_response": "Double/triple cylinders render between C1–C2 and bromine water decolourises." },
+    { "mode": "explore", "step": 3, "title": "Inspect –OH and –COOH Groups", "learner_action": "Select Ethanol and Ethanoic Acid and click the red Oxygen atoms.", "expected_response": "Highlights hydroxyl (–OH, 46 g/mol) vs carboxyl (–COOH, 60 g/mol)." }
+  ],
+  "accessible_equivalent": {
+    "mode": "labelled_svg_steps",
+    "summary": "2D structural projection showing single, double, and triple bonds, mass breakdown, and bromine test results without WebGL.",
+    "steps": [
+      { "step_number": 1, "heading": "Alkanes (CnH2n+2)", "description": "Single C–C bonds only; saturated; least reactive.", "key_takeaway": "Methane CH₄, Ethane C₂H₆, Propane C₃H₈." },
+      { "step_number": 2, "heading": "Alkenes (CnH2n) & Alkynes (CnH2n−2)", "description": "Contain C=C double or C≡C triple bonds; unsaturated; decolourise bromine water.", "key_takeaway": "Ethene C₂H₄ (planar 120°), Ethyne C₂H₂ (linear 180°)." },
+      { "step_number": 3, "heading": "Functional Groups (–OH & –COOH)", "description": "Ethanol ends in -ol (–OH); Ethanoic acid ends in -oic acid (–COOH).", "key_takeaway": "Functional groups control chemical reactions and IUPAC suffixes." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "s11-q1",
+        "difficulty": "recall",
+        "prompt": "Which general formula represents the Alkene homologous series (containing a C=C double bond)?",
+        "hint": "Test with Ethene (n = 2, C₂H₄).",
+        "options": [
+          { "id": "a", "label": "CnH2n+2", "is_correct": false, "feedback": "CnH2n+2 is the saturated Alkane series." },
+          { "id": "b", "label": "CnH2n", "is_correct": true, "feedback": "Correct! For n = 2, C₂H₄ is Ethene; for n = 3, C₃H₆ is Propene." },
+          { "id": "c", "label": "CnH2n−2", "is_correct": false, "feedback": "CnH2n−2 is the Alkyne series (triple bond)." },
+          { "id": "d", "label": "CnH2n+1OH", "is_correct": false, "feedback": "That is the alcohol homologous series." }
+        ],
+        "worked_explanation": "Alkenes have one C=C double bond, reducing hydrogen count by 2 compared to alkanes → CnH2n."
+      },
+      {
+        "id": "s11-q2",
+        "difficulty": "conceptual",
+        "prompt": "A hydrocarbon sample rapidly decolourises reddish-brown bromine water. What does this confirm (p. 158)?",
+        "hint": "Recall the Class 10 saturation test.",
+        "options": [
+          { "id": "a", "label": "It is a saturated alkane", "is_correct": false, "feedback": "Saturated alkanes do NOT decolourise bromine water." },
+          { "id": "b", "label": "It is an unsaturated hydrocarbon (alkene or alkyne)", "is_correct": true, "feedback": "Correct! Double or triple bonds react with bromine, discharging its colour." },
+          { "id": "c", "label": "It is pure water", "is_correct": false, "feedback": "Water does not decolourise bromine water." },
+          { "id": "d", "label": "It has no carbon atoms", "is_correct": false, "feedback": "All hydrocarbons contain carbon and hydrogen." }
+        ],
+        "worked_explanation": "Unsaturated bonds (C=C or C≡C) undergo addition with bromine, decolourising bromine water."
+      },
+      {
+        "id": "s11-q3",
+        "difficulty": "application",
+        "prompt": "What is the molecular mass and functional group of Ethanoic Acid (CH₃COOH)?",
+        "hint": "Count 2 C, 4 H, 2 O using C=12, H=1, O=16.",
+        "options": [
+          { "id": "a", "label": "46 g/mol, Hydroxyl (–OH)", "is_correct": false, "feedback": "46 g/mol with –OH is Ethanol (CH₃CH₂OH)." },
+          { "id": "b", "label": "60 g/mol, Carboxylic acid (–COOH)", "is_correct": true, "feedback": "Correct! 2(12) + 4(1) + 2(16) = 60 g/mol with –COOH group." },
+          { "id": "c", "label": "44 g/mol, Aldehyde (–CHO)", "is_correct": false, "feedback": "44 g/mol is Ethanal (CH₃CHO)." },
+          { "id": "d", "label": "30 g/mol, Single C–C", "is_correct": false, "feedback": "30 g/mol is Ethane (C₂H₆)." }
+        ],
+        "worked_explanation": "CH₃COOH has 2 C (24) + 4 H (4) + 2 O (32) = 60 g/mol and carries the –COOH carboxylic acid group."
+      }
+    ],
+    "worked_feedback": [
+      "Always verify carbon's tetravalency (4 bonds per carbon) in every structural formula.",
+      "Compare single, double, and triple bonds visually in 3D to remember geometry: 109.5° → 120° → 180°."
+    ]
+  },
+  "flashcards": [
+    { "id": "s11-fc1", "card_type": "term", "front": "General formulas of Alkane, Alkene, Alkyne", "back": "Alkane: CnH2n+2; Alkene: CnH2n; Alkyne: CnH2n−2." },
+    { "id": "s11-fc2", "card_type": "apply", "front": "Bromine water test for saturation", "back": "Unsaturated compounds (C=C, C≡C) decolourise bromine water; saturated alkanes do not." },
+    { "id": "s11-fc3", "card_type": "term", "front": "Functional groups of Ethanol vs Ethanoic Acid", "back": "Ethanol: –OH (alcohol, 46 g/mol); Ethanoic Acid: –COOH (carboxylic acid, 60 g/mol)." }
+  ],
+  "assets": [
+    {
+      "asset_id": "threejs-carbon-bonds-v1",
+      "kind": "procedural_3d",
+      "description": "Procedural Three.js 3D organic molecule & carbon bond explorer with 2D structural SVG fallback.",
+      "license": "Original project asset (MIT / educational)",
+      "source_reference": "TN Class 10 Science 2024 Edition, Unit 11, pp. 155–165"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original procedural 3D organic models and original explanations aligned to Unit 11."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

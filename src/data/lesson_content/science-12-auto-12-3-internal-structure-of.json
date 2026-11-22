@@ -1,0 +1,172 @@
+{
+  "section_id": "science-12-auto-12-3-internal-structure-of",
+  "related_section_ids": [
+    "science-12-auto-12-1-tissues",
+    "science-12-auto-12-2-1-dermal-or-epidermal",
+    "science-12-auto-12-2-2-ground-tissue-system",
+    "science-12-auto-12-2-3-vascular-tissue-system",
+    "science-12-auto-12-9-plant-physiology",
+    "science-12-auto-12-9-1-plastids",
+    "science-12-auto-12-9-3-functions-of-chloroplast",
+    "science-12-auto-12-9-4-photosynthesis"
+  ],
+  "unit_id": "science-12",
+  "subject": "science",
+  "title": "3D Plant Anatomy & Chloroplast Explorer (Dicot Root & Photosynthesis)",
+  "subtitle": "Dermal, ground & radial vascular tissue layers in Dicot Root plus 3D Chloroplast grana & stroma cutaway",
+  "curiosity_hook": "How does a bean root filter soil water through a waterproof Casparian strip, and where inside a leaf chloroplast does sunlight turn into glucose?",
+  "estimated_minutes": 14,
+  "source_pdf": "Class_10_Science_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [173, 174, 175, 176, 180, 181],
+  "source_pdf_pages": [181, 182, 183, 184, 188, 189],
+  "source_verified_by": "AGY Pass 2 3D Blueprint Build (pending human biology teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Identify concentric tissue layers in a 3D Dicot Root transverse section (Epiblema, Cortex, Endodermis with Casparian strip, Pericycle, Tetrarch Radial Xylem, Phloem).",
+    "Distinguish radial (roots) vs conjoint collateral (stems) and exarch vs endarch xylem arrangements.",
+    "Inspect a 3D Chloroplast cutaway to map Light-Dependent reactions (Grana/Thylakoids) vs Dark/Calvin Cycle reactions (Stroma)."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Three Plant Tissue Systems & Vascular Bundles (12.2)",
+      "summary": "Sachs (1875) classified plant tissues into Dermal (epidermis), Ground (cortex, endodermis, pericycle, pith), and Vascular (xylem + phloem). Roots have Radial, Exarch bundles; dicot stems have Conjoint, Collateral, Endarch, Open bundles."
+    },
+    {
+      "heading": "Internal Structure of Dicot Root — Bean (12.3)",
+      "summary": "From outside to center: Epiblema (piliferous layer with root hairs, no cuticle) → Parenchyma Cortex → Barrel-shaped Endodermis (with suberin Casparian strips & thin-walled passage cells) → Pericycle (lateral root origin) → Tetrarch Xylem alternating with Phloem."
+    },
+    {
+      "heading": "Chloroplast Cutaway & Photosynthesis (12.9)",
+      "summary": "Enclosed by a double membrane, chloroplasts contain stacked Thylakoid Grana (where chlorophyll drives the light-dependent Hill reaction) suspended in proteinaceous Stroma (site of light-independent CO₂ fixation into glucose)."
+    }
+  ],
+  "key_terms": [
+    { "term": "Casparian Strip", "definition": "Suberin band thickening on radial and inner tangential walls of endodermis regulating water entry into the stele." },
+    { "term": "Radial & Exarch Xylem", "definition": "Xylem and phloem lie on alternating radii, with protoxylem facing outward (typical of roots)." },
+    { "term": "Grana (Thylakoids)", "definition": "Coin-like stacks of chlorophyll-bearing membranes inside chloroplasts where light-dependent reactions occur." },
+    { "term": "Stroma", "definition": "Matrix surrounding grana inside chloroplasts containing enzymes for light-independent (Calvin) reactions." }
+  ],
+  "interaction": {
+    "engine": "ModelExplorer3D",
+    "version": "1.0.0",
+    "scene_id": "plant-anatomy-3d",
+    "representation_status": "Conceptual schematic",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "specimen-switch",
+        "label": "Dicot Root / Chloroplast Toggle",
+        "type": "button_group",
+        "description": "Switch between the 3D Dicot Root transverse section and the 3D Chloroplast organelle cutaway.",
+        "keyboard_equivalent": "Enter/Space on Dicot Root or Chloroplast buttons."
+      },
+      {
+        "id": "layer-select",
+        "label": "3D Layer Picking & Part List",
+        "type": "select",
+        "description": "Click any 3D tissue cylinder or thylakoid stack (or choose from keyboard buttons) to highlight and inspect it.",
+        "keyboard_equivalent": "Tab + Enter across the part list buttons."
+      }
+    ],
+    "expected_observations": [
+      "In the Dicot Root, four red xylem arms form a tetrarch star alternating with four blue phloem patches inside the amber endodermis ring.",
+      "In the Chloroplast cutaway, stacked green grana discs are linked by tubular stroma lamellae."
+    ],
+    "limitations": [
+      "3D tissue cross-sections and organelle cutaways are schematic teaching models rather than electron micrographs."
+    ],
+    "config": {
+      "default_specimen": "dicot_root"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Peel the Dicot Root Layers", "learner_action": "Click Epiblema, Endodermis, and Tetrarch Radial Xylem in 3D.", "expected_response": "Highlights each concentric tissue cylinder and explains Casparian strip & exarch xylem." },
+    { "mode": "guided", "step": 2, "title": "Switch to 3D Chloroplast Cutaway", "learner_action": "Click Chloroplast (12.9) and inspect Grana vs Stroma.", "expected_response": "Distinguishes Light Reaction (Grana) from Dark Reaction (Stroma)." },
+    { "mode": "explore", "step": 3, "title": "Verify 2D Cross-Section Mode", "learner_action": "Toggle Switch to 2D SVG.", "expected_response": "All clickable tissue layers remain interactive without WebGL." }
+  ],
+  "accessible_equivalent": {
+    "mode": "labelled_svg_steps",
+    "summary": "Interactive 2D SVG cross-sections of both Dicot Root and Chloroplast with keyboard-selectable layer explanations.",
+    "steps": [
+      { "step_number": 1, "heading": "Dermal & Ground Zones (Dicot Root)", "description": "Epiblema (root hairs, no cuticle) absorbs soil water; Cortex stores food/water; Endodermis enforces selective uptake via Casparian strips.", "key_takeaway": "Passage cells opposite protoxylem allow regulated water passage." },
+      { "step_number": 2, "heading": "Central Stele (Pericycle + Vascular)", "description": "Pericycle produces lateral roots; Xylem is radial, exarch, and tetrarch (4 arms) alternating with Phloem.", "key_takeaway": "Dicot root = tetrarch xylem (4 arms), old pith absent; Monocot root = polyarch, large pith present." },
+      { "step_number": 3, "heading": "Chloroplast Compartments", "description": "Grana capture sunlight to split water and make ATP/NADPH₂; Stroma fixes CO₂ into glucose.", "key_takeaway": "Light reaction → Grana; Dark reaction (Calvin cycle) → Stroma." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "s12-q1",
+        "difficulty": "recall",
+        "prompt": "In a Dicot Root (Bean), how are the xylem and phloem bundles arranged (p. 175)?",
+        "hint": "Look at the 4 red arms and 4 blue patches inside the stele.",
+        "options": [
+          { "id": "a", "label": "Conjoint, collateral, endarch, and open", "is_correct": false, "feedback": "That describes a Dicot Stem (Sunflower), not a Dicot Root." },
+          { "id": "b", "label": "Radial, exarch, and tetrarch", "is_correct": true, "feedback": "Correct! Xylem and phloem sit on alternate radii, protoxylem faces outward (exarch), with 4 xylem arms (tetrarch)." },
+          { "id": "c", "label": "Concentric and amphivasal", "is_correct": false, "feedback": "Amphivasal bundles occur in Dracaena." },
+          { "id": "d", "label": "Polyarch with a large central pith", "is_correct": false, "feedback": "Polyarch xylem with pith characterizes a Monocot Root (Maize)." }
+        ],
+        "worked_explanation": "Dicot roots have radial vascular bundles with exarch, tetrarch xylem and alternating phloem patches."
+      },
+      {
+        "id": "s12-q2",
+        "difficulty": "conceptual",
+        "prompt": "Where inside the chloroplast do the Light-Dependent (Hill) reaction and Light-Independent (Calvin) reaction occur?",
+        "hint": "Match chlorophyll-rich discs vs enzyme-rich matrix.",
+        "options": [
+          { "id": "a", "label": "Both occur in the outer membrane", "is_correct": false, "feedback": "The outer membrane is only the selectively permeable boundary." },
+          { "id": "b", "label": "Light reaction in Grana (thylakoids); Dark reaction in Stroma", "is_correct": true, "feedback": "Correct! Grana pigments trap sunlight; Stroma enzymes reduce CO₂ to glucose." },
+          { "id": "c", "label": "Light reaction in Stroma; Dark reaction in Grana", "is_correct": false, "feedback": "Reversed! Chlorophyll sits in thylakoid grana membranes." },
+          { "id": "d", "label": "Both occur in root hairs", "is_correct": false, "feedback": "Root hairs lack chloroplasts." }
+        ],
+        "worked_explanation": "Light-dependent reactions take place in thylakoid grana; Calvin cycle carbon fixation happens in the stroma."
+      },
+      {
+        "id": "s12-q3",
+        "difficulty": "recall",
+        "prompt": "What is the role of the Pericycle layer inside a root's endodermis (p. 175)?",
+        "hint": "Check what branches grow outward from a main root.",
+        "options": [
+          { "id": "a", "label": "Site of origin of lateral roots", "is_correct": true, "feedback": "Correct! Lateral roots originate from the single-layered pericycle." },
+          { "id": "b", "label": "Photosynthesis using chlorophyll", "is_correct": false, "feedback": "Underground root pericycle does not carry out photosynthesis." },
+          { "id": "c", "label": "Evaporation of water via stomata", "is_correct": false, "feedback": "Stomata are absent on roots." },
+          { "id": "d", "label": "Secretion of waxy cuticle", "is_correct": false, "feedback": "Roots lack a waxy cuticle so they can absorb soil water." }
+        ],
+        "worked_explanation": "Pericycle forms the outer boundary of the stele and gives rise to lateral roots."
+      }
+    ],
+    "worked_feedback": [
+      "Remember 'E-C-E-P-V' from outside to inside in a root: Epiblema → Cortex → Endodermis → Pericycle → Vascular bundle.",
+      "Exarch = roots (protoxylem exterior); Endarch = stems (protoxylem interior)."
+    ]
+  },
+  "flashcards": [
+    { "id": "s12-fc1", "card_type": "term", "front": "Father of Plant Anatomy", "back": "Nehemiah Grew (p. 173)." },
+    { "id": "s12-fc2", "card_type": "diagram_label", "front": "Casparian strips & Passage cells", "back": "Suberin thickenings on root endodermis; thin-walled passage cells opposite protoxylem pass water into xylem." },
+    { "id": "s12-fc3", "card_type": "why", "front": "Dicot Root vs Monocot Root xylem", "back": "Dicot Root (Bean) is tetrarch (4 arms, no pith in old root); Monocot Root (Maize) is polyarch with large pith." },
+    { "id": "s12-fc4", "card_type": "diagram_label", "front": "Grana vs Stroma in Chloroplast", "back": "Grana (thylakoids) = Light reaction; Stroma = Dark reaction (Calvin cycle)." }
+  ],
+  "assets": [
+    {
+      "asset_id": "threejs-plant-anatomy-v1",
+      "kind": "procedural_3d",
+      "description": "Procedural Three.js 3D Dicot Root transverse cutaway and Chloroplast cutaway with interactive 2D SVG fallback.",
+      "license": "Original project asset (MIT / educational)",
+      "source_reference": "TN Class 10 Science 2024 Edition, Unit 12, pp. 173–181"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "All 3D procedural plant anatomy models and 2D SVGs are freshly authored original teaching visuals."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

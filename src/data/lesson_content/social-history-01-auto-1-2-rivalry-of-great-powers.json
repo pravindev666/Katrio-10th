@@ -1,0 +1,152 @@
+{
+  "section_id": "social-history-01-auto-1-2-rivalry-of-great-powers",
+  "unit_id": "social-history-01",
+  "subject": "social_science",
+  "title": "1.2 Rivalry of Great Powers — Imperialism, Rise of Japan & Scramble for Africa",
+  "subtitle": "Monopoly capitalism (trusts & cartels), Meiji Japan (1894–1905), and colonial resistance in Africa (pp. 1–4)",
+  "curiosity_hook": "How did factories in Europe and Meiji Japan's rapid modernisation turn Africa and East Asia into flashpoints decades before 1914?",
+  "estimated_minutes": 12,
+  "source_pdf": "Class_10_Social_Science_English_2025_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2025 Edition",
+  "source_printed_pages": [1, 2, 3, 4],
+  "source_pdf_pages": [7, 8, 9, 10],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human history teacher sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Explain how industrial overproduction and monopoly capitalism (trusts in the USA, cartels in Germany) drove the late-19th-century race for colonies.",
+    "Trace Japan's emergence during the Meiji era (1867–1912) through the Sino-Japanese War (1894–95), Anglo-Japanese Alliance (1902), and Russo-Japanese War (1904–05).",
+    "Summarize the rapid partition of Africa (1876–1900) and major African military resistances including Zulu (1879), Sudan (1884), and Ethiopian victory at Adowa (1896)."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Monopoly Capitalism & Imperialism (1.1–1.2, pp. 1–2)",
+      "summary": "After 1870, industrial and financial concentration replaced free trade through trusts (USA) and cartels (Germany). Industrial powers competed fiercely for raw materials and captive colonial markets across Asia and Africa."
+    },
+    {
+      "heading": "Rise of Japan in East Asia (p. 2)",
+      "summary": "Under Meiji reforms (1867–1912), Japan adopted modern industry, education, army, and navy. It defeated China in 1894–95, allied with Britain in 1902, defeated Russia in 1904–05 to reclaim Port Arthur, and annexed Korea in 1910."
+    },
+    {
+      "heading": "Scramble for Africa & Colonial Resistance (pp. 2, 4)",
+      "summary": "European control of Africa leaped from barely 10% in 1876 to nearly the entire continent by 1900. Colonisation met fierce armed resistance: Britain suffered defeats against the Zulus (1879) and Sudan (1884), and Ethiopia decisively defeated Italy at Adowa (1896)."
+    }
+  ],
+  "key_terms": [
+    { "term": "Trust & Cartel", "definition": "Large monopoly business combinations (trusts in the USA, cartels in Germany) controlling commodity supply and prices." },
+    { "term": "Meiji Era (1867–1912)", "definition": "Period of rapid Western-style industrialisation and military modernisation that propelled Japan into the Great Powers." },
+    { "term": "Battle of Adowa (1896)", "definition": "Decisive victory of the Ethiopian army over invading Italian forces during the Scramble for Africa." },
+    { "term": "Spheres of Influence", "definition": "Regions (such as in late-19th-century China) where competing foreign powers claimed exclusive trade and investment privileges." }
+  ],
+  "interaction": {
+    "engine": "TimelineMap",
+    "version": "1.0.0",
+    "scene_id": "history-01-rivalry-timemap",
+    "representation_status": "Measured/Observed",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "timeline-events",
+        "label": "Pre-1914 Chronology & Alliance Map",
+        "type": "stepper",
+        "description": "Step from late-19th-century imperial rivalries into the 1882–1914 alliance blocs.",
+        "keyboard_equivalent": "Tab + Enter across dated chronology and cause-consequence cards."
+      }
+    ],
+    "expected_observations": [
+      "Japan's 1904–05 defeat of Russia broke European assumptions of invincibility and reshaped alliances in Asia and Europe.",
+      "Economic competition between Britain, Germany, and the USA intensified diplomatic rivalries long before June 1914."
+    ],
+    "limitations": [
+      "Schematic theatre map is explicitly marked Not to Scale; dates follow TN Class 10 History Unit 1 (pp. 1–4)."
+    ],
+    "config": {
+      "focus": "rivalry"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Connect Capitalism to Colonial Rivalries", "learner_action": "Examine why surplus industrial output triggered a race for markets and raw materials after 1870.", "expected_response": "Links trusts/cartels directly to imperial competition." },
+    { "mode": "explore", "step": 2, "title": "Track Japan & Africa (1876–1910)", "learner_action": "Compare 1894–95 Sino-Japanese, 1904–05 Russo-Japanese, and 1896 Battle of Adowa milestones.", "expected_response": "Shows global scale of pre-WWI imperialism beyond Europe." }
+  ],
+  "accessible_equivalent": {
+    "mode": "evidence_timeline_table",
+    "summary": "Dated evidence summary of late-19th-century monopoly capitalism, Meiji Japan, and the Scramble for Africa.",
+    "steps": [
+      { "step_number": 1, "heading": "1870s–1880s: Monopoly Capitalism", "description": "Trusts (USA) and cartels (Germany) replace free trade; race for Asian and African markets intensifies.", "key_takeaway": "Industrial competition turned economic rivals into military rivals." },
+      { "step_number": 2, "heading": "1876–1900: Partition of Africa & Resistance", "description": "European share jumps from ~10% to almost the whole continent despite major defeats by Zulus (1879), Sudan (1884), and Ethiopia at Adowa (1896).", "key_takeaway": "Colonisation was heavily contested on the ground." },
+      { "step_number": 3, "heading": "1894–1910: Rise of Meiji Japan", "description": "Japan defeats China (1894–95) and Russia (1904–05), signs Anglo-Japanese Alliance (1902), and annexes Korea (1910).", "key_takeaway": "Japan enters the circle of Great Powers in East Asia." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "h12-q1",
+        "difficulty": "recall",
+        "prompt": "Which African nation inflicted a devastating defeat on the invading Italian army at the Battle of Adowa in 1896 (p. 4)?",
+        "hint": "Check the 'Colonisation and its Fallout' section on p. 4.",
+        "options": [
+          { "id": "a", "label": "Ethiopia", "is_correct": true, "feedback": "Correct! An Ethiopian army decisively defeated Italian forces at Adowa (1896)." },
+          { "id": "b", "label": "Algeria", "is_correct": false, "feedback": "Algeria fought a long war against France, not Italy at Adowa." },
+          { "id": "c", "label": "Morocco", "is_correct": false, "feedback": "Morocco was contested between France and Germany." },
+          { "id": "d", "label": "Egypt", "is_correct": false, "feedback": "Britain occupied Egypt; Ethiopia won at Adowa." }
+        ],
+        "worked_explanation": "Textbook p. 4 notes that the Italian army suffered a devastating defeat by an Ethiopian army at Adowa in 1896."
+      },
+      {
+        "id": "h12-q2",
+        "difficulty": "recall",
+        "prompt": "Following which war did Japan enter the 'circle of the Great Powers' and regain Port Arthur (p. 2)?",
+        "hint": "Recall Japan's 1904–1905 conflict after allying with Britain in 1902.",
+        "options": [
+          { "id": "a", "label": "Crimean War", "is_correct": false, "feedback": "The Crimean War was fought in the 1850s." },
+          { "id": "b", "label": "Russo-Japanese War (1904–1905)", "is_correct": true, "feedback": "Correct! Defeating Russia in 1904–05 won back Port Arthur and established Japan as a Great Power." },
+          { "id": "c", "label": "Balkan Wars (1912–1913)", "is_correct": false, "feedback": "The Balkan Wars occurred in Southeast Europe." },
+          { "id": "d", "label": "Franco-Prussian War (1870–71)", "is_correct": false, "feedback": "That war was between France and Prussia/Germany." }
+        ],
+        "worked_explanation": "After signing the 1902 Anglo-Japanese Alliance, Japan defeated Russia in 1904–05 and entered the circle of Great Powers."
+      },
+      {
+        "id": "h12-q3",
+        "difficulty": "conceptual",
+        "prompt": "What were large monopoly business combinations called in the USA and Germany after 1870 (p. 2)?",
+        "hint": "Match USA → first term, Germany → second term.",
+        "options": [
+          { "id": "a", "label": "Trusts in the USA and Cartels in Germany", "is_correct": true, "feedback": "Correct! Trusts (USA) and cartels (Germany) controlled production, supply, and prices." },
+          { "id": "b", "label": "Soviets in the USA and Dumas in Germany", "is_correct": false, "feedback": "Soviets and Duma were Russian political institutions." },
+          { "id": "c", "label": "Ententes in the USA and Leagues in Germany", "is_correct": false, "feedback": "Those are diplomatic alliances/organisations, not industrial monopolies." },
+          { "id": "d", "label": "Guilds in both countries", "is_correct": false, "feedback": "Monopoly capitalism after 1870 operated through trusts and cartels." }
+        ],
+        "worked_explanation": "Textbook p. 2 highlights trusts in the USA and cartels in Germany as hallmarks of monopoly capitalism."
+      }
+    ],
+    "worked_feedback": [
+      "Connect economic rivalries (markets, trusts, cartels) directly to the political alliances explored in Section 1.3."
+    ]
+  },
+  "flashcards": [
+    { "id": "h12-fc1", "card_type": "term", "front": "Monopoly Capitalism after 1870 (p. 2)", "back": "Industry + finance merged into Trusts (USA) and Cartels (Germany), ending free trade and driving imperialism." },
+    { "id": "h12-fc2", "card_type": "term", "front": "Sino-Japanese (1894–95) & Russo-Japanese (1904–05) Wars", "back": "Meiji Japan defeated China (1894–95) and Russia (1904–05), entering the Great Powers and annexing Korea (1910)." },
+    { "id": "h12-fc3", "card_type": "term", "front": "Scramble for Africa (1876–1900)", "back": "European rule rose from ~10% (1876) to nearly all of Africa (1900); Ethiopia defeated Italy at Adowa (1896)." }
+  ],
+  "assets": [
+    {
+      "asset_id": "timemap-history-01-rivalry-v1",
+      "kind": "schematic_map",
+      "description": "Evidence-led chronology and schematic Not-to-Scale map for History Unit 1 Section 1.2.",
+      "license": "Original project educational asset",
+      "source_reference": "TN Class 10 Social Science 2025 Edition, History Unit 1, pp. 1–4"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original evidence-led historical synthesis; zero war-as-game scoring."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

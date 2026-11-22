@@ -1,0 +1,764 @@
+﻿subject,strand,unit_id,unit_title,section_id,section_title,section_type,section_label,source_printed_page,source_pdf_page,source_status,content_status
+mathematics,,maths-01,Relations and Functions,,,chapter,,1,7,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-01,Introduction,toc_section,1.1,1,7,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-02,Ordered Pair,toc_section,1.2,2,8,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-03,Cartesian Product,toc_section,1.3,2,8,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-3-1-cartesian-product-of-three-sets,Cartesian Product of three Sets,body_heading,1.3.1,5,11,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-04,Relations,toc_section,1.4,6,12,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-05,Functions,toc_section,1.5,10,16,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-06,Representation of Functions,toc_section,1.6,15,21,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-6-1-vertical-line-test,Vertical line test,body_heading,1.6.1,15,21,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-07,Types of Functions,toc_section,1.7,17,23,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-7-1-one-one-function,One – one function,body_heading,1.7.1,17,23,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-7-2-many-one-function,Many – one function,body_heading,1.7.2,17,23,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-7-3-onto-function,Onto function,body_heading,1.7.3,18,24,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-7-4-into-function,Into function,body_heading,1.7.4,18,24,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-7-5-bijection,Bijection,body_heading,1.7.5,19,25,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-7-6-horizontal-line-test,Horizontal Line Test,body_heading,1.7.6,20,26,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-08,Special Cases of Functions,toc_section,1.8,22,28,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-09,Composition of Functions,toc_section,1.9,26,32,toc_verified,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-9-1-composition-of-three-functions,Composition of three functions,body_heading,1.9.1,27,33,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-10-1-linear-function,Linear Function,body_heading,1.10.1,29,35,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-10-2-modulus-or-absolute-valued-function,Modulus or Absolute valued Function,body_heading,1.10.2,29,35,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-10-3-quadratic-function,Quadratic Function,body_heading,1.10.3,30,36,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-10-4-cubic-function,Cubic Function,body_heading,1.10.4,30,36,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-10-5-reciprocal-function,Reciprocal Function,body_heading,1.10.5,30,36,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-auto-1-10-6-constant-function,Constant Function,body_heading,1.10.6,31,37,auto_extracted_review_required,placeholder
+mathematics,,maths-01,Relations and Functions,maths-01-10,"Identifying the Graphs of Linear, Quadratic, Cubic and Reciprocal Functions",toc_section,1.10,,,toc_verified_page_needs_review,placeholder
+mathematics,,maths-02,Numbers and Sequences,,,chapter,,36,42,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-02,Euclid’s Division Lemma,toc_section,2.2,37,43,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-03,Euclid’s Division Algorithm,toc_section,2.3,39,45,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-04,Fundamental Theorem of Arithmetic,toc_section,2.4,43,49,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-4-1-significance-of-the-fundamental-theorem-of-arithmetic,Significance of the Fundamental Theorem of Arithmetic,body_heading,2.4.1,44,50,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-05,Modular Arithmetic,toc_section,2.5,46,52,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-5-1-congruence-modulo,Congruence Modulo,body_heading,2.5.1,47,53,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-5-2-connecting-euclid-s-division-lemma-and-modular-arithmetic,Connecting Euclid’s Division lemma and Modular Arithmetic,body_heading,2.5.2,47,53,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-5-3-modulo-operations,Modulo operations,body_heading,2.5.3,48,54,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-06,Sequences,toc_section,2.6,52,58,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-07,Arithmetic Progression,toc_section,2.7,55,61,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-7-1-terms-and-common-difference-of-an-a-p,Terms and Common Difference of an A.P,body_heading,2.7.1,56,62,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-08,Series,toc_section,2.8,62,68,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-8-1-sum-to-n-terms-of-an-a-p,Sum to n terms of an A.P,body_heading,2.8.1,63,69,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-09,Geometric Progression,toc_section,2.9,67,73,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-9-1-general-form-of-geometric-progression,General form of Geometric Progression,body_heading,2.9.1,68,74,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-9-2-general-term-of-geometric-progression,General term of Geometric Progression,body_heading,2.9.2,68,74,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-10,Sum to n terms of a Geometric Progression,toc_section,2.10,73,79,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-10-1-sum-to-infinite-terms-of-a-g-p,Sum to infinite terms of a G.P,body_heading,2.10.1,74,80,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-01,Introduction,toc_section,2.1,76,82,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-11,Special Series,toc_section,2.11,76,82,toc_verified,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-11-1-sum-of-first-n-natural-numbers,Sum of first n natural numbers,body_heading,2.11.1,77,83,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-11-2-sum-of-first-n-odd-natural-numbers,Sum of first n odd natural numbers,body_heading,2.11.2,77,83,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-11-3-sum-of-squares-of-first-n-natural-numbers,Sum of squares of first n natural numbers,body_heading,2.11.3,77,83,auto_extracted_review_required,placeholder
+mathematics,,maths-02,Numbers and Sequences,maths-02-auto-2-11-4-sum-of-cubes-of-first-n-natural-numbers,Sum of cubes of first n natural numbers,body_heading,2.11.4,78,84,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,,,chapter,,85,91,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-01,Introduction,toc_section,3.1,85,91,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-02,Simultaneous Linear Equations in Three Variables,toc_section,3.2,87,93,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-2-1-system-of-linear-equations-in-three-variables,System of Linear Equations in Three Variables,body_heading,3.2.1,87,93,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-03,GCD and LCM of Polynomials,toc_section,3.3,93,99,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-3-1-greatest-common-divisor-gcd-or-highest-common-factor-hcf-of-polynomials,Greatest Common Divisor (GCD) or Highest Common Factor (HCF) of Polynomials,body_heading,3.3.1,93,99,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-3-2-least-common-multiple-lcm-of-polynomials,Least Common Multiple (LCM) of Polynomials,body_heading,3.3.2,95,101,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-3-3-relationship-between-lcm-and-gcd,Relationship between LCM and GCD,body_heading,3.3.3,97,103,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-04,Rational Expressions,toc_section,3.4,98,104,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-4-1-reduction-of-rational-expression,Reduction of Rational Expression,body_heading,3.4.1,98,104,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-4-2-excluded-value,Excluded Value,body_heading,3.4.2,98,104,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-4-3-operations-of-rational-expressions,Operations of Rational Expressions,body_heading,3.4.3,100,106,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-05,Square Root of Polynomials,toc_section,3.5,103,109,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-5-1-find-the-square-root-by-factorization-method,Find the Square Root by Factorization Method,body_heading,3.5.1,104,110,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-5-2-finding-the-square-root-of-a-polynomial-by-division-method,Finding the Square Root of a Polynomial by Division Method,body_heading,3.5.2,105,111,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-06,Quadratic Equations,toc_section,3.6,106,112,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-6-1-zeroes-of-a-quadratic-polynomial,Zeroes of a Quadratic Polynomial,body_heading,3.6.1,106,112,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-6-2-roots-of-quadratic-equations,Roots of Quadratic Equations,body_heading,3.6.2,107,113,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-6-3-formation-of-a-quadratic-equation,Formation of a Quadratic Equation,body_heading,3.6.3,107,113,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-6-4-solving-quadratic-equations,Solving Quadratic Equations,body_heading,3.6.4,109,115,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-6-5-solving-problems-involving-quadratic-equations,Solving Problems Involving Quadratic Equations,body_heading,3.6.5,115,121,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-6-6-nature-of-roots-of-a-quadratic-equation,Nature of Roots of a Quadratic Equation,body_heading,3.6.6,117,123,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-6-7-the-relation-between-roots-and-coefficients-of-a-quadratic-equation,The Relation between Roots and Coefficients of a Quadratic Equation,body_heading,3.6.7,119,125,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-07,Graph of Variations,toc_section,3.7,123,129,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-08,Quadratic Graphs,toc_section,3.8,130,136,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-8-1-finding-the-nature-of-solution-of-quadratic-equations-graphically,Finding the Nature of Solution of Quadratic Equations Graphically,body_heading,3.8.1,131,137,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-8-2-solving-quadratic-equations-through-intersection-of-lines,Solving quadratic equations through intersection of lines,body_heading,3.8.2,134,140,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-09,Matrices,toc_section,3.9,137,143,toc_verified,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-9-1-order-of-a-matrix,Order of a Matrix,body_heading,3.9.1,138,144,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-9-2-types-of-matrices,Types of Matrices,body_heading,3.9.2,139,145,auto_extracted_review_required,placeholder
+mathematics,,maths-03,Algebra,maths-03-auto-3-9-3-operations-on-matrices,Operations on Matrices,body_heading,3.9.3,145,151,auto_extracted_review_required,placeholder
+mathematics,,maths-04,Geometry,,,chapter,,161,167,toc_verified,placeholder
+mathematics,,maths-04,Geometry,maths-04-01,Introduction,toc_section,4.1,161,167,toc_verified,placeholder
+mathematics,,maths-04,Geometry,maths-04-02,Similarity,toc_section,4.2,162,168,toc_verified,placeholder
+mathematics,,maths-04,Geometry,maths-04-auto-4-2-1-similar-triangles,Similar triangles,body_heading,4.2.1,162,168,auto_extracted_review_required,placeholder
+mathematics,,maths-04,Geometry,maths-04-auto-4-2-2-criteria-of-similarity,Criteria of Similarity,body_heading,4.2.2,163,169,auto_extracted_review_required,placeholder
+mathematics,,maths-04,Geometry,maths-04-auto-4-2-3-construction-of-similar-triangles,Construction of similar triangles,body_heading,4.2.3,169,175,auto_extracted_review_required,placeholder
+mathematics,,maths-04,Geometry,maths-04-03,Thales Theorem and Angle Bisector Theorem,toc_section,4.3,171,177,toc_verified,placeholder
+mathematics,,maths-04,Geometry,maths-04-auto-4-3-1-introduction,Introduction,body_heading,4.3.1,171,177,auto_extracted_review_required,placeholder
+mathematics,,maths-04,Geometry,maths-04-auto-4-3-2-construction-of-triangle,Construction of triangle,body_heading,4.3.2,178,184,auto_extracted_review_required,placeholder
+mathematics,,maths-04,Geometry,maths-04-04,Pythagoras Theorem,toc_section,4.4,183,189,toc_verified,placeholder
+mathematics,,maths-04,Geometry,maths-04-05,Circles and Tangents,toc_section,4.5,188,194,toc_verified,placeholder
+mathematics,,maths-04,Geometry,maths-04-auto-4-5-1-construction,Construction,body_heading,4.5.1,193,199,auto_extracted_review_required,placeholder
+mathematics,,maths-04,Geometry,maths-04-06,Concurrency Theorems,toc_section,4.6,195,201,toc_verified,placeholder
+mathematics,,maths-05,Coordinate Geometry,,,chapter,,203,209,toc_verified,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-01,Introduction,toc_section,5.1,203,209,toc_verified,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-02,Area of a Triangle,toc_section,5.2,205,211,toc_verified,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-2-1-collinearity-of-three-points,Collinearity of three points,body_heading,5.2.1,207,213,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-03,Area of a Quadrilateral,toc_section,5.3,207,213,toc_verified,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-04,Inclination of a Line,toc_section,5.4,212,218,toc_verified,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-4-1-slope-of-a-straight-line,Slope of a Straight line,body_heading,5.4.1,212,218,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-4-2-slopes-of-parallel-lines,Slopes of parallel lines,body_heading,5.4.2,215,221,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-4-3-slopes-of-perpendicular-lines,Slopes of perpendicular lines,body_heading,5.4.3,216,222,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-05,Straight Line,toc_section,5.5,221,227,toc_verified,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-5-1-equation-of-coordinate-axes,Equation of coordinate axes,body_heading,5.5.1,221,227,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-5-2-equation-of-a-straight-line-parallel-to-x-axis,Equation of a straight line parallel to X axis,body_heading,5.5.2,221,227,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-5-3-equation-of-a-straight-line-parallel-to-the-y-axis,Equation of a Straight line parallel to the Y axis,body_heading,5.5.3,222,228,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-5-4-slope-intercept-form,Slope-Intercept Form,body_heading,5.5.4,222,228,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-5-5-point-slope-form,Point-Slope form,body_heading,5.5.5,223,229,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-5-6-two-point-form,Two Point form,body_heading,5.5.6,224,230,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-5-7-intercept-form,Intercept Form,body_heading,5.5.7,225,231,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-06,General Form of a Straight Line,toc_section,5.6,230,236,toc_verified,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-6-1-equation-of-a-line-parallel-to-the-line-ax-by-c-0,Equation of a line parallel to the line ax + by + c = 0,body_heading,5.6.1,230,236,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-6-2-equation-of-a-line-perpendicular-to-the-line-ax-by-c-0,Equation of a line perpendicular to the line ax + by + c = 0,body_heading,5.6.2,230,236,auto_extracted_review_required,placeholder
+mathematics,,maths-05,Coordinate Geometry,maths-05-auto-5-6-3-slope-of-a-straight-line,Slope of a straight line,body_heading,5.6.3,231,237,auto_extracted_review_required,placeholder
+mathematics,,maths-06,Trigonometry,,,chapter,,239,245,toc_verified,placeholder
+mathematics,,maths-06,Trigonometry,maths-06-01,Introduction,toc_section,6.1,239,245,toc_verified,placeholder
+mathematics,,maths-06,Trigonometry,maths-06-02,Trigonometric Identities,toc_section,6.2,242,248,toc_verified,placeholder
+mathematics,,maths-06,Trigonometry,maths-06-03,Heights and Distances,toc_section,6.3,250,256,toc_verified,placeholder
+mathematics,,maths-06,Trigonometry,maths-06-auto-6-3-1-problems-involving-angle-of-elevation,Problems involving Angle of Elevation,body_heading,6.3.1,252,258,auto_extracted_review_required,placeholder
+mathematics,,maths-06,Trigonometry,maths-06-auto-6-3-2-problems-involving-angle-of-depression,Problems involving Angle of Depression,body_heading,6.3.2,258,264,auto_extracted_review_required,placeholder
+mathematics,,maths-06,Trigonometry,maths-06-auto-6-3-3-problems-involving-angle-of-elevation-and-depression,Problems involving Angle of Elevation and Depression,body_heading,6.3.3,262,268,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,,,chapter,,269,275,toc_verified,placeholder
+mathematics,,maths-07,Mensuration,maths-07-01,Introduction,toc_section,7.1,269,275,toc_verified,placeholder
+mathematics,,maths-07,Mensuration,maths-07-02,Surface Area,toc_section,7.2,270,276,toc_verified,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-2-1-right-circular-cylinder,Right Circular Cylinder,body_heading,7.2.1,270,276,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-2-2-hollow-cylinder,Hollow Cylinder,body_heading,7.2.2,272,278,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-2-3-right-circular-cone,Right Circular Cone,body_heading,7.2.3,273,279,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-2-4-the-sphere,The Sphere,body_heading,7.2.4,276,282,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-2-5-hemisphere,Hemisphere,body_heading,7.2.5,277,283,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-2-6-hollow-hemisphere,Hollow Hemisphere,body_heading,7.2.6,278,284,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-2-7-frustum-of-a-right-circular-cone,Frustum of a right circular cone,body_heading,7.2.7,280,286,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-03,Volume,toc_section,7.3,282,288,toc_verified,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-3-1-volume-of-a-solid-right-circular-cylinder,Volume of a solid right circular cylinder,body_heading,7.3.1,282,288,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-3-2-volume-of-a-hollow-cylinder-volume-of-the-material-used,Volume of a hollow cylinder (volume of the material used),body_heading,7.3.2,283,289,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-3-3-volume-of-a-right-circular-cone,Volume of a right circular cone,body_heading,7.3.3,285,291,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-3-4-volume-of-sphere,Volume of sphere,body_heading,7.3.4,286,292,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-3-5-volume-of-a-hollow-sphere-spherical-shell-volume-of-the-material-used,Volume of a hollow sphere / spherical shell (volume of the material used),body_heading,7.3.5,287,293,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-3-6-volume-of-solid-hemisphere,Volume of solid hemisphere,body_heading,7.3.6,287,293,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-3-7-volume-of-hollow-hemisphere-volume-of-the-material-used,Volume of hollow hemisphere (volume of the material used),body_heading,7.3.7,287,293,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-auto-7-3-8-volume-of-frustum-of-a-cone,Volume of frustum of a cone,body_heading,7.3.8,289,295,auto_extracted_review_required,placeholder
+mathematics,,maths-07,Mensuration,maths-07-04,Volume and Surface Area of Combined Solids,toc_section,7.4,290,296,toc_verified,placeholder
+mathematics,,maths-07,Mensuration,maths-07-05,Conversion of Solids from one Shape to another with no change in Volume,toc_section,7.5,,,toc_verified_page_needs_review,placeholder
+mathematics,,maths-08,Statistics and Probability,,,chapter,,301,307,toc_verified,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-01,Introduction,toc_section,8.1,301,307,toc_verified,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-02,Measures of Dispersion,toc_section,8.2,303,309,toc_verified,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-auto-8-2-1-range,Range,body_heading,8.2.1,304,310,auto_extracted_review_required,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-auto-8-2-2-deviations-from-the-mean,Deviations from the mean,body_heading,8.2.2,304,310,auto_extracted_review_required,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-auto-8-2-3-squares-of-deviations-from-the-mean,Squares of deviations from the mean,body_heading,8.2.3,304,310,auto_extracted_review_required,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-auto-8-2-4-variance,Variance,body_heading,8.2.4,305,311,auto_extracted_review_required,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-auto-8-2-5-standard-deviation,Standard Deviation,body_heading,8.2.5,305,311,auto_extracted_review_required,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-03,Coefficient of Variation,toc_section,8.3,314,320,toc_verified,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-04,Probability,toc_section,8.4,316,322,toc_verified,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-auto-8-4-1-tree-diagram,Tree diagram,body_heading,8.4.1,317,323,auto_extracted_review_required,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-auto-8-4-2-probability-of-an-event,Probability of an Event,body_heading,8.4.2,319,325,auto_extracted_review_required,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-05,Algebra of Events,toc_section,8.5,323,329,toc_verified,placeholder
+mathematics,,maths-08,Statistics and Probability,maths-08-06,Addition Theorem of Probability,toc_section,8.6,325,331,toc_verified,placeholder
+science,,science-01,Laws of Motion,,,chapter,,1,9,toc_verified,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-1-force-and-motion,FORCE AND MOTION,body_heading,1.1,2,10,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-2-inertia,INERTIA,body_heading,1.2,2,10,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-2-2-examples-of-inertia,Examples of Inertia,body_heading,1.2.2,3,11,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-3-linear-momentum,LINEAR MOMENTUM,body_heading,1.3,3,11,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-4-newton-s-laws-of,NEWTON’S LAWS OF,body_heading,1.4,3,11,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-4-3-types-of-forces,Types of forces,body_heading,1.4.3,3,11,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-4-5-rotating-effect-of-force,Rotating Effect of Force,body_heading,1.4.5,4,12,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-4-6-moment-of-the-force,Moment of the Force,body_heading,1.4.6,5,13,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-4-7-application-of-torque,Application of Torque,body_heading,1.4.7,5,13,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-5-newton-s-second-law,NEWTON’S SECOND LAW,body_heading,1.5,6,14,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-6-impulse,Impulse,body_heading,1.6,7,15,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-10-gravitation,GRAVITATION,body_heading,1.10,8,16,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-9-rocket-propulsion,ROCKET PROPULSION,body_heading,1.9,8,16,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-10-2-acceleration-due-to,Acceleration due to,body_heading,1.10.2,9,17,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-10-3-relation-between-g-and-g,Relation between g and G,body_heading,1.10.3,9,17,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-10-4-mass-of-the-earth-m,Mass of the Earth (M),body_heading,1.10.4,9,17,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-10-5-variation-of-acceleration,Variation of acceleration,body_heading,1.10.5,10,18,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-11-mass-and-weight,MASS AND WEIGHT,body_heading,1.11,10,18,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-12-1-weightlessness,Weightlessness,body_heading,1.12.1,10,18,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-12-2-weightlessness-of,Weightlessness of,body_heading,1.12.2,11,19,auto_extracted_review_required,placeholder
+science,,science-01,Laws of Motion,science-01-auto-1-12-3-application-of-newton-s,Application of Newton’s,body_heading,1.12.3,12,20,auto_extracted_review_required,placeholder
+science,,science-02,Optics,,,chapter,,16,24,toc_verified,placeholder
+science,,science-02,Optics,science-02-auto-2-2-refraction-of-light,REFRACTION OF LIGHT,body_heading,2.2,17,25,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-2-1-first-law-of-refraction,First law of refraction,body_heading,2.2.1,17,25,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-2-2-second-law-of-refraction,Second law of refraction,body_heading,2.2.2,17,25,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-3-refraction-of-a,REFRACTION OF A,body_heading,2.3,17,25,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-4-scattering-of-light,SCATTERING OF LIGHT,body_heading,2.4,18,26,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-4-1-types-of-scattering,Types of scattering,body_heading,2.4.1,18,26,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-5-lenses,LENSES,body_heading,2.5,19,27,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-5-1-other-types-of-lenses,Other types of Lenses,body_heading,2.5.1,19,27,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-6-images-formed-due-to,IMAGES FORMED DUE TO,body_heading,2.6,20,28,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-9-refraction-through-a,REFRACTION THROUGH A,body_heading,2.9,21,29,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-10-applications-of,APPLICATIONS OF,body_heading,2.10,22,30,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-11-lens-formula,LENS FORMULA,body_heading,2.11,22,30,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-14-lens-maker-s,LENS MAKER’S,body_heading,2.14,23,31,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-16-human-eye,HUMAN EYE,body_heading,2.16,24,32,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-17-defects-in-eye,DEFECTS IN EYE,body_heading,2.17,25,33,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-18-microscope,MICROSCOPE,body_heading,2.18,26,34,auto_extracted_review_required,placeholder
+science,,science-02,Optics,science-02-auto-2-19-telescope,TELESCOPE,body_heading,2.19,27,35,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,,,chapter,,32,40,toc_verified,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-1-temperature,TEMPERATURE,body_heading,3.1,32,40,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-1-1-absolute-scale-kelvin-scale,Absolute scale (kelvin scale),body_heading,3.1.1,32,40,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-1-2-thermal-equilibrium,Thermal equilibrium,body_heading,3.1.2,33,41,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-2-thermal-energy,THERMAL ENERGY,body_heading,3.2,33,41,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-2-2-other-units-of-heat-energy,Other units of Heat energy,body_heading,3.2.2,34,42,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-3-effect-of-heat-energy,EFFECT OF HEAT ENERGY,body_heading,3.3,34,42,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-3-1-expansion-of-substances,Expansion of Substances,body_heading,3.3.1,34,42,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-3-2-experiment-to-measure-real,Experiment to measure real,body_heading,3.3.2,36,44,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-4-1-boyle-s-law,Boyle’s law,body_heading,3.4.1,36,44,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-4-2-charles-s-law,Charles's law,body_heading,3.4.2,37,45,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-4-3-avogadro-s-law,Avogadro's law,body_heading,3.4.3,37,45,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-5-gases,GASES,body_heading,3.5,37,45,auto_extracted_review_required,placeholder
+science,,science-03,Thermal Physics,science-03-auto-3-5-1-real-gases,Real Gases,body_heading,3.5.1,37,45,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,,,chapter,,42,50,toc_verified,placeholder
+science,,science-04,Electricity,science-04-auto-4-1-electric-current,ELECTRIC CURRENT,body_heading,4.1,42,50,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-1-2-si-unit-of-electric-current,SI unit of electric current,body_heading,4.1.2,43,51,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-2-electric-circuit,ELECTRIC CIRCUIT,body_heading,4.2,43,51,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-2-consists-of-different-components-such,"consists of different components, such",body_heading,4.2,44,52,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-2-1-electrical-components,Electrical components,body_heading,4.2.1,44,52,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-3-electric-potential-and,ELECTRIC POTENTIAL AND,body_heading,4.3,44,52,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-3-1-electric-potential,Electric Potential,body_heading,4.3.1,44,52,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-4-ohm-s-law,OHM’S LAW,body_heading,4.4,45,53,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-5-resistance-of-a,RESISTANCE OF A,body_heading,4.5,45,53,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-5-1-unit-of-resistance,Unit of Resistance,body_heading,4.5.1,45,53,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-6-electrical-resistivity,ELECTRICAL RESISTIVITY,body_heading,4.6,46,54,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-6-1-electrical-resistivity,Electrical Resistivity,body_heading,4.6.1,46,54,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-7-system-of-resistors,SYSTEM OF RESISTORS,body_heading,4.7,47,55,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-7-1-resistors-in-series,Resistors in series,body_heading,4.7.1,47,55,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-7-2-resistances-in-parallel,Resistances in Parallel,body_heading,4.7.2,48,56,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-7-3-series-connection-of,Series Connection of,body_heading,4.7.3,49,57,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-7-5-difference-between-series,Difference between series,body_heading,4.7.5,49,57,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-8-heating-effect,HEATING EFFECT,body_heading,4.8,50,58,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-8-1-joule-s-law-of-heating,Joule’s Law of Heating,body_heading,4.8.1,50,58,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-10-domestic-electric,DOMESTIC ELECTRIC,body_heading,4.10,51,59,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-9-electric-power,ELECTRIC POWER,body_heading,4.9,51,59,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-10-1-overloading-and-short,Overloading and Short,body_heading,4.10.1,52,60,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-10-2-earthing,Earthing,body_heading,4.10.2,53,61,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-11-led-bulb,LED BULB,body_heading,4.11,53,61,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-11-1-seven-segment-display,Seven Segment Display,body_heading,4.11.1,53,61,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-12-led-television,LED TELEVISION,body_heading,4.12,53,61,auto_extracted_review_required,placeholder
+science,,science-04,Electricity,science-04-auto-4-12-1-advantages-of-led,Advantages of LED,body_heading,4.12.1,54,62,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,,,chapter,,59,67,toc_verified,placeholder
+science,,science-05,Acoustics,science-05-auto-5-1-1-longitudinal-waves,Longitudinal Waves,body_heading,5.1.1,60,68,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-1-4-velocity-of-sound-waves,Velocity of sound waves,body_heading,5.1.4,60,68,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-1-5-factors-affecting-velocity,Factors affecting velocity,body_heading,5.1.5,61,69,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-2-reflection-of-sound,REFLECTION OF SOUND,body_heading,5.2,62,70,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-2-2-reflection-at-the-boundary,Reflection at the boundary,body_heading,5.2.2,63,71,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-2-3-reflection-at-the-boundary,Reflection at the boundary,body_heading,5.2.3,63,71,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-2-4-reflection-of-sound-in,Reflection of sound in,body_heading,5.2.4,63,71,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-3-echoes,ECHOES,body_heading,5.3,64,72,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-3-1-conditions-necessary-for,Conditions necessary for,body_heading,5.3.1,64,72,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-4-applications,APPLICATIONS,body_heading,5.4,65,73,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-4-1-sound-board,Sound board,body_heading,5.4.1,65,73,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-5-1-conditions-for-no-doppler,Conditions for no Doppler,body_heading,5.5.1,69,77,auto_extracted_review_required,placeholder
+science,,science-05,Acoustics,science-05-auto-5-5-2-applications-of-doppler,Applications of Doppler,body_heading,5.5.2,69,77,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,,,chapter,,74,82,toc_verified,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-1-radioactivity,RADIOACTIVITY,body_heading,6.1,75,83,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-1-1-discovery-of-radioactivity,Discovery of radioactivity,body_heading,6.1.1,75,83,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-1-2-definition-of-radioactivity,Definition of radioactivity,body_heading,6.1.2,75,83,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-2-alpha-beta-and,"ALPHA, BETA AND",body_heading,6.2,77,85,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-2-1-properties-of-alpha-beta,"Properties of Alpha, Beta",body_heading,6.2.1,77,85,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-2-2-radioactive-displacement,Radioactive displacement,body_heading,6.2.2,77,85,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-2-3-alpha-decay,Alpha decay,body_heading,6.2.3,78,86,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-2-4-beta-decay,Beta decay,body_heading,6.2.4,78,86,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-2-5-gamma-decay,Gamma decay,body_heading,6.2.5,78,86,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-3-nuclear-fission,NUCLEAR FISSION,body_heading,6.3,78,86,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-3-3-chain-reaction,Chain Reaction,body_heading,6.3.3,79,87,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-3-4-critical-mass,Critical Mass,body_heading,6.3.4,79,87,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-3-5-atom-bomb,Atom bomb,body_heading,6.3.5,80,88,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-4-nuclear-fusion,NUCLEAR FUSION,body_heading,6.4,80,88,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-4-2-conditions-necessary-for,Conditions necessary for,body_heading,6.4.2,81,89,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-4-4-hydrogen-bomb,Hydrogen Bomb,body_heading,6.4.4,81,89,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-5-uses-of-radioactivity,USES OF RADIOACTIVITY,body_heading,6.5,82,90,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-5-1-agriculture,Agriculture,body_heading,6.5.1,82,90,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-5-3-industries,Industries,body_heading,6.5.3,83,91,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-6-safety-measures,SAFETY MEASURES,body_heading,6.6,83,91,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-6-1-permitted-range,Permitted range,body_heading,6.6.1,83,91,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-6-2-preventive-measures,Preventive measures,body_heading,6.6.2,84,92,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-7-nuclear-reactor,NUCLEAR REACTOR,body_heading,6.7,84,92,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-7-1-types-of-nuclear-reactors,Types of nuclear reactors,body_heading,6.7.1,84,92,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-7-2-components-of-a-nuclear,Components of a nuclear,body_heading,6.7.2,84,92,auto_extracted_review_required,placeholder
+science,,science-06,Nuclear Physics,science-06-auto-6-7-3-uses-of-a-nuclear-reactor,Uses of a nuclear reactor,body_heading,6.7.3,84,92,auto_extracted_review_required,placeholder
+science,,science-07,Atoms and Molecules,,,chapter,,91,99,toc_verified,placeholder
+science,,science-07,Atoms and Molecules,science-07-auto-7-1-atom-and-atomic-mass,ATOM AND ATOMIC MASS,body_heading,7.1,92,100,auto_extracted_review_required,placeholder
+science,,science-07,Atoms and Molecules,science-07-auto-7-1-2-average-atomic-mass-aam,Average Atomic Mass (AAM),body_heading,7.1.2,93,101,auto_extracted_review_required,placeholder
+science,,science-07,Atoms and Molecules,science-07-auto-7-2-molecule-and,MOLECULE AND,body_heading,7.2,94,102,auto_extracted_review_required,placeholder
+science,,science-07,Atoms and Molecules,science-07-auto-7-2-1-classification-of-molecules,Classification of molecules,body_heading,7.2.1,94,102,auto_extracted_review_required,placeholder
+science,,science-07,Atoms and Molecules,science-07-auto-7-3-difference-between,DIFFERENCE BETWEEN,body_heading,7.3,96,104,auto_extracted_review_required,placeholder
+science,,science-07,Atoms and Molecules,science-07-auto-7-5-percent-composition,PERCENT COMPOSITION,body_heading,7.5,97,105,auto_extracted_review_required,placeholder
+science,,science-07,Atoms and Molecules,science-07-auto-7-6-avogadro-hypothesis,AVOGADRO HYPOTHESIS,body_heading,7.6,98,106,auto_extracted_review_required,placeholder
+science,,science-07,Atoms and Molecules,science-07-auto-7-7-applications-of,APPLICATIONS OF,body_heading,7.7,99,107,auto_extracted_review_required,placeholder
+science,,science-07,Atoms and Molecules,science-07-auto-7-8-relationship-between,RELATIONSHIP BETWEEN,body_heading,7.8,99,107,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,,,chapter,,106,114,toc_verified,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-1-modern-periodic-law,MODERN PERIODIC LAW,body_heading,8.1,107,115,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-2-modern-periodic-table,MODERN PERIODIC TABLE,body_heading,8.2,107,115,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-2-1-features-of-periods,Features of Periods,body_heading,8.2.1,107,115,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-2-2-features-of-groups,Features of Groups,body_heading,8.2.2,109,117,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-3-periodic-trends-in,PERIODIC TRENDS IN,body_heading,8.3,109,117,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-3-1-atomic-radius,Atomic Radius,body_heading,8.3.1,109,117,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-3-2-ionic-radii,Ionic Radii,body_heading,8.3.2,110,118,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-3-3-ionisation-energy,Ionisation Energy,body_heading,8.3.3,110,118,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-3-4-electron-affinity,Electron Affinity,body_heading,8.3.4,111,119,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-3-5-electronegativity,Electronegativity,body_heading,8.3.5,111,119,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-4-metallurgy,METALLURGY,body_heading,8.4,112,120,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-5-occurrence-of-ores-in,OCCURRENCE OF ORES IN,body_heading,8.5,114,122,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-6-properties-of-metals,PROPERTIES OF METALS,body_heading,8.6,114,122,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-6-1-physical-properties,Physical properties,body_heading,8.6.1,114,122,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-6-2-chemical-properties,Chemical Properties,body_heading,8.6.2,114,122,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-7-metallurgy-of,METALLURGY OF,body_heading,8.7,115,123,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-8-metallurgy-of-copper,METALLURGY OF COPPER,body_heading,8.8,116,124,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-9-metallurgy-of-iron,METALLURGY OF IRON,body_heading,8.9,117,125,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-10-alloys,ALLOYS,body_heading,8.10,119,127,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-10-1-amalgam,Amalgam,body_heading,8.10.1,119,127,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-11-corrosion,CORROSION,body_heading,8.11,120,128,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-11-1-types-of-corrosion,Types of Corrosion,body_heading,8.11.1,120,128,auto_extracted_review_required,placeholder
+science,,science-08,Periodic Classification of Elements,science-08-auto-8-11-2-methods-of-preventing,Methods of preventing,body_heading,8.11.2,120,128,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,,,chapter,,124,132,toc_verified,placeholder
+science,,science-09,Solutions,science-09-auto-9-1-solutions-in,SOLUTIONS IN,body_heading,9.1,124,132,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-2-components-of,COMPONENTS OF,body_heading,9.2,125,133,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-3-1-based-on-the-physical,Based on the physical,body_heading,9.3.1,125,133,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-3-2-based-on-the-type-of,Based on the type of,body_heading,9.3.2,126,134,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-3-3-based-on-the-amount-of,Based on the amount of,body_heading,9.3.3,126,134,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-3-4-concentrated-and-dilute,Concentrated and dilute,body_heading,9.3.4,127,135,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-4-1-factors-affecting-solubility,Factors affecting solubility,body_heading,9.4.1,128,136,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-5-concentration-of-a-solution,Concentration of a Solution,body_heading,9.5,129,137,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-5-1-mass-percentage,Mass percentage,body_heading,9.5.1,129,137,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-5-2-volume-percentage,Volume percentage,body_heading,9.5.2,129,137,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-6-hydrated-salts-and-water,Hydrated salts and Water,body_heading,9.6,130,138,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-7-hygroscopy,Hygroscopy,body_heading,9.7,131,139,auto_extracted_review_required,placeholder
+science,,science-09,Solutions,science-09-auto-9-8-deliquescence,Deliquescence,body_heading,9.8,131,139,auto_extracted_review_required,placeholder
+science,,science-10,Types of Chemical Reactions,,,chapter,,137,145,toc_verified,placeholder
+science,,science-10,Types of Chemical Reactions,science-10-auto-10-1-types-of-chemical,TYPES OF CHEMICAL,body_heading,10.1,139,147,auto_extracted_review_required,placeholder
+science,,science-10,Types of Chemical Reactions,science-10-auto-10-2-rate-of-a-chemical,RATE OF A CHEMICAL,body_heading,10.2,145,153,auto_extracted_review_required,placeholder
+science,,science-10,Types of Chemical Reactions,science-10-auto-10-4-ionic-product-of-water,IONIC PRODUCT OF WATER,body_heading,10.4,148,156,auto_extracted_review_required,placeholder
+science,,science-10,Types of Chemical Reactions,science-10-auto-10-6-role-of-ph-in,ROLE OF pH IN,body_heading,10.6,149,157,auto_extracted_review_required,placeholder
+science,,science-10,Types of Chemical Reactions,science-10-auto-10-7-ph-calculation,pH CALCULATION,body_heading,10.7,150,158,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,,,chapter,,155,163,toc_verified,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-2-classification-of,CLASSIFICATION OF,body_heading,11.2,156,164,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-3-classes-of-organic,CLASSES OF ORGANIC,body_heading,11.3,157,165,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-3-1-hydrocarbons,Hydrocarbons,body_heading,11.3.1,157,165,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-3-2-characteristics-of,Characteristics of,body_heading,11.3.2,158,166,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-4-homologous-series,HOMOLOGOUS SERIES,body_heading,11.4,159,167,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-5-nomenclature-of,NOMENCLATURE OF,body_heading,11.5,160,168,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-5-1-why-do-we-need,Why do we need,body_heading,11.5.1,160,168,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-5-2-components-of-an-iupac,Components of an IUPAC,body_heading,11.5.2,160,168,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-5-3-iupac-rules-for-naming,IUPAC rules for naming,body_heading,11.5.3,161,169,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-5-5-iupac-nomenclature-of,IUPAC Nomenclature of,body_heading,11.5.5,162,170,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-6-ethanol-ch3ch2oh,ETHANOL (CH3CH2OH),body_heading,11.6,163,171,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-6-1-manufacture-of-ethanol,Manufacture of ethanol,body_heading,11.6.1,163,171,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-6-2-physical-properties,Physical properties,body_heading,11.6.2,164,172,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-6-3-chemical-properties,Chemical Properties,body_heading,11.6.3,164,172,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-7-ethanoic-acid-ch3cooh,ETHANOIC ACID (CH3COOH),body_heading,11.7,165,173,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-7-1-manufacture-of-ethanoic,Manufacture of ethanoic,body_heading,11.7.1,165,173,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-7-2-physical-properties,Physical Properties,body_heading,11.7.2,165,173,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-7-4-uses-of-ethanoic-acid,Uses of ethanoic acid,body_heading,11.7.4,165,173,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-8-organic-compounds,ORGANIC COMPOUNDS,body_heading,11.8,166,174,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-9-soaps-and-detergents,SOAPS AND DETERGENTS,body_heading,11.9,166,174,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-9-2-detergents,Detergents,body_heading,11.9.2,167,175,auto_extracted_review_required,placeholder
+science,,science-11,Carbon and its Compounds,science-11-auto-11-9-4-comparison-between-soap-and-detergents,Comparison between soap and detergents,body_heading,11.9.4,169,177,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,,,chapter,,173,181,toc_verified,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-1-tissues,Tissues,body_heading,12.1,173,181,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-2-1-dermal-or-epidermal,Dermal or Epidermal,body_heading,12.2.1,173,181,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-2-2-ground-tissue-system,Ground Tissue System,body_heading,12.2.2,174,182,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-2-3-vascular-tissue-system,Vascular Tissue System,body_heading,12.2.3,174,182,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-3-internal-structure-of,Internal Structure of,body_heading,12.3,175,183,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-6-internal-structure-of,Internal Structure of,body_heading,12.6,177,185,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-7-internal-structure-of,Internal Structure of,body_heading,12.7,178,186,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-9-plant-physiology,Plant Physiology,body_heading,12.9,180,188,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-9-1-plastids,Plastids,body_heading,12.9.1,180,188,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-9-3-functions-of-chloroplast,Functions of Chloroplast,body_heading,12.9.3,181,189,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-9-4-photosynthesis,Photosynthesis,body_heading,12.9.4,181,189,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-9-5-where-does,Where does,body_heading,12.9.5,181,189,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-9-6-photosynthetic-pigments,Photosynthetic Pigments,body_heading,12.9.6,181,189,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-10-mitochondria,Mitochondria,body_heading,12.10,182,190,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-10-1-structure-of-mitochondria,Structure of Mitochondria,body_heading,12.10.1,182,190,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-9-8-factors-affecting,Factors Affecting,body_heading,12.9.8,182,190,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-10-2-functions-of-mitochondria,Functions of Mitochondria,body_heading,12.10.2,183,191,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-11-types-of-respiration,TYPES OF RESPIRATION,body_heading,12.11,183,191,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-11-1-aerobic-respiration,Aerobic respiration,body_heading,12.11.1,183,191,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-11-2-anaerobic-respiration,Anaerobic respiration,body_heading,12.11.2,184,192,auto_extracted_review_required,placeholder
+science,,science-12,Plant Anatomy and Plant Physiology,science-12-auto-12-11-3-respiratory-quotient,Respiratory quotient,body_heading,12.11.3,184,192,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,,,chapter,,187,195,toc_verified,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-the-indian-cattle-leech,The Indian Cattle Leech,body_heading,13.1,188,196,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-1-habit-and-habitat,Habit and Habitat,body_heading,13.1.1,188,196,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-2-external-morphology,External Morphology,body_heading,13.1.2,188,196,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-3-divisions-of-the-body,Divisions of the Body,body_heading,13.1.3,189,197,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-4-body-wall,Body wall,body_heading,13.1.4,189,197,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-5-locomotion,Locomotion,body_heading,13.1.5,189,197,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-10-excretory-system,Excretory System,body_heading,13.1.10,191,199,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-11-reproductive-system,Reproductive System,body_heading,13.1.11,191,199,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-8-circulatory-system,Circulatory System,body_heading,13.1.8,191,199,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-1-9-nervous-system,Nervous System,body_heading,13.1.9,191,199,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-2-rabbit,Rabbit,body_heading,13.2,192,200,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-2-2-external-morphology,External Morphology,body_heading,13.2.2,193,201,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-2-4-digestive-system,Digestive System,body_heading,13.2.4,194,202,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-2-5-respiratory-system,Respiratory System,body_heading,13.2.5,194,202,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-2-6-circulatory-system,Circulatory System,body_heading,13.2.6,195,203,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-2-7-nervous-system,Nervous System,body_heading,13.2.7,195,203,auto_extracted_review_required,placeholder
+science,,science-13,Structural Organisation of Animals,science-13-auto-13-2-8-urinogenital-system,Urinogenital System,body_heading,13.2.8,196,204,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,,,chapter,,200,208,toc_verified,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-1-means-of-transport,Means of Transport,body_heading,14.1,201,209,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-1-1-diffusion,Diffusion,body_heading,14.1.1,201,209,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-1-2-active-transport,Active Transport,body_heading,14.1.2,201,209,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-1-3-osmosis,Osmosis,body_heading,14.1.3,201,209,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-2-root-hair-water,Root Hair-Water,body_heading,14.2,201,209,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-3-pathway-of-water,Pathway of Water,body_heading,14.3,202,210,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-4-types-of-movement-of,Types of Movement of,body_heading,14.4,202,210,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-4-1-apoplast-pathway,Apoplast Pathway,body_heading,14.4.1,202,210,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-4-2-symplast-pathway,Symplast Pathway,body_heading,14.4.2,202,210,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-5-transpiration,Transpiration,body_heading,14.5,202,210,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-10-translocation-of-sugars,Translocation of Sugars,body_heading,14.10,203,211,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-5-1-factors-affecting,Factors affecting,body_heading,14.5.1,203,211,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-6-root-pressure,Root Pressure,body_heading,14.6,203,211,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-7-uptake-of-minerals,Uptake of Minerals,body_heading,14.7,203,211,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-11-ascent-of-sap-and-its,Ascent of Sap and its,body_heading,14.11,204,212,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-13-blood-vessels,Blood Vessels,body_heading,14.13,206,214,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-14-types-of-circulatory,Types of Circulatory,body_heading,14.14,207,215,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-15-structure-of-human-heart,Structure of Human Heart,body_heading,14.15,207,215,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-15-2-heart-beat,Heart Beat,body_heading,14.15.2,209,217,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-15-3-cardiac-cycle,Cardiac Cycle,body_heading,14.15.3,210,218,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-15-4-heart-sound,Heart Sound,body_heading,14.15.4,210,218,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-17-blood-groups,Blood Groups,body_heading,14.17,211,219,auto_extracted_review_required,placeholder
+science,,science-14,Transportation in Plants and Circulation in Animals,science-14-auto-14-18-lymphatic-system,Lymphatic System,body_heading,14.18,212,220,auto_extracted_review_required,placeholder
+science,,science-15,Nervous System,,,chapter,,218,226,toc_verified,placeholder
+science,,science-15,Nervous System,science-15-auto-15-1-1-structure-of-neuron,Structure of Neuron,body_heading,15.1.1,219,227,auto_extracted_review_required,placeholder
+science,,science-15,Nervous System,science-15-auto-15-1-2-types-of-neurons,Types of Neurons,body_heading,15.1.2,220,228,auto_extracted_review_required,placeholder
+science,,science-15,Nervous System,science-15-auto-15-1-3-types-of-nerve-fibres,Types of Nerve Fibres,body_heading,15.1.3,220,228,auto_extracted_review_required,placeholder
+science,,science-15,Nervous System,science-15-auto-15-2-1-neurotransmitters,Neurotransmitters,body_heading,15.2.1,221,229,auto_extracted_review_required,placeholder
+science,,science-15,Nervous System,science-15-auto-15-3-human-nervous-system,Human Nervous System,body_heading,15.3,221,229,auto_extracted_review_required,placeholder
+science,,science-15,Nervous System,science-15-auto-15-3-1-central-nervous-system,Central Nervous System,body_heading,15.3.1,221,229,auto_extracted_review_required,placeholder
+science,,science-15,Nervous System,science-15-auto-15-4-cerebrospinal-fluid,Cerebrospinal Fluid,body_heading,15.4,224,232,auto_extracted_review_required,placeholder
+science,,science-15,Nervous System,science-15-auto-15-5-reflex-action,Reflex Action,body_heading,15.5,224,232,auto_extracted_review_required,placeholder
+science,,science-15,Nervous System,science-15-auto-15-7-autonomic-nervous,Autonomic Nervous,body_heading,15.7,225,233,auto_extracted_review_required,placeholder
+science,,science-16,Plant and Animal Hormones,,,chapter,,229,237,toc_verified,placeholder
+science,,science-16,Plant and Animal Hormones,science-16-auto-16-1-1-auxins,Auxins,body_heading,16.1.1,230,238,auto_extracted_review_required,placeholder
+science,,science-16,Plant and Animal Hormones,science-16-auto-16-1-2-cytokinins,Cytokinins,body_heading,16.1.2,231,239,auto_extracted_review_required,placeholder
+science,,science-16,Plant and Animal Hormones,science-16-auto-16-1-3-gibberellins,Gibberellins,body_heading,16.1.3,231,239,auto_extracted_review_required,placeholder
+science,,science-16,Plant and Animal Hormones,science-16-auto-16-1-4-abscisic-acid,Abscisic Acid,body_heading,16.1.4,232,240,auto_extracted_review_required,placeholder
+science,,science-16,Plant and Animal Hormones,science-16-auto-16-1-5-ethylene,Ethylene,body_heading,16.1.5,232,240,auto_extracted_review_required,placeholder
+science,,science-16,Plant and Animal Hormones,science-16-auto-16-2-1-pituitary-gland,Pituitary Gland,body_heading,16.2.1,233,241,auto_extracted_review_required,placeholder
+science,,science-16,Plant and Animal Hormones,science-16-auto-16-2-4-pancreas-islets-of,Pancreas (Islets of,body_heading,16.2.4,236,244,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,,,chapter,,243,251,toc_verified,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-2-asexual-reproduction,Asexual Reproduction,body_heading,17.2,245,253,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-3-sexual-reproduction-in,Sexual Reproduction in,body_heading,17.3,245,253,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-3-2-structure-of-the-ovule,Structure of the Ovule,body_heading,17.3.2,246,254,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-5-agents-of-cross,Agents of Cross,body_heading,17.5,247,255,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-6-fertilization-in-plants,Fertilization in Plants,body_heading,17.6,248,256,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-7-sexual-reproduction-in,Sexual Reproduction in,body_heading,17.7,248,256,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-7-1-male-reproductive-organ,Male Reproductive Organ,body_heading,17.7.1,249,257,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-8-gametogenesis,Gametogenesis,body_heading,17.8,250,258,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-8-1-structure-of-human,Structure of Human,body_heading,17.8.1,250,258,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-8-2-structure-of-human-ovum,Structure of Human Ovum,body_heading,17.8.2,250,258,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-9-menstrual-cycle-process,Menstrual Cycle-Process,body_heading,17.9,251,259,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-10-fertilization-to-foetal,Fertilization to Foetal,body_heading,17.10,252,260,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-12-population-explosion,Population Explosion,body_heading,17.12,254,262,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-13-urinary-tract-infection,Urinary Tract Infection,body_heading,17.13,255,263,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-14-personal-hygiene,Personal Hygiene,body_heading,17.14,255,263,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-14-1-body-hygiene,Body Hygiene,body_heading,17.14.1,255,263,auto_extracted_review_required,placeholder
+science,,science-17,Reproduction in Plants and Animals,science-17-auto-17-14-2-toilet-hygiene,Toilet Hygiene,body_heading,17.14.2,255,263,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,,,chapter,,261,269,toc_verified,placeholder
+science,,science-18,Genetics,science-18-auto-18-1-gregor-johann-mendel,Gregor Johann Mendel,body_heading,18.1,261,269,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-2-monohybrid-cross,Monohybrid Cross,body_heading,18.2,262,270,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-4-mendel-s-laws,Mendel’s Laws,body_heading,18.4,264,272,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-5-chromosomes-dna,"Chromosomes, DNA",body_heading,18.5,265,273,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-5-1-structure-of-a-chromosome,Structure of a Chromosome,body_heading,18.5.1,265,273,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-5-2-types-of-chromosomes,Types of Chromosomes,body_heading,18.5.2,266,274,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-5-3-types-of-chromosomes,Types of Chromosomes,body_heading,18.5.3,266,274,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-6-1-watson-and-crick-model,Watson and Crick model,body_heading,18.6.1,267,275,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-6-2-dna-replication,DNA Replication,body_heading,18.6.2,268,276,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-6-3-significance-of-dna,Significance of DNA,body_heading,18.6.3,268,276,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-7-sex-determination,Sex Determination,body_heading,18.7,269,277,auto_extracted_review_required,placeholder
+science,,science-18,Genetics,science-18-auto-18-7-1-sex-determination-in-human,Sex Determination in Human,body_heading,18.7.1,269,277,auto_extracted_review_required,placeholder
+science,,science-19,Origin and Evolution of Life,,,chapter,,274,282,toc_verified,placeholder
+science,,science-19,Origin and Evolution of Life,science-19-auto-19-2-evidences-of-evolution,Evidences of Evolution,body_heading,19.2,275,283,auto_extracted_review_required,placeholder
+science,,science-19,Origin and Evolution of Life,science-19-auto-19-2-2-evidences-from,Evidences from,body_heading,19.2.2,276,284,auto_extracted_review_required,placeholder
+science,,science-19,Origin and Evolution of Life,science-19-auto-19-3-theories-of-evolution,Theories of Evolution,body_heading,19.3,276,284,auto_extracted_review_required,placeholder
+science,,science-19,Origin and Evolution of Life,science-19-auto-19-3-1-lamarckism,Lamarckism,body_heading,19.3.1,277,285,auto_extracted_review_required,placeholder
+science,,science-19,Origin and Evolution of Life,science-19-auto-19-4-variation,Variation,body_heading,19.4,279,287,auto_extracted_review_required,placeholder
+science,,science-19,Origin and Evolution of Life,science-19-auto-19-5-1-fossilization,Fossilization,body_heading,19.5.1,280,288,auto_extracted_review_required,placeholder
+science,,science-19,Origin and Evolution of Life,science-19-auto-19-5-2-determination-of-age-of,Determination of age of,body_heading,19.5.2,280,288,auto_extracted_review_required,placeholder
+science,,science-19,Origin and Evolution of Life,science-19-auto-19-6-ethnobotany,Ethnobotany,body_heading,19.6,281,289,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,,,chapter,,286,294,toc_verified,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-2-1-breeding-for-high-yield,Breeding for high yield,body_heading,20.2.1,287,295,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-2-2-plant-breeding-for,Plant Breeding for,body_heading,20.2.2,287,295,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-2-3-plant-breeding-for,Plant Breeding for,body_heading,20.2.3,288,296,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-2-4-plant-breeding-for-improved,Plant Breeding for Improved,body_heading,20.2.4,288,296,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-3-1-introduction-of-new,Introduction of New,body_heading,20.3.1,288,296,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-3-2-selection,Selection,body_heading,20.3.2,289,297,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-3-4-mutation-breeding,Mutation Breeding,body_heading,20.3.4,290,298,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-4-1-inbreeding,Inbreeding,body_heading,20.4.1,291,299,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-4-2-outbreeding,Outbreeding,body_heading,20.4.2,291,299,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-4-3-heterosis,Heterosis,body_heading,20.4.3,291,299,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-5-genetic-engineering,Genetic Engineering,body_heading,20.5,292,300,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-5-1-techniques-of-genetic,Techniques of Genetic,body_heading,20.5.1,292,300,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-5-2-gene-cloning,Gene Cloning,body_heading,20.5.2,292,300,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-6-biotechnology-in-medicine,Biotechnology in Medicine,body_heading,20.6,293,301,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-7-stem-cells,Stem Cells,body_heading,20.7,293,301,auto_extracted_review_required,placeholder
+science,,science-20,Breeding and Biotechnology,science-20-auto-20-9-genetically-modified,Genetically Modified,body_heading,20.9,295,303,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,,,chapter,,300,308,toc_verified,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-1-abuse-and-types-of-abuse,Abuse and Types of Abuse,body_heading,21.1,300,308,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-1-1-child-abuse,Child Abuse,body_heading,21.1.1,301,309,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-1-2-sexual-abuse,Sexual Abuse,body_heading,21.1.2,301,309,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-1-4-approaches-for-protection,Approaches for Protection,body_heading,21.1.4,301,309,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-2-drug-alcohol-and,"Drug, Alcohol and",body_heading,21.2,302,310,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-3-drug-abuse,Drug Abuse,body_heading,21.3,302,310,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-3-1-types-of-drugs,Types of Drugs,body_heading,21.3.1,303,311,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-3-2-drug-dependence,Drug Dependence,body_heading,21.3.2,303,311,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-3-3-behavioural-changes-of,Behavioural Changes of,body_heading,21.3.3,303,311,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-4-tobacco-abuse,Tobacco Abuse,body_heading,21.4,304,312,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-4-1-tobacco-use,Tobacco Use,body_heading,21.4.1,304,312,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-4-2-smoking-hazards-and,Smoking Hazards and,body_heading,21.4.2,304,312,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-4-3-prevention-of-smoking,Prevention of Smoking,body_heading,21.4.3,304,312,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-5-alcohol-abuse,Alcohol Abuse,body_heading,21.5,305,313,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-5-1-harmful-effects-of-alcohol,Harmful Effects of Alcohol,body_heading,21.5.1,305,313,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-7-diseases-and-disorders,Diseases and Disorders,body_heading,21.7,305,313,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-8-diabetes-mellitus,Diabetes Mellitus,body_heading,21.8,305,313,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-8-1-type-1-insulin-dependent,Type-1 Insulin Dependent,body_heading,21.8.1,306,314,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-8-2-type-2-non-insulin,Type-2 Non-Insulin,body_heading,21.8.2,306,314,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-10-heart-disease,Heart Disease,body_heading,21.10,308,316,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-10-1-prevention-and-control,Prevention and Control,body_heading,21.10.1,308,316,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-9-1-prevention-and-control-of,Prevention and Control of,body_heading,21.9.1,308,316,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-11-cancer,Cancer,body_heading,21.11,309,317,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-11-1-types-of-cancers,Types of Cancers,body_heading,21.11.1,309,317,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-11-3-treatment-of-cancer,Treatment of Cancer,body_heading,21.11.3,309,317,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-11-4-preventive-measures-for,Preventive measures for,body_heading,21.11.4,310,318,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-12-aids-acquired,AIDS (Acquired,body_heading,21.12,310,318,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-12-1-transmission-of-hiv,Transmission of HIV,body_heading,21.12.1,310,318,auto_extracted_review_required,placeholder
+science,,science-21,Health and Diseases,science-21-auto-21-12-3-prevention-and-control,Prevention and Control,body_heading,21.12.3,310,318,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,,,chapter,,315,323,toc_verified,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-1-conservation-and,Conservation and,body_heading,22.1,315,323,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-2-forest-and-its-importance,Forest and its Importance,body_heading,22.2,316,324,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-2-1-deforestation-and-its,Deforestation and its,body_heading,22.2.1,316,324,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-3-wildlife-and-its,Wildlife and its,body_heading,22.3,317,325,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-3-1-decline-in-wildlife,Decline in Wildlife,body_heading,22.3.1,317,325,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-3-2-aims-of-wildlife,Aims of Wildlife,body_heading,22.3.2,317,325,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-4-soil-erosion,Soil Erosion,body_heading,22.4,318,326,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-4-1-agents-of-soil-erosion,Agents of Soil Erosion,body_heading,22.4.1,318,326,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-4-2-management-of-soil,Management of Soil,body_heading,22.4.2,318,326,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-5-1-fossil-fuels,Fossil Fuels,body_heading,22.5.1,318,326,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-5-2-coal-and-petroleum,Coal and Petroleum,body_heading,22.5.2,319,327,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-5-3-steps-to-conserve-coal,Steps to Conserve Coal,body_heading,22.5.3,319,327,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-6-2-biogas,Biogas,body_heading,22.6.2,320,328,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-6-3-shale-gas,Shale gas,body_heading,22.6.3,321,329,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-6-4-wind-energy,Wind Energy,body_heading,22.6.4,321,329,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-6-6-tidal-energy,Tidal Energy,body_heading,22.6.6,322,330,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-7-rainwater-harvesting,Rainwater Harvesting,body_heading,22.7,322,330,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-8-electrical-energy,Electrical Energy,body_heading,22.8,323,331,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-9-e-wastes-and-its,E-Wastes and its,body_heading,22.9,323,331,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-10-sewage-management,Sewage Management,body_heading,22.10,324,332,auto_extracted_review_required,placeholder
+science,,science-22,Environmental Management,science-22-auto-22-11-solid-waste,Solid Waste,body_heading,22.11,324,332,auto_extracted_review_required,placeholder
+science,,science-23,Visual Communication,,,chapter,,329,337,toc_verified,placeholder
+science,,science-23,Visual Communication,science-23-auto-23-1-file,FILE,body_heading,23.1,329,337,auto_extracted_review_required,placeholder
+science,,science-23,Visual Communication,science-23-auto-23-1-1-folder,FOLDER,body_heading,23.1.1,330,338,auto_extracted_review_required,placeholder
+social_science,history,social-history-01,Outbreak of World War I and Its Aftermath,,,chapter,,1,7,toc_verified,placeholder
+social_science,history,social-history-01,Outbreak of World War I and Its Aftermath,social-history-01-auto-1-2-rivalry-of-great-powers,Rivalry of Great Powers,body_heading,1.2,2,8,auto_extracted_review_required,placeholder
+social_science,history,social-history-01,Outbreak of World War I and Its Aftermath,social-history-01-auto-1-3-causes-course-and,"Causes, Course and",body_heading,1.3,4,10,auto_extracted_review_required,placeholder
+social_science,history,social-history-01,Outbreak of World War I and Its Aftermath,social-history-01-auto-1-4-russian-revolution,Russian Revolution,body_heading,1.4,9,15,auto_extracted_review_required,placeholder
+social_science,history,social-history-02,The World between two World Wars,,,chapter,,16,22,toc_verified,placeholder
+social_science,history,social-history-02,The World between two World Wars,social-history-02-auto-2-1-the-great-depression,The Great Depression,body_heading,2.1,16,22,auto_extracted_review_required,placeholder
+social_science,history,social-history-02,The World between two World Wars,social-history-02-auto-2-2-rise-of-fascism-and,Rise of Fascism and,body_heading,2.2,17,23,auto_extracted_review_required,placeholder
+social_science,history,social-history-02,The World between two World Wars,social-history-02-auto-2-3-anti-colonial-movements,Anti-Colonial Movements,body_heading,2.3,19,25,auto_extracted_review_required,placeholder
+social_science,history,social-history-02,The World between two World Wars,social-history-02-auto-2-5-political-developments,Political Developments,body_heading,2.5,22,28,auto_extracted_review_required,placeholder
+social_science,history,social-history-03,World War II,,,chapter,,27,33,toc_verified,placeholder
+social_science,history,social-history-03,World War II,social-history-03-auto-3-1-causes-course-and,"Causes, Course and",body_heading,3.1,27,33,auto_extracted_review_required,placeholder
+social_science,history,social-history-03,World War II,social-history-03-auto-3-3-new-international,New International,body_heading,3.3,34,40,auto_extracted_review_required,placeholder
+social_science,history,social-history-04,The World after World War II,,,chapter,,40,46,toc_verified,placeholder
+social_science,history,social-history-04,The World after World War II,social-history-04-auto-4-2-cold-war-rivalry,Cold War: Rivalry,body_heading,4.2,43,49,auto_extracted_review_required,placeholder
+social_science,history,social-history-04,The World after World War II,social-history-04-auto-4-4-korean-war,Korean War,body_heading,4.4,44,50,auto_extracted_review_required,placeholder
+social_science,history,social-history-04,The World after World War II,social-history-04-auto-4-5-non-aligned-movement,Non-Aligned Movement,body_heading,4.5,44,50,auto_extracted_review_required,placeholder
+social_science,history,social-history-04,The World after World War II,social-history-04-auto-4-6-the-cuban-revolution,The Cuban Revolution,body_heading,4.6,44,50,auto_extracted_review_required,placeholder
+social_science,history,social-history-04,The World after World War II,social-history-04-auto-4-7-arab-israeli-war,Arab-Israeli War,body_heading,4.7,45,51,auto_extracted_review_required,placeholder
+social_science,history,social-history-04,The World after World War II,social-history-04-auto-4-8-vietnam-war,Vietnam War,body_heading,4.8,47,53,auto_extracted_review_required,placeholder
+social_science,history,social-history-04,The World after World War II,social-history-04-auto-4-9-towards-european-union,Towards European Union,body_heading,4.9,48,54,auto_extracted_review_required,placeholder
+social_science,history,social-history-05,Social and Religious Reform Movements in the 19th Century,,,chapter,,53,59,toc_verified,placeholder
+social_science,history,social-history-05,Social and Religious Reform Movements in the 19th Century,social-history-05-auto-5-3-anti-caste-movements,Anti-Caste Movements,body_heading,5.3,57,63,auto_extracted_review_required,placeholder
+social_science,history,social-history-05,Social and Religious Reform Movements in the 19th Century,social-history-05-auto-5-4-islamic-reforms,Islamic Reforms,body_heading,5.4,57,63,auto_extracted_review_required,placeholder
+social_science,history,social-history-05,Social and Religious Reform Movements in the 19th Century,social-history-05-auto-5-5-parsi-reform-movement,Parsi Reform Movement,body_heading,5.5,58,64,auto_extracted_review_required,placeholder
+social_science,history,social-history-06,Early Revolts against British Rule in Tamil Nadu,,,chapter,,63,69,toc_verified,placeholder
+social_science,history,social-history-06,Early Revolts against British Rule in Tamil Nadu,social-history-06-auto-6-1-resistance-of,Resistance of,body_heading,6.1,63,69,auto_extracted_review_required,placeholder
+social_science,history,social-history-06,Early Revolts against British Rule in Tamil Nadu,social-history-06-auto-6-2-palayakkarars-revolt,Palayakkarars’ Revolt,body_heading,6.2,64,70,auto_extracted_review_required,placeholder
+social_science,history,social-history-07,Anti-Colonial Movements and the Birth of Nationalism,,,chapter,,75,81,toc_verified,placeholder
+social_science,history,social-history-07,Anti-Colonial Movements and the Birth of Nationalism,social-history-07-auto-7-4-the-foundation,The Foundation,body_heading,7.4,82,88,auto_extracted_review_required,placeholder
+social_science,history,social-history-07,Anti-Colonial Movements and the Birth of Nationalism,social-history-07-auto-7-5-partition-of-bengal,Partition of Bengal,body_heading,7.5,83,89,auto_extracted_review_required,placeholder
+social_science,history,social-history-08,Nationalism: Gandhian Phase,,,chapter,,89,95,toc_verified,placeholder
+social_science,history,social-history-08,Nationalism: Gandhian Phase,social-history-08-auto-8-2-gandhi-s-early,Gandhi’s Early,body_heading,8.2,90,96,auto_extracted_review_required,placeholder
+social_science,history,social-history-08,Nationalism: Gandhian Phase,social-history-08-auto-8-3-non-cooperation,Non-Cooperation,body_heading,8.3,92,98,auto_extracted_review_required,placeholder
+social_science,history,social-history-08,Nationalism: Gandhian Phase,social-history-08-auto-8-4-the-struggle-for-poorna,The Struggle for Poorna,body_heading,8.4,94,100,auto_extracted_review_required,placeholder
+social_science,history,social-history-08,Nationalism: Gandhian Phase,social-history-08-auto-8-5-beginnings-of-socialist,Beginnings of Socialist,body_heading,8.5,96,102,auto_extracted_review_required,placeholder
+social_science,history,social-history-08,Nationalism: Gandhian Phase,social-history-08-auto-8-8-towards-freedom,Towards Freedom,body_heading,8.8,99,105,auto_extracted_review_required,placeholder
+social_science,history,social-history-09,Freedom Struggle in Tamil Nadu,,,chapter,,105,111,toc_verified,placeholder
+social_science,history,social-history-09,Freedom Struggle in Tamil Nadu,social-history-09-auto-9-2-swadeshi-movement,Swadeshi Movement,body_heading,9.2,107,113,auto_extracted_review_required,placeholder
+social_science,history,social-history-09,Freedom Struggle in Tamil Nadu,social-history-09-auto-9-3-non-brahmin,Non-Brahmin,body_heading,9.3,108,114,auto_extracted_review_required,placeholder
+social_science,history,social-history-09,Freedom Struggle in Tamil Nadu,social-history-09-auto-9-5-civil-disobedience,Civil Disobedience,body_heading,9.5,110,116,auto_extracted_review_required,placeholder
+social_science,history,social-history-09,Freedom Struggle in Tamil Nadu,social-history-09-auto-9-6-quit-india-struggle,Quit India Struggle,body_heading,9.6,112,118,auto_extracted_review_required,placeholder
+social_science,history,social-history-10,Social Transformation in Tamil Nadu,,,chapter,,115,121,toc_verified,placeholder
+social_science,history,social-history-10,Social Transformation in Tamil Nadu,social-history-10-auto-10-1-tamil-renaissance,Tamil Renaissance,body_heading,10.1,115,121,auto_extracted_review_required,placeholder
+social_science,history,social-history-10,Social Transformation in Tamil Nadu,social-history-10-auto-10-3-south-indian-liberal,South Indian Liberal,body_heading,10.3,118,124,auto_extracted_review_required,placeholder
+social_science,history,social-history-10,Social Transformation in Tamil Nadu,social-history-10-auto-10-4-self-respect-movement,Self-Respect Movement,body_heading,10.4,119,125,auto_extracted_review_required,placeholder
+social_science,history,social-history-10,Social Transformation in Tamil Nadu,social-history-10-auto-10-5-labour-movements-in,Labour Movements in,body_heading,10.5,121,127,auto_extracted_review_required,placeholder
+social_science,history,social-history-10,Social Transformation in Tamil Nadu,social-history-10-auto-10-7-women-s-movements,Women’s Movements,body_heading,10.7,122,128,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-01,"India - Location, Relief and Drainage",,,chapter,,129,135,toc_verified,placeholder
+social_science,geography,social-geography-01,"India - Location, Relief and Drainage",social-geography-01-auto-1-2-major-physiographic,Major Physiographic,body_heading,1.2,131,137,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-01,"India - Location, Relief and Drainage",social-geography-01-auto-1-3-drainage-system-of,Drainage System of,body_heading,1.3,138,144,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-02,Climate and Natural Vegetation of India,,,chapter,,144,150,toc_verified,placeholder
+social_science,geography,social-geography-02,Climate and Natural Vegetation of India,social-geography-02-auto-2-1-the-factors-affecting-the,The factors affecting the,body_heading,2.1,144,150,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-02,Climate and Natural Vegetation of India,social-geography-02-auto-2-3-distribution-of-rainfall,Distribution of Rainfall,body_heading,2.3,148,154,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-02,Climate and Natural Vegetation of India,social-geography-02-auto-2-4-natural-vegetation,Natural Vegetation,body_heading,2.4,148,154,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-02,Climate and Natural Vegetation of India,social-geography-02-auto-2-5-wildlife,Wildlife,body_heading,2.5,151,157,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-03,India - Agriculture,,,chapter,,154,160,toc_verified,placeholder
+social_science,geography,social-geography-03,India - Agriculture,social-geography-03-auto-3-1-soils,Soils,body_heading,3.1,154,160,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-03,India - Agriculture,social-geography-03-auto-3-2-irrigation,Irrigation,body_heading,3.2,158,164,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-03,India - Agriculture,social-geography-03-auto-3-4-major-crops-cultivated,Major Crops Cultivated,body_heading,3.4,162,168,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-03,India - Agriculture,social-geography-03-auto-3-5-livestock,Livestock,body_heading,3.5,165,171,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-04,India - Resources and Industries,,,chapter,,170,176,toc_verified,placeholder
+social_science,geography,social-geography-04,India - Resources and Industries,social-geography-04-auto-4-1-minerals,Minerals,body_heading,4.1,170,176,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-05,"India - Population, Transport, Communication and Trade",,,chapter,,186,192,toc_verified,placeholder
+social_science,geography,social-geography-05,"India - Population, Transport, Communication and Trade",social-geography-05-auto-5-1-population,Population,body_heading,5.1,186,192,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-05,"India - Population, Transport, Communication and Trade",social-geography-05-auto-5-2-migration,Migration,body_heading,5.2,188,194,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-05,"India - Population, Transport, Communication and Trade",social-geography-05-auto-5-3-urbanization,Urbanization,body_heading,5.3,189,195,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-05,"India - Population, Transport, Communication and Trade",social-geography-05-auto-5-5-communication,Communication,body_heading,5.5,195,201,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,,,chapter,,200,206,toc_verified,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,social-geography-06-auto-6-1-location-and-size,Location and Size,body_heading,6.1,201,207,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,social-geography-06-auto-6-3-the-eastern-ghats,The Eastern Ghats,body_heading,6.3,204,210,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,social-geography-06-auto-6-4-plateaus,Plateaus,body_heading,6.4,206,212,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,social-geography-06-auto-6-5-plains,Plains,body_heading,6.5,206,212,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,social-geography-06-auto-6-6-drainage,Drainage,body_heading,6.6,206,212,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,social-geography-06-auto-6-7-climate,Climate,body_heading,6.7,208,214,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,social-geography-06-auto-6-10-natural-vegetation,Natural Vegetation,body_heading,6.10,210,216,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,social-geography-06-auto-6-9-soil-erosion,Soil Erosion,body_heading,6.9,210,216,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-06,Physical Geography of Tamil Nadu,social-geography-06-auto-6-12-natural-disasters,Natural Disasters,body_heading,6.12,211,217,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,,,chapter,,219,225,toc_verified,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,social-geography-07-auto-7-1-agriculture,Agriculture,body_heading,7.1,219,225,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,social-geography-07-auto-7-3-cropping-seasons-in,Cropping Seasons in,body_heading,7.3,220,226,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,social-geography-07-auto-7-5-livestock-animal,Livestock/Animal,body_heading,7.5,223,229,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,social-geography-07-auto-7-6-water-resource,Water Resource,body_heading,7.6,224,230,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,social-geography-07-auto-7-7-mineral-resources,Mineral Resources,body_heading,7.7,225,231,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,social-geography-07-auto-7-8-industries,Industries,body_heading,7.8,226,232,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,social-geography-07-auto-7-9-information-technology,Information Technology,body_heading,7.9,227,233,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,social-geography-07-auto-7-11-transport-and,Transport and,body_heading,7.11,229,235,auto_extracted_review_required,placeholder
+social_science,geography,social-geography-07,Human Geography of Tamil Nadu,social-geography-07-auto-7-13-trade,Trade,body_heading,7.13,232,238,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,,,chapter,,239,245,toc_verified,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-2-making-of-indian,Making of Indian,body_heading,1.2,239,245,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-3-salient-features-of,Salient features of,body_heading,1.3,240,246,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-4-preamble,Preamble,body_heading,1.4,240,246,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-6-fundamental-rights,Fundamental Rights,body_heading,1.6,241,247,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-7-directive-principles-of,Directive Principles of,body_heading,1.7,243,249,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-8-fundamental-duties,Fundamental Duties,body_heading,1.8,243,249,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-9-centre-state-relations,Centre-State Relations,body_heading,1.9,243,249,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-10-official-language,Official Language,body_heading,1.10,244,250,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-11-emergency-provisions,Emergency Provisions,body_heading,1.11,244,250,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-01,Indian Constitution,social-civics-01-auto-1-12-amendment-of-the,Amendment of the,body_heading,1.12,245,251,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-02,Central Government,,,chapter,,248,254,toc_verified,placeholder
+social_science,civics,social-civics-02,Central Government,social-civics-02-auto-2-1-the-president-of-india,The President of India,body_heading,2.1,249,255,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-02,Central Government,social-civics-02-auto-2-6-judiciary,Judiciary,body_heading,2.6,255,261,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-03,State Government,,,chapter,,259,265,toc_verified,placeholder
+social_science,civics,social-civics-03,State Government,social-civics-03-auto-3-2-chief-minister,Chief Minister,body_heading,3.2,262,268,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-03,State Government,social-civics-03-auto-3-5-judiciary-of-state,Judiciary of State,body_heading,3.5,265,271,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-04,India’s Foreign Policy,,,chapter,,269,275,toc_verified,placeholder
+social_science,civics,social-civics-04,India’s Foreign Policy,social-civics-04-auto-4-2-panchsheel,Panchsheel,body_heading,4.2,270,276,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-04,India’s Foreign Policy,social-civics-04-auto-4-3-basic-determinants-of,Basic Determinants of,body_heading,4.3,270,276,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-04,India’s Foreign Policy,social-civics-04-auto-4-4-the-non-aligned,The Non-Aligned,body_heading,4.4,270,276,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-04,India’s Foreign Policy,social-civics-04-auto-4-5-basic-concepts-of,Basic Concepts of,body_heading,4.5,272,278,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-04,India’s Foreign Policy,social-civics-04-auto-4-7-contemporary-context,Contemporary context,body_heading,4.7,273,279,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-05,India’s International Relations,,,chapter,,278,284,toc_verified,placeholder
+social_science,civics,social-civics-05,India’s International Relations,social-civics-05-auto-5-2-india-s-relationships,India’s Relationships,body_heading,5.2,282,288,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-05,India’s International Relations,social-civics-05-auto-5-3-india-and-west-asia,India and West Asia,body_heading,5.3,283,289,auto_extracted_review_required,placeholder
+social_science,civics,social-civics-05,India’s International Relations,social-civics-05-auto-5-4-india-and-international,India and International,body_heading,5.4,284,290,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-01,Gross Domestic Product and its Growth: an Introduction,,,chapter,,292,298,toc_verified,placeholder
+social_science,economics,social-economics-01,Gross Domestic Product and its Growth: an Introduction,social-economics-01-auto-1-2-gross-domestic,Gross Domestic,body_heading,1.2,294,300,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-01,Gross Domestic Product and its Growth: an Introduction,social-economics-01-auto-1-5-economic-growth-and,Economic Growth and,body_heading,1.5,297,303,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-01,Gross Domestic Product and its Growth: an Introduction,social-economics-01-auto-1-6-developmental-path-based,Developmental Path based,body_heading,1.6,298,304,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-02,Globalization and Trade,,,chapter,,303,309,toc_verified,placeholder
+social_science,economics,social-economics-02,Globalization and Trade,social-economics-02-auto-2-1-globalization,Globalization,body_heading,2.1,303,309,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-02,Globalization and Trade,social-economics-02-auto-2-2-history-of-globalization,History of Globalization,body_heading,2.2,303,309,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-02,Globalization and Trade,social-economics-02-auto-2-4-globalization-in-india,Globalization in India,body_heading,2.4,305,311,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-02,Globalization and Trade,social-economics-02-auto-2-5-multinational-corporation,Multinational Corporation,body_heading,2.5,306,312,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-02,Globalization and Trade,social-economics-02-auto-2-7-impact-and-challenges,Impact and Challenges,body_heading,2.7,308,314,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-03,Food Security and Nutrition,,,chapter,,311,317,toc_verified,placeholder
+social_science,economics,social-economics-03,Food Security and Nutrition,social-economics-03-auto-3-1-food-security,Food Security,body_heading,3.1,311,317,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-03,Food Security and Nutrition,social-economics-03-auto-3-2-availability-and-access,Availability and Access,body_heading,3.2,312,318,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-03,Food Security and Nutrition,social-economics-03-auto-3-3-purchasing-power,Purchasing Power,body_heading,3.3,314,320,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-03,Food Security and Nutrition,social-economics-03-auto-3-4-agricultural-policy-in-india,Agricultural Policy in India,body_heading,3.4,314,320,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-04,Government and Taxes,,,chapter,,321,327,toc_verified,placeholder
+social_science,economics,social-economics-04,Government and Taxes,social-economics-04-auto-4-1-role-of-government-in,Role of Government in,body_heading,4.1,321,327,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-04,Government and Taxes,social-economics-04-auto-4-3-types-of-taxes,Types of Taxes,body_heading,4.3,323,329,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-04,Government and Taxes,social-economics-04-auto-4-5-black-money,Black Money,body_heading,4.5,325,331,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-04,Government and Taxes,social-economics-04-auto-4-6-tax-evasion,Tax Evasion,body_heading,4.6,325,331,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-04,Government and Taxes,social-economics-04-auto-4-7-taxes-and-development,Taxes and Development,body_heading,4.7,325,331,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-05,Industrial Clusters in Tamil Nadu,,,chapter,,328,334,toc_verified,placeholder
+social_science,economics,social-economics-05,Industrial Clusters in Tamil Nadu,social-economics-05-auto-5-1-importance-of,Importance of,body_heading,5.1,328,334,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-05,Industrial Clusters in Tamil Nadu,social-economics-05-auto-5-2-types-of-industries,Types of Industries,body_heading,5.2,329,335,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-05,Industrial Clusters in Tamil Nadu,social-economics-05-auto-5-4-historical-development,Historical Development,body_heading,5.4,330,336,auto_extracted_review_required,placeholder
+social_science,economics,social-economics-05,Industrial Clusters in Tamil Nadu,social-economics-05-auto-5-6-the-policy-factors-that,The Policy Factors that,body_heading,5.6,334,340,auto_extracted_review_required,placeholder
+english,,english-01,Unit 1,,,unit,,1,5,toc_verified,placeholder
+english,,english-01,Unit 1,english-01-prose,His First Flight,prose,,2,6,toc_verified,placeholder
+english,,english-01,Unit 1,english-01-poem,Life,poem,,17,21,toc_verified,placeholder
+english,,english-01,Unit 1,english-01-supplementary,The Tempest,supplementary,,21,25,toc_verified,placeholder
+english,,english-02,Unit 2,,,unit,,29,33,toc_verified,placeholder
+english,,english-02,Unit 2,english-02-prose,The Night the Ghost Got In,prose,,30,34,toc_verified,placeholder
+english,,english-02,Unit 2,english-02-poem,The Grumble Family,poem,,45,49,toc_verified,placeholder
+english,,english-02,Unit 2,english-02-supplementary,Zigzag,supplementary,,50,54,toc_verified,placeholder
+english,,english-03,Unit 3,,,unit,,59,63,toc_verified,placeholder
+english,,english-03,Unit 3,english-03-prose,Empowered Women Navigating the World,prose,,60,64,toc_verified,placeholder
+english,,english-03,Unit 3,english-03-poem,I am Every Woman,poem,,84,88,toc_verified,placeholder
+english,,english-03,Unit 3,english-03-supplementary,The Story of Mulan,supplementary,,88,92,toc_verified,placeholder
+english,,english-04,Unit 4,,,unit,,93,97,toc_verified,placeholder
+english,,english-04,Unit 4,english-04-prose,The Attic,prose,,94,98,toc_verified,placeholder
+english,,english-04,Unit 4,english-04-poem,The Ant and the Cricket,poem,,115,119,toc_verified,placeholder
+english,,english-04,Unit 4,english-04-supplementary,The Aged Mother,supplementary,,120,124,toc_verified,placeholder
+english,,english-05,Unit 5,,,unit,,125,129,toc_verified,placeholder
+english,,english-05,Unit 5,english-05-prose,Tech Bloomers,prose,,126,130,toc_verified,placeholder
+english,,english-05,Unit 5,english-05-poem,The Secret of the Machines,poem,,148,152,toc_verified,placeholder
+english,,english-05,Unit 5,english-05-supplementary,A day in 2889 of an American Journalist,supplementary,,153,157,toc_verified,placeholder
+english,,english-06,Unit 6,,,unit,,161,165,toc_verified,placeholder
+english,,english-06,Unit 6,english-06-prose,The Last Lesson,prose,,162,166,toc_verified,placeholder
+english,,english-06,Unit 6,english-06-poem,No Men Are Foreign,poem,,179,183,toc_verified,placeholder
+english,,english-06,Unit 6,english-06-supplementary,The Little Hero of Holland,supplementary,,183,187,toc_verified,placeholder
+english,,english-07,Unit 7,,,unit,,188,192,toc_verified,placeholder
+english,,english-07,Unit 7,english-07-prose,The Dying Detective,prose,,189,193,toc_verified,placeholder
+english,,english-07,Unit 7,english-07-poem,The House on Elm Street,poem,,202,206,toc_verified,placeholder
+english,,english-07,Unit 7,english-07-supplementary,A Dilemma,supplementary,,205,209,toc_verified,placeholder
+tamil,,tamil-01,அமுதஊற்று,,,thematic_unit,,1,11,toc_verified,placeholder
+tamil,,tamil-01,அமுதஊற்று,tamil-01-01,அன்னை மொழியே,poem,,2,12,visually_verified_toc,placeholder
+tamil,,tamil-01,அமுதஊற்று,tamil-01-02,பாவாணர் பார்வையில் தமிழ்ச்சொல் வளம்,prose,,4,14,visually_verified_toc,placeholder
+tamil,,tamil-01,அமுதஊற்று,tamil-01-03,காலக்கணிதம்,poem,,8,18,visually_verified_toc,placeholder
+tamil,,tamil-01,அமுதஊற்று,tamil-01-04,புயலிலே ஒரு தோணி,prose,,10,20,visually_verified_toc,placeholder
+tamil,,tamil-01,அமுதஊற்று,tamil-01-05,சொல்,grammar,,13,23,visually_verified_toc,placeholder
+tamil,,tamil-02,உயிரின் ஓசை,,,thematic_unit,,23,33,toc_verified,placeholder
+tamil,,tamil-02,உயிரின் ஓசை,tamil-02-01,கேட்கிறதா என் குரல்!,prose,,24,34,visually_verified_toc,placeholder
+tamil,,tamil-02,உயிரின் ஓசை,tamil-02-02,பரிபாடல்,poem,,28,38,visually_verified_toc,placeholder
+tamil,,tamil-02,உயிரின் ஓசை,tamil-02-03,மேகம்,poem,,30,40,visually_verified_toc,placeholder
+tamil,,tamil-02,உயிரின் ஓசை,tamil-02-04,பிரும்மம்,prose,,31,41,visually_verified_toc,placeholder
+tamil,,tamil-02,உயிரின் ஓசை,tamil-02-05,தொகாநிலைத் தொடர்கள்,grammar,,35,45,visually_verified_toc,placeholder
+tamil,,tamil-03,கூட்டாஞ்சோறு,,,thematic_unit,,45,55,toc_verified,placeholder
+tamil,,tamil-03,கூட்டாஞ்சோறு,tamil-03-01,விருந்து போற்றுதும்!,prose,,46,56,visually_verified_toc,placeholder
+tamil,,tamil-03,கூட்டாஞ்சோறு,tamil-03-02,காசிக்காண்டம்,poem,,50,60,visually_verified_toc,placeholder
+tamil,,tamil-03,கூட்டாஞ்சோறு,tamil-03-03,முத்துக்குமாரசாமி பிள்ளைத்தமிழ்,poem,,52,62,visually_verified_toc,placeholder
+tamil,,tamil-03,கூட்டாஞ்சோறு,tamil-03-04,கோபல்லபுரத்து மக்கள்,prose,,54,64,visually_verified_toc,placeholder
+tamil,,tamil-03,கூட்டாஞ்சோறு,tamil-03-05,தொகைநிலைத் தொடர்கள்,grammar,,59,69,visually_verified_toc,placeholder
+tamil,,tamil-03,கூட்டாஞ்சோறு,tamil-03-06,திருக்குறள்,poem,,66,76,visually_verified_toc,placeholder
+tamil,,tamil-04,மணற்கேணி,,,thematic_unit,,71,81,toc_verified,placeholder
+tamil,,tamil-04,மணற்கேணி,tamil-04-01,மொழிபெயர்ப்புக் கல்வி,prose,,72,82,visually_verified_toc,placeholder
+tamil,,tamil-04,மணற்கேணி,tamil-04-02,திருவிளையாடற் புராணம்,poem,,76,86,visually_verified_toc,placeholder
+tamil,,tamil-04,மணற்கேணி,tamil-04-03,புதிய நம்பிக்கை,prose,,80,90,visually_verified_toc,placeholder
+tamil,,tamil-04,மணற்கேணி,tamil-04-04,இலக்கணம் – பொது,grammar,,84,94,visually_verified_toc,placeholder
+tamil,,tamil-05,நிலா முற்றம்,,,thematic_unit,,93,103,toc_verified,placeholder
+tamil,,tamil-05,நிலா முற்றம்,tamil-05-01,பன்முகக் கலைஞர்,prose,,94,104,visually_verified_toc,placeholder
+tamil,,tamil-05,நிலா முற்றம்,tamil-05-02,கம்பராமாயணம்,poem,,99,109,visually_verified_toc,placeholder
+tamil,,tamil-05,நிலா முற்றம்,tamil-05-03,பாய்ச்சல்,prose,,102,112,visually_verified_toc,placeholder
+tamil,,tamil-05,நிலா முற்றம்,tamil-05-04,அகப்பொருள் இலக்கணம்,grammar,,106,116,visually_verified_toc,placeholder
+tamil,,tamil-05,நிலா முற்றம்,tamil-05-05,திருக்குறள்,poem,,116,126,visually_verified_toc,placeholder
+tamil,,tamil-06,விதை நெல்,,,thematic_unit,,121,131,toc_verified,placeholder
+tamil,,tamil-06,விதை நெல்,tamil-06-01,சிற்றகல் ஒளி,prose,,122,132,visually_verified_toc,placeholder
+tamil,,tamil-06,விதை நெல்,tamil-06-02,சிலப்பதிகாரம்,poem,,126,136,visually_verified_toc,placeholder
+tamil,,tamil-06,விதை நெல்,tamil-06-03,முத்தொள்ளாயிரம்,poem,,129,139,visually_verified_toc,placeholder
+tamil,,tamil-06,விதை நெல்,tamil-06-04,மங்கையராய்ப் பிறப்பதற்கே...,prose,,131,141,visually_verified_toc,placeholder
+tamil,,tamil-06,விதை நெல்,tamil-06-05,புறப்பொருள் இலக்கணம்,grammar,,135,145,visually_verified_toc,placeholder
+tamil,,tamil-07,பெருவழி,,,thematic_unit,,143,153,toc_verified,placeholder
+tamil,,tamil-07,பெருவழி,tamil-07-01,சங்க இலக்கியத்தில் அறம்,prose,,144,154,visually_verified_toc,placeholder
+tamil,,tamil-07,பெருவழி,tamil-07-02,தேம்பாவணி,poem,,148,158,visually_verified_toc,placeholder
+tamil,,tamil-07,பெருவழி,tamil-07-03,அக்கறை,prose,,152,162,visually_verified_toc,placeholder
+tamil,,tamil-07,பெருவழி,tamil-07-04,இராமானுசர் – நாடகம்,drama,,153,163,visually_verified_toc,placeholder
+tamil,,tamil-07,பெருவழி,tamil-07-05,"பா வகை, அலகிடுதல்",grammar,,156,166,visually_verified_toc,placeholder
+tamil,,tamil-07,பெருவழி,tamil-07-06,திருக்குறள்,poem,,166,176,visually_verified_toc,placeholder

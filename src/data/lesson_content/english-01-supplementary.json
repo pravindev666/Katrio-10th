@@ -1,0 +1,153 @@
+{
+  "section_id": "english-01-supplementary",
+  "unit_id": "english-01",
+  "subject": "english",
+  "title": "The Tempest (Adapted from Charles Lamb's Tales from Shakespeare)",
+  "subtitle": "Character web, island exile, Prospero's storm, testing Ferdinand, and the triumph of forgiveness over vengeance",
+  "curiosity_hook": "After twelve years of betrayal and exile on a lonely island, why does Prospero choose forgiveness instead of revenge when his enemies fall completely into his power?",
+  "estimated_minutes": 12,
+  "source_pdf": "Class_10_English_2024_Edition-www.tntextbooks.in.pdf",
+  "source_edition": "2024 Edition",
+  "source_printed_pages": [21, 22, 23, 24, 25, 26, 27],
+  "source_pdf_pages": [25, 26, 27, 28, 29, 30, 31],
+  "source_verified_by": "AGY Pass 2 Full-Chapter Build (pending human English teacher & rights sign-off)",
+  "revision_date": "2026-11-22",
+  "editorial_status": "in_review",
+  "learning_objectives": [
+    "Trace the key narrative events of 'The Tempest' from Prospero's exile from Milan to reconciliation and his decision to renounce magic.",
+    "Explain the distinct roles and motivations of Prospero, Miranda, Ariel, Caliban, Antonio, Alonso, Ferdinand, and Gonzalo.",
+    "Evaluate why forgiveness and repentance serve as the moral turning point of the narrative."
+  ],
+  "concept_outline": [
+    {
+      "heading": "Twelve Years of Exile & Gonzalo's Kindness (pp. 21–22)",
+      "summary": "Prospero, the rightful Duke of Milan, was usurped by his ambitious younger brother Antonio aided by Alonso (King of Naples) and cast adrift with three-year-old Miranda. Loyal lord Gonzalo secretly supplied food, water, clothing, and Prospero's prized books."
+    },
+    {
+      "heading": "The Magical Tempest, Ariel & Testing Ferdinand (pp. 21–24)",
+      "summary": "Using the spirit Ariel (whom he had freed from the witch Sycorax's tree prison), Prospero raises a harmless storm bringing his enemies' ship safely to shore. Prince Ferdinand meets Miranda; Prospero assigns Ferdinand hard log-piling labour solely to test his sincerity."
+    },
+    {
+      "heading": "Repentance, Reconciliation & Freeing Ariel (pp. 24–26)",
+      "summary": "When Ariel confronts Antonio and King Alonso with their past treachery and brings them in genuine sorrow before Prospero, Prospero forgives them, reunites Alonso with Ferdinand, reclaims his dukedom, frees Ariel, and breaks his magic staff."
+    }
+  ],
+  "key_terms": [
+    { "term": "Prospero & Miranda", "definition": "Rightful Duke of Milan and his compassionate daughter, exiled to a remote island for twelve years." },
+    { "term": "Ariel", "definition": "Chief gentle spirit freed by Prospero from Sycorax's imprisonment, who raises the storm and guides the castaways safely." },
+    { "term": "Gonzalo", "definition": "Kind-hearted courtier who secretly stocked the exile boat with provisions and Prospero's beloved books." },
+    { "term": "Caliban", "definition": "Son of the witch Sycorax compelled to perform heavy physical chores on the island." }
+  ],
+  "interaction": {
+    "engine": "StoryStage",
+    "version": "1.0.0",
+    "scene_id": "english-01-supplementary-tempest",
+    "representation_status": "Illustrative reconstruction",
+    "modes_supported": ["guided", "explore", "2d_text"],
+    "controls": [
+      {
+        "id": "character-perspectives",
+        "label": "Character Web & Motivation Switcher",
+        "type": "button_group",
+        "description": "Inspect character actions and ethical choices across the story arc.",
+        "keyboard_equivalent": "Tab + Enter across character and sequence controls."
+      }
+    ],
+    "expected_observations": [
+      "Despite commanding wind and sea, Prospero ensures every passenger and sailor survives the storm unharmed.",
+      "Gonzalo's quiet kindness twelve years earlier makes Prospero's survival and Miranda's education possible."
+    ],
+    "limitations": [
+      "Uses concise rights-safe plot summaries; learners read the full Class 10 textbook extract on pp. 21–26."
+    ],
+    "config": {
+      "unit_focus": "english-01-supplementary"
+    }
+  },
+  "storyboard": [
+    { "mode": "guided", "step": 1, "title": "Map the Characters", "learner_action": "Distinguish Milan's court (Prospero, Miranda, Antonio, Gonzalo), Naples' court (Alonso, Ferdinand), and Island spirits (Ariel, Caliban).", "expected_response": "Clarifies how the 12-year backstory connects directly to the shipwreck." },
+    { "mode": "explore", "step": 2, "title": "Evaluate Prospero's Final Choice", "learner_action": "Compare vengeance vs forgiveness once Antonio and Alonso repent.", "expected_response": "Recognizes mercy and self-restraint as the climax of the supplementary tale." }
+  ],
+  "accessible_equivalent": {
+    "mode": "structured_table_steps",
+    "summary": "Structured 3-act plot guide, character table, and comprehension check for 'The Tempest' (pp. 21–27).",
+    "steps": [
+      { "step_number": 1, "heading": "Act I — Betrayal & Survival", "description": "Antonio & King Alonso usurp Milan; loyal Gonzalo saves Prospero and Miranda with provisions and books.", "key_takeaway": "Prospero values his books above his lost dukedom." },
+      { "step_number": 2, "heading": "Act II — The Harmless Storm & Test", "description": "Ariel scatters the crew safely; Ferdinand endures log-piling cheerfully out of love for Miranda.", "key_takeaway": "Prospero tests Ferdinand's constancy without intending real harm." },
+      { "step_number": 3, "heading": "Act III — Forgiveness & Freedom", "description": "Seeing genuine remorse in his enemies, Prospero forgives them, restores harmony, and grants Ariel freedom.", "key_takeaway": "Nobler action lies in virtue and forgiveness than in vengeance." }
+    ]
+  },
+  "assessment": {
+    "question_bank": [
+      {
+        "id": "e1s-q1",
+        "difficulty": "recall",
+        "prompt": "Who secretly placed food, water, clothing, and Prospero's prized books into the boat when Prospero and Miranda were cast adrift?",
+        "hint": "Check p. 22 for the name of the loyal lord of Prospero's court.",
+        "options": [
+          { "id": "a", "label": "Antonio", "is_correct": false, "feedback": "Antonio was Prospero's brother who usurped his dukedom." },
+          { "id": "b", "label": "Gonzalo", "is_correct": true, "feedback": "Correct! Kind lord Gonzalo privately stocked the boat with provisions and books." },
+          { "id": "c", "label": "Caliban", "is_correct": false, "feedback": "Caliban already lived on the island." },
+          { "id": "d", "label": "Alonso", "is_correct": false, "feedback": "King Alonso of Naples had aided Antonio against Prospero." }
+        ],
+        "worked_explanation": "Gonzalo's loyalty ensured Prospero and young Miranda survived the sea voyage and kept his books."
+      },
+      {
+        "id": "e1s-q2",
+        "difficulty": "conceptual",
+        "prompt": "Why did Prospero pretend to accuse Ferdinand of being a spy and make him pile heavy logs (pp. 23–24)?",
+        "hint": "Notice Prospero was secretly pleased that Ferdinand and Miranda admired each other.",
+        "options": [
+          { "id": "a", "label": "Because he hated Ferdinand permanently", "is_correct": false, "feedback": "Prospero actually hoped Ferdinand and Miranda would unite." },
+          { "id": "b", "label": "To test Ferdinand's constancy and true devotion", "is_correct": true, "feedback": "Correct! Prospero introduced temporary hardship to verify Ferdinand's sincerity and character." },
+          { "id": "c", "label": "Because Caliban refused to work", "is_correct": false, "feedback": "The task was specifically a moral test of Ferdinand's devotion." },
+          { "id": "d", "label": "To punish Miranda for speaking", "is_correct": false, "feedback": "Prospero acted out of fatherly care for Miranda's future." }
+        ],
+        "worked_explanation": "Prospero tested Ferdinand's constancy; Ferdinand's patience proved his love genuine."
+      },
+      {
+        "id": "e1s-q3",
+        "difficulty": "recall",
+        "prompt": "How did Prospero earn the loyal obedience of the spirit Ariel (p. 21)?",
+        "hint": "Recall who had trapped the gentle spirits inside large trees.",
+        "options": [
+          { "id": "a", "label": "By releasing Ariel from the witch Sycorax's imprisonment inside a tree", "is_correct": true, "feedback": "Correct! Prospero freed Ariel and other good spirits from Sycorax's spell." },
+          { "id": "b", "label": "By giving Ariel a ship from Naples", "is_correct": false, "feedback": "Ariel served Prospero long before the ship arrived." },
+          { "id": "c", "label": "By crowning Ariel Duke of Milan", "is_correct": false, "feedback": "Ariel desired freedom, not a dukedom." },
+          { "id": "d", "label": "By defeating King Alonso in battle", "is_correct": false, "feedback": "There was no battle with Alonso." }
+        ],
+        "worked_explanation": "Prospero rescued Ariel from Sycorax's tree prison, and finally rewarded Ariel's faithful service with full liberty."
+      }
+    ],
+    "worked_feedback": [
+      "Distinguish carefully between Antonio (Prospero's brother) and Alonso (King of Naples, Ferdinand's father).",
+      "Note how every seemingly harsh step Prospero takes (the storm, testing Ferdinand) aims at repentance and peace."
+    ]
+  },
+  "flashcards": [
+    { "id": "e1s-fc1", "card_type": "term", "front": "Prospero's former title & usurper", "back": "Rightful Duke of Milan, usurped 12 years earlier by his younger brother Antonio with King Alonso of Naples." },
+    { "id": "e1s-fc2", "card_type": "term", "front": "Role of Gonzalo in 'The Tempest'", "back": "Loyal courtier who secretly placed water, food, clothes, and Prospero's prized books in the exile boat." },
+    { "id": "e1s-fc3", "card_type": "why", "front": "Why did Prospero free Ariel at the end?", "back": "Ariel faithfully executed the storm and guided everyone safely to repentance; Prospero kept his promise of liberty." }
+  ],
+  "assets": [
+    {
+      "asset_id": "storystage-english-01-supp-v1",
+      "kind": "data_table",
+      "description": "Original rights-safe narrative guide & comprehension checks for 'The Tempest'.",
+      "license": "Original project educational commentary",
+      "source_reference": "TN Class 10 English 2024 Edition, Unit 1 Supplementary, pp. 21–27"
+    }
+  ],
+  "qa_checklist": {
+    "curriculum_alignment_checked": true,
+    "computational_tests_passed": true,
+    "keyboard_parity_verified": true,
+    "webgl_off_2d_verified": true,
+    "reduced_motion_verified": true,
+    "rights_notes": "Original summarized character and plot study guide; does not copy textbook text verbatim."
+  },
+  "rights_reviewed": false,
+  "subject_review_passed": false,
+  "accessibility_qa_passed": false,
+  "student_visible": true
+}

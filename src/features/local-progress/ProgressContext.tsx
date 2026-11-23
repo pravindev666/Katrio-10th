@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import {
   type AccessibilityPreferences,
+  type CapstoneProgressEntry,
   type DeviceProgressRecord,
   type LastLessonState,
   createInitialProgressRecord,
@@ -26,6 +27,9 @@ interface ProgressContextValue {
   markUnderstoodCheckpoint: (sectionId: string, score: number, total: number, mode?: string) => void;
   rateFlashcard: (cardId: string, rating: 'know' | 'review_again') => void;
   recordQuizCheckpoint: (quizId: string, score: number, total: number) => void;
+  saveTeachBackNote: (sectionId: string, note: string) => void;
+  awardDiscoveryStamp: (stampId: string) => void;
+  saveCapstoneProgress: (missionId: string, entry: Omit<CapstoneProgressEntry, 'updatedAt'>) => void;
   exportProgressJsonString: () => string;
   importProgressJsonString: (rawJson: string) => { valid: boolean; error?: string };
   resetDeviceProgress: () => void;
@@ -49,9 +53,6 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     }
     return createInitialProgressRecord();
   });
-
-  // Keep interactive 3D animations running smoothly by default even if Windows battery/visual flags
-  // report prefers-reduced-motion; students can explicitly enable Reduced Motion anytime in Learning Settings.
 
   useEffect(() => {
     try {
@@ -164,15 +165,26 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const markUnderstoodCheckpoint = useCallback(
-    (sectionId: string, score: number, total: number, mode = 'transfer_checkpoint') => {
-      setRecord((prev) => ({
-        ...prev,
-        updatedAt: new Date().toISOString(),
-        understoodCheckpoints: {
-          ...(prev.understoodCheckpoints ?? {}),
-          [sectionId]: { score, total, verifiedAt: new Date().toISOString(), mode },
-        },
-      }));
+    (sectionId: string, score: number, total: number, mode = 'concept_transfer') => {
+      setRecord((prev) => {
+        const currentPractised = prev.practisedSections ?? [];
+        const currentStamps = prev.discoveryStamps ?? [];
+        const stampId = `mastery:${sectionId}`;
+        return {
+          ...prev,
+          updatedAt: new Date().toISOString(),
+          practisedSections: currentPractised.includes(sectionId)
+            ? currentPractised
+            : [...currentPractised, sectionId],
+          understoodCheckpoints: {
+            ...(prev.understoodCheckpoints ?? {}),
+            [sectionId]: { score, total, verifiedAt: new Date().toISOString(), mode },
+          },
+          discoveryStamps: currentStamps.includes(stampId)
+            ? currentStamps
+            : [...currentStamps, stampId],
+        };
+      });
     },
     [],
   );
@@ -181,23 +193,74 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     setRecord((prev) => ({
       ...prev,
       updatedAt: new Date().toISOString(),
-      flashcardRatings: {
-        ...prev.flashcardRatings,
-        [cardId]: rating,
-      },
+      flashcardRatings: { ...prev.flashcardRatings, [cardId]: rating },
     }));
   }, []);
 
   const recordQuizCheckpoint = useCallback((quizId: string, score: number, total: number) => {
+    setRecord((prev) => {
+      const currentPractised = prev.practisedSections ?? [];
+      return {
+        ...prev,
+        updatedAt: new Date().toISOString(),
+        practisedSections: currentPractised.includes(quizId)
+          ? currentPractised
+          : [...currentPractised, quizId],
+        quizCheckpoints: {
+          ...prev.quizCheckpoints,
+          [quizId]: { score, total, completedAt: new Date().toISOString() },
+        },
+      };
+    });
+  }, []);
+
+  const saveTeachBackNote = useCallback((sectionId: string, note: string) => {
     setRecord((prev) => ({
       ...prev,
       updatedAt: new Date().toISOString(),
-      quizCheckpoints: {
-        ...prev.quizCheckpoints,
-        [quizId]: { score, total, completedAt: new Date().toISOString() },
+      teachBackNotes: {
+        ...(prev.teachBackNotes ?? {}),
+        [sectionId]: note,
       },
     }));
   }, []);
+
+  const awardDiscoveryStamp = useCallback((stampId: string) => {
+    setRecord((prev) => {
+      const current = prev.discoveryStamps ?? [];
+      if (current.includes(stampId)) return prev;
+      return {
+        ...prev,
+        updatedAt: new Date().toISOString(),
+        discoveryStamps: [...current, stampId],
+      };
+    });
+  }, []);
+
+  const saveCapstoneProgress = useCallback(
+    (missionId: string, entry: Omit<CapstoneProgressEntry, 'updatedAt'>) => {
+      setRecord((prev) => {
+        const currentStamps = prev.discoveryStamps ?? [];
+        const stampId = `capstone:${missionId}`;
+        return {
+          ...prev,
+          updatedAt: new Date().toISOString(),
+          capstoneProgress: {
+            ...(prev.capstoneProgress ?? {}),
+            [missionId]: {
+              ...entry,
+              updatedAt: new Date().toISOString(),
+            },
+          },
+          discoveryStamps:
+            entry.completed && !currentStamps.includes(stampId)
+              ? [...currentStamps, stampId]
+              : currentStamps,
+        };
+      });
+    },
+    [],
+  );
 
   const exportProgressJsonString = useCallback(() => {
     return JSON.stringify(record, null, 2);
@@ -218,7 +281,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     try {
       window.localStorage.removeItem(STORAGE_KEY);
     } catch {
-      // ignore
+      // Ignore storage error
     }
   }, []);
 
@@ -237,6 +300,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         markUnderstoodCheckpoint,
         rateFlashcard,
         recordQuizCheckpoint,
+        saveTeachBackNote,
+        awardDiscoveryStamp,
+        saveCapstoneProgress,
         exportProgressJsonString,
         importProgressJsonString,
         resetDeviceProgress,
@@ -250,7 +316,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
 export function useProgress() {
   const ctx = useContext(ProgressContext);
   if (!ctx) {
-    throw new Error('useProgress must be used inside a ProgressProvider');
+    throw new Error('useProgress must be used within a ProgressProvider');
   }
   return ctx;
 }

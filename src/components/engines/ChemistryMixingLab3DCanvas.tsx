@@ -96,12 +96,12 @@ export default function ChemistryMixingLab3DCanvas({
     if (!container) return;
 
     const studio = createStudioRenderer(container, {
-      exposure: 1.18,
-      fogColor: 0x0f172a,
-      fogDensity: 0.028,
+      exposure: 1.28,
+      fogColor: 0xe2e8f0,
+      fogDensity: 0.012,
     });
     if (!studio) {
-      setWebglError('WebGL unavailable on this device. Use the interactive 2D reaction controls below.');
+      setWebglError('WebGL unavailable on this device. Use the interactive 2D reaction flowchart right beside this panel.');
       return;
     }
 
@@ -109,8 +109,8 @@ export default function ChemistryMixingLab3DCanvas({
     const w = container.clientWidth || 640;
     const h = container.clientHeight || 380;
 
-    // Warm scientific lab studio dome
-    scene.add(createSkyDomeMesh(0x0b1120, 0x1e293b, 0x0f172a, 34));
+    // Bright museum-daylight laboratory studio dome (no dark opaque void)
+    scene.add(createSkyDomeMesh(0xdbeafe, 0xf1f5f9, 0xe2e8f0, 34));
 
     const camera = new THREE.PerspectiveCamera(38, w / h, 0.1, 100);
     camera.position.set(0, 2.35, 6.4);

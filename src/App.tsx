@@ -24,6 +24,7 @@ import {
   AboutPage,
   RoadmapPage,
 } from './routes/PlatformPages';
+import { SustainableTnTownMission } from './components/arcade/SustainableTnTownMission';
 import { NotFoundPage } from './routes/NotFoundPage';
 import { getSubjectBySlug, getUnitById, getSectionById } from './utils/curriculumStore';
 
@@ -80,7 +81,10 @@ function RouteMetadataAndScrollUpdater() {
         }
       }
     } else if (parts[0] === 'arcade') {
-      pageTitle = 'Games & Interactive Practice · Katrio';
+      pageTitle =
+        parts[1] === 'sustainable-tn-town'
+          ? 'Design a Sustainable Tamil Nadu Town · Capstone Mission · Katrio'
+          : 'Games & Interactive Practice · Katrio';
     } else if (parts[0] === 'flashcards') {
       pageTitle = 'Flashcards · Class 10 · Katrio';
     } else if (parts[0] === 'quizzes') {
@@ -89,7 +93,7 @@ function RouteMetadataAndScrollUpdater() {
       pageTitle = 'For Teachers & Classroom Guide · Katrio';
     } else if (parts[0] === 'accessibility') {
       pageTitle = 'Learning Settings & Accessibility · Katrio';
-    } else if (parts[0] === 'privacy') {
+    } else if (parts[0] === 'privacy' || parts[0] === 'progress') {
       pageTitle = 'Privacy & Your Device Progress · Katrio';
     } else if (parts[0] === 'about') {
       pageTitle = 'About, Curriculum & Sources · Katrio';
@@ -154,11 +158,13 @@ export default function App() {
 
               {/* Platform & Governance Routes */}
               <Route path="/arcade" element={<ArcadePage />} />
+              <Route path="/arcade/sustainable-tn-town" element={<SustainableTnTownMission />} />
               <Route path="/flashcards" element={<FlashcardsPage />} />
               <Route path="/quizzes" element={<QuizzesPage />} />
               <Route path="/teachers" element={<TeachersPage />} />
               <Route path="/accessibility" element={<AccessibilityPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/progress" element={<PrivacyPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/roadmap" element={<RoadmapPage />} />
               <Route path="/404" element={<NotFoundPage />} />

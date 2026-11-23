@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Activity,
   Dna,
@@ -12,8 +12,6 @@ import {
   Sigma,
   Users,
 } from 'lucide-react';
-
-const ChemicalProcess3DCanvas = lazy(() => import('./ChemicalProcess3DCanvas'));
 
 export type SubchapterLabVariant =
   | 'genetics_chromosome'
@@ -387,31 +385,58 @@ export function SubchapterDifferentiatedLabs2D({
           : funcGroup === 'acid'
             ? `${root}anoic acid (–COOH)`
             : `${root}anal (–CHO)`;
-    const show3DFlow = id.includes('11-6') || id.includes('11-7');
+    const showProcessFlow = id.includes('11-6') || id.includes('11-7');
 
     return (
       <div className="space-y-4 text-xs">
-        {show3DFlow ? (
+        {showProcessFlow ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-            <div className="lg:col-span-7">
-              <Suspense fallback={<div className="h-[310px] rounded-2xl bg-slate-950 flex items-center justify-center text-slate-300">Loading 3D Esterification Lab...</div>}>
-                <ChemicalProcess3DCanvas kind="esterification_bath" stageIndex={esterStage} heatOn={esterHeatOn} reducedMotion={reducedMotion} />
-              </Suspense>
+            <div className="lg:col-span-7 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface)] space-y-2.5">
+              <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--science)]">
+                Interactive 2D Organic Chemistry Process Flowchart (pp. 166–168)
+              </div>
+              <svg viewBox="0 0 540 160" className="w-full h-auto" role="img" aria-label="2D Ethanol and Ethanoic Acid Esterification Process Flowchart">
+                <rect x="10" y="24" width="140" height="106" rx="14" fill={esterStage === 0 ? '#E8F6F4' : '#F8FAFC'} stroke={esterStage === 0 ? '#0B7773' : '#CBD5E1'} strokeWidth={esterStage === 0 ? 2.5 : 1.5} />
+                <text x="80" y="48" textAnchor="middle" fontSize="10" fontWeight="800" fill="#0B7773">STEP 1 · REACTANTS</text>
+                <text x="80" y="74" textAnchor="middle" fontSize="12" fontWeight="800" fill="#13213A">CH₃COOH</text>
+                <text x="80" y="92" textAnchor="middle" fontSize="10.5" fontWeight="700" fill="#4E5F76">+ C₂H₅OH</text>
+                <text x="80" y="114" textAnchor="middle" fontSize="9.5" fill="#4E5F76">Ethanoic Acid + Ethanol</text>
+
+                <path d="M 152 77 L 190 77" stroke="#0B7773" strokeWidth="2.5" />
+
+                <rect x="194" y="24" width="152" height="106" rx="14" fill={esterStage === 1 ? '#FEF4E8' : '#F8FAFC'} stroke={esterStage === 1 ? '#D97706' : '#CBD5E1'} strokeWidth={esterStage === 1 ? 2.5 : 1.5} />
+                <text x="270" y="48" textAnchor="middle" fontSize="10" fontWeight="800" fill="#B45309">STEP 2 · CONDITIONS</text>
+                <text x="270" y="74" textAnchor="middle" fontSize="11.5" fontWeight="800" fill="#13213A">Conc. H₂SO₄ Catalyst</text>
+                <text x="270" y="94" textAnchor="middle" fontSize="10.5" fontWeight="700" fill={esterHeatOn ? '#EA580C' : '#64748B'}>
+                  {esterHeatOn ? 'Warm Water Bath (ON)' : 'Water Bath OFF'}
+                </text>
+                <text x="270" y="114" textAnchor="middle" fontSize="9.5" fill="#4E5F76">Dehydrating agent removes H₂O</text>
+
+                <path d="M 348 77 L 386 77" stroke="#0B7773" strokeWidth="2.5" />
+
+                <rect x="390" y="24" width="140" height="106" rx="14" fill={esterStage === 2 && esterHeatOn ? '#E6F6F0' : '#F8FAFC'} stroke={esterStage === 2 && esterHeatOn ? '#137B55' : '#CBD5E1'} strokeWidth={esterStage === 2 ? 2.5 : 1.5} />
+                <text x="460" y="48" textAnchor="middle" fontSize="10" fontWeight="800" fill="#137B55">STEP 3 · PRODUCTS</text>
+                <text x="460" y="74" textAnchor="middle" fontSize="11.5" fontWeight="800" fill="#13213A">CH₃COOC₂H₅</text>
+                <text x="460" y="92" textAnchor="middle" fontSize="10.5" fontWeight="700" fill="#137B55">Ethyl Ethanoate + H₂O</text>
+                <text x="460" y="114" textAnchor="middle" fontSize="9.5" fill="#4E5F76">
+                  {esterHeatOn ? 'Sweet fruity odour!' : 'Turn heat ON to react'}
+                </text>
+              </svg>
             </div>
             <div className="lg:col-span-5 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3">
               <div className="font-extrabold uppercase tracking-wider text-amber-700 dark:text-amber-300 inline-flex items-center gap-1.5">
                 <Flame className="w-4 h-4" />
-                <span>3D Ethanol + Ethanoic Acid → Esterification Bath (pp. 166–168)</span>
+                <span>2D Ethanol + Ethanoic Acid → Esterification Flowchart (pp. 166–168)</span>
               </div>
               <div className="flex gap-1.5">
-                {['1. Mix Reactants', '2. Conc. H₂SO₄ + Warm Bath', '3. Sweet Fruity Ester!'].map((lbl, i) => (
+                {['1. Mix Reactants', '2. Conc. H₂SO₄ + Bath', '3. Fruity Ester!'].map((lbl, i) => (
                   <button key={lbl} type="button" onClick={() => { setEsterStage(i); onExplore(); }} className={`flex-1 py-2 px-1.5 rounded-xl border font-bold text-[11px] ${esterStage === i ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] border-[var(--line)]'}`}>
                     {lbl}
                   </button>
                 ))}
               </div>
               <button type="button" onClick={() => { setEsterHeatOn((h) => !h); onExplore(); }} className={`w-full py-2 rounded-xl font-bold ${esterHeatOn ? 'bg-orange-600 text-white' : 'bg-slate-700 text-white'}`}>
-                {esterHeatOn ? '🔥 Bunsen Water-Bath Heat: ON' : 'Burner Heat: OFF (Click to Heat)'}
+                {esterHeatOn ? 'Warm Water-Bath Heat: ON' : 'Water-Bath Heat: OFF (Click to Heat)'}
               </button>
               <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] font-mono-tabular text-[11px]">
                 CH₃COOH + C₂H₅OH —(Conc. H₂SO₄, Heat)→ CH₃COOC₂H₅ (Ethyl Ethanoate) + H₂O

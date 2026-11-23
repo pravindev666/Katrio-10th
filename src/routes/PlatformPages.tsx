@@ -23,6 +23,7 @@ import {
   getCompletedSectionCount,
 } from '../features/local-progress/progressStore';
 import type { EngineType } from '../types/curriculum';
+import { GATE2_WORKING_PILOTS } from '../data/universeWorlds';
 
 const ALL_ENGINES: {
   engine: EngineType;
@@ -135,20 +136,90 @@ export function ArcadePage() {
 
       <div
         style={{ backgroundColor: 'var(--arcade-tint)' }}
-        className="rounded-[24px] border border-[var(--line)] p-6 sm:p-8 space-y-3"
+        className="rounded-[24px] border border-[var(--line)] p-6 sm:p-8 space-y-4"
       >
         <div className="text-xs font-bold uppercase tracking-wider text-[var(--arcade)]">
-          Games &amp; Interactive Practice · No Timers or Leaderboards
+          Cross-Subject Challenge Arcade · Zero Timers · Zero Leaderboards
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--ink)]">
           Practice without the pressure
         </h1>
         <p className="text-sm sm:text-base text-[var(--text)] max-w-3xl">
-          Try interactive models, concept sorting games, flashcards, and untimed checks across all
-          five Class 10 subjects. Pick any interactive activity type below to try it live or jump
-          into its textbook chapter.
+          Connect Maths, Science, Geography, Economics, and English/Tamil in our flagship untimed
+          capstone mission, launch any subject pilot, or try interactive tools live below.
         </p>
+
+        {/* Flagship Cross-Subject Capstone Card */}
+        <div className="rounded-[20px] border-2 border-[var(--arcade)]/40 bg-[var(--surface)] p-5 sm:p-6 flex flex-col lg:flex-row lg:items-center justify-between gap-5 shadow-[var(--shadow-card)]">
+          <div className="space-y-2 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--arcade-tint)] text-[var(--arcade)] text-xs font-extrabold">
+              <span>★ Flagship Capstone Quest · 4 Untimed Stages · Local Save &amp; Resume</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--ink)]">
+              Design a Sustainable Tamil Nadu Town
+            </h2>
+            <p className="text-xs sm:text-sm text-[var(--text)] leading-relaxed">
+              Choose a TN climate zone (Cauvery Delta, Rain-Shadow Coimbatore, or Coastal Chennai),
+              size a cylinder/hemisphere overhead tank (Maths Ch. 7, π = 22/7), plan LED + wind
+              energy (Science U4 &amp; U22), balance a 100-unit municipal budget (Economics U4
+              educational model), and write a bilingual citizen proposal!
+            </p>
+          </div>
+          <Link
+            to="/arcade/sustainable-tn-town"
+            className="px-5 py-3 min-h-[48px] rounded-[14px] bg-[var(--arcade)] hover:opacity-95 text-white text-sm font-extrabold inline-flex items-center justify-center gap-2 shrink-0"
+          >
+            <span>Play Sustainable TN Town</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
+
+      {/* Showcase Subject Pilots */}
+      <section className="space-y-3">
+        <div className="flex flex-wrap items-end justify-between gap-2">
+          <div>
+            <h2 className="text-xl font-extrabold text-[var(--ink)]">
+              Flagship Interactive Pilots Across All 5 Subjects
+            </h2>
+            <p className="text-xs text-[var(--text-muted)]">
+              Jump directly into verified concept-first lessons with working models, transfer checks, and zero timers.
+            </p>
+          </div>
+          <div className="flex gap-3 text-xs font-bold">
+            <Link to="/flashcards" className="text-[var(--primary)] hover:underline">
+              Flashcards →
+            </Link>
+            <Link to="/quizzes" className="text-[var(--primary)] hover:underline">
+              Concept Quizzes →
+            </Link>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {GATE2_WORKING_PILOTS.map((pilot) => (
+            <Link
+              key={pilot.id}
+              to={pilot.route}
+              className="p-4 rounded-[18px] border border-[var(--line)] bg-[var(--surface)] hover:border-[var(--primary)] flex flex-col justify-between gap-2 transition-colors"
+            >
+              <div className="space-y-1">
+                <div className="text-[11px] font-extrabold text-[var(--primary)]">
+                  {pilot.pilotCode}
+                </div>
+                <div className="text-sm font-extrabold text-[var(--ink)] leading-snug">
+                  {pilot.title}
+                </div>
+                <p className="text-xs text-[var(--text-muted)]">{pilot.microMissionGoal}</p>
+              </div>
+              <span className="text-xs font-bold text-[var(--primary)] inline-flex items-center gap-1 pt-1">
+                <span>Open mission</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       {/* Activity Selector Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -565,14 +636,22 @@ export function PrivacyPage() {
         </p>
       </div>
 
-      {/* Honest 3-Tier Progress Summary */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      {/* Honest 4-Stage Local Progress Summary */}
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
         <div className="rounded-[18px] border border-[var(--line)] bg-[var(--surface)] p-4">
           <div className="text-2xl font-extrabold text-[var(--ink)]">
             {record.visitedSections.length}
           </div>
           <div className="text-xs font-bold text-[var(--text-muted)] mt-0.5">
-            Lessons Started
+            1. Visited
+          </div>
+        </div>
+        <div className="rounded-[18px] border border-[var(--line)] bg-[var(--surface)] p-4">
+          <div className="text-2xl font-extrabold text-[var(--math)]">
+            {(record.exploredSections ?? []).length}
+          </div>
+          <div className="text-xs font-bold text-[var(--text-muted)] mt-0.5">
+            2. Explored Lab
           </div>
         </div>
         <div className="rounded-[18px] border border-[var(--line)] bg-[var(--surface)] p-4">
@@ -580,7 +659,7 @@ export function PrivacyPage() {
             {(record.practisedSections ?? []).length}
           </div>
           <div className="text-xs font-bold text-[var(--text-muted)] mt-0.5">
-            Lessons Practised
+            3. Practised
           </div>
         </div>
         <div className="rounded-[18px] border border-[var(--line)] bg-[var(--surface)] p-4">
@@ -588,16 +667,95 @@ export function PrivacyPage() {
             {getCompletedSectionCount(record)}
           </div>
           <div className="text-xs font-bold text-[var(--text-muted)] mt-0.5">
-            Lessons Completed
+            4. Understood (Verified)
           </div>
         </div>
-        <div className="rounded-[18px] border border-[var(--line)] bg-[var(--surface)] p-4">
-          <div className="text-2xl font-extrabold text-[var(--ink)]">
-            {record.bookmarkedSections.length}
+        <div className="rounded-[18px] border border-[var(--line)] bg-[var(--surface)] p-4 col-span-2 sm:col-span-1">
+          <div className="text-2xl font-extrabold text-[var(--arcade)]">
+            {(record.discoveryStamps ?? []).length}
           </div>
           <div className="text-xs font-bold text-[var(--text-muted)] mt-0.5">
-            Saved Bookmarks
+            Discovery Stamps
           </div>
+        </div>
+      </div>
+
+      {/* Local Discovery Stamps, Capstone Mission Status & Teach-It-Back Notes */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 space-y-3">
+          <div className="flex items-center justify-between gap-2">
+            <h2 className="text-base font-extrabold text-[var(--ink)]">
+              Discovery Stamps &amp; Capstone Mission
+            </h2>
+            <Link
+              to="/arcade/sustainable-tn-town"
+              className="text-xs font-bold text-[var(--primary)] hover:underline"
+            >
+              Open TN Town Capstone →
+            </Link>
+          </div>
+          {record.capstoneProgress?.['sustainable-tn-town'] ? (
+            <div className="p-3.5 rounded-xl bg-[var(--arcade-tint)] border border-[var(--arcade)]/30 text-xs space-y-1">
+              <div className="font-extrabold text-[var(--ink)]">
+                Sustainable Tamil Nadu Town ·{' '}
+                {record.capstoneProgress['sustainable-tn-town'].completed
+                  ? '✓ Capstone Completed'
+                  : `Stage ${record.capstoneProgress['sustainable-tn-town'].stage} / 4 in progress`}
+              </div>
+              {record.capstoneProgress['sustainable-tn-town'].summary && (
+                <div className="text-[var(--text)]">
+                  {record.capstoneProgress['sustainable-tn-town'].summary}
+                </div>
+              )}
+            </div>
+          ) : (
+            <p className="text-xs text-[var(--text-muted)]">
+              You have not started the Sustainable Tamil Nadu Town capstone yet. Try it untimed anytime!
+            </p>
+          )}
+          {(record.discoveryStamps ?? []).length > 0 ? (
+            <div className="flex flex-wrap gap-2 pt-1">
+              {(record.discoveryStamps ?? []).map((stamp) => (
+                <span
+                  key={stamp}
+                  className="px-3 py-1 rounded-full bg-[var(--success-bg)] border border-[var(--success)]/30 text-xs font-bold text-[var(--success)]"
+                >
+                  ★ {stamp}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <p className="text-xs text-[var(--text-muted)]">
+              Complete untimed missions or verified checkpoints to earn calm concept stamps on this device.
+            </p>
+          )}
+        </div>
+
+        <div className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 space-y-3">
+          <div className="flex items-center justify-between gap-2">
+            <h2 className="text-base font-extrabold text-[var(--ink)]">
+              Your Saved “Teach It Back” Notes ({Object.keys(record.teachBackNotes ?? {}).length})
+            </h2>
+            <span className="text-[11px] font-bold text-[var(--text-muted)]">
+              Stored privately in browser
+            </span>
+          </div>
+          {Object.keys(record.teachBackNotes ?? {}).length > 0 ? (
+            <div className="space-y-2 max-h-44 overflow-y-auto pr-1">
+              {Object.entries(record.teachBackNotes ?? {}).map(([secId, note]) => (
+                <div key={secId} className="p-3 rounded-xl bg-[var(--surface-subtle)] border border-[var(--line)] text-xs space-y-1">
+                  <div className="font-mono-tabular text-[11px] font-bold text-[var(--primary)]">
+                    {secId}
+                  </div>
+                  <p className="text-[var(--ink)] whitespace-pre-wrap">{note}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-xs text-[var(--text-muted)]">
+              When you write a short explanation in your own words inside any lesson’s “Connect &amp; Remember” tab, it appears here for quick revision.
+            </p>
+          )}
         </div>
       </div>
 

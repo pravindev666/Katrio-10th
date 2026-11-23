@@ -9,6 +9,7 @@
     "audit:curriculum": "tsx scripts/audit-curriculum.ts",
     "audit:links": "tsx scripts/audit-links.ts",
     "validate:lessons": "tsx scripts/validate-lessons.ts",
+    "validate:universe": "tsx scripts/validate-universe.ts",
     "test": "tsx --test src/utils/*.test.ts",
     "lint": "tsc --noEmit",
     "build": "vite build && tsx scripts/prerender-ssg.ts",

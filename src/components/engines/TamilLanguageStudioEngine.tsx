@@ -1,20 +1,24 @@
-import React, { Suspense, lazy, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Info } from 'lucide-react';
 import type { ModularEngineProps } from './types';
 
-const Tamil3DStageCanvas = lazy(() => import('./Tamil3DStageCanvas'));
-
-const PILLAR_EXPLANATIONS: Record<string, string> = {
-  'ஆண்பால்': 'உயர்திணை — ஒருமை ஆண் (எ.கா. வீரன், செழியன் வந்தான்)',
-  'பெண்பால்': 'உயர்திணை — ஒருமை பெண் (எ.கா. கண்ணகி, மகள் வந்தாள்)',
-  'பலர்பால்': 'உயர்திணை — பன்மை மனிதர்கள் (எ.கா. மக்கள் வந்தனர்)',
-  'ஒன்றன்பால்': 'அஃறிணை — ஒருமை உயிரினம்/பொருள் (எ.கா. யானை வந்தது)',
-  'பலவின்பால்': 'அஃறிணை — பன்மை உயிரினங்கள்/பொருள்கள் (எ.கா. பசுக்கள் வந்தன)',
-  source: 'பிறமொழி அறிவியல் மற்றும் இலக்கியச் செல்வங்கள் (Source Language)',
-  bridge: 'பொருள் சிதையாமல் தமிழ் மரபிற்கேற்ப மாற்றும் மொழிபெயர்ப்புப் பாலம் (பக். 73–74)',
-  tamil: 'செம்மையான தமிழ் வடிவம் — மணற்கேணி அறிவுப் பெருக்கு (பக். 72–75)',
+const PAAL_EXPLANATIONS: Record<string, { thinai: string; example: string; rule: string }> = {
+  'ஆண்பால்': { thinai: 'உயர்திணை', example: 'செழியன் வந்தான் · வீரன் வென்றான்', rule: 'ஒருமை ஆண்மகனைக் குறிக்கும் உயர்திணைப் பிரிவு.' },
+  'பெண்பால்': { thinai: 'உயர்திணை', example: 'கண்ணகி வந்தாள் · மகள் பாடினாள்', rule: 'ஒருமை பெண்மகளைக் குறிக்கும் உயர்திணைப் பிரிவு.' },
+  'பலர்பால்': { thinai: 'உயர்திணை', example: 'மக்கள் வந்தனர் · மாணவர்கள் கற்றனர்', rule: 'ஒன்றுக்கு மேற்பட்ட மனிதர்களைக் குறிக்கும் உயர்திணைப் பிரிவு.' },
+  'ஒன்றன்பால்': { thinai: 'அஃறிணை', example: 'யானை வந்தது · மயில் ஆடியது', rule: 'மனிதர் அல்லாத ஒருமை உயிரினம் அல்லது பொருள்.' },
+  'பலவின்பால்': { thinai: 'அஃறிணை', example: 'பசுக்கள் வந்தன · பறவைகள் பறந்தன', rule: 'மனிதர் அல்லாத பன்மை உயிரினங்கள் அல்லது பொருள்கள்.' },
 };
+
+const AGREEMENT_SUBJECTS = [
+  { id: 's1', text: 'செழியன்', expectedPaal: 'ஆண்பால்', expectedVerb: 'வந்தான்' },
+  { id: 's2', text: 'கண்ணகி', expectedPaal: 'பெண்பால்', expectedVerb: 'வந்தாள்' },
+  { id: 's3', text: 'மாணவர்கள்', expectedPaal: 'பலர்பால்', expectedVerb: 'வந்தனர்' },
+  { id: 's4', text: 'யானை', expectedPaal: 'ஒன்றன்பால்', expectedVerb: 'வந்தது' },
+  { id: 's5', text: 'பசுக்கள்', expectedPaal: 'பலவின்பால்', expectedVerb: 'வந்தன' },
+];
+const AGREEMENT_VERBS = ['வந்தான்', 'வந்தாள்', 'வந்தனர்', 'வந்தது', 'வந்தன'];
 
 // Pilot 5A: மொழிபெயர்ப்புக் கல்வி (pp. 72–75)
 const TRANSLATION_DRILLS = [
@@ -127,8 +131,6 @@ const VAZHUVAMAITHI_ITEMS = [
 
 export function TamilLanguageStudioEngine({
   lesson,
-  mode,
-  reducedMotion,
   onInteract,
   onComplete,
 }: ModularEngineProps) {
@@ -139,9 +141,9 @@ export function TamilLanguageStudioEngine({
   const [studioMode, setStudioMode] = useState<'translation' | 'grammar_paal' | 'grammar_vazhu' | 'grammar_amaithi'>(
     initialVariant === 'grammar' ? 'grammar_paal' : 'translation',
   );
-  const [selectedPillar, setSelectedPillar] = useState<string>(
-    initialVariant === 'grammar' ? 'ஆண்பால்' : 'bridge',
-  );
+  const [selectedPaal, setSelectedPaal] = useState<string>('ஆண்பால்');
+  const [builderSubIdx, setBuilderSubIdx] = useState(0);
+  const [builderVerb, setBuilderVerb] = useState('வந்தான்');
 
   // Translation drill answers
   const [transAns, setTransAns] = useState<Record<string, string>>({});
@@ -158,59 +160,169 @@ export function TamilLanguageStudioEngine({
     }
   };
 
+  const activeSubject = AGREEMENT_SUBJECTS[builderSubIdx];
+  const isAgreementCorrect = builderVerb === activeSubject.expectedVerb;
+  const activePaalInfo = PAAL_EXPLANATIONS[selectedPaal] ?? PAAL_EXPLANATIONS['ஆண்பால்'];
+
   return (
     <div lang="ta" className="font-tamil space-y-5">
-      {/* 3D Interactive Tamil Visual Anchor (hidden in 2D/Text mode) */}
-      {mode !== '2d_text' && (
-        <div className="p-4 rounded-[20px] border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="text-xs font-extrabold text-[var(--tamil)]">
-              3D தமிழ் காட்சி அரங்கு — தூண்களைத் தொட்டு இலக்கணம் &amp; மொழிபெயர்ப்பை உடனே உணருங்கள்
-            </span>
-            <div className="flex flex-wrap gap-1.5">
-              {(['ஆண்பால்', 'பெண்பால்', 'பலர்பால்', 'ஒன்றன்பால்', 'பலவின்பால்'] as const).map((p) => (
-                <button
-                  key={p}
-                  type="button"
-                  onClick={() => {
-                    setStudioMode('grammar_paal');
-                    setSelectedPillar(p);
-                    onInteract();
-                  }}
-                  className={`px-2.5 py-1 min-h-[34px] rounded-lg text-[11px] font-bold border ${selectedPillar === p && studioMode !== 'translation'
-                      ? 'bg-[var(--tamil)] text-white border-[var(--tamil)]'
-                      : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
-                    }`}
-                >
-                  {p}
-                </button>
-              ))}
+      {/* Honest Provisional Tamil Educator Review Notice */}
+      <div className="p-3 rounded-xl bg-[var(--tamil-tint)] border border-[var(--tamil)]/30 text-xs text-[var(--ink)] flex items-start gap-2">
+        <Info className="w-4 h-4 text-[var(--tamil)] shrink-0 mt-0.5" />
+        <span>
+          <strong>இயல் 4 மணற்கேணி — 2D தமிழ் மொழி &amp; இலக்கணக் கூடம் (0% 3D):</strong> அனைத்துப் பயிற்சிகளும்
+          தெளிவான 2D காட்சி மரமாகவும் சொல் ஒப்பீடாகவும் அமைக்கப்பட்டுள்ளன.{' '}
+          <span className="text-[var(--text-muted)]">(Provisional — pending Tamil educator proofreading)</span>
+        </span>
+      </div>
+
+      {/* Interactive 2D Visual Tamil Grammar Tree & Live Agreement Builder (Replaces 3D Pillars!) */}
+      <div className="p-4 sm:p-5 rounded-[20px] border border-[var(--line)] bg-[var(--surface-subtle)] space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className="text-xs font-extrabold text-[var(--tamil)]">
+            {studioMode === 'translation'
+              ? 'காட்சி மொழிபெயர்ப்பு ஒப்பீட்டுப் பலகை (வடம் vs ஒட்டகம் · பக். 74)'
+              : 'காட்சி 2D இலக்கண மரம்: இருதிணை → ஐம்பால் & எழுவாய்–பயனிலை இயைபு'}
+          </span>
+        </div>
+
+        {studioMode === 'translation' ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            <div className="p-3.5 rounded-xl bg-[var(--surface)] border border-[var(--line)] space-y-1">
+              <div className="font-extrabold text-[var(--primary)]">1. மூலச் சொல் (Source)</div>
+              <div className="text-sm font-extrabold text-[var(--ink)]">“Camel” (இருபொருள்)</div>
+              <p className="text-[var(--text)]">அரபு / ஆங்கிலச் சூழலில் <strong>வடம் (கயிறு)</strong> மற்றும் <strong>ஒட்டகம்</strong> என இரு பொருள்கள்.</p>
+            </div>
+            <div className="p-3.5 rounded-xl bg-[var(--warning-bg)] border border-[var(--warning)]/40 space-y-1">
+              <div className="font-extrabold text-[var(--warning)]">2. நேரடிச் சொல் மொழிபெயர்ப்பு (தவறு)</div>
+              <div className="text-sm font-extrabold text-[var(--ink)]">“ஊசி காதில் ஒட்டகம் நுழையாது”</div>
+              <p className="text-[var(--text)]">சூழலை நோக்காமல் நேரடியாக மொழிபெயர்த்ததால் உவமைத் தொடர்பு சிதைகிறது.</p>
+            </div>
+            <div className="p-3.5 rounded-xl bg-[var(--success-bg)] border border-[var(--success)]/40 space-y-1">
+              <div className="font-extrabold text-[var(--success)]">3. செம்மை மொழிபெயர்ப்பு (சரி · பக். 74)</div>
+              <div className="text-sm font-extrabold text-[var(--ink)]">“ஊசி காதில் வடம் (கயிறு) நுழையாது”</div>
+              <p className="text-[var(--text)]">ஊசி காதில் மெல்லிய நூல் நுழையும்; தடித்த கயிறு (வடம்) நுழையாது என்பதே பொருத்தமான பொருள்!</p>
             </div>
           </div>
-          <Suspense
-            fallback={
-              <div className="h-[280px] rounded-2xl border border-[var(--line)] bg-[var(--surface)] flex items-center justify-center text-sm text-[var(--text-muted)]">
-                3D தமிழ் காட்சி அரங்கு திறக்கிறது...
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+            <div className="lg:col-span-7 p-3 rounded-2xl bg-[var(--surface)] border border-[var(--line)]">
+              <svg viewBox="0 0 540 215" className="w-full h-auto" role="img" aria-label="இருதிணை மற்றும் ஐம்பால் 2D காட்சி இலக்கண மரம்">
+                {/* Root */}
+                <rect x="200" y="10" width="140" height="34" rx="10" fill="#FDECF2" stroke="#C04F75" strokeWidth="2" />
+                <text x="270" y="32" textAnchor="middle" fontSize="13" fontWeight="800" fill="#13213A">இருதிணை (2)</text>
+
+                {/* Branches to Uyartinai & Ahrinai */}
+                <path d="M 235 44 L 155 76" stroke="#C04F75" strokeWidth="2.2" />
+                <path d="M 305 44 L 405 76" stroke="#0B7773" strokeWidth="2.2" />
+
+                <rect x="65" y="76" width="180" height="34" rx="10" fill="#EEF1FF" stroke="#4255D4" strokeWidth="2" />
+                <text x="155" y="98" textAnchor="middle" fontSize="12.5" fontWeight="800" fill="#13213A">உயர்திணை (3 பால்)</text>
+
+                <rect x="315" y="76" width="180" height="34" rx="10" fill="#E8F6F4" stroke="#0B7773" strokeWidth="2" />
+                <text x="405" y="98" textAnchor="middle" fontSize="12.5" fontWeight="800" fill="#13213A">அஃறிணை (2 பால்)</text>
+
+                {/* 5 Paal Leaf Nodes */}
+                {[
+                  { name: 'ஆண்பால்', x: 52, parentX: 155, color: '#4255D4' },
+                  { name: 'பெண்பால்', x: 155, parentX: 155, color: '#4255D4' },
+                  { name: 'பலர்பால்', x: 258, parentX: 155, color: '#4255D4' },
+                  { name: 'ஒன்றன்பால்', x: 365, parentX: 405, color: '#0B7773' },
+                  { name: 'பலவின்பால்', x: 475, parentX: 405, color: '#0B7773' },
+                ].map((n) => {
+                  const active = selectedPaal === n.name;
+                  return (
+                    <g
+                      key={n.name}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => {
+                        setSelectedPaal(n.name);
+                        onInteract();
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          setSelectedPaal(n.name);
+                          onInteract();
+                        }
+                      }}
+                      className="cursor-pointer"
+                    >
+                      <line x1={n.parentX} y1="110" x2={n.x} y2="150" stroke={n.color} strokeWidth={active ? 3 : 1.6} />
+                      <rect
+                        x={n.x - 46}
+                        y="150"
+                        width="92"
+                        height="44"
+                        rx="11"
+                        fill={active ? n.color : '#FFFFFF'}
+                        stroke={n.color}
+                        strokeWidth={active ? 2.5 : 1.6}
+                      />
+                      <text x={n.x} y="176" textAnchor="middle" fontSize="11.5" fontWeight="800" fill={active ? '#FFFFFF' : '#13213A'}>
+                        {n.name}
+                      </text>
+                    </g>
+                  );
+                })}
+              </svg>
+              <div className="mt-2 p-2.5 rounded-xl bg-[var(--surface-subtle)] border border-[var(--line)] text-xs text-[var(--ink)]">
+                <strong>{selectedPaal} ({activePaalInfo.thinai}):</strong> {activePaalInfo.rule} — <em>{activePaalInfo.example}</em>
               </div>
-            }
-          >
-            <Tamil3DStageCanvas
-              variant={studioMode === 'translation' ? 'translation_bridge' : 'grammar_pillars'}
-              selectedPillar={selectedPillar}
-              onSelectPillar={(id) => {
-                setSelectedPillar(id);
-                onInteract();
-              }}
-              reducedMotion={reducedMotion}
-            />
-          </Suspense>
-          {PILLAR_EXPLANATIONS[selectedPillar] && (
-            <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs font-semibold text-[var(--ink)]">
-              <strong>{selectedPillar}:</strong> {PILLAR_EXPLANATIONS[selectedPillar]}
             </div>
-          )}
-        </div>
-      )}
+
+            {/* Interactive Live Subject + Verb Vazhaanilai / Vazhu Builder */}
+            <div className="lg:col-span-5 p-3.5 rounded-2xl bg-[var(--surface)] border border-[var(--line)] space-y-3 text-xs">
+              <div className="font-extrabold text-[var(--tamil)]">எழுவாய் + பயனிலை இயைபுச் சோதனை (பக். 85)</div>
+              <div>
+                <div className="font-bold text-[var(--text-muted)] mb-1">1. எழுவாயைத் தேர்க:</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {AGREEMENT_SUBJECTS.map((s, idx) => (
+                    <button
+                      key={s.id}
+                      type="button"
+                      onClick={() => {
+                        setBuilderSubIdx(idx);
+                        onInteract();
+                      }}
+                      className={`px-2.5 py-1.5 rounded-lg border font-bold ${builderSubIdx === idx ? 'bg-[var(--tamil)] text-white border-[var(--tamil)]' : 'bg-[var(--surface-subtle)] border-[var(--line)]'}`}
+                    >
+                      {s.text}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div className="font-bold text-[var(--text-muted)] mb-1">2. பொருந்தும் பயனிலையைத் தேர்க:</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {AGREEMENT_VERBS.map((v) => (
+                    <button
+                      key={v}
+                      type="button"
+                      onClick={() => {
+                        setBuilderVerb(v);
+                        onInteract();
+                      }}
+                      className={`px-2.5 py-1.5 rounded-lg border font-bold ${builderVerb === v ? 'bg-[var(--primary)] text-white border-[var(--primary)]' : 'bg-[var(--surface-subtle)] border-[var(--line)]'}`}
+                    >
+                      {v}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className={`p-3 rounded-xl border font-bold ${isAgreementCorrect ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--ink)]' : 'bg-[var(--warning-bg)] border-[var(--warning)]/40 text-[var(--ink)]'}`}>
+                <div className="text-sm">“{activeSubject.text} {builderVerb}.”</div>
+                <div className="mt-1 font-medium">
+                  {isAgreementCorrect
+                    ? `✓ வழாநிலை (சரி): ${activeSubject.text} (${activeSubject.expectedPaal}) + ${builderVerb} இயைபு துல்லியம்!`
+                    : `⚠ வழு (பிழை): ${activeSubject.text} (${activeSubject.expectedPaal}) உடன் “${activeSubject.expectedVerb}” வர வேண்டும்.`}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
 
       {/* Native Tamil Mode Switcher */}
       <div className="flex flex-wrap items-center justify-between gap-3">

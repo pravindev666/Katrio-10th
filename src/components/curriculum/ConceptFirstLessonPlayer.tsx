@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
+  Brain,
   CheckCircle2,
   Compass,
   ExternalLink,
@@ -12,8 +13,10 @@ import {
   Lightbulb,
   RotateCcw,
   Sparkles,
+  Target,
 } from 'lucide-react';
 import type { LessonExperienceSpec } from '../../types/lessonExperience';
+import { useProgress } from '../../features/local-progress/ProgressContext';
 import { ElectricPotentialLab2D } from '../engines/ElectricPotentialLab2D';
 import { JoulesLawLab2D } from '../engines/JoulesLawLab2D';
 import { EthyleneRipeningLab2D } from '../engines/EthyleneRipeningLab2D';
@@ -39,14 +42,13 @@ interface ConceptFirstLessonPlayerProps {
   onToggleReviewLater: () => void;
 }
 
-const JUMP_LINKS = [
-  { id: 'cf-explain', label: '1. Explain' },
-  { id: 'cf-mindmap', label: '2. Mind Map' },
-  { id: 'cf-lab', label: '3. Predict & Lab' },
-  { id: 'cf-why', label: '4. Why & Example' },
-  { id: 'cf-solve', label: '5. Solve' },
-  { id: 'cf-remember', label: '6. Remember' },
-  { id: 'textbook-reading', label: '7. Textbook' },
+type ConceptTabId = 'discover' | 'connect' | 'solve' | 'book' | 'all';
+
+const CONCEPT_TABS: { id: Exclude<ConceptTabId, 'all'>; label: string; icon: typeof Compass }[] = [
+  { id: 'discover', label: '1. Discover & Explore', icon: Compass },
+  { id: 'connect', label: '2. Connect & Remember', icon: Brain },
+  { id: 'solve', label: '3. Solve & Apply', icon: Target },
+  { id: 'book', label: '4. Book & Revision', icon: BookOpen },
 ];
 
 /**
@@ -66,6 +68,8 @@ export function ConceptFirstLessonPlayer({
   onMasteryVerified,
   onToggleReviewLater,
 }: ConceptFirstLessonPlayerProps) {
+  const { record, saveTeachBackNote } = useProgress();
+  const [activeTab, setActiveTab] = useState<ConceptTabId>('discover');
   const [depth, setDepth] = useState<'simple' | 'detailed' | 'exam'>('simple');
   const [showTamil, setShowTamil] = useState(false);
   const [showMisconceptions, setShowMisconceptions] = useState(false);
@@ -85,11 +89,21 @@ export function ConceptFirstLessonPlayer({
   // Flashcards state
   const [flippedCards, setFlippedCards] = useState<Record<string, boolean>>({});
 
-  // Textbook glossary popover + local-only self-check scratchpad
+  // Textbook glossary popover + local-only self-check scratchpad (persisted in katrio-device-v1)
   const [activeGlossary, setActiveGlossary] = useState<{ term: string; tamil?: string; meaning: string } | null>(null);
-  const [selfNote, setSelfNote] = useState('');
+  const selfNote = record.teachBackNotes?.[spec.sectionId] ?? '';
   const [showSelfGuide, setShowSelfGuide] = useState(false);
   const [confidence, setConfidence] = useState<'still_learning' | 'getting_there' | 'can_teach' | null>(null);
+
+  useEffect(() => {
+    setActiveTab('discover');
+    setSelectedNodeId(spec.mindMap.nodes[0]?.id ?? '');
+    setSelectedPredict(null);
+    setAnswers({});
+    setMasteryJustUnlocked(false);
+  }, [spec.sectionId, spec.mindMap.nodes]);
+
+  const showTab = (t: Exclude<ConceptTabId, 'all'>) => activeTab === 'all' || activeTab === t;
 
   const selectedNode =
     spec.mindMap.nodes.find((n) => n.id === selectedNodeId) ?? spec.mindMap.nodes[0];
@@ -149,21 +163,45 @@ export function ConceptFirstLessonPlayer({
 
   return (
     <div className="space-y-6">
-      {/* Non-linear Jump Bar + Honest Progress Stage Indicator */}
+      {/* Calm 4-Tab Concept Quest Bar + Honest Progress Stage Indicator */}
       <nav
-        aria-label="Jump to any lesson stage"
-        className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-3 flex flex-wrap items-center justify-between gap-2 shadow-xs"
+        aria-label="Lesson workspace tabs"
+        className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-2.5 flex flex-wrap items-center justify-between gap-2 shadow-xs"
       >
-        <div className="flex flex-wrap gap-1.5">
-          {JUMP_LINKS.map((j) => (
-            <a
-              key={j.id}
-              href={`#${j.id}`}
-              className="min-h-[36px] px-3 py-1.5 rounded-xl bg-[var(--surface-subtle)] hover:bg-[var(--primary)] hover:text-white border border-[var(--line)] text-xs font-bold text-[var(--ink)] inline-flex items-center transition-colors"
-            >
-              {j.label}
-            </a>
-          ))}
+        <div role="tablist" className="flex flex-wrap gap-1.5">
+          {CONCEPT_TABS.map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActiveTab(tab.id)}
+                className={`min-h-[40px] px-3.5 py-2 rounded-xl border text-xs font-extrabold inline-flex items-center gap-1.5 transition-colors ${
+                  isActive
+                    ? 'bg-[var(--primary)] text-white border-[var(--primary)] shadow-xs'
+                    : 'bg-[var(--surface-subtle)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--primary)]'
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
+          <button
+            type="button"
+            onClick={() => setActiveTab(activeTab === 'all' ? 'discover' : 'all')}
+            aria-pressed={activeTab === 'all'}
+            className={`min-h-[40px] px-3 py-2 rounded-xl border text-xs font-bold ${
+              activeTab === 'all'
+                ? 'bg-[var(--ink)] text-white border-[var(--ink)]'
+                : 'bg-[var(--surface)] text-[var(--text-muted)] border-[var(--line)] hover:text-[var(--ink)]'
+            }`}
+          >
+            {activeTab === 'all' ? '✓ Showing All' : 'Show All'}
+          </button>
         </div>
         <div className="text-[11px] font-bold text-[var(--text-muted)] px-2">
           Stage:{' '}
@@ -179,6 +217,9 @@ export function ConceptFirstLessonPlayer({
         </div>
       </nav>
 
+      {/* TAB 1: DISCOVER & EXPLORE (Spark + Explain Simply + Predict & Lab) */}
+      {showTab('discover') && (
+        <div className="space-y-6">
       {/* STAGE 1: THE SPARK */}
       <section className="rounded-[22px] border border-[var(--primary)]/25 bg-[var(--info-bg)] p-5 space-y-2">
         <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)] inline-flex items-center gap-1.5">
@@ -283,8 +324,11 @@ export function ConceptFirstLessonPlayer({
           )}
         </div>
       </section>
+        </div>
+      )}
 
-      {/* STAGE 3: INTERACTIVE VISUAL MIND MAP */}
+      {/* TAB 2: CONNECT & REMEMBER (Mind Map) */}
+      {showTab('connect') && (
       <section
         id="cf-mindmap"
         className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
@@ -381,8 +425,10 @@ export function ConceptFirstLessonPlayer({
           </ul>
         )}
       </section>
+      )}
 
-      {/* STAGES 4 & 5: PREDICT FIRST + BESPOKE INTERACTIVE LAB */}
+      {/* STAGES 4 & 5: PREDICT FIRST + BESPOKE INTERACTIVE LAB (Part of Tab 1: Discover & Explore) */}
+      {showTab('discover') && (
       <section
         id="cf-lab"
         className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-5 shadow-[var(--shadow-card)]"
@@ -439,7 +485,11 @@ export function ConceptFirstLessonPlayer({
           {renderInteractiveLab()}
         </div>
       </section>
+      )}
 
+      {/* TAB 3: SOLVE & APPLY (Why It Works + Worked Example + Validated Mastery Checkpoint) */}
+      {showTab('solve') && (
+        <div className="space-y-6">
       {/* STAGE 6: WHY IT WORKS + WORKED TEXTBOOK EXAMPLE */}
       <section
         id="cf-why"
@@ -576,8 +626,11 @@ export function ConceptFirstLessonPlayer({
           </div>
         )}
       </section>
+        </div>
+      )}
 
-      {/* STAGE 8: REMEMBER IT (KEY TAKEAWAYS, FLASHCARDS & VERIFIED FUN FACT) */}
+      {/* STAGE 8: REMEMBER IT (KEY TAKEAWAYS, FLASHCARDS & VERIFIED FUN FACT — Part of Tab 2: Connect & Remember) */}
+      {showTab('connect') && (
       <section
         id="cf-remember"
         className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-5 shadow-[var(--shadow-card)]"
@@ -624,8 +677,10 @@ export function ConceptFirstLessonPlayer({
           <div className="text-[11px] text-[var(--text-muted)]">Source: {spec.remember.funFact.source}</div>
         </div>
       </section>
+      )}
 
-      {/* STAGE 9: SOURCE-LINKED TEXTBOOK READING BELOW */}
+      {/* TAB 4: BOOK & REVISION (Source-Linked Textbook Reading) */}
+      {showTab('book') && (
       <section
         id="textbook-reading"
         className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
@@ -700,16 +755,18 @@ export function ConceptFirstLessonPlayer({
           </div>
         )}
       </section>
+      )}
 
-      {/* STAGE 10: LOCAL SELF-CHECK & NEXT SUBSECTION */}
+      {/* STAGE 10: LOCAL SELF-CHECK & NEXT SUBSECTION (Part of Tab 2: Connect & Remember + Always-available Next bar) */}
+      {showTab('connect') && (
       <section className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]">
-        <h2 className="text-base font-extrabold text-[var(--ink)]">Explain It in Your Own Words (Optional Local Self-Check)</h2>
+        <h2 className="text-base font-extrabold text-[var(--ink)]">Explain It in Your Own Words (Saved Locally on This Device)</h2>
         <p className="text-xs sm:text-sm text-[var(--text)]">{spec.selfCheckPrompt}</p>
         <textarea
           rows={2}
           value={selfNote}
-          onChange={(e) => setSelfNote(e.target.value)}
-          placeholder="Type your own explanation here (stays privately on this screen — never sent to any server)..."
+          onChange={(e) => saveTeachBackNote(spec.sectionId, e.target.value)}
+          placeholder="Type your own explanation here (auto-saved privately on this device — never sent to any server)..."
           className="w-full p-3 rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] text-sm text-[var(--ink)]"
         />
         <div className="flex flex-wrap items-center gap-2">
@@ -763,24 +820,47 @@ export function ConceptFirstLessonPlayer({
             </button>
           ))}
         </div>
+      </section>
+      )}
 
-        <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-[var(--line)]">
-          {prevRoute ? (
-            <Link to={prevRoute.to} className="min-h-[44px] px-4 py-2 rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] text-xs sm:text-sm font-bold text-[var(--ink)] inline-flex items-center gap-1.5">
+      {/* Always-visible Calm Tab Progression & Prev/Next Subsection Bar */}
+      <div className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-4 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-2">
+          {prevRoute && (
+            <Link to={prevRoute.to} className="min-h-[42px] px-3.5 py-2 rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] text-xs font-bold text-[var(--ink)] inline-flex items-center gap-1.5">
               <ArrowLeft className="w-4 h-4" />
               <span>{prevRoute.label}</span>
             </Link>
-          ) : (
-            <span />
           )}
-          {nextRoute && (
-            <Link to={nextRoute.to} className="min-h-[44px] px-4 py-2 rounded-xl bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white text-xs sm:text-sm font-bold inline-flex items-center gap-1.5">
-              <span>Next: {nextRoute.label}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          {activeTab !== 'book' && activeTab !== 'all' && (
+            <button
+              type="button"
+              onClick={() =>
+                setActiveTab(
+                  activeTab === 'discover' ? 'connect' : activeTab === 'connect' ? 'solve' : 'book',
+                )
+              }
+              className="min-h-[42px] px-4 py-2 rounded-xl bg-[var(--primary-tint)] border border-[var(--primary)]/30 text-xs font-extrabold text-[var(--primary)] inline-flex items-center gap-1.5"
+            >
+              <span>
+                Next Tab:{' '}
+                {activeTab === 'discover'
+                  ? '2. Connect & Remember'
+                  : activeTab === 'connect'
+                    ? '3. Solve & Apply'
+                    : '4. Book & Revision'}
+              </span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
           )}
         </div>
-      </section>
+        {nextRoute && (
+          <Link to={nextRoute.to} className="min-h-[42px] px-4 py-2 rounded-xl bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white text-xs font-bold inline-flex items-center gap-1.5">
+            <span>Next Topic: {nextRoute.label}</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

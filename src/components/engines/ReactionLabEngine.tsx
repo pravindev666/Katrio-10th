@@ -74,7 +74,11 @@ export function ReactionLabEngine({
   const customOutcome = useMemo(() => mixCustomReagents(reagentA, reagentB), [reagentA, reagentB]);
   const regAMeta = LAB_REAGENTS.find((r) => r.id === reagentA) ?? LAB_REAGENTS[0];
   const regBMeta = LAB_REAGENTS.find((r) => r.id === reagentB) ?? LAB_REAGENTS[1];
-  const show3D = mode !== '2d_text';
+  const [viewerMode, setViewerMode] = useState<'split_3d_2d' | 'flowchart_2d' | 'text'>(
+    mode === '2d_text' ? 'flowchart_2d' : 'split_3d_2d',
+  );
+  const [paused3D, setPaused3D] = useState(false);
+  const show3D = viewerMode === 'split_3d_2d' && mode !== '2d_text';
 
   // Start intentionally unbalanced (all 1s) when feasible so the student balances coefficients!
   const [reactantCoeffs, setReactantCoeffs] = useState<number[]>(() =>
@@ -163,8 +167,8 @@ export function ReactionLabEngine({
             }}
             aria-pressed={labMode === 'free_mix'}
             className={`px-4 py-2 min-h-[42px] rounded-lg text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 transition-colors ${labMode === 'free_mix'
-                ? 'bg-[var(--science)] text-white'
-                : 'text-[var(--ink)] hover:bg-[var(--surface)]'
+              ? 'bg-[var(--science)] text-white'
+              : 'text-[var(--ink)] hover:bg-[var(--surface)]'
               }`}
           >
             <FlaskConical className="w-4 h-4" />
@@ -178,8 +182,8 @@ export function ReactionLabEngine({
             }}
             aria-pressed={labMode === 'guided_balance'}
             className={`px-4 py-2 min-h-[42px] rounded-lg text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 transition-colors ${labMode === 'guided_balance'
-                ? 'bg-[var(--science)] text-white'
-                : 'text-[var(--ink)] hover:bg-[var(--surface)]'
+              ? 'bg-[var(--science)] text-white'
+              : 'text-[var(--ink)] hover:bg-[var(--surface)]'
               }`}
           >
             <Beaker className="w-4 h-4" />
@@ -188,16 +192,58 @@ export function ReactionLabEngine({
         </div>
       </div>
 
-      {/* 3D INTERACTIVE MIXING SANDBOX BENCH */}
+      {/* 3D INTERACTIVE MIXING SANDBOX + SYNCHRONIZED 2D PROCESS FLOWCHART */}
       {labMode === 'free_mix' && (
         <div className="p-5 rounded-[20px] border border-[var(--line)] bg-[var(--surface-subtle)] space-y-5">
+          {/* Viewer Mode Switcher strictly inside 3D+2D lab */}
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--science)]">
+              Synchronized 3D Glassware + 2D Process Flowchart (Unit 10 · pp. 138–144)
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              {(
+                [
+                  ['split_3d_2d', '3D + 2D Flowchart'],
+                  ['flowchart_2d', '2D Flowchart Only'],
+                  ['text', 'Text Log'],
+                ] as const
+              ).map(([mId, lbl]) => (
+                <button
+                  key={mId}
+                  type="button"
+                  onClick={() => {
+                    setViewerMode(mId);
+                    onInteract();
+                  }}
+                  aria-pressed={viewerMode === mId}
+                  className={`px-2.5 py-1.5 min-h-[34px] rounded-lg border text-[11px] font-bold ${viewerMode === mId
+                    ? 'bg-[var(--science)] text-white border-[var(--science)]'
+                    : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
+                    }`}
+                >
+                  {lbl}
+                </button>
+              ))}
+              {show3D && (
+                <button
+                  type="button"
+                  onClick={() => setPaused3D((p) => !p)}
+                  aria-pressed={paused3D}
+                  className="px-2.5 py-1.5 min-h-[34px] rounded-lg border border-[var(--line)] bg-[var(--surface)] text-[11px] font-bold text-[var(--ink)]"
+                >
+                  {paused3D ? '▶ Resume' : '⏸ Pause'}
+                </button>
+              )}
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
             <div className="lg:col-span-7 space-y-3">
               {show3D ? (
                 <Suspense
                   fallback={
                     <div className="h-[310px] rounded-2xl border border-[var(--line)] bg-[var(--surface)] flex items-center justify-center text-sm text-[var(--text-muted)]">
-                      Loading 3D Chemistry Mixing Bench...
+                      Loading Bright 3D Chemistry Mixing Bench...
                     </div>
                   }
                 >
@@ -209,19 +255,112 @@ export function ReactionLabEngine({
                     isMixed={customMixed}
                     visualEffect={customOutcome.visualEffect}
                     liquidColorHex={customOutcome.liquidColorHex}
-                    reducedMotion={reducedMotion}
+                    reducedMotion={reducedMotion || paused3D}
                     onClickPour={triggerPourMix}
                   />
                 </Suspense>
-              ) : (
-                <div className="p-5 rounded-2xl border border-[var(--line)] bg-[var(--surface)] space-y-2 text-xs">
-                  <div className="font-bold text-[var(--primary)]">2D / Text Chemistry Bench Mode Active</div>
-                  <p className="text-[var(--text)]">
-                    Selected Pair: <strong>{regAMeta.name} ({regAMeta.formula})</strong> +{' '}
-                    <strong>{regBMeta.name} ({regBMeta.formula})</strong>
-                  </p>
+              ) : null}
+
+              {/* Synchronized 2D Process Flowchart (Reactants → Condition/Series → Observation → Balanced Equation) */}
+              <div className="p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface)] space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-extrabold uppercase tracking-wider text-[var(--science)]">
+                  <span>Synchronized 2D Reaction Process Flowchart</span>
+                  <span className="px-2 py-0.5 rounded-full bg-[var(--science-tint)] border border-[var(--science)]/30">
+                    {customMixed ? customOutcome.category : 'Ready to Mix'}
+                  </span>
                 </div>
-              )}
+                {viewerMode !== 'text' ? (
+                  <svg
+                    viewBox="0 0 640 132"
+                    className="w-full h-auto"
+                    role="img"
+                    aria-label={`2D chemical reaction flowchart for ${regAMeta.formula} and ${regBMeta.formula}`}
+                  >
+                    {/* Step 1: Reactants */}
+                    <rect x="8" y="20" width="135" height="92" rx="14" fill="#EEF3FB" stroke="#4255D4" strokeWidth="2" />
+                    <text x="75" y="42" textAnchor="middle" fontSize="10" fontWeight="800" fill="#4255D4">1. REACTANTS</text>
+                    <text x="75" y="68" textAnchor="middle" fontSize="13" fontWeight="800" fill="#13213A">{regAMeta.formula}</text>
+                    <text x="75" y="84" textAnchor="middle" fontSize="11" fontWeight="700" fill="#4E5F76">+</text>
+                    <text x="75" y="100" textAnchor="middle" fontSize="13" fontWeight="800" fill="#13213A">{regBMeta.formula}</text>
+
+                    <path d="M 146 66 L 172 66" stroke="#4255D4" strokeWidth="2.5" markerEnd="url(#chemArrow)" />
+
+                    {/* Step 2: Condition / Feasibility */}
+                    <rect
+                      x="176"
+                      y="20"
+                      width="136"
+                      height="92"
+                      rx="14"
+                      fill={customMixed ? (customOutcome.visualEffect === 'no_change' ? '#FEF4E8' : '#E6F6F0') : '#F8FAFC'}
+                      stroke={customMixed ? (customOutcome.visualEffect === 'no_change' ? '#A86113' : '#137B55') : '#CBD5E1'}
+                      strokeWidth="2"
+                    />
+                    <text x="244" y="42" textAnchor="middle" fontSize="10" fontWeight="800" fill="#0B7773">2. CHECK / CONDITION</text>
+                    <text x="244" y="68" textAnchor="middle" fontSize="11.5" fontWeight="800" fill="#13213A">
+                      {customMixed
+                        ? customOutcome.visualEffect === 'no_change'
+                          ? 'Blocked by Activity Series'
+                          : 'Atoms Rearrange!'
+                        : 'Click Pour & Mix →'}
+                    </text>
+                    <text x="244" y="92" textAnchor="middle" fontSize="10" fill="#4E5F76">
+                      {reagentB === 'Heat' || reagentA === 'Heat' ? 'Thermal Δ Energy' : 'Aqueous / Contact'}
+                    </text>
+
+                    <path d="M 315 66 L 341 66" stroke="#0B7773" strokeWidth="2.5" />
+
+                    {/* Step 3: Macroscopic Observation */}
+                    <rect x="345" y="20" width="136" height="92" rx="14" fill="#FFFBEB" stroke="#D97706" strokeWidth="2" />
+                    <text x="413" y="42" textAnchor="middle" fontSize="10" fontWeight="800" fill="#B45309">3. OBSERVATION</text>
+                    <text x="413" y="68" textAnchor="middle" fontSize="11.5" fontWeight="800" fill="#13213A">
+                      {!customMixed
+                        ? 'Awaiting pour...'
+                        : customOutcome.visualEffect === 'yellow_precipitate'
+                          ? 'Yellow PbI₂↓ Solid'
+                          : customOutcome.visualEffect === 'gas_release'
+                            ? 'Effervescence (Gas↑)'
+                            : customOutcome.visualEffect === 'neutral_clear'
+                              ? 'Clear Salt + H₂O (ΔT)'
+                              : customOutcome.visualEffect === 'flame_heat'
+                                ? 'CO₂↑ Gas + CaO'
+                                : 'No Visible Change'}
+                    </text>
+                    <text x="413" y="92" textAnchor="middle" fontSize="10" fill="#4E5F76">
+                      {customMixed ? 'Conservation holds' : 'Predict first!'}
+                    </text>
+
+                    <path d="M 484 66 L 504 66" stroke="#0B7773" strokeWidth="2.5" />
+
+                    {/* Step 4: Balanced Equation */}
+                    <rect x="508" y="20" width="124" height="92" rx="14" fill="#E8F6F4" stroke="#0B7773" strokeWidth="2" />
+                    <text x="570" y="42" textAnchor="middle" fontSize="10" fontWeight="800" fill="#0B7773">4. REACTION CLASS</text>
+                    <text x="570" y="70" textAnchor="middle" fontSize="10.5" fontWeight="800" fill="#13213A">
+                      {customOutcome.category.split(' ')[0]}
+                    </text>
+                    <text x="570" y="88" textAnchor="middle" fontSize="9.5" fill="#35465D">
+                      {customOutcome.category.split(' ').slice(1, 3).join(' ')}
+                    </text>
+
+                    <defs>
+                      <marker id="chemArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                        <path d="M 0 0 L 8 4 L 0 8 z" fill="#4255D4" />
+                      </marker>
+                    </defs>
+                  </svg>
+                ) : (
+                  <ol className="list-decimal pl-5 space-y-1 text-xs text-[var(--ink)]">
+                    <li><strong>Reactants:</strong> {regAMeta.name} ({regAMeta.formula}) + {regBMeta.name} ({regBMeta.formula})</li>
+                    <li><strong>Status:</strong> {customMixed ? customOutcome.category : 'Ready to pour and observe'}</li>
+                    <li><strong>Observation:</strong> {customOutcome.observation}</li>
+                  </ol>
+                )}
+                {customMixed && (
+                  <div className="p-2.5 rounded-xl bg-[var(--surface-subtle)] border border-[var(--line)] text-xs sm:text-sm font-mono-tabular font-extrabold text-[var(--ink)] text-center overflow-x-auto">
+                    {customOutcome.equation}
+                  </div>
+                )}
+              </div>
 
               {/* Interactive Lab Mission Tracker (Game-Like Discovery Goals) */}
               <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] space-y-2">
@@ -250,11 +389,10 @@ export function ReactionLabEngine({
                           setCustomMixed(false);
                           onInteract();
                         }}
-                        className={`px-2.5 py-1 rounded-lg border font-bold transition-colors ${
-                          done
-                            ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--success)]'
-                            : 'bg-[var(--surface-subtle)] border-[var(--line)] text-[var(--ink)] hover:border-[var(--science)]'
-                        }`}
+                        className={`px-2.5 py-1 rounded-lg border font-bold transition-colors ${done
+                          ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--success)]'
+                          : 'bg-[var(--surface-subtle)] border-[var(--line)] text-[var(--ink)] hover:border-[var(--science)]'
+                          }`}
                       >
                         {done ? '★ ' : '○ '}
                         {label}
@@ -328,8 +466,8 @@ export function ReactionLabEngine({
                 <div
                   role="status"
                   className={`p-4 rounded-2xl border space-y-1.5 text-xs ${customOutcome.occurs
-                      ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--ink)]'
-                      : 'bg-[var(--warning-bg)] border-[var(--warning)]/40 text-[var(--ink)]'
+                    ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--ink)]'
+                    : 'bg-[var(--warning-bg)] border-[var(--warning)]/40 text-[var(--ink)]'
                     }`}
                 >
                   <div className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--primary)]">
@@ -373,8 +511,8 @@ export function ReactionLabEngine({
                   onClick={() => selectReaction(idx)}
                   aria-pressed={reactionIdx === idx}
                   className={`p-3 min-h-[48px] rounded-xl border text-left transition-colors ${reactionIdx === idx
-                      ? 'bg-[var(--science)] text-white border-[var(--science)] font-bold'
-                      : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--science)] font-semibold'
+                    ? 'bg-[var(--science)] text-white border-[var(--science)] font-bold'
+                    : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--science)] font-semibold'
                     }`}
                 >
                   <div className="text-xs sm:text-sm leading-snug">{rxn.title}</div>
@@ -407,8 +545,8 @@ export function ReactionLabEngine({
                       }}
                       aria-pressed={predicted === cat}
                       className={`px-3 py-1.5 min-h-[38px] rounded-lg border text-xs font-semibold transition-colors ${predicted === cat
-                          ? 'bg-[var(--primary)] text-white border-[var(--primary)]'
-                          : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--primary)]'
+                        ? 'bg-[var(--primary)] text-white border-[var(--primary)]'
+                        : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--primary)]'
                         }`}
                     >
                       {cat}
@@ -458,8 +596,8 @@ export function ReactionLabEngine({
                 <div
                   role="status"
                   className={`p-4 rounded-xl border space-y-2 text-sm ${!reaction.feasible
-                      ? 'bg-[var(--warning-bg)] border-[var(--warning)]/40 text-[var(--ink)]'
-                      : 'bg-[var(--surface)] border-[var(--line)] text-[var(--ink)]'
+                    ? 'bg-[var(--warning-bg)] border-[var(--warning)]/40 text-[var(--ink)]'
+                    : 'bg-[var(--surface)] border-[var(--line)] text-[var(--ink)]'
                     }`}
                 >
                   <p className="font-extrabold">
@@ -560,8 +698,8 @@ export function ReactionLabEngine({
                 </div>
                 <span
                   className={`px-3 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5 ${conservation.balanced
-                      ? 'bg-[var(--success-bg)] text-[var(--success)]'
-                      : 'bg-[var(--warning-bg)] text-[var(--warning)]'
+                    ? 'bg-[var(--success-bg)] text-[var(--success)]'
+                    : 'bg-[var(--warning-bg)] text-[var(--warning)]'
                     }`}
                 >
                   {conservation.balanced ? (
@@ -665,8 +803,8 @@ export function ReactionLabEngine({
                   <div
                     key={el.symbol}
                     className={`p-3 rounded-xl border text-center space-y-1 ${el.matches
-                        ? 'bg-[var(--success-bg)] border-[var(--success)]/40'
-                        : 'bg-[var(--warning-bg)] border-[var(--warning)]/40'
+                      ? 'bg-[var(--success-bg)] border-[var(--success)]/40'
+                      : 'bg-[var(--warning-bg)] border-[var(--warning)]/40'
                       }`}
                   >
                     <div className="text-base font-extrabold text-[var(--ink)]">{el.symbol}</div>

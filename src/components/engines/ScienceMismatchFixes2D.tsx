@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Atom,
   Dna,
@@ -11,8 +11,6 @@ import {
   Scale,
   Sprout,
 } from 'lucide-react';
-
-const ChemicalProcess3DCanvas = lazy(() => import('./ChemicalProcess3DCanvas'));
 
 export type ScienceMismatch2DVariant =
   | 'torque_gravitation'
@@ -127,16 +125,19 @@ export function ScienceMismatchFixes2D({
   const [shield, setShield] = useState<'paper' | 'aluminium' | 'lead'>('aluminium');
   const [annualDoseMsv, setAnnualDoseMsv] = useState(12);
 
-  // Unit 8: Metallurgy (Al/Cu/Fe) & Corrosion + 3D Chemical Process Flow state
-  const [metalTab, setMetalTab] = useState<'aluminium' | 'copper' | 'corrosion'>(
-    id.includes('corros') || id.includes('pamban') || id.includes('alloy')
-      ? 'corrosion'
-      : id.includes('copper')
-        ? 'copper'
-        : 'aluminium',
+  // Unit 8: Bright 2D Interactive Metallurgy Flowcharts (split 8.4-8.6 Ore Concentration from 8.7 Al, 8.8 Cu & 8.11 Corrosion!)
+  const [metalTab, setMetalTab] = useState<'ore_conc' | 'aluminium' | 'copper' | 'corrosion'>(
+    id.includes('8-4') || id.includes('8-5') || id.includes('8-6')
+      ? 'ore_conc'
+      : id.includes('corros') || id.includes('pamban') || id.includes('alloy') || id.includes('8-11') || id.includes('8-10')
+        ? 'corrosion'
+        : id.includes('copper') || id.includes('8-8')
+          ? 'copper'
+          : 'aluminium',
   );
   const [metalStage, setMetalStage] = useState(1);
   const [furnaceHeatOn, setFurnaceHeatOn] = useState(true);
+  const [hallVoltageV, setHallVoltageV] = useState(5.5);
   const [corroMoisture, setCorroMoisture] = useState(true);
   const [corroAir, setCorroAir] = useState(true);
   const [corroProtection, setCorroProtection] = useState<'none' | 'galvanization' | 'anodizing' | 'alloying'>('none');
@@ -573,72 +574,156 @@ export function ScienceMismatchFixes2D({
     );
   }
 
-  // 5. UNIT 8 — METALLURGY (3D CHEMICAL PROCESS FLOW FOR Al HALL'S PROCESS, Cu SMELTING & CORROSION!)
+  // 5. UNIT 8 — BRIGHT 2D INTERACTIVE CHEMISTRY PROCESS FLOWCHARTS (Replaces dark 3D dome!)
   if (variant === 'metallurgy_corrosion') {
     const rustOccurs = corroMoisture && corroAir && corroProtection === 'none';
-    const canvasKind =
-      metalTab === 'aluminium'
-        ? 'hall_heroult_al'
-        : metalTab === 'copper'
-          ? 'copper_smelting'
-          : 'rusting_galvanization';
 
     const stageLabels =
       metalTab === 'aluminium'
-        ? ['1. Baeyer Digestion (150 °C)', '2. Hall Electrolytic Tank (950 °C)', '3. Molten Al Tap + O₂↑']
-        : ['1. Froth Floatation (CuFeS₂)', '2. Bessemer Smelting Furnace', '3. CuSO₄ Electrolytic Refining'];
+        ? ['1. Baeyer Digestion (150 °C)', '2. Hall Electrolytic Cell (950 °C)', '3. Molten Al Tap + O₂↑']
+        : metalTab === 'copper'
+          ? ['1. Froth Floatation (CuFeS₂)', '2. Bessemer Smelting', '3. CuSO₄ Electrolytic Refining']
+          : ['1. Hydraulic (Gravity)', '2. Magnetic Separation', '3. Froth Floatation / Leaching'];
 
     return (
       <div className="space-y-4 text-xs">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           {([
-            ['aluminium', '8.7 Metallurgy of Aluminium (3D Hall’s Tank)'],
-            ['copper', '8.8 Metallurgy of Copper (3D Furnace & Refining)'],
-            ['corrosion', '8.11 Iron Rusting & Galvanization (3D Cell · p. 120)'],
+            ['ore_conc', '8.4–8.6 Ore Concentration'],
+            ['aluminium', '8.7 Aluminium (Hall–Héroult)'],
+            ['copper', '8.8 Copper Smelting'],
+            ['corrosion', '8.11 Iron Rusting & Protection (p. 120)'],
           ] as const).map(([k, lbl]) => (
-            <button key={k} type="button" onClick={() => { setMetalTab(k); setMetalStage(1); onExplore(); }} className={`px-3 py-2 rounded-xl border font-bold ${metalTab === k ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] border-[var(--line)]'}`}>
+            <button key={k} type="button" onClick={() => { setMetalTab(k); setMetalStage(0); onExplore(); }} className={`px-3 py-2 rounded-xl border font-bold ${metalTab === k ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] border-[var(--line)]'}`}>
               {lbl}
             </button>
           ))}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-          {/* Interactive 3D Chemical Process Flow Canvas */}
-          <div className="lg:col-span-6 space-y-2.5">
-            <Suspense fallback={<div className="h-[310px] rounded-2xl bg-slate-950 flex items-center justify-center text-slate-300 text-xs">Loading 3D Chemical Process Flow...</div>}>
-              <ChemicalProcess3DCanvas
-                kind={canvasKind}
-                stageIndex={metalStage}
-                heatOn={metalTab === 'corrosion' ? corroMoisture && corroAir : furnaceHeatOn}
-                protectedCoat={corroProtection !== 'none'}
-              />
-            </Suspense>
+          {/* Bright Interactive 2D Chemical Process Flowchart SVG */}
+          <div className="lg:col-span-6 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface)] space-y-3">
+            <div className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--science)]">
+              Bright 2D Chemical Process Flowchart · Step-by-Step Mechanism
+            </div>
+
+            {metalTab === 'corrosion' ? (
+              <svg viewBox="0 0 460 195" className="w-full h-auto" role="img" aria-label="2D electrochemical iron rusting anode and cathode cell diagram">
+                {/* Iron Bar */}
+                <rect x="40" y="116" width="380" height="44" rx="8" fill={corroProtection === 'galvanization' ? '#CBD5E1' : '#64748B'} stroke="#334155" strokeWidth="2" />
+                {corroProtection !== 'none' && (
+                  <rect x="40" y="108" width="380" height="10" rx="4" fill={corroProtection === 'galvanization' ? '#38BDF8' : '#10B981'} />
+                )}
+                {/* Water Droplet */}
+                {corroMoisture && (
+                  <path d="M 140 116 Q 230 34 320 116 Z" fill="#BAE6FD" fillOpacity="0.65" stroke="#0284C7" strokeWidth="2" />
+                )}
+                {/* Rust Crust if bare + moisture + O2 */}
+                {rustOccurs && (
+                  <path d="M 160 116 Q 230 98 300 116 Z" fill="#B45309" stroke="#78350F" strokeWidth="1.8" />
+                )}
+                <text x="230" y="24" textAnchor="middle" fontSize="11.5" fontWeight="800" fill="#13213A">
+                  {rustOccurs ? 'Electrochemical Rusting Active: 4Fe + 3O₂ + xH₂O → 2Fe₂O₃·xH₂O' : 'Corrosion Blocked — Iron Surface Protected'}
+                </text>
+                <text x="115" y="142" textAnchor="middle" fontSize="10.5" fontWeight="800" fill="#FFFFFF">
+                  Anode: Fe → Fe²⁺ + 2e⁻
+                </text>
+                <text x="345" y="142" textAnchor="middle" fontSize="10.5" fontWeight="800" fill="#FFFFFF">
+                  Cathode: O₂ + 2H₂O + 4e⁻ → 4OH⁻
+                </text>
+                <text x="230" y="182" textAnchor="middle" fontSize="10.5" fontWeight="700" fill="#4E5F76">
+                  {corroProtection === 'none' ? 'Bare Iron exposed directly to O₂ & H₂O' : `Active Shield: ${corroProtection.toUpperCase()} blocks wet corrosion`}
+                </text>
+              </svg>
+            ) : (
+              <svg viewBox="0 0 460 175" className="w-full h-auto" role="img" aria-label={`2D metallurgical flowchart for ${metalTab}`}>
+                {[0, 1, 2].map((idx) => {
+                  const x = 10 + idx * 150;
+                  const active = metalStage === idx;
+                  const shortTitles =
+                    metalTab === 'ore_conc'
+                      ? ['Gravity Wash', 'Magnetic Belt', 'Froth Floatation']
+                      : metalTab === 'aluminium'
+                        ? ['Baeyer 150°C', `Hall ${hallVoltageV} V`, 'Molten Al Tap']
+                        : ['Roast CuFeS₂', 'Bessemer Matte', '99.9% Pure Cu'];
+                  const subs =
+                    metalTab === 'ore_conc'
+                      ? ['Dense Oxide Ore', 'Fe/Sn Magnetic Ore', 'Pine-Oil Sulphides']
+                      : metalTab === 'aluminium'
+                        ? ['Bauxite→Al₂O₃', 'Cryolite 950°C', '2Al₂O₃→4Al+3O₂']
+                        : ['Remove S & SO₂', 'FeSiO₃ Slag Out', 'CuSO₄ Cathode'];
+                  return (
+                    <g key={idx}>
+                      {idx < 2 && <line x1={x + 136} y1="86" x2={x + 150} y2="86" stroke="#0B7773" strokeWidth="2.5" />}
+                      <rect
+                        x={x}
+                        y="26"
+                        width="136"
+                        height="120"
+                        rx="14"
+                        fill={active ? '#E8F6F4' : '#F8FAFC'}
+                        stroke={active ? '#0B7773' : '#CBD5E1'}
+                        strokeWidth={active ? 2.5 : 1.5}
+                      />
+                      <text x={x + 68} y="52" textAnchor="middle" fontSize="10" fontWeight="800" fill="#0B7773">STAGE {idx + 1}</text>
+                      <text x={x + 68} y="82" textAnchor="middle" fontSize="11.5" fontWeight="800" fill="#13213A">{shortTitles[idx]}</text>
+                      <text x={x + 68} y="108" textAnchor="middle" fontSize="10" fontWeight="600" fill="#4E5F76">{subs[idx]}</text>
+                      {active && furnaceHeatOn && metalTab !== 'ore_conc' && (
+                        <text x={x + 68} y="132" textAnchor="middle" fontSize="9.5" fontWeight="800" fill="#EA580C">Heat / Power ON</text>
+                      )}
+                    </g>
+                  );
+                })}
+              </svg>
+            )}
+
             {metalTab !== 'corrosion' && (
-              <div className="flex flex-wrap gap-1.5">
-                {stageLabels.map((lbl, idx) => (
-                  <button
-                    key={lbl}
-                    type="button"
-                    onClick={() => { setMetalStage(idx); onExplore(); }}
-                    className={`flex-1 py-2 px-2 rounded-xl border font-bold text-[11px] ${metalStage === idx ? 'bg-[var(--primary)] text-white border-[var(--primary)]' : 'bg-[var(--surface)] border-[var(--line)]'}`}
-                  >
-                    {lbl}
-                  </button>
-                ))}
-                <button
-                  type="button"
-                  onClick={() => { setFurnaceHeatOn((h) => !h); onExplore(); }}
-                  className={`px-3 py-2 rounded-xl font-bold text-[11px] ${furnaceHeatOn ? 'bg-orange-600 text-white' : 'bg-slate-700 text-white'}`}
-                >
-                  {furnaceHeatOn ? '🔥 Heat ON' : 'Heat OFF'}
-                </button>
+              <div className="space-y-2">
+                <div className="flex flex-wrap gap-1.5">
+                  {stageLabels.map((lbl, idx) => (
+                    <button
+                      key={lbl}
+                      type="button"
+                      onClick={() => { setMetalStage(idx); onExplore(); }}
+                      className={`flex-1 py-2 px-2 rounded-xl border font-bold text-[11px] ${metalStage === idx ? 'bg-[var(--primary)] text-white border-[var(--primary)]' : 'bg-[var(--surface-subtle)] border-[var(--line)]'}`}
+                    >
+                      {lbl}
+                    </button>
+                  ))}
+                </div>
+                {metalTab === 'aluminium' && (
+                  <label className="block font-bold text-[var(--ink)]">
+                    Hall’s Electrolytic Cell Voltage: {hallVoltageV} V (Textbook optimal: 5–6 V at 900–950 °C)
+                    <input type="range" min={3} max={8} step={0.5} value={hallVoltageV} onChange={(e) => { setHallVoltageV(Number(e.target.value)); onExplore(); }} className="w-full accent-[var(--science)] mt-1" />
+                  </label>
+                )}
               </div>
             )}
           </div>
 
           {/* Right Panel: Interactive Controls & Balanced Chemical Equations */}
           <div className="lg:col-span-6 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3">
-            {metalTab === 'corrosion' ? (
+            {metalTab === 'ore_conc' ? (
+              <>
+                <div className="font-extrabold text-sm text-[var(--ink)]">
+                  8.4–8.6 Concentration of Ores — Match Ore Property to Method (pp. 112–114)
+                </div>
+                <div className="space-y-2">
+                  <div className={`p-3 rounded-xl border ${metalStage === 0 ? 'bg-[var(--info-bg)] border-[var(--primary)]' : 'bg-[var(--surface)] border-[var(--line)]'}`}>
+                    <div className="font-extrabold text-[var(--science)]">1. Hydraulic (Gravity) Separation</div>
+                    <p className="mt-1 text-[var(--text)]">Used when ore is much denser than earthy gangue (e.g., Oxide ores like Haematite Fe₂O₃ &amp; Tinstone SnO₂).</p>
+                  </div>
+                  <div className={`p-3 rounded-xl border ${metalStage === 1 ? 'bg-[var(--info-bg)] border-[var(--primary)]' : 'bg-[var(--surface)] border-[var(--line)]'}`}>
+                    <div className="font-extrabold text-[var(--science)]">2. Magnetic Separation</div>
+                    <p className="mt-1 text-[var(--text)]">Separates magnetic impurities (Wolframite) from non-magnetic Tinstone using a moving belt over magnetic rollers.</p>
+                  </div>
+                  <div className={`p-3 rounded-xl border ${metalStage === 2 ? 'bg-[var(--info-bg)] border-[var(--primary)]' : 'bg-[var(--surface)] border-[var(--line)]'}`}>
+                    <div className="font-extrabold text-[var(--science)]">3. Froth Floatation &amp; Chemical Leaching</div>
+                    <p className="mt-1 text-[var(--text)]">Lighter Sulphide ores (ZnS, CuFeS₂) stick to pine-oil froth bubbles; Bauxite (Al₂O₃·2H₂O) is concentrated by NaOH chemical leaching.</p>
+                  </div>
+                </div>
+              </>
+            ) : metalTab === 'corrosion' ? (
               <>
                 <div className="font-extrabold text-sm text-[var(--ink)] inline-flex items-center gap-1.5">
                   <Hammer className="w-4 h-4 text-[var(--science)]" />
@@ -662,7 +747,7 @@ export function ScienceMismatchFixes2D({
                 <div className={`p-3 rounded-xl font-extrabold border ${rustOccurs ? 'bg-amber-100 border-amber-500 text-amber-950' : 'bg-emerald-50 border-emerald-500 text-emerald-950'}`}>
                   {rustOccurs
                     ? '⚠ WET CORROSION ACTIVE! Reddish-brown Fe₂O₃·xH₂O crust forms under the water droplet!'
-                    : '✓ IRON PROTECTED! Protective Zinc/Oxide/Alloy layer blocks electrochemical rusting.'}
+                    : '✓ IRON PROTECTED! Blocking oxygen, moisture, or applying Zinc/Oxide/Alloy stops rusting.'}
                 </div>
                 <p className="text-[var(--text)] leading-relaxed">
                   <strong>Pamban Sea Bridge (1914 · p. 120):</strong> Periodic anti-corrosive coatings shield steel girders across the salty Rameshwaram sea channel.
@@ -715,8 +800,9 @@ export function ScienceMismatchFixes2D({
     );
   }
 
-  // 6. UNIT 13 — INDIAN CATTLE LEECH & RABBIT ANATOMY (REPLACES HUMAN KIDNEY!)
+  // 6. UNIT 13 — INDIAN CATTLE LEECH (incl. Dedicated 5-Layer Body Wall for 13.1.4!) & RABBIT ANATOMY
   if (variant === 'leech_rabbit_anatomy') {
+    const isBodyWall = id.includes('body-wall') || id.includes('13-1-4');
     const leechDetails = {
       suckers: 'Anterior sucker (segments 1–5) & Posterior sucker (segments 27–33) anchor firmly to the host while three jaws make a painless Y-shaped wound; salivary glands secrete anticoagulant Hirudin (p. 192).',
       crop: 'Largest digestive chamber (segments 9–18) with 10 pairs of lateral caeca storing host blood to nourish the leech for several months without elaborate enzyme secretion.',
@@ -730,6 +816,43 @@ export function ScienceMismatchFixes2D({
       heart: 'Four-chambered mammalian heart (2 auricles, 2 ventricles) with double circulation and warm-blooded homeostasis.',
       kidney: 'Pair of dark-red bean-shaped metanephric kidneys filtering nitrogenous wastes as urea.',
     }[rabbitPart];
+
+    if (isBodyWall && animalTab === 'leech') {
+      const layers = [
+        { name: '1. Cuticle (Outermost)', color: '#FEF3C7', stroke: '#D97706', note: 'Thin, non-cellular protective outer film secreted by the epidermis (shed periodically).' },
+        { name: '2. Epidermis', color: '#E0F2FE', stroke: '#0284C7', note: 'Single layer of columnar epithelial cells beneath the cuticle containing mucous & pigment cells.' },
+        { name: '3. Dermis', color: '#E8F6F4', stroke: '#0B7773', note: 'Fibrous connective tissue rich in blood capillaries enabling moist cutaneous respiration.' },
+        { name: '4. Muscular Layer', color: '#FCE7F3', stroke: '#BE185D', note: 'Circular, oblique & longitudinal muscle fibres powering looping and swimming locomotion.' },
+        { name: '5. Botryoidal Tissue (Innermost)', color: '#F0ECFC', stroke: '#7155C8', note: 'Unique annelid tissue filling the coelom around the gut; aids excretion and iron storage.' },
+      ];
+      return (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start text-xs">
+          <div className="lg:col-span-6 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface)] space-y-2">
+            <div className="font-extrabold text-[var(--science)]">13.1.4 Body Wall of Indian Cattle Leech — 5 Distinct Layers (p. 189)</div>
+            <svg viewBox="0 0 460 225" className="w-full h-auto" role="img" aria-label="5-layer cross-section diagram of Indian Cattle Leech body wall">
+              {layers.map((lay, i) => (
+                <g key={lay.name}>
+                  <rect x="24" y={16 + i * 38} width="412" height="32" rx="8" fill={lay.color} stroke={lay.stroke} strokeWidth="2" />
+                  <text x="40" y={36 + i * 38} fontSize="11.5" fontWeight="800" fill="#13213A">{lay.name}</text>
+                </g>
+              ))}
+              <text x="230" y="218" textAnchor="middle" fontSize="10.5" fontWeight="700" fill="#4E5F76">
+                Outer Surface (Cuticle) ↓ to Inner Coelom (Botryoidal Tissue)
+              </text>
+            </svg>
+          </div>
+          <div className="lg:col-span-6 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-2">
+            <div className="font-extrabold text-[var(--ink)]">Function of Each Body-Wall Layer (TN Science p. 189)</div>
+            {layers.map((lay) => (
+              <div key={lay.name} className="p-2.5 rounded-xl bg-[var(--surface)] border border-[var(--line)]">
+                <div className="font-extrabold text-[var(--science)]">{lay.name}</div>
+                <div className="text-[var(--text)] mt-0.5">{lay.note}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div className="space-y-4 text-xs">

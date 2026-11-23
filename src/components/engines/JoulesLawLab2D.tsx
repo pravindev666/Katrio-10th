@@ -15,6 +15,7 @@ export function JoulesLawLab2D({ onExplore }: JoulesLawLab2DProps) {
   const [resistanceOhm, setResistanceOhm] = useState(5);
   const [timeSec, setTimeSec] = useState(20);
   const [compareDoubleI, setCompareDoubleI] = useState(false);
+  const [applianceContext, setApplianceContext] = useState<'none' | 'iron' | 'fuse' | 'bulb'>('none');
 
   const sim = computeJoulesHeating(currentA, resistanceOhm, timeSec);
   const doubledI = Math.min(10, currentA * 2);
@@ -165,6 +166,60 @@ export function JoulesLawLab2D({ onExplore }: JoulesLawLab2DProps) {
             <span className="font-bold text-[var(--text-muted)]">
               Notice I² = {currentA * currentA}
             </span>
+          </div>
+
+          {/* Optional Real-World Physical Appliance Context (TN Science p. 51) */}
+          <div className="p-3.5 rounded-2xl border border-[var(--line)] bg-[var(--surface)] space-y-2.5 text-xs">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="font-extrabold uppercase tracking-wider text-[var(--primary)]">
+                Where Is Joule Heating Used? (TN Science p. 51 · Optional Context)
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {([
+                  ['iron', 'Electric Iron / Toaster'],
+                  ['fuse', 'Safety Fuse Wire'],
+                  ['bulb', 'Tungsten Filament Bulb'],
+                ] as const).map(([key, lbl]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => {
+                      setApplianceContext((prev) => (prev === key ? 'none' : key));
+                      onExplore();
+                    }}
+                    aria-pressed={applianceContext === key}
+                    className={`min-h-[34px] px-2.5 py-1 rounded-lg border font-bold ${
+                      applianceContext === key
+                        ? 'bg-[var(--primary)] text-white border-[var(--primary)]'
+                        : 'bg-[var(--surface-subtle)] text-[var(--ink)] border-[var(--line)]'
+                    }`}
+                  >
+                    {lbl}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {applianceContext === 'iron' && (
+              <p className="text-[var(--ink)] leading-relaxed bg-[var(--surface-subtle)] p-3 rounded-xl border border-[var(--line)]">
+                <strong>Nichrome (Ni + Cr + Fe alloy):</strong> Chosen for electric irons and toasters because it has{' '}
+                <strong>high resistivity</strong> (large R → more I²Rt heat), a <strong>high melting point</strong>,
+                and does not oxidise easily when red-hot.
+              </p>
+            )}
+            {applianceContext === 'fuse' && (
+              <p className="text-[var(--ink)] leading-relaxed bg-[var(--surface-subtle)] p-3 rounded-xl border border-[var(--line)]">
+                <strong>Fuse Wire (Lead–Tin alloy in series):</strong> Has high resistance and a{' '}
+                <strong>low melting point</strong>. If a short circuit causes a sudden surge in current I,{' '}
+                H = I²Rt spikes rapidly, melting the fuse wire first to break the circuit and save appliances.
+              </p>
+            )}
+            {applianceContext === 'bulb' && (
+              <p className="text-[var(--ink)] leading-relaxed bg-[var(--surface-subtle)] p-3 rounded-xl border border-[var(--line)]">
+                <strong>Tungsten Filament (W):</strong> Has an extremely high melting point (~3380 °C) inside an inert
+                nitrogen/argon bulb so Joule heating heats it to white-hot incandescence. Modern LEDs avoid this wasted
+                heat!
+              </p>
+            )}
           </div>
         </div>
 

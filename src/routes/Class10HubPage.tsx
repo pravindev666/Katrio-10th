@@ -8,12 +8,15 @@ import {
 } from '../utils/curriculumStore';
 import { useProgress } from '../features/local-progress/ProgressContext';
 import { getCompletedSectionCount } from '../features/local-progress/progressStore';
+import { WorldConceptIslandMap } from '../components/universe/WorldConceptIslandMap';
+import { GATE2_WORKING_PILOTS } from '../data/universeWorlds';
 
 export function Class10HubPage() {
   const subjects = getSubjects();
   const { record } = useProgress();
   const [query, setQuery] = useState('');
   const [filterMode, setFilterMode] = useState<'all' | 'interactive' | 'verified'>('all');
+  const [hubView, setHubView] = useState<'map' | 'cards'>('map');
 
   const results = searchCurriculum(query, {
     onlyDemos: filterMode === 'interactive',
@@ -91,8 +94,9 @@ export function Class10HubPage() {
             <span>Your Study Session</span>
           </div>
           <p className="text-sm text-[var(--text)]">
-            Started: <strong>{record.visitedSections.length}</strong> · Practised:{' '}
-            <strong>{(record.practisedSections ?? []).length}</strong> · Completed:{' '}
+            Visited: <strong>{record.visitedSections.length}</strong> · Explored:{' '}
+            <strong>{(record.exploredSections ?? []).length}</strong> · Practised:{' '}
+            <strong>{(record.practisedSections ?? []).length}</strong> · Understood:{' '}
             <strong>{getCompletedSectionCount(record)}</strong>
           </p>
           {record.lastVisitedRoute ? (
@@ -160,11 +164,67 @@ export function Class10HubPage() {
         </div>
       </section>
 
-      {/* 5 Subject Worlds + Games & Practice */}
-      <section aria-labelledby="hub-subjects-heading" className="space-y-4">
-        <h2 id="hub-subjects-heading" className="text-2xl font-extrabold text-[var(--ink)]">
-          All Class 10 Subjects
-        </h2>
+      {/* 6 Subject Worlds + Interactive Universe Map Toggle */}
+      <section aria-labelledby="hub-subjects-heading" className="space-y-5">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 id="hub-subjects-heading" className="text-2xl font-extrabold text-[var(--ink)]">
+              All Class 10 Worlds &amp; Subjects
+            </h2>
+            <p className="text-xs sm:text-sm text-[var(--text-muted)]">
+              Explore visually on the 2D Universe Map or browse the textbook subject cards below.
+            </p>
+          </div>
+          <div className="inline-flex p-1 rounded-[14px] bg-[var(--surface)] border border-[var(--line)]">
+            <button
+              type="button"
+              onClick={() => setHubView('map')}
+              aria-pressed={hubView === 'map'}
+              className={`px-3.5 py-1.5 min-h-[38px] rounded-[10px] text-xs font-bold ${
+                hubView === 'map' ? 'bg-[var(--primary)] text-white' : 'text-[var(--ink)]'
+              }`}
+            >
+              2D Universe Map
+            </button>
+            <button
+              type="button"
+              onClick={() => setHubView('cards')}
+              aria-pressed={hubView === 'cards'}
+              className={`px-3.5 py-1.5 min-h-[38px] rounded-[10px] text-xs font-bold ${
+                hubView === 'cards' ? 'bg-[var(--primary)] text-white' : 'text-[var(--ink)]'
+              }`}
+            >
+              Subject Cards
+            </button>
+          </div>
+        </div>
+
+        {hubView === 'map' && <WorldConceptIslandMap />}
+
+        {/* Featured Capstone Mission Strip */}
+        <div
+          style={{ backgroundColor: 'var(--arcade-tint)' }}
+          className="rounded-[20px] border border-[var(--arcade)]/30 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+        >
+          <div className="space-y-1">
+            <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--arcade)]">
+              Cross-Subject Capstone Mission · Zero Timers · {GATE2_WORKING_PILOTS.length} Flagship Pilots Live
+            </div>
+            <h3 className="text-lg font-extrabold text-[var(--ink)]">
+              Design a Sustainable Tamil Nadu Town (Maths + Science + Geography + Economics + English/Tamil)
+            </h3>
+            <p className="text-xs sm:text-sm text-[var(--text)]">
+              Apply cylinder/hemisphere water tanks (π = 22/7), LED &amp; wind power, monsoon rain-shadow planning, and a municipal budget in one untimed capstone quest.
+            </p>
+          </div>
+          <Link
+            to="/arcade/sustainable-tn-town"
+            className="px-4 py-2.5 min-h-[44px] rounded-[12px] bg-[var(--arcade)] hover:opacity-95 text-white text-sm font-bold inline-flex items-center gap-1.5 shrink-0"
+          >
+            <span>Launch Town Mission</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {subjects.map((sub) => (

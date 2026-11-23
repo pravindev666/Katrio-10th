@@ -710,86 +710,13 @@ const GAMETE_PARTS: Record<string, { title: string; cell: string; desc: string }
   },
 };
 
-export function Gametogenesis3DLab({ sectionId, reducedMotion, onInteract, onComplete }: TopicLabProps) {
-  const defaultPlant =
-    sectionId.toLowerCase().includes('plant') ||
-    sectionId.toLowerCase().includes('flower') ||
-    sectionId.toLowerCase().includes('pollin') ||
-    sectionId.toLowerCase().includes('asexual');
-  const [modelMode, setModelMode] = useState<'gametogenesis' | 'flower'>(defaultPlant ? 'flower' : 'gametogenesis');
-  const [selectedPart, setSelectedPart] = useState<string>('acrosome');
-  const active = GAMETE_PARTS[selectedPart] ?? GAMETE_PARTS.acrosome;
-
+export function Gametogenesis3DLab({ onInteract }: TopicLabProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-      <div className="lg:col-span-7 space-y-2.5">
-        <div className="flex flex-wrap gap-1.5 text-xs">
-          <button
-            type="button"
-            onClick={() => { setModelMode('gametogenesis'); onInteract(); }}
-            className={`px-3 py-1.5 rounded-xl border font-bold ${modelMode === 'gametogenesis' ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'}`}
-          >
-            3D Human Sperm &amp; Ovum
-          </button>
-          <button
-            type="button"
-            onClick={() => { setModelMode('flower'); onInteract(); onComplete('Inspected 3D Angiosperm Flower & Pollination model!'); }}
-            className={`px-3 py-1.5 rounded-xl border font-bold ${modelMode === 'flower' ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'}`}
-          >
-            3D Angiosperm Flower (Plant Reproduction)
-          </button>
-        </div>
-        <Suspense
-          fallback={
-            <div className="h-[340px] rounded-2xl border border-[var(--line)] bg-slate-950 flex items-center justify-center text-sm text-slate-300">
-              Loading 3D Reproduction Explorer...
-            </div>
-          }
-        >
-          <BiologyCell3DCanvas
-            kind={modelMode}
-            selectedPart={selectedPart}
-            onSelectPart={(id) => {
-              setSelectedPart(id);
-              onInteract();
-              onComplete('Inspected 3D Reproduction & Gametogenesis structures (Unit 17)!');
-            }}
-            reducedMotion={reducedMotion}
-          />
-        </Suspense>
-      </div>
-      <div className="lg:col-span-5 space-y-3 text-xs">
-        <div className="p-4 rounded-2xl border border-[var(--science)]/35 bg-[var(--primary-tint)] space-y-1.5">
-          <div className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--science)]">
-            {active.cell} · Textbook p. 250
-          </div>
-          <div className="text-base font-extrabold text-[var(--ink)]">{active.title}</div>
-          <p className="text-[var(--text)] leading-relaxed">{active.desc}</p>
-        </div>
-
-        <div className="p-3.5 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-2">
-          <div className="font-extrabold text-[var(--ink)]">Click any structure to highlight in 3D:</div>
-          <div className="flex flex-wrap gap-1.5">
-            {Object.entries(GAMETE_PARTS).map(([id, info]) => (
-              <button
-                key={id}
-                type="button"
-                onClick={() => {
-                  setSelectedPart(id);
-                  onInteract();
-                  onComplete('Explored Gametogenesis structures in 3D!');
-                }}
-                className={`px-2.5 py-1.5 rounded-lg border text-[11px] font-bold ${selectedPart === id
-                  ? 'bg-[var(--science)] text-white border-[var(--science)]'
-                  : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--science)]'
-                  }`}
-              >
-                {info.title.split(' (')[0]}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+    <div className="p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] text-xs text-[var(--ink)]">
+      <strong>Unit 17 Clinical 2D Reproduction Diagrams Active:</strong> All Unit 17 topics use calm, clinical 2D biological illustrations (<code>ReproductionDiagrams2D</code> &amp; <code>Unit17ReproductionSuite2D</code>).
+      <button type="button" onClick={onInteract} className="ml-2 underline font-bold text-[var(--primary)]">
+        Log exploration
+      </button>
     </div>
   );
 }
@@ -1047,10 +974,10 @@ export function SolubilityMixerLab({ reducedMotion, onInteract }: TopicLabProps)
         </Suspense>
         <div
           className={`px-3.5 py-2.5 rounded-xl border text-xs space-y-1 ${sol.classification === 'supersaturated_metastable'
-              ? 'bg-purple-50 dark:bg-purple-950/30 border-purple-400 text-purple-900 dark:text-purple-200'
-              : sol.classification === 'saturated_with_excess'
-                ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-400 text-amber-900 dark:text-amber-200'
-                : 'bg-[var(--surface-subtle)] border-[var(--line)] text-[var(--science)]'
+            ? 'bg-purple-50 dark:bg-purple-950/30 border-purple-400 text-purple-900 dark:text-purple-200'
+            : sol.classification === 'saturated_with_excess'
+              ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-400 text-amber-900 dark:text-amber-200'
+              : 'bg-[var(--surface-subtle)] border-[var(--line)] text-[var(--science)]'
             }`}
         >
           <div className="font-extrabold">{sol.headline}</div>
@@ -1209,12 +1136,7 @@ export function GeneticsPunnettLab({ reducedMotion, onInteract, onComplete }: To
 /**
  * 12A. SCIENCE UNIT 13 — STRUCTURAL ORGANISATION OF ANIMALS: Real US NIH 3D Animal Cell & Organ Systems Explorer
  */
-export function AnimalOrganisation3DLab({ sectionId, sectionTitle, reducedMotion, onInteract, onComplete }: TopicLabProps) {
-  const defaultKidney =
-    sectionId.toLowerCase().includes('excret') ||
-    sectionId.toLowerCase().includes('urin') ||
-    sectionId.toLowerCase().includes('rabbit');
-  const [organView, setOrganView] = useState<'animal_cell' | 'kidney'>(defaultKidney ? 'kidney' : 'animal_cell');
+export function AnimalOrganisation3DLab({ sectionTitle, reducedMotion, onInteract, onComplete }: TopicLabProps) {
   const [focus, setFocus] = useState(0);
   const systems = [
     { title: '1. Animal Cell & Tissue Layers', detail: 'Animal organs like the Indian Cattle Leech (Hirudinaria) and Rabbit (Oryctolagus) are built from specialized epithelial, connective, muscular, and nervous tissues.' },
@@ -1225,24 +1147,8 @@ export function AnimalOrganisation3DLab({ sectionId, sectionTitle, reducedMotion
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
       <div className="lg:col-span-6 space-y-2.5">
-        <div className="flex flex-wrap gap-1.5 text-xs">
-          <button
-            type="button"
-            onClick={() => { setOrganView('animal_cell'); onInteract(); }}
-            className={`px-3 py-1.5 rounded-xl border font-bold ${organView === 'animal_cell' ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'}`}
-          >
-            Real US NIH 3D Animal Cell
-          </button>
-          <button
-            type="button"
-            onClick={() => { setOrganView('kidney'); onInteract(); onComplete('Inspected Real 3D Human Kidney Organ (MIT Open Source)!'); }}
-            className={`px-3 py-1.5 rounded-xl border font-bold ${organView === 'kidney' ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'}`}
-          >
-            Real 3D Human Kidney (Organ)
-          </button>
-        </div>
-        <Suspense fallback={<div className="h-[340px] rounded-2xl bg-slate-950 flex items-center justify-center text-slate-300 text-sm">Loading 3D Animal Organ Model...</div>}>
-          <BiologyCell3DCanvas kind={organView} reducedMotion={reducedMotion} />
+        <Suspense fallback={<div className="h-[340px] rounded-2xl bg-slate-950 flex items-center justify-center text-slate-300 text-sm">Loading 3D Animal Cell Model...</div>}>
+          <BiologyCell3DCanvas kind="animal_cell" reducedMotion={reducedMotion} />
         </Suspense>
       </div>
       <div className="lg:col-span-6 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3 text-xs">
@@ -1410,40 +1316,81 @@ export function EconomicsGdpLab({ onInteract, onComplete }: TopicLabProps) {
 }
 
 /**
- * 12C. SCIENCE UNIT 23 — VISUAL COMMUNICATION: Phototextured 3D Optical Camera & Scratch Media Studio
+ * 12C. SCIENCE UNIT 23 — VISUAL COMMUNICATION: Interactive 2D Scratch Stage, Sprite & Block Script Sandbox
+ * (Pure 2D block-coding workbench matching TN Class 10 Science Unit 23, p. 330)
  */
-export function VisualCommunication3DLab({ sectionTitle, reducedMotion, onInteract, onComplete }: TopicLabProps) {
-  const [step, setStep] = useState(0);
-  const items = [
-    { title: '1. Optical Lenses & Digital Imaging', detail: 'Modern cameras capture real inverted images onto CMOS sensors — blending Unit 2 Optics with digital pixels & RGB colour channels.' },
-    { title: '2. Scratch Visual Block Studio (p. 330)', detail: 'Stage (backdrop), Sprite (interactive actor), and Script blocks (Motion, Looks, Sound, Control) let students create animations without syntax errors.' },
-    { title: '3. Responsible Visual Storytelling', detail: 'Clear typography, accessible contrast, and verified open-licensed media make science communication accurate and inclusive.' },
-  ];
+export function VisualCommunication3DLab({ sectionTitle, onInteract, onComplete }: TopicLabProps) {
+  const [spriteX, setSpriteX] = useState(110);
+  const [spriteY, setSpriteY] = useState(95);
+  const [angleDeg, setAngleDeg] = useState(0);
+  const [speech, setSpeech] = useState('Vanakkam! Click a Scratch block!');
+  const [stepCount, setStepCount] = useState(0);
+
+  const runBlock = (action: 'move' | 'turn' | 'say' | 'reset') => {
+    onInteract();
+    if (action === 'reset') {
+      setSpriteX(110);
+      setSpriteY(95);
+      setAngleDeg(0);
+      setSpeech('Stage reset! Ready to run script.');
+      return;
+    }
+    if (action === 'move') {
+      const rad = (angleDeg * Math.PI) / 180;
+      setSpriteX((x) => Math.max(40, Math.min(340, Math.round(x + Math.cos(rad) * 40))));
+      setSpriteY((y) => Math.max(40, Math.min(165, Math.round(y + Math.sin(rad) * 40))));
+      setSpeech('Moved 40 steps forward!');
+    } else if (action === 'turn') {
+      setAngleDeg((a) => (a + 90) % 360);
+      setSpeech('Turned clockwise 90°!');
+    } else if (action === 'say') {
+      setSpeech('Scratch = Stage + Sprite + Script Blocks (p. 330)');
+    }
+    setStepCount((c) => {
+      const next = c + 1;
+      if (next >= 3) onComplete('Built & executed Scratch visual script blocks on the 2D Stage!');
+      return next;
+    });
+  };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-      <div className="lg:col-span-6">
-        <Suspense fallback={<div className="h-[340px] rounded-2xl bg-slate-950 flex items-center justify-center text-slate-300 text-sm">Loading 3D Optical Camera...</div>}>
-          <BiologyCell3DCanvas kind="camera_optics" reducedMotion={reducedMotion} />
-        </Suspense>
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start text-xs">
+      <div className="lg:col-span-7 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface)] space-y-2.5">
+        <div className="flex items-center justify-between font-extrabold text-[var(--science)]">
+          <span>2D Scratch Stage &amp; Sprite Preview (Unit 23 · p. 330)</span>
+          <span className="font-mono-tabular text-[var(--text-muted)]">x: {spriteX}, y: {spriteY}, dir: {angleDeg}°</span>
+        </div>
+        <svg viewBox="0 0 380 200" className="w-full h-auto rounded-xl bg-[var(--surface-subtle)] border border-[var(--line)]" role="img" aria-label="Interactive 2D Scratch Stage and Sprite">
+          <g stroke="#DDE4F0" strokeWidth="1">
+            {[76, 152, 228, 304].map((x) => <line key={x} x1={x} y1="0" x2={x} y2="200" />)}
+            {[50, 100, 150].map((y) => <line key={y} x1="0" y1={y} x2="380" y2={y} />)}
+          </g>
+          <g transform={`translate(${spriteX}, ${spriteY}) rotate(${angleDeg})`}>
+            <circle cx="0" cy="0" r="18" fill="#F59E0B" stroke="#B45309" strokeWidth="2.5" />
+            <polygon points="18,0 28,-6 28,6" fill="#0B7773" />
+            <circle cx="-5" cy="-5" r="2.5" fill="#13213A" />
+            <circle cx="5" cy="-5" r="2.5" fill="#13213A" />
+          </g>
+          <rect x="14" y="12" width="352" height="28" rx="8" fill="#FFFFFF" stroke="#DDE4F0" />
+          <text x="24" y="30" fontSize="11" fontWeight="700" fill="#13213A">Sprite says: “{speech}”</text>
+        </svg>
       </div>
-      <div className="lg:col-span-6 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3 text-xs">
+      <div className="lg:col-span-5 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-2.5">
         <div className="font-extrabold uppercase tracking-wider text-[var(--science)]">
-          Visual Communication &amp; Media Studio · {sectionTitle}
+          Scratch Script Editor · {sectionTitle}
         </div>
-        <div className="space-y-2">
-          {items.map((it, i) => (
-            <button
-              key={it.title}
-              type="button"
-              onClick={() => { setStep(i); onInteract(); onComplete('Explored 3D Visual Communication & Scratch media principles!'); }}
-              className={`w-full p-3 rounded-xl border text-left transition-colors ${step === i ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'}`}
-            >
-              <div className="font-extrabold">{it.title}</div>
-              <p className={`mt-1 leading-relaxed ${step === i ? 'text-white/90' : 'text-[var(--text)]'}`}>{it.detail}</p>
-            </button>
-          ))}
-        </div>
+        <button type="button" onClick={() => runBlock('move')} className="w-full p-2.5 rounded-xl bg-sky-600 text-white font-bold text-left">
+          Motion Block → move (40) steps
+        </button>
+        <button type="button" onClick={() => runBlock('turn')} className="w-full p-2.5 rounded-xl bg-indigo-600 text-white font-bold text-left">
+          Motion Block → turn clockwise (90°)
+        </button>
+        <button type="button" onClick={() => runBlock('say')} className="w-full p-2.5 rounded-xl bg-purple-600 text-white font-bold text-left">
+          Looks Block → say (“Stage + Sprite + Script!”)
+        </button>
+        <button type="button" onClick={() => runBlock('reset')} className="w-full p-2.5 rounded-xl border border-[var(--line)] bg-[var(--surface)] text-[var(--ink)] font-bold inline-flex items-center justify-center gap-1.5">
+          <RotateCcw className="w-3.5 h-3.5" /> Reset Sprite Position
+        </button>
       </div>
     </div>
   );
@@ -1652,19 +1599,19 @@ export function getTopicAwareLabLabel(sectionId: string): string | null {
   }
   if (id.startsWith('science-08')) {
     return isScience08MetallurgyOrCorrosion(id)
-      ? '3D Chemical Process Flow — Metallurgy (Al Hall’s Tank, Cu Furnace) & Iron Corrosion Lab'
-      : '3D Periodic Classification — Bohr Atomic Radius & Trends Lab';
+      ? '2D Chemistry Process Flowcharts — Ore Concentration, Hall’s Al, Cu & Corrosion / Rusting'
+      : '3D + 2D Periodic Classification — Bohr Atomic Radius & Trends Lab';
   }
   if (id.startsWith('science-09')) return 'Solutions — Chemically Accurate Solubility, Saturation & Supersaturation Lab';
   if (id.startsWith('science-10')) {
     if (id.includes('10-2') || id.includes('10-4') || id.includes('10-6') || id.includes('10-7') || id.includes('ph')) {
       return '2D Rate of Chemical Reaction & Interactive pH Scale (0–14) Lab';
     }
-    return null; // 10.1 uses 3D SafeVirtualLab Reaction Beakers
+    return null; // 10.1 uses 3D + 2D SafeVirtualLab Reaction Beakers & Flowchart
   }
   if (id.startsWith('science-11')) {
     if (id.includes('11-6') || id.includes('11-7')) {
-      return '3D Organic Chemical Process Flow — Ethanol & Ethanoic Acid Esterification Bath';
+      return '2D Organic Chemistry Process Flowchart — Ethanol & Ethanoic Acid Esterification';
     }
     if (id.includes('11-5') || id.includes('11-8') || id.includes('11-9')) {
       return '2D Interactive IUPAC Name Builder & Soap Micelle Cleansing Lab';
@@ -1687,42 +1634,42 @@ export function getTopicAwareLabLabel(sectionId: string): string | null {
     if (id.includes('18-7')) return '2D Human Sex Determination (44+XX × 44+XY) Gamete Fusion Lab';
     if (id.includes('18-5')) return '2D Chromosome Structure & Centromere Position Classifier (Fig. 18.5)';
     if (id.includes('18-6')) return '2D Watson–Crick Base-Pairing Builder & Semi-Conservative DNA Replication Lab';
-    return '3D DNA Double Helix & Mendelian Monohybrid Cross Lab';
+    return '3D + 2D DNA Double Helix & Mendelian Monohybrid Cross Lab';
   }
   if (id.startsWith('science-19')) return '2D Origin & Evolution — Homologous/Analogous Organs, Archaeopteryx & ¹⁴C Dating';
   if (id.startsWith('science-20')) return '2D Breeding & Biotechnology — rDNA Plasmid Splice, Triticale & Stem Cells';
   if (id.startsWith('science-21')) return '2D Clinical Health, Lifestyle BMI/Diabetes, Protection & HIV/Cancer Facts';
   if (id.startsWith('science-22')) return '2D Environmental Management — Rainwater Harvesting, Clean Energy & 3R Waste';
-  if (id.startsWith('science-23')) return '3D Optical Camera & Visual Communication Studio';
+  if (id.startsWith('science-23')) return '2D Scratch Visual Block-Coding Stage & Visual Communication Studio';
 
-  // Mathematics Chapters (differentiated by exact subtopic!)
+  // Mathematics Chapters (crisp 2D for Ch. 1–5, 8; 3D+2D for Ch. 6 Clinometer & Ch. 7 Mensuration!)
   if (id.startsWith('maths-01')) {
     if (id.includes('1-6') || id.includes('1-7') || id.includes('1-8') || id.includes('1-9') || id === 'maths-01-06' || id === 'maths-01-07' || id === 'maths-01-08' || id === 'maths-01-09') {
       return '2D Function Types (One-One/Bijection), Line Tests & Composition f(g(x)) Lab';
     }
-    return '3D Relations & Functions Mapping Machine';
+    return '2D Relations & Functions Arrow-Mapping Machine';
   }
   if (id.startsWith('maths-02')) {
     if (id === 'maths-02-02' || id === 'maths-02-03' || id === 'maths-02-04' || id === 'maths-02-05' || id === 'maths-02-11' || id.includes('2-4-') || id.includes('2-5-') || id.includes('2-11-')) {
       return '2D Euclid’s Division Lemma, Modular Arithmetic & Special Series (Σk, Σk², Σk³) Lab';
     }
-    return '3D AP/GP Rising Staircase & Sequences Studio';
+    return '2D AP/GP Growth Bars & Modular Arithmetic Studio';
   }
   if (id.startsWith('maths-03')) {
     if (isMaths03Matrices(id)) return '2D Matrices Workbench — Order, Transpose & Row × Column Multiplication';
     if (isMaths03AlgebraNonQuadratic(id)) return '2D Polynomial GCD/LCM & Rational Excluded Value Explorer';
-    return '3D Quadratic Parabola & Discriminant Arena';
+    return '2D Quadratic Parabola & Discriminant Root Plotter';
   }
   if (id.startsWith('maths-05')) {
     if (id === 'maths-05-02' || id === 'maths-05-03' || id === 'maths-05-04' || id.includes('5-2-') || id.includes('5-4-')) {
       return '2D Triangle Area, Collinearity Test & Parallel/Perpendicular Slopes Lab';
     }
-    return '3D Coordinate Geometry Distance & Straight Line Equations';
+    return '2D Coordinate Geometry Distance, Midpoint & Slope Plane';
   }
   if (id.startsWith('maths-08')) {
     return isMaths08Statistics(id)
       ? '2D Statistics — Deviations, Variance, Standard Deviation (σ) & CV Lab'
-      : '3D Rolling Die & Probability Convergence Arena';
+      : '2D Fair Die & Probability Convergence Chart';
   }
 
   // Languages: English (Units 2–7) & Tamil (இயல்கள் 1–3, 5–9) intuitive dedicated 2D studios!
@@ -1962,4 +1909,32 @@ export function renderTopicAwareInteractiveLab(props: TopicLabProps): React.Reac
   }
 
   return null;
+}
+
+/**
+ * Returns true ONLY when the active interactive stage actually mounts a Three.js 3D canvas!
+ * Used by EngineShell and SectionPlayerPage to hide redundant "2D & Text" buttons on already-2D lessons.
+ */
+export function isRouteUsing3DView(sectionId: string, engine?: string): boolean {
+  const label = getTopicAwareLabLabel(sectionId);
+  if (label) {
+    return label.includes('3D') || label.startsWith('Solutions —');
+  }
+  const id = sectionId.toLowerCase();
+  if (id.startsWith('english-') || id.startsWith('tamil-') || id.startsWith('maths-04')) return false;
+  if (id.startsWith('social-history-')) return false;
+  if (id.startsWith('maths-06') && (id === 'maths-06-01' || id === 'maths-06-02')) return false;
+  if (
+    id.startsWith('science-07') ||
+    id.startsWith('science-10') ||
+    id.startsWith('science-11') ||
+    id.startsWith('science-12') ||
+    id.startsWith('science-14') ||
+    id.startsWith('maths-06') ||
+    id.startsWith('maths-07') ||
+    id.startsWith('social-geography-01')
+  ) {
+    return true;
+  }
+  return engine === 'ModelExplorer3D' || engine === 'SafeVirtualLab' || engine === 'GeoMap';
 }

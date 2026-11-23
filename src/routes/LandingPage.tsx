@@ -18,6 +18,8 @@ import {
   getStudentUnitStatus,
 } from '../utils/curriculumStore';
 import { useProgress } from '../features/local-progress/ProgressContext';
+import { WorldConceptIslandMap } from '../components/universe/WorldConceptIslandMap';
+import { GATE2_WORKING_PILOTS } from '../data/universeWorlds';
 
 export function LandingPage() {
   const subjects = getSubjects();
@@ -677,96 +679,76 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* 4B. ALL 9 INTERACTIVE 3D LABS ACROSS ALL 5 SUBJECTS */}
-      <section className="max-w-[1240px] mx-auto px-4 sm:px-6 space-y-6">
-        <div className="space-y-1">
-          <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)]">
-            All 5 Subjects in 3D · Visual &amp; Hands-On First (With 2D/Text Fallback)
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--ink)]">
-            Step inside 9 Class 10 3D visual labs — understand without rote memorising
-          </h2>
-          <p className="text-base text-[var(--text)]">
-            Every subject — Science, Mathematics, English, Tamil, and Social Science — features
-            interactive 3D dioramas and virtual mixing labs that stay fast, calm, and keyboard-accessible.
-          </p>
-        </div>
+      {/* 4B. SIX CONNECTED LEARNING WORLDS & SHOWCASE CONCEPT PILOTS */}
+      <section className="max-w-[1240px] mx-auto px-4 sm:px-6 space-y-8">
+        <WorldConceptIslandMap />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            {
-              tag: 'Science Unit 10 · Mixing Lab',
-              title: '3D Chemistry Mixing Bench',
-              desc: 'Pick any 2 reagents (Zn, Cu, HCl, Pb(NO₃)₂, KI, NaOH, Heat) and pour into a 3D flask to watch bubbles, yellow precipitates, or activity-series limits.',
-              route: '/class-10/science/science-10/science-10-auto-10-1-types-of-chemical',
-            },
-            {
-              tag: 'Science Unit 14',
-              title: '3D Human Heart Cutaway',
-              desc: 'Four chambers, septum, valves, vena cava, pulmonary vessels & 6-station double circulation.',
-              route: '/class-10/science/science-14/science-14-auto-14-15-structure-of-human-heart',
-            },
-            {
-              tag: 'Mathematics Ch. 6',
-              title: '3D Trigonometry Lighthouse Survey',
-              desc: 'Move the surveyor & laser line-of-sight beam in 3D to see why tan(θ) = Opposite / Adjacent.',
-              route: '/class-10/mathematics/maths-06/maths-06-03',
-            },
-            {
-              tag: 'Mathematics Ch. 7',
-              title: '3D Mensuration Solids & Nets',
-              desc: 'Slice & orbit Cylinder, Hollow Cylinder, Cone, Sphere, Hemisphere, Frustum & Combined Solid (π = 22/7).',
-              route: '/class-10/mathematics/maths-07/maths-07-02',
-            },
-            {
-              tag: 'English Unit 1',
-              title: '3D Story & Verse Diorama',
-              desc: 'Watch the young seagull leap from the cliff (His First Flight), Prospero’s island (The Tempest) & Life’s winding hilltop in 3D.',
-              route: '/class-10/english/english-01/english-01-prose',
-            },
-            {
-              tag: 'தமிழ் இயல் 4',
-              title: '3D தமிழ் ஐம்பால் & மொழிபெயர்ப்பு அரங்கு',
-              desc: 'உயர்திணை (3) + அஃறிணை (2) 3D தூண்கள் மற்றும் மொழிபெயர்ப்புப் பாலத்தின் வழியாக இலக்கணத்தை உடனே புரிந்துகொள்ளுங்கள்.',
-              route: '/class-10/tamil/tamil-04/tamil-04-04',
-            },
-            {
-              tag: 'Science Unit 7',
-              title: '3D Atoms & Molecules Builder',
-              desc: 'Orbit H₂O, CO₂ & CH₄ ball-and-stick geometries with Table 7.1 atomic mass & % composition.',
-              route: '/class-10/science/science-07/science-07-auto-7-2-molecule-and',
-            },
-            {
-              tag: 'Science Unit 11 & 12',
-              title: '3D Carbon Bonds & Plant Anatomy',
-              desc: 'Inspect C=C / C≡C molecules, 3D Dicot Root Casparian strips & Chloroplast grana/stroma.',
-              route: '/class-10/science/science-12/science-12-auto-12-3-internal-structure-of',
-            },
-            {
-              tag: 'Geography Unit 1',
-              title: '3D India Relief & Drainage Atlas',
-              desc: 'Schematic 3D Himalayas, Great Plains, Deccan Plateau, Coasts, Islands & toggleable river flows.',
-              route: '/class-10/social_science/social-geography-01/social-geography-01-auto-1-2-major-physiographic',
-            },
-          ].map((lab) => (
-            <Link
-              key={lab.route}
-              to={lab.route}
-              className="rounded-[20px] border border-[var(--line)] bg-[var(--surface)] hover:border-[var(--primary)] p-5 flex flex-col justify-between gap-3 transition-colors shadow-[var(--shadow-card)]"
-            >
-              <div className="space-y-1.5">
-                <span className="inline-block px-2.5 py-0.5 rounded-full bg-[var(--primary-tint)] text-[var(--primary)] text-xs font-bold">
-                  {lab.tag} · 3D + 2D
-                </span>
-                <h3 className="text-lg font-extrabold text-[var(--ink)]">{lab.title}</h3>
-                <p className="text-xs sm:text-sm text-[var(--text)] leading-relaxed">{lab.desc}</p>
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div className="space-y-1">
+              <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)]">
+                Right Visual for Every Subject · Purposeful 2D, Synchronized 2D+3D &amp; Language Studios
               </div>
-              <span className="text-xs font-bold text-[var(--primary)] inline-flex items-center gap-1">
-                <span>Launch 3D lab</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--ink)]">
+                Try our flagship Class 10 interactive pilots — understand without rote memorising
+              </h2>
+              <p className="text-base text-[var(--text)]">
+                3D is used only where spatial depth truly illuminates the concept (heart, solids, molecules, safe glassware); crisp 2D powers geometry proofs, maps, and English/Tamil studios.
+              </p>
+            </div>
+            <Link
+              to="/arcade/sustainable-tn-town"
+              className="px-4 py-2.5 min-h-[44px] rounded-[12px] bg-[var(--arcade)] text-white text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 shrink-0"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>Play TN Town Capstone</span>
             </Link>
-          ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {GATE2_WORKING_PILOTS.map((pilot) => {
+              const repLabel =
+                pilot.representation === 'synchronized-2d-3d'
+                  ? '3D + 2D Sync'
+                  : pilot.representation === 'interactive-language'
+                    ? '2D Language Studio'
+                    : pilot.representation === 'scenario-game'
+                      ? '2D Map / Mission'
+                      : 'Interactive 2D';
+              return (
+                <Link
+                  key={pilot.id}
+                  to={pilot.route}
+                  className="rounded-[20px] border border-[var(--line)] bg-[var(--surface)] hover:border-[var(--primary)] p-5 flex flex-col justify-between gap-3 transition-colors shadow-[var(--shadow-card)]"
+                >
+                  <div className="space-y-1.5">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-[var(--primary-tint)] text-[var(--primary)] text-[11px] font-bold">
+                        {pilot.subjectLabel}
+                      </span>
+                      <span className="inline-block px-2 py-0.5 rounded-full bg-[var(--surface-subtle)] border border-[var(--line)] text-[var(--text-muted)] text-[10px] font-bold">
+                        {repLabel}
+                      </span>
+                    </div>
+                    <h3
+                      lang={pilot.worldId === 'tamil' ? 'ta' : undefined}
+                      className={`text-base font-extrabold text-[var(--ink)] leading-snug ${pilot.worldId === 'tamil' ? 'font-tamil' : ''}`}
+                    >
+                      {pilot.title}
+                    </h3>
+                    <p className="text-xs text-[var(--text)] leading-relaxed">{pilot.oneLinePurpose}</p>
+                  </div>
+                  <div className="pt-2 border-t border-[var(--line)]/60 flex items-center justify-between text-xs font-bold text-[var(--primary)]">
+                    <span>{pilot.printedPages}</span>
+                    <span className="inline-flex items-center gap-1">
+                      <span>Launch pilot</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -1043,7 +1025,7 @@ export function LandingPage() {
             },
             {
               q: 'Are all Class 10 chapters interactive right now?',
-              a: 'All 72 chapters and 691 textbook topics are organized and searchable today. Flagship interactive lessons are live now, and topics still in preparation are clearly labelled.',
+              a: 'All 72 chapters and 694 indexed textbook topics are organized and searchable today. Flagship interactive lessons and working subject studios are live now, and every route shows an honest quality badge.',
             },
           ].map((faq) => (
             <div

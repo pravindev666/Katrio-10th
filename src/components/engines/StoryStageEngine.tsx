@@ -1,10 +1,19 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowRight, ArrowUp, CheckCircle2, RotateCcw } from 'lucide-react';
-import type { English3DVariant } from './EnglishStory3DCanvas';
+import { ArrowDown, ArrowRight, ArrowUp, CheckCircle2, Feather, RotateCcw } from 'lucide-react';
 import type { ModularEngineProps } from './types';
 
-const EnglishStory3DCanvas = lazy(() => import('./EnglishStory3DCanvas'));
+export type English3DVariant =
+  | 'flight'
+  | 'life'
+  | 'tempest'
+  | 'ghost'
+  | 'zigzag'
+  | 'navigating'
+  | 'attic'
+  | 'tech'
+  | 'lastlesson'
+  | 'detective';
 
 interface NarrativeEvent {
   id: string;
@@ -515,59 +524,159 @@ export function StoryStageEngine({
   };
 
   const activeBeat = data.events[Math.min(data.events.length - 1, beatIndex)];
+  const [altEnding, setAltEnding] = useState('');
+
+  // Custom Illustrated 2D Scene Progress Coordinates (0% 3D — warm storybook SVG!)
+  const seagullPos: [number, number][] = [
+    [98, 96],   // Scene 1: Retreating on cliff ledge
+    [135, 92],  // Scene 2: Alone on ledge looking across chasm
+    [205, 86],  // Scene 3: Mother hovers with fish just beyond brink
+    [298, 72],  // Scene 4: Plunging & soaring on outstretched wings!
+    [392, 160], // Scene 5: Floating safely on the green sea
+  ];
+  const [gx, gy] = seagullPos[Math.min(4, beatIndex)];
 
   return (
     <div className="space-y-4">
-      {/* 3D Interactive Story & Verse Diorama */}
-      {mode !== '2d_text' && (
-        <div className="p-3.5 sm:p-4 rounded-[20px] border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)]">
-              Interactive 3D Story World · {data.title}
-            </span>
-            <div className="flex flex-wrap gap-1.5" role="group" aria-label="Select 3D story scene">
-              {data.events.map((ev, b) => (
-                <button
-                  key={ev.id}
-                  type="button"
-                  onClick={() => {
-                    setBeatIndex(b);
-                    onInteract();
-                  }}
-                  className={`px-3 py-1.5 min-h-[34px] rounded-lg text-xs font-bold border transition-colors ${
-                    beatIndex === b
-                      ? 'bg-[var(--english)] text-white border-[var(--english)]'
-                      : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--english)]'
+      {/* Illustrated 2D 5-Scene Interactive Storyboard (0% forced 3D!) */}
+      <div className="p-4 sm:p-5 rounded-[20px] border border-[var(--line)] bg-[var(--english-tint)]/55 space-y-3.5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <span className="text-xs font-extrabold uppercase tracking-wider text-[var(--english)] inline-flex items-center gap-1.5">
+            <Feather className="w-3.5 h-3.5" />
+            <span>Illustrated 2D Storyboard · {data.title} ({data.pageRange})</span>
+          </span>
+          <div className="flex flex-wrap gap-1.5" role="group" aria-label="Select story scene">
+            {data.events.map((ev, b) => (
+              <button
+                key={ev.id}
+                type="button"
+                onClick={() => {
+                  setBeatIndex(b);
+                  onInteract();
+                }}
+                aria-pressed={beatIndex === b}
+                className={`px-3 py-1.5 min-h-[34px] rounded-lg text-xs font-bold border transition-colors ${beatIndex === b
+                  ? 'bg-[var(--english)] text-white border-[var(--english)]'
+                  : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--english)]'
                   }`}
-                >
-                  Scene {b + 1}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <Suspense
-            fallback={
-              <div className="h-[340px] rounded-2xl border border-[var(--line)] bg-[var(--surface)] flex items-center justify-center text-sm text-[var(--text-muted)]">
-                Loading textured 3D world for {data.title}...
-              </div>
-            }
-          >
-            <EnglishStory3DCanvas
-              variant={variant}
-              beatIndex={beatIndex}
-              reducedMotion={reducedMotion}
-            />
-          </Suspense>
-
-          <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs sm:text-sm text-[var(--ink)]">
-            <strong>
-              Scene {beatIndex + 1} ({activeBeat.pageRef}) — {activeBeat.title}:
-            </strong>{' '}
-            {perspective === 'A' ? activeBeat.viewA : activeBeat.viewB}
+              >
+                Scene {b + 1}
+              </button>
+            ))}
           </div>
         </div>
-      )}
+
+        <div className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] overflow-hidden p-2">
+          <svg
+            viewBox="0 0 520 205"
+            className="w-full h-auto rounded-xl"
+            role="img"
+            aria-label={`Illustrated 2D storyboard Scene ${beatIndex + 1}: ${activeBeat.title}`}
+          >
+            {/* Warm Sky Gradient */}
+            <defs>
+              <linearGradient id="storySky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={beatIndex >= 3 ? '#DBEAFE' : '#FEF3C7'} />
+                <stop offset="100%" stopColor="#EFF6FF" />
+              </linearGradient>
+              <linearGradient id="storySea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#0D9488" />
+                <stop offset="100%" stopColor="#0F766E" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="520" height="205" fill="url(#storySky)" />
+            {/* Sun */}
+            <circle cx="458" cy="40" r="22" fill="#FDE68A" stroke="#F59E0B" strokeWidth="2" />
+            {/* Green Sea */}
+            <rect x="0" y="152" width="520" height="53" fill="url(#storySea)" />
+            <path d="M 0 165 Q 65 157 130 165 T 260 165 T 390 165 T 520 165" fill="none" stroke="#99F6E4" strokeWidth="2" opacity="0.6" />
+
+            {/* Left High Cliff Ledge */}
+            <path d="M 0 105 L 158 105 L 178 154 L 0 154 Z" fill="#94A3B8" stroke="#475569" strokeWidth="2" />
+            <path d="M 0 105 L 158 105 L 150 116 L 0 116 Z" fill="#CBD5E1" />
+            <text x="72" y="138" textAnchor="middle" fontSize="10.5" fontWeight="800" fill="#1E293B">
+              {variant === 'flight' ? 'High Cliff Ledge' : 'Opening Setting'}
+            </text>
+
+            {/* Flight Trajectory Dotted Arc */}
+            <path
+              d="M 110 96 Q 210 56 300 72 T 392 158"
+              fill="none"
+              stroke="#3478C0"
+              strokeWidth="2"
+              strokeDasharray="5,5"
+              opacity="0.7"
+            />
+
+            {/* Mother Seagull hovering on Scene 3+ */}
+            {variant === 'flight' && beatIndex >= 2 && (
+              <g transform="translate(242, 62)">
+                <path d="M -22 4 Q -10 -12 0 0 Q 10 -12 22 4" fill="none" stroke="#1E3A8A" strokeWidth="3.2" strokeLinecap="round" />
+                <circle cx="0" cy="2" r="4" fill="#FFFFFF" stroke="#1E3A8A" strokeWidth="1.5" />
+                {beatIndex === 2 && <ellipse cx="7" cy="9" rx="7" ry="3" fill="#F59E0B" />}
+                <text x="0" y="-12" textAnchor="middle" fontSize="9.5" fontWeight="800" fill="#1E3A8A">
+                  Mother {beatIndex === 2 ? '(with fish)' : '(soaring beside)'}
+                </text>
+              </g>
+            )}
+
+            {/* Protagonist Marker / Young Seagull */}
+            <g transform={`translate(${gx}, ${gy})`}>
+              <circle cx="0" cy="0" r="18" fill="#3478C0" fillOpacity="0.16" />
+              <path
+                d={beatIndex >= 3 ? 'M -24 -4 Q -12 -18 0 -2 Q 12 -18 24 -4' : 'M -14 4 Q -6 -6 0 2 Q 6 -6 14 4'}
+                fill="none"
+                stroke="#1D4ED8"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+              />
+              <circle cx="0" cy="0" r="5" fill="#FFFFFF" stroke="#1D4ED8" strokeWidth="2" />
+              <text x="0" y="24" textAnchor="middle" fontSize="10" fontWeight="800" fill="#13213A">
+                {variant === 'flight' ? 'Young Seagull' : `Scene ${beatIndex + 1}`}
+              </text>
+            </g>
+
+            {/* Scene Progress Caption Strip */}
+            <rect x="14" y="12" width="320" height="32" rx="10" fill="#FFFFFF" fillOpacity="0.92" stroke="#DDE4F0" />
+            <text x="26" y="32" fontSize="11.5" fontWeight="800" fill="#13213A">
+              Beat {beatIndex + 1} / {data.events.length}: {activeBeat.title} ({activeBeat.pageRef})
+            </text>
+          </svg>
+        </div>
+
+        <div className="p-3.5 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs sm:text-sm text-[var(--ink)] leading-relaxed">
+          <strong className="text-[var(--english)]">
+            {perspective === 'A' ? data.perspectiveALabel : data.perspectiveBLabel} ({activeBeat.pageRef}):
+          </strong>{' '}
+          {perspective === 'A' ? activeBeat.viewA : activeBeat.viewB}
+        </div>
+
+        {/* Optional Local-Only Creative Alternate-Ending Prompt (Pilot 3 Playability Spec) */}
+        {variant === 'flight' && (
+          <details className="rounded-xl border border-[var(--line)] bg-[var(--surface)] p-3 text-xs">
+            <summary className="cursor-pointer font-extrabold text-[var(--english)]">
+              Creative Studio: Write a 2-sentence alternate ending (distinct from Liam O’Flaherty’s plot)
+            </summary>
+            <div className="mt-2.5 space-y-2">
+              <p className="text-[var(--text-muted)]">
+                What if the mother had dropped the fish directly onto the ledge instead of halting just out of reach? How would the theme of courage change?
+              </p>
+              <textarea
+                rows={2}
+                value={altEnding}
+                onChange={(e) => setAltEnding(e.target.value)}
+                placeholder="Draft your creative alternate ending here (stays private on your device)..."
+                className="w-full p-2.5 rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] text-xs text-[var(--ink)]"
+              />
+              {altEnding.trim().length > 12 && (
+                <div className="text-[11px] font-bold text-[var(--success)]">
+                  ✓ Creative draft noted! Compare your version with O’Flaherty’s original theme of self-reliance (pp. 2–5).
+                </div>
+              )}
+            </div>
+          </details>
+        )}
+      </div>
 
       {/* Sub-mode selector + Unit 1 Companion Links */}
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -591,11 +700,10 @@ export function StoryStageEngine({
                 onInteract();
               }}
               aria-pressed={subTab === id}
-              className={`px-3.5 py-2 min-h-[38px] rounded-lg text-xs sm:text-sm font-bold transition-colors ${
-                subTab === id
-                  ? 'bg-[var(--english)] text-white'
-                  : 'text-[var(--ink)] hover:bg-[var(--surface)]'
-              }`}
+              className={`px-3.5 py-2 min-h-[38px] rounded-lg text-xs sm:text-sm font-bold transition-colors ${subTab === id
+                ? 'bg-[var(--english)] text-white'
+                : 'text-[var(--ink)] hover:bg-[var(--surface)]'
+                }`}
             >
               {label}
             </button>
@@ -653,9 +761,8 @@ export function StoryStageEngine({
                   onInteract();
                 }}
                 aria-pressed={perspective === 'A'}
-                className={`px-3.5 py-2 min-h-[36px] rounded-lg text-xs font-bold ${
-                  perspective === 'A' ? 'bg-[var(--english)] text-white' : 'text-[var(--ink)]'
-                }`}
+                className={`px-3.5 py-2 min-h-[36px] rounded-lg text-xs font-bold ${perspective === 'A' ? 'bg-[var(--english)] text-white' : 'text-[var(--ink)]'
+                  }`}
               >
                 {data.perspectiveALabel}
               </button>
@@ -666,9 +773,8 @@ export function StoryStageEngine({
                   onInteract();
                 }}
                 aria-pressed={perspective === 'B'}
-                className={`px-3.5 py-2 min-h-[36px] rounded-lg text-xs font-bold ${
-                  perspective === 'B' ? 'bg-[var(--english)] text-white' : 'text-[var(--ink)]'
-                }`}
+                className={`px-3.5 py-2 min-h-[36px] rounded-lg text-xs font-bold ${perspective === 'B' ? 'bg-[var(--english)] text-white' : 'text-[var(--ink)]'
+                  }`}
               >
                 {data.perspectiveBLabel}
               </button>
@@ -684,11 +790,10 @@ export function StoryStageEngine({
                   setBeatIndex(idx);
                   onInteract();
                 }}
-                className={`p-3.5 rounded-xl border text-left flex flex-col justify-between space-y-2 text-xs transition-all ${
-                  beatIndex === idx
-                    ? 'bg-[var(--surface)] border-[var(--english)] ring-2 ring-[var(--english)]/20'
-                    : 'bg-[var(--surface)] border-[var(--line)] hover:border-[var(--english)]'
-                }`}
+                className={`p-3.5 rounded-xl border text-left flex flex-col justify-between space-y-2 text-xs transition-all ${beatIndex === idx
+                  ? 'bg-[var(--surface)] border-[var(--english)] ring-2 ring-[var(--english)]/20'
+                  : 'bg-[var(--surface)] border-[var(--line)] hover:border-[var(--english)]'
+                  }`}
               >
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between text-[11px] font-mono-tabular font-bold text-[var(--english)]">
@@ -727,13 +832,12 @@ export function StoryStageEngine({
               return (
                 <li
                   key={id}
-                  className={`p-3 rounded-xl border bg-[var(--surface)] flex items-center justify-between gap-3 ${
-                    ok
-                      ? 'border-[var(--success)] bg-[var(--success-bg)]/40'
-                      : bad
+                  className={`p-3 rounded-xl border bg-[var(--surface)] flex items-center justify-between gap-3 ${ok
+                    ? 'border-[var(--success)] bg-[var(--success-bg)]/40'
+                    : bad
                       ? 'border-[var(--warning)] bg-[var(--warning-bg)]/50'
                       : 'border-[var(--line)]'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-start gap-3">
                     <span className="w-7 h-7 rounded-full bg-[var(--surface-subtle)] border border-[var(--line)] text-xs font-extrabold text-[var(--ink)] inline-flex items-center justify-center shrink-0">
@@ -805,11 +909,10 @@ export function StoryStageEngine({
           {checkedSeq && (
             <div
               role="status"
-              className={`p-3.5 rounded-xl border text-sm ${
-                seqExact
-                  ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--ink)] font-bold'
-                  : 'bg-[var(--warning-bg)] border-[var(--warning)]/40 text-[var(--ink)]'
-              }`}
+              className={`p-3.5 rounded-xl border text-sm ${seqExact
+                ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--ink)] font-bold'
+                : 'bg-[var(--warning-bg)] border-[var(--warning)]/40 text-[var(--ink)]'
+                }`}
             >
               {seqExact
                 ? data.successSeqMsg
@@ -840,13 +943,12 @@ export function StoryStageEngine({
                     disabled={done}
                     onClick={() => setSelectedWordId(item.id)}
                     aria-pressed={selectedWordId === item.id}
-                    className={`w-full p-3 min-h-[42px] rounded-xl border text-left text-sm font-bold transition-colors ${
-                      done
-                        ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--success)]'
-                        : selectedWordId === item.id
+                    className={`w-full p-3 min-h-[42px] rounded-xl border text-left text-sm font-bold transition-colors ${done
+                      ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--success)]'
+                      : selectedWordId === item.id
                         ? 'bg-[var(--english)] text-white border-[var(--english)]'
                         : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--english)]'
-                    }`}
+                      }`}
                   >
                     {done ? '✓ ' : ''}
                     {item.word}
@@ -864,11 +966,10 @@ export function StoryStageEngine({
                     type="button"
                     disabled={done}
                     onClick={() => handleVocabMeaningClick(item.id)}
-                    className={`w-full p-3 min-h-[42px] rounded-xl border text-left text-xs sm:text-sm transition-colors ${
-                      done
-                        ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--ink)]'
-                        : 'bg-[var(--surface)] text-[var(--text)] border-[var(--line)] hover:border-[var(--english)]'
-                    }`}
+                    className={`w-full p-3 min-h-[42px] rounded-xl border text-left text-xs sm:text-sm transition-colors ${done
+                      ? 'bg-[var(--success-bg)] border-[var(--success)]/40 text-[var(--ink)]'
+                      : 'bg-[var(--surface)] text-[var(--text)] border-[var(--line)] hover:border-[var(--english)]'
+                      }`}
                   >
                     {item.meaning}
                   </button>

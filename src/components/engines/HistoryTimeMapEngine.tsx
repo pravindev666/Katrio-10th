@@ -1,10 +1,9 @@
-import React, { Suspense, lazy, useState } from 'react';
-import { CheckCircle2, Globe2, Info, Layers } from 'lucide-react';
-import type { HistoryHotspotId } from './HistoryTheatre3DCanvas';
+import React, { useState } from 'react';
+import { CheckCircle2, Info } from 'lucide-react';
 import type { ModularEngineProps } from './types';
 import { projectLatLonToSvg } from './AccurateGeoMaps2D';
 
-const HistoryTheatre3DCanvas = lazy(() => import('./HistoryTheatre3DCanvas'));
+type HistoryHotspotId = 'berlin' | 'sarajevo' | 'paris' | 'petrograd' | 'madras' | 'versailles';
 
 interface WwiTimelineEvent {
   id: string;
@@ -104,14 +103,10 @@ const CAUSE_EFFECT_PAIRS = [
 ];
 
 export function HistoryTimeMapEngine({
-  mode,
-  reducedMotion,
   onInteract,
   onComplete,
 }: ModularEngineProps) {
   const [selectedIdx, setSelectedIdx] = useState(0);
-  // Accurate 2D real-coastline satellite map is the crisp primary view for all History maps!
-  const [mapView, setMapView] = useState<'3d' | '2d'>('2d');
   const [layers, setLayers] = useState({
     allies: true,
     central: true,
@@ -216,36 +211,12 @@ export function HistoryTimeMapEngine({
                 </button>
               ))}
             </div>
-            {mode !== '2d_text' && (
-              <button
-                type="button"
-                onClick={() => setMapView((v) => (v === '3d' ? '2d' : '3d'))}
-                className="px-3 py-1.5 min-h-[34px] rounded-lg border border-[var(--line)] bg-[var(--surface)] text-xs font-bold text-[var(--ink)] inline-flex items-center gap-1.5"
-              >
-                {mapView === '3d' ? <Layers className="w-3.5 h-3.5" /> : <Globe2 className="w-3.5 h-3.5" />}
-                <span>{mapView === '3d' ? '2D Schematic' : '3D Command Map'}</span>
-              </button>
-            )}
+            <span className="px-2.5 py-1 rounded-lg border border-[var(--line)] bg-[var(--surface)] text-[11px] font-bold text-[var(--text-muted)]">
+              NASA 2D Dated Historical Map (1882–1919)
+            </span>
           </div>
 
-          {mapView === '3d' && mode !== '2d_text' ? (
-            <Suspense
-              fallback={
-                <div className="h-[330px] rounded-2xl border border-[var(--line)] bg-[var(--surface)] flex items-center justify-center text-sm text-[var(--text-muted)]">
-                  Loading 3D Historical Theatre Map...
-                </div>
-              }
-            >
-              <HistoryTheatre3DCanvas
-                activeHotspot={activeEvent.locationId}
-                showAllies={layers.allies}
-                showCentral={layers.central}
-                onSelectHotspot={handlePinSelect}
-                reducedMotion={reducedMotion}
-              />
-            </Suspense>
-          ) : (
-            <div className="bg-slate-950 rounded-[16px] border border-[var(--line)] overflow-hidden">
+          <div className="bg-slate-950 rounded-[16px] border border-[var(--line)] overflow-hidden">
               <svg
                 viewBox="365 48 290 155"
                 className="w-full h-auto block"
@@ -323,7 +294,6 @@ export function HistoryTimeMapEngine({
                 <span>Blue: Allies · Amber: Central Powers</span>
               </div>
             </div>
-          )}
         </div>
 
         {/* Active Historical Evidence Card */}

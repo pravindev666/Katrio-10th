@@ -133,9 +133,9 @@ test('Full Curriculum Expansion routes eliminate ALL cross-chapter 3D mismatches
   assert.ok(!(getTopicAwareLabLabel('science-18-auto-18-7-sex-determination') ?? '').includes('Monohybrid'));
   assert.ok((getTopicAwareLabLabel('science-18-auto-18-5-2-types-of-chromosomes') ?? '').includes('Chromosome'));
   assert.ok((getTopicAwareLabLabel('science-18-auto-18-6-2-dna-replication') ?? '').includes('DNA Replication'));
-  assert.ok((getTopicAwareLabLabel('science-08-auto-8-7-metallurgy-of') ?? '').includes('3D Chemical Process Flow'));
+  assert.ok((getTopicAwareLabLabel('science-08-auto-8-7-metallurgy-of') ?? '').includes('2D Chemistry Process Flowchart'));
   assert.ok((getTopicAwareLabLabel('science-10-auto-10-7-ph-calculation') ?? '').includes('pH Scale'));
-  assert.ok((getTopicAwareLabLabel('science-11-auto-11-6-ethanol-ch3ch2oh') ?? '').includes('3D Organic Chemical Process Flow'));
+  assert.ok((getTopicAwareLabLabel('science-11-auto-11-6-ethanol-ch3ch2oh') ?? '').includes('2D Organic Chemistry Process Flowchart'));
   assert.ok((getTopicAwareLabLabel('science-15-auto-15-5-reflex-action') ?? '').includes('Reflex Arc'));
   assert.ok((getTopicAwareLabLabel('science-21-auto-21-8-diabetes-mellitus') ?? '').includes('Clinical Health'));
   assert.ok((getTopicAwareLabLabel('english-02-prose') ?? '').includes('2D English'));

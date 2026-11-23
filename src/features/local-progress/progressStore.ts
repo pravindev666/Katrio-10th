@@ -16,6 +16,13 @@ export interface LastLessonState {
   step: 'Explore' | 'Understand' | 'Try' | 'Check';
 }
 
+export interface CapstoneProgressEntry {
+  stage: number;
+  completed: boolean;
+  summary?: string;
+  updatedAt: string;
+}
+
 export interface DeviceProgressRecord {
   schemaVersion: 'katrio-device-v1';
   updatedAt: string;
@@ -28,6 +35,9 @@ export interface DeviceProgressRecord {
   understoodCheckpoints?: Record<string, { score: number; total: number; verifiedAt: string; mode: string }>;
   flashcardRatings: Record<string, 'know' | 'review_again'>;
   quizCheckpoints: Record<string, { score: number; total: number; completedAt: string }>;
+  teachBackNotes?: Record<string, string>;
+  discoveryStamps?: string[];
+  capstoneProgress?: Record<string, CapstoneProgressEntry>;
   lastVisitedRoute: string | null;
   lastLessonState?: LastLessonState | null;
 }
@@ -55,6 +65,9 @@ export function createInitialProgressRecord(): DeviceProgressRecord {
     understoodCheckpoints: {},
     flashcardRatings: {},
     quizCheckpoints: {},
+    teachBackNotes: {},
+    discoveryStamps: [],
+    capstoneProgress: {},
     lastVisitedRoute: null,
     lastLessonState: null,
   };
@@ -168,6 +181,17 @@ export function validateProgressJson(rawJson: string): {
       quizCheckpoints:
         parsed.quizCheckpoints && typeof parsed.quizCheckpoints === 'object'
           ? parsed.quizCheckpoints
+          : {},
+      teachBackNotes:
+        parsed.teachBackNotes && typeof parsed.teachBackNotes === 'object'
+          ? parsed.teachBackNotes
+          : {},
+      discoveryStamps: Array.isArray(parsed.discoveryStamps)
+        ? parsed.discoveryStamps.filter((x: unknown) => typeof x === 'string')
+        : [],
+      capstoneProgress:
+        parsed.capstoneProgress && typeof parsed.capstoneProgress === 'object'
+          ? parsed.capstoneProgress
           : {},
       lastVisitedRoute:
         typeof parsed.lastVisitedRoute === 'string' ? parsed.lastVisitedRoute : null,

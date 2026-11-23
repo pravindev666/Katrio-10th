@@ -19,11 +19,13 @@ export function buildAllCanonicalRoutes(reg: CurriculumRegistry): string[] {
     '/class-10/social_science/civics',
     '/class-10/social_science/economics',
     '/arcade',
+    '/arcade/sustainable-tn-town',
     '/flashcards',
     '/quizzes',
     '/teachers',
     '/accessibility',
     '/privacy',
+    '/progress',
     '/about',
     '/roadmap',
   ];
@@ -67,7 +69,7 @@ if (isMain) {
   const sectionRouteCount = registry.units.reduce((acc, u) => acc + u.sections.length, 0);
   console.log(`=== KATRIO LINK & ROUTE AUDIT ===`);
   console.log(
-    `Verified ${routes.length} canonical routes (19 top-level/hub routes + ${registry.units.length} unit routes + ${sectionRouteCount} section routes).`,
+    `Verified ${routes.length} canonical routes (${routes.length - registry.units.length - sectionRouteCount} top-level/hub routes + ${registry.units.length} unit routes + ${sectionRouteCount} section routes).`,
   );
   console.log(`Generated public/sitemap.xml and public/_redirects for Cloudflare Pages.`);
 }

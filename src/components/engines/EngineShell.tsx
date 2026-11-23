@@ -28,6 +28,7 @@ import { VisualFlashcardDeck } from './VisualFlashcardDeck';
 import {
   AcousticsEchoLab,
   getTopicAwareLabLabel,
+  isRouteUsing3DView,
   renderTopicAwareInteractiveLab,
 } from './TopicInteractiveLabs';
 import { DOUBLE_CIRCULATION_PATHWAY } from '../../utils/heartCirculation';
@@ -161,6 +162,7 @@ export function EngineShell({
 
   const isRealPilot = Boolean(lesson) || hasPilotDemo;
   const topicAwareLabName = getTopicAwareLabLabel(sectionId);
+  const routeUses3D = isRouteUsing3DView(sectionId, engine);
   const hasInteractiveLab =
     isRealPilot ||
     Boolean(topicAwareLabName) ||
@@ -177,19 +179,18 @@ export function EngineShell({
     engine === 'TimelineMap';
 
   const [viewMode, setViewMode] = useState<'planned' | 'guided' | 'explore' | '2d_text'>(() => {
-    if (preferences.prefer2DPathway) return '2d_text';
-    if (defaultMode === '2d_text') return '2d_text';
+    if (routeUses3D && (preferences.prefer2DPathway || defaultMode === '2d_text')) return '2d_text';
     if (hasInteractiveLab || defaultMode === 'demo') return 'guided';
     return 'planned';
   });
 
   useEffect(() => {
-    if (preferences.prefer2DPathway) {
+    if (routeUses3D && preferences.prefer2DPathway) {
       setViewMode('2d_text');
-    } else if (defaultMode !== '2d_text') {
+    } else if (defaultMode !== '2d_text' || !routeUses3D) {
       setViewMode(hasInteractiveLab || defaultMode === 'demo' ? 'guided' : 'planned');
     }
-  }, [preferences.prefer2DPathway, defaultMode, hasInteractiveLab]);
+  }, [preferences.prefer2DPathway, defaultMode, hasInteractiveLab, routeUses3D]);
 
   const [showHint, setShowHint] = useState(false);
   const [showStoryboard, setShowStoryboard] = useState(false);
@@ -276,51 +277,53 @@ export function EngineShell({
           )}
         </div>
 
-        {/* Mode Switcher */}
-        <div
-          role="group"
-          aria-label="Choose how to view this activity"
-          className="inline-flex flex-wrap items-center gap-1 p-0.5 rounded-[10px] bg-[var(--surface)] border border-[var(--line)]"
-        >
-          {!hasInteractiveLab && (
+        {/* Mode Switcher — ONLY shown on genuine 3D / Planned views (zero redundant "2D & Text" on already-2D pages!) */}
+        {(routeUses3D || !hasInteractiveLab) && (
+          <div
+            role="group"
+            aria-label="Choose how to view this activity"
+            className="inline-flex flex-wrap items-center gap-1 p-0.5 rounded-[10px] bg-[var(--surface)] border border-[var(--line)]"
+          >
+            {!hasInteractiveLab && (
+              <button
+                type="button"
+                onClick={() => setViewMode('planned')}
+                aria-pressed={viewMode === 'planned'}
+                className={`px-2.5 py-1.5 min-h-[34px] rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${viewMode === 'planned'
+                  ? 'bg-[var(--primary)] text-white'
+                  : 'text-[var(--text)] hover:text-[var(--ink)]'
+                  }`}
+              >
+                Topic status
+              </button>
+            )}
             <button
               type="button"
-              onClick={() => setViewMode('planned')}
-              aria-pressed={viewMode === 'planned'}
-              className={`px-2.5 py-1.5 min-h-[34px] rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${viewMode === 'planned'
+              onClick={() => {
+                setViewMode('guided');
+                if (preferences.prefer2DPathway) updatePreferences({ prefer2DPathway: false });
+              }}
+              aria-pressed={viewMode === 'guided' || viewMode === 'explore'}
+              className={`px-3 py-1.5 min-h-[34px] rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${viewMode === 'guided' || viewMode === 'explore'
                 ? 'bg-[var(--primary)] text-white'
                 : 'text-[var(--text)] hover:text-[var(--ink)]'
                 }`}
             >
-              Topic status
+              {routeUses3D ? '3D + Interactive' : 'Interactive Lab'}
             </button>
-          )}
-          <button
-            type="button"
-            onClick={() => {
-              setViewMode('guided');
-              if (preferences.prefer2DPathway) updatePreferences({ prefer2DPathway: false });
-            }}
-            aria-pressed={viewMode === 'guided' || viewMode === 'explore'}
-            className={`px-3 py-1.5 min-h-[34px] rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${viewMode === 'guided' || viewMode === 'explore'
-              ? 'bg-[var(--primary)] text-white'
-              : 'text-[var(--text)] hover:text-[var(--ink)]'
-              }`}
-          >
-            Interactive Lab
-          </button>
-          <button
-            type="button"
-            onClick={() => setViewMode('2d_text')}
-            aria-pressed={viewMode === '2d_text'}
-            className={`px-3 py-1.5 min-h-[34px] rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${viewMode === '2d_text'
-              ? 'bg-[var(--primary)] text-white'
-              : 'text-[var(--text)] hover:text-[var(--ink)]'
-              }`}
-          >
-            2D &amp; Text
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={() => setViewMode('2d_text')}
+              aria-pressed={viewMode === '2d_text'}
+              className={`px-3 py-1.5 min-h-[34px] rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${viewMode === '2d_text'
+                ? 'bg-[var(--primary)] text-white'
+                : 'text-[var(--text)] hover:text-[var(--ink)]'
+                }`}
+            >
+              {routeUses3D ? 'Text Guide' : 'Summary'}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Live Status Banner */}

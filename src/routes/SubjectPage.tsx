@@ -10,6 +10,8 @@ import {
 } from '../utils/curriculumStore';
 import type { SocialStrand, CurriculumUnit } from '../types/curriculum';
 import { NotFoundPage } from './NotFoundPage';
+import { WorldConceptIslandMap } from '../components/universe/WorldConceptIslandMap';
+import { UNIVERSE_WORLDS } from '../data/universeWorlds';
 
 export function SubjectPage({
   subjectOverride,
@@ -27,6 +29,7 @@ export function SubjectPage({
   const [availabilityFilter, setAvailabilityFilter] = useState<
     'all' | 'interactive_now' | 'coming_soon'
   >('all');
+  const [showIslandMap, setShowIslandMap] = useState(true);
 
   if (!subjectMeta) {
     return <NotFoundPage />;
@@ -39,6 +42,7 @@ export function SubjectPage({
 
   const activeStrand = strand as SocialStrand | undefined;
   const units = getUnitsBySubject(subjectMeta.slug, activeStrand);
+  const activeWorld = UNIVERSE_WORLDS.find((w) => w.id === subjectMeta.slug);
 
   const interactiveUnitsCount = units.filter((u) =>
     u.sections.some((s) => Boolean(s.demo_id)),
@@ -268,6 +272,26 @@ export function SubjectPage({
           </div>
         )}
       </div>
+
+      {/* Interactive 2D Concept Island Map for this Subject World (Toggleable ↔ Ordered Textbook List) */}
+      {activeWorld && !activeStrand && (
+        <section className="space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)]">
+              {activeWorld.worldName} · Concept Island Explorer
+            </span>
+            <button
+              type="button"
+              onClick={() => setShowIslandMap((v) => !v)}
+              aria-expanded={showIslandMap}
+              className="min-h-[38px] px-3.5 py-1.5 rounded-xl border border-[var(--line)] bg-[var(--surface)] text-xs font-bold text-[var(--ink)] hover:border-[var(--primary)]"
+            >
+              {showIslandMap ? 'Hide Concept Island Map (List Only)' : 'Show Concept Island Map'}
+            </button>
+          </div>
+          {showIslandMap && <WorldConceptIslandMap world={activeWorld} />}
+        </section>
+      )}
 
       {/* Clean Search & Availability Filters (All | Interactive now | Coming soon) */}
       <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">

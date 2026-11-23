@@ -12,16 +12,12 @@ import { loadNormalizedGLB } from '../../three/glbLoader';
 import { useFullscreen } from '../../hooks/useFullscreen';
 
 export type Biology3DKind =
-  | 'gametogenesis'
   | 'neuron'
   | 'brain'
   | 'animal_cell'
-  | 'kidney'
-  | 'flower'
   | 'plant_foliage'
   | 'dna'
   | 'immune'
-  | 'camera_optics'
   | 'gears';
 
 export interface BiologyCell3DCanvasProps {
@@ -190,46 +186,7 @@ export default function BiologyCell3DCanvas({
             spin.add(sp);
           }
         })
-        .catch(() => {});
-      group.add(spin);
-      animRef.current.spinGroup = spin;
-    } else if (kind === 'kidney') {
-      const spin = new THREE.Group();
-      const tissue = getOrganicTissueTextures('cardiac_red');
-      const kidneyMat = new THREE.MeshPhysicalMaterial({
-        color: 0xb91c1c,
-        map: tissue.map,
-        bumpMap: tissue.bumpMap,
-        bumpScale: 0.04,
-        roughness: 0.34,
-        clearcoat: 0.5,
-      });
-      loadNormalizedGLB('/models/kidney.glb', 3.2, { overrideMaterial: kidneyMat })
-        .then(({ root }) => {
-          if (cancelled) return;
-          spin.add(root);
-          const lbl1 = createFloatingLabelSprite('Renal Cortex & Medulla', 'Nephrons filter blood (Unit 13)', '#fb7185');
-          lbl1.position.set(-1.35, 1.4, 0.4);
-          const lbl2 = createFloatingLabelSprite('Renal Pelvis & Ureter', 'Carries urine to bladder', '#38bdf8');
-          lbl2.position.set(1.25, -1.25, 0.4);
-          spin.add(lbl1, lbl2);
-        })
-        .catch(() => {});
-      group.add(spin);
-      animRef.current.spinGroup = spin;
-    } else if (kind === 'flower') {
-      const spin = new THREE.Group();
-      loadNormalizedGLB('/models/flower.glb', 3.2, { envMapIntensity: 1.4 })
-        .then(({ root }) => {
-          if (cancelled) return;
-          spin.add(root);
-          const lbl1 = createFloatingLabelSprite('Androecium (Stamens)', 'Anther produces pollen grains (p. 246)', '#fbbf24');
-          lbl1.position.set(-1.35, 1.35, 0.4);
-          const lbl2 = createFloatingLabelSprite('Gynoecium (Carpel)', 'Stigma, Style & Ovule fertilization', '#34d399');
-          lbl2.position.set(1.3, -1.0, 0.4);
-          spin.add(lbl1, lbl2);
-        })
-        .catch(() => {});
+        .catch(() => { });
       group.add(spin);
       animRef.current.spinGroup = spin;
     } else if (kind === 'plant_foliage') {
@@ -242,20 +199,7 @@ export default function BiologyCell3DCanvas({
           lbl.position.set(0, 1.85, 0);
           spin.add(lbl);
         })
-        .catch(() => {});
-      group.add(spin);
-      animRef.current.spinGroup = spin;
-    } else if (kind === 'camera_optics') {
-      const spin = new THREE.Group();
-      loadNormalizedGLB('/models/camera-optics.glb', 3.3, { envMapIntensity: 1.55 })
-        .then(({ root }) => {
-          if (cancelled) return;
-          spin.add(root);
-          const lbl = createFloatingLabelSprite('Optical Camera & Visual Media', 'Convex lens focuses real inverted image on sensor', '#38bdf8');
-          lbl.position.set(0, 1.75, 0);
-          spin.add(lbl);
-        })
-        .catch(() => {});
+        .catch(() => { });
       group.add(spin);
       animRef.current.spinGroup = spin;
     } else if (kind === 'gears') {
@@ -268,7 +212,7 @@ export default function BiologyCell3DCanvas({
           lbl.position.set(0, 1.7, 0);
           spin.add(lbl);
         })
-        .catch(() => {});
+        .catch(() => { });
       group.add(spin);
       animRef.current.spinGroup = spin;
     } else if (kind === 'neuron') {
@@ -296,7 +240,7 @@ export default function BiologyCell3DCanvas({
           lbl2.position.set(1.45, -1.1, 0.4);
           spin.add(lbl1, lbl2);
         })
-        .catch(() => {});
+        .catch(() => { });
 
       const spark = new THREE.Mesh(
         new THREE.SphereGeometry(0.14, 16, 16),
@@ -329,77 +273,10 @@ export default function BiologyCell3DCanvas({
           lbl.position.set(0, 1.85, 0);
           spin.add(lbl);
         })
-        .catch(() => {});
+        .catch(() => { });
 
       group.add(spin);
       animRef.current.spinGroup = spin;
-    } else if (kind === 'gametogenesis') {
-      // Calm, matte, neutral-palette static educational reference model (primary view is calm 2D medical SVG)
-      const calmMat = (hex: number, id: string, opacity = 1) =>
-        new THREE.MeshStandardMaterial({
-          color: hex,
-          roughness: 0.72,
-          metalness: 0.02,
-          transparent: opacity < 1,
-          opacity,
-          emissive: selectedPart === id ? new THREE.Color(0x94a3b8) : new THREE.Color(0x000000),
-          emissiveIntensity: selectedPart === id ? 0.25 : 0,
-        });
-
-      const spermGroup = new THREE.Group();
-      spermGroup.position.set(-1.45, 0.15, 0);
-
-      const head = new THREE.Mesh(new THREE.SphereGeometry(0.42, 24, 20), calmMat(0x93c5fd, 'head'));
-      head.scale.set(1.35, 0.88, 0.75);
-      head.position.set(-0.65, 0, 0);
-      pickMapRef.current.set(head, 'head');
-
-      const acrosome = new THREE.Mesh(
-        new THREE.SphereGeometry(0.43, 22, 16, 0, Math.PI * 2, 0, Math.PI * 0.44),
-        calmMat(0xfde68a, 'acrosome'),
-      );
-      acrosome.rotation.z = Math.PI / 2;
-      acrosome.scale.set(0.88, 1.38, 0.76);
-      acrosome.position.set(-0.68, 0, 0);
-      pickMapRef.current.set(acrosome, 'acrosome');
-
-      const midPiece = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.15, 0.12, 0.72, 18),
-        calmMat(0xa7f3d0, 'middle_piece'),
-      );
-      midPiece.rotation.z = Math.PI / 2;
-      midPiece.position.set(0.18, 0, 0);
-      pickMapRef.current.set(midPiece, 'middle_piece');
-
-      const tailCurve = new THREE.CatmullRomCurve3([
-        new THREE.Vector3(0.55, 0, 0),
-        new THREE.Vector3(1.3, 0.03, 0),
-        new THREE.Vector3(2.2, -0.02, 0),
-      ]);
-      const tailMesh = new THREE.Mesh(
-        new THREE.TubeGeometry(tailCurve, 24, 0.045, 10, false),
-        calmMat(0xcbd5e1, 'tail'),
-      );
-      pickMapRef.current.set(tailMesh, 'tail');
-
-      const spermLbl = createFloatingLabelSprite('Human Sperm (Fig. 17.15)', 'Calm Schematic · Not to Relative Scale', '#cbd5e1');
-      spermLbl.position.set(0.3, 1.05, 0);
-      spermGroup.add(head, acrosome, midPiece, tailMesh, spermLbl);
-      group.add(spermGroup);
-
-      const ovumGroup = new THREE.Group();
-      ovumGroup.position.set(2.05, 0.05, 0);
-      const zona = new THREE.Mesh(new THREE.SphereGeometry(1.02, 28, 22), calmMat(0xfbcfe8, 'zona', 0.32));
-      const cytoplasm = new THREE.Mesh(new THREE.SphereGeometry(0.82, 26, 20), calmMat(0xfed7aa, 'ovum', 0.58));
-      const ovumNucleus = new THREE.Mesh(new THREE.SphereGeometry(0.3, 22, 18), calmMat(0x93c5fd, 'ovum'));
-      pickMapRef.current.set(zona, 'zona');
-      pickMapRef.current.set(cytoplasm, 'ovum');
-      pickMapRef.current.set(ovumNucleus, 'ovum');
-
-      const ovumLbl = createFloatingLabelSprite('Human Ovum (Fig. 17.16)', 'Corona Radiata · Zona Pellucida · Nucleus', '#fbcfe8');
-      ovumLbl.position.set(0, 1.55, 0);
-      ovumGroup.add(zona, cytoplasm, ovumNucleus, ovumLbl);
-      group.add(ovumGroup);
     } else if (kind === 'dna') {
       const helixGroup = new THREE.Group();
       const s1: THREE.Vector3[] = [];
@@ -471,7 +348,7 @@ export default function BiologyCell3DCanvas({
           lbl.position.set(0, 1.85, 0);
           immuneGroup.add(lbl);
         })
-        .catch(() => {});
+        .catch(() => { });
 
       group.add(immuneGroup);
       animRef.current.spinGroup = immuneGroup;
@@ -498,16 +375,12 @@ export default function BiologyCell3DCanvas({
   }
 
   const badgeTitle: Record<Biology3DKind, string> = {
-    gametogenesis: '3D Human Gametogenesis (Fig. 17.15 Sperm & Fig. 17.16 Ovum)',
     neuron: 'Real US NIH 3D Anatomical Neuron & Impulse',
     brain: 'Real 3D Human Brain Atlas (Z-Anatomy Open Source)',
     animal_cell: 'Real US NIH 3D Animal Cell Structure',
-    kidney: 'Real 3D Anatomical Human Kidney (MIT Open Source)',
-    flower: '3D Angiosperm Flower & Pollination Anatomy',
     plant_foliage: 'Phototextured 3D Photosynthetic Foliage (Khronos CC0)',
     dna: '3D DNA Double Helix & Base Pairing',
     immune: 'Real US NIH 3D Bacterial Cell Wall & Immune Defense',
-    camera_optics: 'Phototextured 3D Optical Camera & Visual Media',
     gears: '3D Mechanical Torque & Interlocking Gears',
   };
 

@@ -94,11 +94,13 @@ function runPrerender() {
   // Platform pages
   const platformPages: [string, string, string][] = [
     ['/arcade', 'Learning Arcade · Katrio', 'Practice concepts without countdown timers or leaderboards across Science, Maths, English, Tamil, and Social Science.'],
+    ['/arcade/sustainable-tn-town', 'Design a Sustainable Tamil Nadu Town · Capstone Mission · Katrio', 'Untimed cross-subject Class 10 capstone mission combining Mensuration water tanks, Electricity & LEDs, Tamil Nadu monsoon geography, municipal budgets, and bilingual civic proposals.'],
     ['/flashcards', 'Class 10 Flashcards · Katrio', 'Self-paced Class 10 flashcards stored locally on your device.'],
     ['/quizzes', 'Untimed Concept Quizzes · Katrio', 'Low-pressure Class 10 concept checks with hints and explanations.'],
     ['/teachers', 'For Teachers & Classrooms · Katrio', 'All 72 Class 10 Tamil Nadu textbook units mapped to interactive visual models and page references.'],
     ['/accessibility', 'Accessibility & Learning Settings · Katrio', 'WCAG 2.2 AA oriented controls: light/dark/high-contrast, font scaling, reduced motion, Focus Mode, and 2D/text pathways.'],
     ['/privacy', 'Privacy & Local Device Progress · Katrio', 'No login, no student accounts, no tracking. Export, import, or reset device-local progress anytime.'],
+    ['/progress', 'Your Local Progress & Discovery Stamps · Katrio', 'Track visited, explored, practised, and understood lessons plus Discovery Stamps and Teach-It-Back notes privately on this device.'],
     ['/about', 'About, Curriculum & Sources · Katrio', 'Independent educational resource aligned with TN Class 10 textbooks; full source audit summary.'],
     ['/roadmap', 'Editorial Status & Roadmap · Katrio', 'Transparent availability of live pilot lessons versus planned chapters across TN Class 10.'],
   ];

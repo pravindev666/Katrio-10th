@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
+  Brain,
   CheckCircle2,
   ChevronDown,
   ChevronRight,
   Clock,
+  Compass,
   ExternalLink,
   HelpCircle,
   Lightbulb,
   Sparkles,
+  Target,
   Volume2,
   VolumeX,
 } from 'lucide-react';
@@ -54,8 +57,16 @@ export function UnifiedSubsectionPlayer({
   onMarkCompleted,
   onToggleReviewLater,
 }: UnifiedSubsectionPlayerProps) {
+  const [activeTab, setActiveTab] = useState<'discover' | 'connect' | 'solve' | 'book' | 'all'>('discover');
   const [depthLayer, setDepthLayer] = useState<'simple' | 'detailed' | 'exam'>('simple');
   const [showTamil, setShowTamil] = useState(false);
+
+  useEffect(() => {
+    setActiveTab('discover');
+  }, [pkg.id]);
+
+  const showTab = (t: 'discover' | 'connect' | 'solve' | 'book') =>
+    activeTab === 'all' || activeTab === t;
   const [speaking, setSpeaking] = useState(false);
   const [revealedStep, setRevealedStep] = useState(0);
   const [showMisconceptions, setShowMisconceptions] = useState(false);
@@ -134,603 +145,655 @@ export function UnifiedSubsectionPlayer({
         </div>
 
         <div className="flex flex-wrap items-center gap-2 shrink-0">
-          <a
-            href="#textbook-reading"
+          <button
+            type="button"
+            onClick={() => setActiveTab('book')}
             className="px-3.5 py-2 min-h-[40px] rounded-xl border border-[var(--line)] bg-[var(--surface)] text-xs font-bold text-[var(--ink)] hover:border-[var(--primary)] inline-flex items-center gap-1.5"
           >
             <BookOpen className="w-3.5 h-3.5 text-[var(--primary)]" />
             <span>Jump to textbook</span>
-          </a>
+          </button>
           <button
             type="button"
             onClick={onToggleReviewLater}
             aria-pressed={isReviewLater}
-            className={`px-3.5 py-2 min-h-[40px] rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 ${
-              isReviewLater
-                ? 'bg-amber-500/15 border-amber-500 text-amber-800 dark:text-amber-200'
-                : 'bg-[var(--surface)] border-[var(--line)] text-[var(--ink)]'
-            }`}
+            className={`px-3.5 py-2 min-h-[40px] rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 ${isReviewLater
+              ? 'bg-amber-500/15 border-amber-500 text-amber-800 dark:text-amber-200'
+              : 'bg-[var(--surface)] border-[var(--line)] text-[var(--ink)]'
+              }`}
           >
             <span>{isReviewLater ? '✓ Saved for review later' : 'Review later'}</span>
           </button>
         </div>
       </div>
 
-      {/* STAGE 1: "EXPLAIN IT SIMPLY" — ELI5 FIRST */}
-      <section
-        aria-label="Explain it simply"
-        className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
+      {/* Calm 4-Tab Workspace Switcher */}
+      <nav
+        aria-label="Subsection workspace tabs"
+        className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-2.5 flex flex-wrap items-center justify-between gap-2 shadow-xs"
       >
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)]">
-              1. Understand Simply
-            </div>
-            <h2 className="text-lg sm:text-xl font-extrabold text-[var(--ink)] mt-0.5">
-              {pkg.sectionNumber} {pkg.title.en}
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-1.5 text-xs">
-            <div
-              role="group"
-              aria-label="Choose explanation depth"
-              className="inline-flex p-0.5 rounded-xl bg-[var(--surface-subtle)] border border-[var(--line)]"
+        <div role="tablist" className="flex flex-wrap gap-1.5">
+          {([
+            ['discover', '1. Discover & Explore', Compass],
+            ['connect', '2. Connect & Remember', Brain],
+            ['solve', '3. Solve & Apply', Target],
+            ['book', '4. Book & Revision', BookOpen],
+          ] as const).map(([id, label, Icon]) => (
+            <button
+              key={id}
+              type="button"
+              role="tab"
+              aria-selected={activeTab === id}
+              onClick={() => setActiveTab(id)}
+              className={`min-h-[40px] px-3.5 py-2 rounded-xl border text-xs font-extrabold inline-flex items-center gap-1.5 transition-colors ${activeTab === id
+                ? 'bg-[var(--primary)] text-white border-[var(--primary)]'
+                : 'bg-[var(--surface-subtle)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--primary)]'
+                }`}
             >
-              {(
-                [
-                  ['simple', 'Simple'],
-                  ['detailed', 'Detailed'],
-                  ['exam', 'Exam-ready'],
-                ] as const
-              ).map(([k, lbl]) => (
-                <button
-                  key={k}
-                  type="button"
-                  onClick={() => setDepthLayer(k)}
-                  aria-pressed={depthLayer === k}
-                  className={`px-3 py-1.5 min-h-[36px] rounded-lg font-bold ${
-                    depthLayer === k ? 'bg-[var(--primary)] text-white' : 'text-[var(--ink)]'
-                  }`}
-                >
-                  {lbl}
-                </button>
-              ))}
+              <Icon className="w-3.5 h-3.5" />
+              <span>{label}</span>
+            </button>
+          ))}
+          <button
+            type="button"
+            onClick={() => setActiveTab(activeTab === 'all' ? 'discover' : 'all')}
+            aria-pressed={activeTab === 'all'}
+            className={`min-h-[40px] px-3 py-2 rounded-xl border text-xs font-bold ${activeTab === 'all'
+              ? 'bg-[var(--ink)] text-white border-[var(--ink)]'
+              : 'bg-[var(--surface)] text-[var(--text-muted)] border-[var(--line)]'
+              }`}
+          >
+            {activeTab === 'all' ? '✓ Showing All' : 'Show All'}
+          </button>
+        </div>
+      </nav>
+
+      {/* STAGE 1: "EXPLAIN IT SIMPLY" — ELI5 FIRST (Tab 1: Discover & Explore) */}
+      {showTab('discover') && (
+        <section
+          aria-label="Explain it simply"
+          className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)]">
+                1. Understand Simply
+              </div>
+              <h2 className="text-lg sm:text-xl font-extrabold text-[var(--ink)] mt-0.5">
+                {pkg.sectionNumber} {pkg.title.en}
+              </h2>
             </div>
 
-            {pkg.explain.simpleTamil && (
-              <button
-                type="button"
-                onClick={() => setShowTamil((t) => !t)}
-                aria-pressed={showTamil}
-                className={`px-3 py-1.5 min-h-[38px] rounded-xl border font-bold font-tamil ${
-                  showTamil
+            <div className="flex flex-wrap items-center gap-1.5 text-xs">
+              <div
+                role="group"
+                aria-label="Choose explanation depth"
+                className="inline-flex p-0.5 rounded-xl bg-[var(--surface-subtle)] border border-[var(--line)]"
+              >
+                {(
+                  [
+                    ['simple', 'Simple'],
+                    ['detailed', 'Detailed'],
+                    ['exam', 'Exam-ready'],
+                  ] as const
+                ).map(([k, lbl]) => (
+                  <button
+                    key={k}
+                    type="button"
+                    onClick={() => setDepthLayer(k)}
+                    aria-pressed={depthLayer === k}
+                    className={`px-3 py-1.5 min-h-[36px] rounded-lg font-bold ${depthLayer === k ? 'bg-[var(--primary)] text-white' : 'text-[var(--ink)]'
+                      }`}
+                  >
+                    {lbl}
+                  </button>
+                ))}
+              </div>
+
+              {pkg.explain.simpleTamil && (
+                <button
+                  type="button"
+                  onClick={() => setShowTamil((t) => !t)}
+                  aria-pressed={showTamil}
+                  className={`px-3 py-1.5 min-h-[38px] rounded-xl border font-bold font-tamil ${showTamil
                     ? 'bg-[var(--tamil)] text-white border-[var(--tamil)]'
                     : 'bg-[var(--surface-subtle)] text-[var(--ink)] border-[var(--line)]'
-                }`}
-              >
-                {showTamil ? '✓ தமிழ்' : 'தமிழ் விளக்கம்'}
-              </button>
-            )}
+                    }`}
+                >
+                  {showTamil ? '✓ தமிழ்' : 'தமிழ் விளக்கம்'}
+                </button>
+              )}
 
-            <button
-              type="button"
-              onClick={toggleListen}
-              aria-pressed={speaking}
-              className="px-3 py-1.5 min-h-[38px] rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] font-bold text-[var(--ink)] inline-flex items-center gap-1.5"
-            >
-              {speaking ? <VolumeX className="w-3.5 h-3.5 text-rose-500" /> : <Volume2 className="w-3.5 h-3.5 text-[var(--primary)]" />}
-              <span>{speaking ? 'Stop audio' : 'Listen'}</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Active Layer Text (Transcript always visible for accessibility!) */}
-        <div className="max-w-3xl space-y-3">
-          {depthLayer === 'simple' && (
-            <p className="text-sm sm:text-base text-[var(--ink)] leading-relaxed">{pkg.explain.simple}</p>
-          )}
-          {depthLayer === 'detailed' && (
-            <p className="text-sm sm:text-base text-[var(--ink)] leading-relaxed">{pkg.explain.detailed}</p>
-          )}
-          {depthLayer === 'exam' && (
-            <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base text-[var(--ink)] leading-relaxed">
-              {pkg.explain.examReadyPoints.map((pt) => (
-                <li key={pt}>{pt}</li>
-              ))}
-            </ul>
-          )}
-
-          {showTamil && pkg.explain.simpleTamil && (
-            <div lang="ta" className="font-tamil p-4 rounded-2xl bg-rose-500/8 border border-rose-500/25 text-sm text-[var(--ink)] leading-relaxed">
-              <div className="text-xs font-extrabold text-[var(--tamil)] mb-1">எளிய தமிழ் விளக்கம்</div>
-              {pkg.explain.simpleTamil}
-            </div>
-          )}
-
-          {/* Labelled Analogy + 1-Sentence Textbook-Standard Anchor */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
-            <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs sm:text-sm text-[var(--ink)]">
-              <div className="font-extrabold text-amber-800 dark:text-amber-300 uppercase text-[11px] mb-1">
-                Everyday Analogy (Not literal history)
-              </div>
-              <p className="leading-relaxed">{pkg.explain.analogy}</p>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-[var(--surface-subtle)] border border-[var(--line)] text-xs sm:text-sm text-[var(--ink)]">
-              <div className="font-extrabold text-[var(--primary)] uppercase text-[11px] mb-1">
-                Textbook-Standard Summary
-              </div>
-              <p className="leading-relaxed">{pkg.explain.textbookStandard}</p>
-            </div>
-          </div>
-
-          {/* Collapsible Common Misconceptions Guard */}
-          {pkg.explain.misconceptions.length > 0 && (
-            <div className="pt-1">
               <button
                 type="button"
-                onClick={() => setShowMisconceptions((m) => !m)}
-                aria-expanded={showMisconceptions}
-                className="text-xs font-bold text-[var(--primary)] inline-flex items-center gap-1 hover:underline"
+                onClick={toggleListen}
+                aria-pressed={speaking}
+                className="px-3 py-1.5 min-h-[38px] rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] font-bold text-[var(--ink)] inline-flex items-center gap-1.5"
               >
-                {showMisconceptions ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-                <span>Common misconceptions to watch out for ({pkg.explain.misconceptions.length})</span>
+                {speaking ? <VolumeX className="w-3.5 h-3.5 text-rose-500" /> : <Volume2 className="w-3.5 h-3.5 text-[var(--primary)]" />}
+                <span>{speaking ? 'Stop audio' : 'Listen'}</span>
               </button>
-              {showMisconceptions && (
-                <div className="mt-2.5 space-y-2">
-                  {pkg.explain.misconceptions.map((mc) => (
-                    <div key={mc.myth} className="p-3.5 rounded-xl bg-[var(--surface-subtle)] border border-[var(--line)] text-xs sm:text-sm space-y-1">
-                      <div className="text-rose-700 dark:text-rose-300 font-bold">Common mix-up: {mc.myth}</div>
-                      <div className="text-[var(--ink)]"><strong>Actual history:</strong> {mc.reality}</div>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
-          )}
-        </div>
-      </section>
-
-      {/* STAGE 2: VISUAL CONCEPT / MIND MAP */}
-      <SubsectionConceptMap
-        title={pkg.conceptMap.title}
-        nodes={pkg.conceptMap.nodes}
-        edges={pkg.conceptMap.edges}
-        textFallback={pkg.conceptMap.textFallback}
-        onExploreNode={() => {
-          setUserEngaged(true);
-          onMarkPractised();
-        }}
-      />
-
-      {/* STAGE 3: PURPOSE-BUILT 2D HISTORICAL INTERACTIVE */}
-      <HistoryUnit4Interactive2D
-        variant={pkg.interactive.variantKey}
-        questionToInvestigate={pkg.interactive.questionToInvestigate}
-        whatToNotice={pkg.interactive.whatToNotice}
-        onExploreStep={() => {
-          setUserEngaged(true);
-          onMarkPractised();
-        }}
-        onFinishAllSteps={() => {
-          setUserEngaged(true);
-          onMarkPractised();
-        }}
-      />
-
-      {/* STAGE 4: "WHY DID THAT HAPPEN?" — STEP-BY-STEP CAUSAL REVEAL */}
-      <section
-        aria-label="Why did that happen"
-        className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
-      >
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--social)]">
-              4. Why Did That Happen? · Step-by-Step Reasoning
-            </div>
-            <h3 className="text-base sm:text-lg font-extrabold text-[var(--ink)] mt-0.5">
-              Trace Cause → Mechanism → Evidence → Consequence
-            </h3>
           </div>
-          <div className="flex gap-1.5 text-xs">
-            <button
-              type="button"
-              onClick={() => setRevealedStep(pkg.stepByStep.length - 1)}
-              className="px-3 py-1.5 min-h-[36px] rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] font-bold text-[var(--ink)]"
-            >
-              Show all steps
-            </button>
-          </div>
-        </div>
 
-        <div className="space-y-3">
-          {pkg.stepByStep.map((st, idx) => {
-            const unlocked = idx <= revealedStep;
-            return (
-              <div
-                key={st.stepNumber}
-                className={`p-4 rounded-2xl border transition-colors ${
-                  unlocked
-                    ? 'border-[var(--line)] bg-[var(--surface-subtle)]'
-                    : 'border-dashed border-[var(--line)] bg-[var(--canvas)] opacity-75'
-                }`}
-              >
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-[var(--social)]">
-                    Step {st.stepNumber} · {st.phase}
-                  </span>
-                  {!unlocked && (
-                    <button
-                      type="button"
-                      onClick={() => setRevealedStep(idx)}
-                      className="px-3 py-1 rounded-lg bg-[var(--primary)] text-white text-xs font-bold"
-                    >
-                      Reveal step {st.stepNumber}
-                    </button>
-                  )}
+          {/* Active Layer Text (Transcript always visible for accessibility!) */}
+          <div className="max-w-3xl space-y-3">
+            {depthLayer === 'simple' && (
+              <p className="text-sm sm:text-base text-[var(--ink)] leading-relaxed">{pkg.explain.simple}</p>
+            )}
+            {depthLayer === 'detailed' && (
+              <p className="text-sm sm:text-base text-[var(--ink)] leading-relaxed">{pkg.explain.detailed}</p>
+            )}
+            {depthLayer === 'exam' && (
+              <ul className="list-disc pl-5 space-y-1.5 text-sm sm:text-base text-[var(--ink)] leading-relaxed">
+                {pkg.explain.examReadyPoints.map((pt) => (
+                  <li key={pt}>{pt}</li>
+                ))}
+              </ul>
+            )}
+
+            {showTamil && pkg.explain.simpleTamil && (
+              <div lang="ta" className="font-tamil p-4 rounded-2xl bg-rose-500/8 border border-rose-500/25 text-sm text-[var(--ink)] leading-relaxed">
+                <div className="text-xs font-extrabold text-[var(--tamil)] mb-1">எளிய தமிழ் விளக்கம்</div>
+                {pkg.explain.simpleTamil}
+              </div>
+            )}
+
+            {/* Labelled Analogy + 1-Sentence Textbook-Standard Anchor */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+              <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs sm:text-sm text-[var(--ink)]">
+                <div className="font-extrabold text-amber-800 dark:text-amber-300 uppercase text-[11px] mb-1">
+                  Everyday Analogy (Not literal history)
                 </div>
-                {unlocked && (
-                  <div className="mt-1.5 space-y-1.5">
-                    <h4 className="text-sm sm:text-base font-extrabold text-[var(--ink)]">{st.heading}</h4>
-                    <p className="text-sm text-[var(--text)] leading-relaxed">{st.explanation}</p>
-                    {st.factVsInterpretationNote && (
-                      <div className="p-2.5 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs text-[var(--ink)]">
-                        <strong>Fact vs. Interpretation:</strong> {st.factVsInterpretationNote}
+                <p className="leading-relaxed">{pkg.explain.analogy}</p>
+              </div>
+              <div className="p-3.5 rounded-2xl bg-[var(--surface-subtle)] border border-[var(--line)] text-xs sm:text-sm text-[var(--ink)]">
+                <div className="font-extrabold text-[var(--primary)] uppercase text-[11px] mb-1">
+                  Textbook-Standard Summary
+                </div>
+                <p className="leading-relaxed">{pkg.explain.textbookStandard}</p>
+              </div>
+            </div>
+
+            {/* Collapsible Common Misconceptions Guard */}
+            {pkg.explain.misconceptions.length > 0 && (
+              <div className="pt-1">
+                <button
+                  type="button"
+                  onClick={() => setShowMisconceptions((m) => !m)}
+                  aria-expanded={showMisconceptions}
+                  className="text-xs font-bold text-[var(--primary)] inline-flex items-center gap-1 hover:underline"
+                >
+                  {showMisconceptions ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                  <span>Common misconceptions to watch out for ({pkg.explain.misconceptions.length})</span>
+                </button>
+                {showMisconceptions && (
+                  <div className="mt-2.5 space-y-2">
+                    {pkg.explain.misconceptions.map((mc) => (
+                      <div key={mc.myth} className="p-3.5 rounded-xl bg-[var(--surface-subtle)] border border-[var(--line)] text-xs sm:text-sm space-y-1">
+                        <div className="text-rose-700 dark:text-rose-300 font-bold">Common mix-up: {mc.myth}</div>
+                        <div className="text-[var(--ink)]"><strong>Actual history:</strong> {mc.reality}</div>
                       </div>
-                    )}
+                    ))}
                   </div>
                 )}
               </div>
-            );
-          })}
-        </div>
-
-        <div className="flex items-center justify-between">
-          <button
-            type="button"
-            disabled={revealedStep === 0}
-            onClick={() => setRevealedStep((s) => Math.max(0, s - 1))}
-            className="px-3.5 py-2 min-h-[40px] rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] text-xs font-bold text-[var(--ink)] disabled:opacity-40"
-          >
-            ← Earlier step
-          </button>
-          <button
-            type="button"
-            disabled={revealedStep >= pkg.stepByStep.length - 1}
-            onClick={() => setRevealedStep((s) => Math.min(pkg.stepByStep.length - 1, s + 1))}
-            className="px-4 py-2 min-h-[40px] rounded-xl bg-[var(--primary)] text-white text-xs font-bold disabled:opacity-40"
-          >
-            Next causal step →
-          </button>
-        </div>
-      </section>
-
-      {/* STAGE 5: EASY-TO-REMEMBER LINKS */}
-      <section
-        aria-label="Easy to remember links"
-        className="rounded-[22px] border border-amber-500/35 bg-amber-500/8 p-5 sm:p-6 space-y-3"
-      >
-        <div className="text-xs font-extrabold uppercase tracking-wider text-amber-800 dark:text-amber-300 inline-flex items-center gap-1.5">
-          <Lightbulb className="w-4 h-4" />
-          <span>5. Remember Through Understanding</span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {pkg.memoryLinks.map((ml) => (
-            <div key={ml.cue} className="p-4 rounded-2xl bg-[var(--surface)] border border-[var(--line)] space-y-1">
-              <div className="text-[11px] font-extrabold uppercase text-[var(--primary)]">{ml.kind}</div>
-              <div className="text-sm font-extrabold text-[var(--ink)]">{ml.cue}</div>
-              <p className="text-xs text-[var(--text)] leading-relaxed">{ml.meaning}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* STAGE 6: "YOU TRY" — LOW-STAKES ACTIVE CHALLENGE */}
-      <section
-        aria-label="Try it yourself challenge"
-        className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
-      >
-        <div>
-          <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)] inline-flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4" />
-            <span>6. Try It Yourself · Untimed Concept Challenge</span>
+            )}
           </div>
-          <p className="text-sm sm:text-base font-bold text-[var(--ink)] mt-1">{pkg.activeChallenge.prompt}</p>
-        </div>
+        </section>
+      )}
 
-        <div className="space-y-3">
-          {pkg.activeChallenge.items.map((item) => {
-            const picked = challengeAnswers[item.id] ?? '';
-            const isRight = challengeChecked && picked === item.targetOrOrder;
-            const isWrong = challengeChecked && picked !== item.targetOrOrder;
-            return (
-              <div
-                key={item.id}
-                className={`p-4 rounded-2xl border space-y-2.5 ${
-                  isRight
+      {/* STAGE 2: VISUAL CONCEPT / MIND MAP (Tab 2: Connect & Remember) */}
+      {showTab('connect') && (
+        <SubsectionConceptMap
+          title={pkg.conceptMap.title}
+          nodes={pkg.conceptMap.nodes}
+          edges={pkg.conceptMap.edges}
+          textFallback={pkg.conceptMap.textFallback}
+          onExploreNode={() => {
+            setUserEngaged(true);
+            onMarkPractised();
+          }}
+        />
+      )}
+
+      {/* STAGE 3: PURPOSE-BUILT 2D HISTORICAL INTERACTIVE (Tab 1: Discover & Explore) */}
+      {showTab('discover') && (
+        <HistoryUnit4Interactive2D
+          variant={pkg.interactive.variantKey}
+          questionToInvestigate={pkg.interactive.questionToInvestigate}
+          whatToNotice={pkg.interactive.whatToNotice}
+          onExploreStep={() => {
+            setUserEngaged(true);
+            onMarkPractised();
+          }}
+          onFinishAllSteps={() => {
+            setUserEngaged(true);
+            onMarkPractised();
+          }}
+        />
+      )}
+
+      {/* STAGE 4: "WHY DID THAT HAPPEN?" — STEP-BY-STEP CAUSAL REVEAL (Tab 2: Connect & Remember) */}
+      {showTab('connect') && (
+        <section
+          aria-label="Why did that happen"
+          className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--social)]">
+                4. Why Did That Happen? · Step-by-Step Reasoning
+              </div>
+              <h3 className="text-base sm:text-lg font-extrabold text-[var(--ink)] mt-0.5">
+                Trace Cause → Mechanism → Evidence → Consequence
+              </h3>
+            </div>
+            <div className="flex gap-1.5 text-xs">
+              <button
+                type="button"
+                onClick={() => setRevealedStep(pkg.stepByStep.length - 1)}
+                className="px-3 py-1.5 min-h-[36px] rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] font-bold text-[var(--ink)]"
+              >
+                Show all steps
+              </button>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            {pkg.stepByStep.map((st, idx) => {
+              const unlocked = idx <= revealedStep;
+              return (
+                <div
+                  key={st.stepNumber}
+                  className={`p-4 rounded-2xl border transition-colors ${unlocked
+                    ? 'border-[var(--line)] bg-[var(--surface-subtle)]'
+                    : 'border-dashed border-[var(--line)] bg-[var(--canvas)] opacity-75'
+                    }`}
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-xs font-extrabold uppercase tracking-wider text-[var(--social)]">
+                      Step {st.stepNumber} · {st.phase}
+                    </span>
+                    {!unlocked && (
+                      <button
+                        type="button"
+                        onClick={() => setRevealedStep(idx)}
+                        className="px-3 py-1 rounded-lg bg-[var(--primary)] text-white text-xs font-bold"
+                      >
+                        Reveal step {st.stepNumber}
+                      </button>
+                    )}
+                  </div>
+                  {unlocked && (
+                    <div className="mt-1.5 space-y-1.5">
+                      <h4 className="text-sm sm:text-base font-extrabold text-[var(--ink)]">{st.heading}</h4>
+                      <p className="text-sm text-[var(--text)] leading-relaxed">{st.explanation}</p>
+                      {st.factVsInterpretationNote && (
+                        <div className="p-2.5 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs text-[var(--ink)]">
+                          <strong>Fact vs. Interpretation:</strong> {st.factVsInterpretationNote}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center justify-between">
+            <button
+              type="button"
+              disabled={revealedStep === 0}
+              onClick={() => setRevealedStep((s) => Math.max(0, s - 1))}
+              className="px-3.5 py-2 min-h-[40px] rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] text-xs font-bold text-[var(--ink)] disabled:opacity-40"
+            >
+              ← Earlier step
+            </button>
+            <button
+              type="button"
+              disabled={revealedStep >= pkg.stepByStep.length - 1}
+              onClick={() => setRevealedStep((s) => Math.min(pkg.stepByStep.length - 1, s + 1))}
+              className="px-4 py-2 min-h-[40px] rounded-xl bg-[var(--primary)] text-white text-xs font-bold disabled:opacity-40"
+            >
+              Next causal step →
+            </button>
+          </div>
+        </section>
+      )}
+
+      {/* STAGE 5: EASY-TO-REMEMBER LINKS (Tab 2: Connect & Remember) */}
+      {showTab('connect') && (
+        <section
+          aria-label="Easy to remember links"
+          className="rounded-[22px] border border-amber-500/35 bg-amber-500/8 p-5 sm:p-6 space-y-3"
+        >
+          <div className="text-xs font-extrabold uppercase tracking-wider text-amber-800 dark:text-amber-300 inline-flex items-center gap-1.5">
+            <Lightbulb className="w-4 h-4" />
+            <span>5. Remember Through Understanding</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {pkg.memoryLinks.map((ml) => (
+              <div key={ml.cue} className="p-4 rounded-2xl bg-[var(--surface)] border border-[var(--line)] space-y-1">
+                <div className="text-[11px] font-extrabold uppercase text-[var(--primary)]">{ml.kind}</div>
+                <div className="text-sm font-extrabold text-[var(--ink)]">{ml.cue}</div>
+                <p className="text-xs text-[var(--text)] leading-relaxed">{ml.meaning}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* STAGE 6: "YOU TRY" — LOW-STAKES ACTIVE CHALLENGE (Tab 3: Solve & Apply) */}
+      {showTab('solve') && (
+        <section
+          aria-label="Try it yourself challenge"
+          className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
+        >
+          <div>
+            <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)] inline-flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4" />
+              <span>6. Try It Yourself · Untimed Concept Challenge</span>
+            </div>
+            <p className="text-sm sm:text-base font-bold text-[var(--ink)] mt-1">{pkg.activeChallenge.prompt}</p>
+          </div>
+
+          <div className="space-y-3">
+            {pkg.activeChallenge.items.map((item) => {
+              const picked = challengeAnswers[item.id] ?? '';
+              const isRight = challengeChecked && picked === item.targetOrOrder;
+              const isWrong = challengeChecked && picked !== item.targetOrOrder;
+              return (
+                <div
+                  key={item.id}
+                  className={`p-4 rounded-2xl border space-y-2.5 ${isRight
                     ? 'border-[var(--success)] bg-[var(--success-bg)]'
                     : isWrong
                       ? 'border-[var(--warning)] bg-[var(--warning-bg)]'
                       : 'border-[var(--line)] bg-[var(--surface-subtle)]'
-                }`}
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                  <span className="text-sm font-bold text-[var(--ink)]">{item.label}</span>
-                  <select
-                    aria-label={`Select answer for ${item.label}`}
-                    value={picked}
-                    onChange={(e) => {
-                      setChallengeAnswers((prev) => ({ ...prev, [item.id]: e.target.value }));
-                      setChallengeChecked(false);
-                    }}
-                    className="min-h-[42px] px-3 py-1.5 rounded-xl border border-[var(--line)] bg-[var(--surface)] text-xs sm:text-sm font-semibold text-[var(--ink)]"
-                  >
-                    <option value="">Choose match / order…</option>
-                    {uniqueTargets.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {pkg.activeChallenge.kind === 'sequence' ? `Order #${opt}` : opt}
-                      </option>
-                    ))}
-                  </select>
+                    }`}
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                    <span className="text-sm font-bold text-[var(--ink)]">{item.label}</span>
+                    <select
+                      aria-label={`Select answer for ${item.label}`}
+                      value={picked}
+                      onChange={(e) => {
+                        setChallengeAnswers((prev) => ({ ...prev, [item.id]: e.target.value }));
+                        setChallengeChecked(false);
+                      }}
+                      className="min-h-[42px] px-3 py-1.5 rounded-xl border border-[var(--line)] bg-[var(--surface)] text-xs sm:text-sm font-semibold text-[var(--ink)]"
+                    >
+                      <option value="">Choose match / order…</option>
+                      {uniqueTargets.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {pkg.activeChallenge.kind === 'sequence' ? `Order #${opt}` : opt}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {challengeChecked && (
+                    <p className="text-xs text-[var(--ink)]">
+                      <strong>{isRight ? 'Good observation — ' : 'Look closely — '}</strong>
+                      {item.whyFeedback}
+                    </p>
+                  )}
                 </div>
-                {challengeChecked && (
-                  <p className="text-xs text-[var(--ink)]">
-                    <strong>{isRight ? 'Good observation — ' : 'Look closely — '}</strong>
-                    {item.whyFeedback}
-                  </p>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3">
-          <button
-            type="button"
-            onClick={handleCheckChallenge}
-            className="px-5 py-2.5 min-h-[44px] rounded-xl bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white text-xs sm:text-sm font-bold"
-          >
-            Check my reasoning
-          </button>
-          {challengeChecked && (
-            <span role="status" className="text-xs sm:text-sm font-bold text-[var(--ink)]">
-              {allChallengeRight
-                ? pkg.activeChallenge.successMessage
-                : 'Review the quiet explanations above and adjust any choice — no timer or penalty.'}
-            </span>
-          )}
-        </div>
-      </section>
-
-      {/* STAGE 7: OPTIONAL EXAM BRIDGE */}
-      <section
-        aria-label="Practise for exams"
-        className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
-      >
-        <div>
-          <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)]">
-            7. Practise for Exams (Optional · After Concept Understanding)
+              );
+            })}
           </div>
-          <p className="text-xs text-[var(--text-muted)] mt-0.5">
-            Textbook exercise references and original practice are labelled separately. Practice builds confidence; it never predicts exact exam papers.
-          </p>
-        </div>
 
-        <div className="space-y-4">
-          {pkg.examBridge.map((ex) => {
-            const picked = examAnswers[ex.id];
-            const pickedOpt = ex.options?.find((o) => o.id === picked);
-            return (
-              <div key={ex.id} className="p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3">
-                <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-bold">
-                  <span className="px-2.5 py-0.5 rounded-full bg-[var(--primary-tint)] text-[var(--primary)]">
-                    {ex.labelType} · {ex.format}
-                  </span>
-                  <span className="text-[var(--text-muted)]">{ex.sourceRef}</span>
-                </div>
-                <p className="text-sm sm:text-base font-bold text-[var(--ink)]">{ex.prompt}</p>
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={handleCheckChallenge}
+              className="px-5 py-2.5 min-h-[44px] rounded-xl bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white text-xs sm:text-sm font-bold"
+            >
+              Check my reasoning
+            </button>
+            {challengeChecked && (
+              <span role="status" className="text-xs sm:text-sm font-bold text-[var(--ink)]">
+                {allChallengeRight
+                  ? pkg.activeChallenge.successMessage
+                  : 'Review the quiet explanations above and adjust any choice — no timer or penalty.'}
+              </span>
+            )}
+          </div>
+        </section>
+      )}
 
-                {ex.options && (
-                  <div className="space-y-2">
-                    {ex.options.map((opt) => (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => {
-                          setExamAnswers((prev) => ({ ...prev, [ex.id]: opt.id }));
-                          setUserEngaged(true);
-                          onMarkPractised();
-                        }}
-                        aria-pressed={picked === opt.id}
-                        className={`w-full p-3 rounded-xl border text-left text-xs sm:text-sm font-semibold ${
-                          picked === opt.id
+      {/* STAGE 7: OPTIONAL EXAM BRIDGE (Tab 3: Solve & Apply) */}
+      {showTab('solve') && (
+        <section
+          aria-label="Practise for exams"
+          className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
+        >
+          <div>
+            <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)]">
+              7. Practise for Exams (Optional · After Concept Understanding)
+            </div>
+            <p className="text-xs text-[var(--text-muted)] mt-0.5">
+              Textbook exercise references and original practice are labelled separately. Practice builds confidence; it never predicts exact exam papers.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {pkg.examBridge.map((ex) => {
+              const picked = examAnswers[ex.id];
+              const pickedOpt = ex.options?.find((o) => o.id === picked);
+              return (
+                <div key={ex.id} className="p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-bold">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[var(--primary-tint)] text-[var(--primary)]">
+                      {ex.labelType} · {ex.format}
+                    </span>
+                    <span className="text-[var(--text-muted)]">{ex.sourceRef}</span>
+                  </div>
+                  <p className="text-sm sm:text-base font-bold text-[var(--ink)]">{ex.prompt}</p>
+
+                  {ex.options && (
+                    <div className="space-y-2">
+                      {ex.options.map((opt) => (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          onClick={() => {
+                            setExamAnswers((prev) => ({ ...prev, [ex.id]: opt.id }));
+                            setUserEngaged(true);
+                            onMarkPractised();
+                          }}
+                          aria-pressed={picked === opt.id}
+                          className={`w-full p-3 rounded-xl border text-left text-xs sm:text-sm font-semibold ${picked === opt.id
                             ? opt.isCorrect
                               ? 'border-[var(--success)] bg-[var(--success-bg)] text-[var(--ink)]'
                               : 'border-[var(--warning)] bg-[var(--warning-bg)] text-[var(--ink)]'
                             : 'border-[var(--line)] bg-[var(--surface)] text-[var(--ink)] hover:border-[var(--primary)]'
-                        }`}
+                            }`}
+                        >
+                          <strong className="uppercase mr-2">{opt.id})</strong>
+                          {opt.text}
+                        </button>
+                      ))}
+                      {pickedOpt && (
+                        <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs text-[var(--ink)]">
+                          <strong>{pickedOpt.isCorrect ? '✓ Good reasoning: ' : 'Check again: '}</strong>
+                          {pickedOpt.why}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {ex.modelPoints && (
+                    <div className="space-y-2">
+                      <button
+                        type="button"
+                        onClick={() => setOpenModelPoints((p) => ({ ...p, [ex.id]: !p[ex.id] }))}
+                        className="px-3.5 py-2 min-h-[40px] rounded-xl border border-[var(--line)] bg-[var(--surface)] text-xs font-bold text-[var(--ink)]"
                       >
-                        <strong className="uppercase mr-2">{opt.id})</strong>
-                        {opt.text}
+                        {openModelPoints[ex.id] ? 'Hide structured answer points' : 'View structured answer points'}
+                      </button>
+                      {openModelPoints[ex.id] && (
+                        <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-[var(--ink)] bg-[var(--surface)] p-3.5 rounded-xl border border-[var(--line)]">
+                          {ex.modelPoints.map((pt) => (
+                            <li key={pt}>{pt}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={() => setOpenHints((h) => ({ ...h, [ex.id]: !h[ex.id] }))}
+                    className="text-xs font-bold text-[var(--primary)] inline-flex items-center gap-1"
+                  >
+                    <HelpCircle className="w-3.5 h-3.5" />
+                    <span>{openHints[ex.id] ? 'Hide hint' : 'Show hint'}</span>
+                  </button>
+                  {openHints[ex.id] && (
+                    <p className="text-xs text-[var(--text)] bg-[var(--canvas)] p-2.5 rounded-lg border border-[var(--line)]">
+                      <strong>Hint:</strong> {ex.hint}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* STAGE 8: READ THE BOOK, CHUNK BY CHUNK (Tab 4: Book & Revision) */}
+      {showTab('book') && (
+        <section
+          id="textbook-reading"
+          aria-label="Read the textbook chunk by chunk"
+          className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
+        >
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)] inline-flex items-center gap-1.5">
+                <BookOpen className="w-4 h-4" />
+                <span>8. Read the Book, Chunk by Chunk</span>
+              </div>
+              <h3 className="text-base sm:text-lg font-extrabold text-[var(--ink)] mt-0.5">
+                Structured Source Guide · Printed pp. {pkg.source.printedPages.join(', ')} (PDF pp. {pkg.source.pdfPages.join(', ')})
+              </h3>
+              <p className="text-xs text-[var(--text-muted)] mt-0.5">
+                Respecting TNSCERT copyright, each chunk presents an original section-ordered summary alongside official page references and bilingual glossary terms.
+              </p>
+            </div>
+            <a
+              href={pkg.source.officialPortalUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="px-3.5 py-2 min-h-[40px] rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] text-xs font-bold text-[var(--primary)] inline-flex items-center gap-1.5 shrink-0"
+            >
+              <span>Official TN Textbooks Portal</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+          {/* Active Glossary Popover Strip */}
+          {activeGlossary && (
+            <div className="p-3.5 rounded-xl bg-[var(--info-bg)] border border-[var(--primary)]/30 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+              <div>
+                <strong className="text-[var(--ink)]">{activeGlossary.term}</strong>
+                {activeGlossary.tamil && (
+                  <span lang="ta" className="font-tamil text-[var(--tamil)] font-bold ml-2">
+                    ({activeGlossary.tamil})
+                  </span>
+                )}
+                <span className="text-[var(--text)]"> — {activeGlossary.meaning}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveGlossary(null)}
+                className="text-xs font-bold text-[var(--primary)] underline"
+              >
+                Dismiss
+              </button>
+            </div>
+          )}
+
+          <div className="space-y-4 max-w-3xl">
+            {pkg.readingChunks.map((chunk) => (
+              <article
+                key={chunk.id}
+                className="p-4 sm:p-5 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h4 className="text-sm sm:text-base font-extrabold text-[var(--ink)]">{chunk.subheading}</h4>
+                  <span className="text-[11px] font-bold text-[var(--text-muted)] font-mono-tabular">
+                    Book p. {chunk.printedPage} · PDF p. {chunk.pdfPage}
+                  </span>
+                </div>
+
+                <p className="text-sm text-[var(--ink)] leading-relaxed">{chunk.originalSummary}</p>
+
+                <div className="p-3 rounded-xl bg-amber-500/10 border-l-4 border-amber-500 text-xs sm:text-sm font-semibold text-[var(--ink)]">
+                  Key idea: {chunk.keySentenceHighlight}
+                </div>
+
+                {chunk.glossaryTerms.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                    <span className="font-bold text-[var(--text-muted)]">Glossary:</span>
+                    {chunk.glossaryTerms.map((g) => (
+                      <button
+                        key={g.term}
+                        type="button"
+                        onClick={() => setActiveGlossary(g)}
+                        className="px-2.5 py-1 rounded-lg border border-[var(--primary)]/30 bg-[var(--surface)] font-bold text-[var(--primary)] hover:bg-[var(--primary-tint)]"
+                      >
+                        {g.term}
                       </button>
                     ))}
-                    {pickedOpt && (
-                      <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs text-[var(--ink)]">
-                        <strong>{pickedOpt.isCorrect ? '✓ Good reasoning: ' : 'Check again: '}</strong>
-                        {pickedOpt.why}
-                      </div>
-                    )}
                   </div>
                 )}
 
-                {ex.modelPoints && (
-                  <div className="space-y-2">
-                    <button
-                      type="button"
-                      onClick={() => setOpenModelPoints((p) => ({ ...p, [ex.id]: !p[ex.id] }))}
-                      className="px-3.5 py-2 min-h-[40px] rounded-xl border border-[var(--line)] bg-[var(--surface)] text-xs font-bold text-[var(--ink)]"
-                    >
-                      {openModelPoints[ex.id] ? 'Hide structured answer points' : 'View structured answer points'}
-                    </button>
-                    {openModelPoints[ex.id] && (
-                      <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-[var(--ink)] bg-[var(--surface)] p-3.5 rounded-xl border border-[var(--line)]">
-                        {ex.modelPoints.map((pt) => (
-                          <li key={pt}>{pt}</li>
-                        ))}
-                      </ul>
-                    )}
+                <div className="flex flex-wrap gap-2 pt-1 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setOpenChunkExplain((p) => ({ ...p, [chunk.id]: !p[chunk.id] }))}
+                    className="px-3 py-1.5 min-h-[36px] rounded-xl border border-[var(--line)] bg-[var(--surface)] font-bold text-[var(--ink)]"
+                  >
+                    {openChunkExplain[chunk.id] ? 'Hide plain explanation' : 'Explain this chunk'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setOpenChunkRecall((p) => ({ ...p, [chunk.id]: !p[chunk.id] }))}
+                    className="px-3 py-1.5 min-h-[36px] rounded-xl border border-[var(--line)] bg-[var(--surface)] font-bold text-[var(--primary)]"
+                  >
+                    {openChunkRecall[chunk.id] ? 'Hide recall check' : 'What did I just read?'}
+                  </button>
+                </div>
+
+                {openChunkExplain[chunk.id] && (
+                  <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs sm:text-sm text-[var(--text)]">
+                    <strong>Plain meaning:</strong> {chunk.plainExplanation}
                   </div>
                 )}
 
-                <button
-                  type="button"
-                  onClick={() => setOpenHints((h) => ({ ...h, [ex.id]: !h[ex.id] }))}
-                  className="text-xs font-bold text-[var(--primary)] inline-flex items-center gap-1"
-                >
-                  <HelpCircle className="w-3.5 h-3.5" />
-                  <span>{openHints[ex.id] ? 'Hide hint' : 'Show hint'}</span>
-                </button>
-                {openHints[ex.id] && (
-                  <p className="text-xs text-[var(--text)] bg-[var(--canvas)] p-2.5 rounded-lg border border-[var(--line)]">
-                    <strong>Hint:</strong> {ex.hint}
-                  </p>
+                {openChunkRecall[chunk.id] && (
+                  <div className="p-3 rounded-xl bg-[var(--info-bg)] border border-[var(--primary)]/25 text-xs sm:text-sm text-[var(--ink)] space-y-1">
+                    <div className="font-bold">{chunk.recallPrompt}</div>
+                    <div><strong>Answer:</strong> {chunk.recallAnswer}</div>
+                  </div>
                 )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
+              </article>
+            ))}
+          </div>
 
-      {/* STAGE 8: READ THE BOOK, CHUNK BY CHUNK (RIGHTS-SAFE LOWER SECTION) */}
-      <section
-        id="textbook-reading"
-        aria-label="Read the textbook chunk by chunk"
-        className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-6 space-y-4 shadow-[var(--shadow-card)]"
-      >
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <div className="text-xs font-extrabold uppercase tracking-wider text-[var(--primary)] inline-flex items-center gap-1.5">
-              <BookOpen className="w-4 h-4" />
-              <span>8. Read the Book, Chunk by Chunk</span>
+          {/* Rule A7: Clearly Labelled Updated / Historical Context Note */}
+          {pkg.updatedContextNote && (
+            <div className="p-4 rounded-2xl border border-sky-500/35 bg-sky-500/10 text-xs sm:text-sm space-y-1 max-w-3xl">
+              <div className="font-extrabold text-sky-900 dark:text-sky-200">{pkg.updatedContextNote.label}</div>
+              <p className="text-[var(--text)]"><strong>Textbook note:</strong> {pkg.updatedContextNote.textbookStatement}</p>
+              <p className="text-[var(--ink)]"><strong>Updated context:</strong> {pkg.updatedContextNote.updatedContext}</p>
+              <div className="text-[11px] text-[var(--text-muted)]">Source: {pkg.updatedContextNote.datedSource}</div>
             </div>
-            <h3 className="text-base sm:text-lg font-extrabold text-[var(--ink)] mt-0.5">
-              Structured Source Guide · Printed pp. {pkg.source.printedPages.join(', ')} (PDF pp. {pkg.source.pdfPages.join(', ')})
-            </h3>
-            <p className="text-xs text-[var(--text-muted)] mt-0.5">
-              Respecting TNSCERT copyright, each chunk presents an original section-ordered summary alongside official page references and bilingual glossary terms.
-            </p>
-          </div>
-          <a
-            href={pkg.source.officialPortalUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="px-3.5 py-2 min-h-[40px] rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] text-xs font-bold text-[var(--primary)] inline-flex items-center gap-1.5 shrink-0"
-          >
-            <span>Official TN Textbooks Portal</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-        </div>
-
-        {/* Active Glossary Popover Strip */}
-        {activeGlossary && (
-          <div className="p-3.5 rounded-xl bg-[var(--info-bg)] border border-[var(--primary)]/30 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
-            <div>
-              <strong className="text-[var(--ink)]">{activeGlossary.term}</strong>
-              {activeGlossary.tamil && (
-                <span lang="ta" className="font-tamil text-[var(--tamil)] font-bold ml-2">
-                  ({activeGlossary.tamil})
-                </span>
-              )}
-              <span className="text-[var(--text)]"> — {activeGlossary.meaning}</span>
-            </div>
-            <button
-              type="button"
-              onClick={() => setActiveGlossary(null)}
-              className="text-xs font-bold text-[var(--primary)] underline"
-            >
-              Dismiss
-            </button>
-          </div>
-        )}
-
-        <div className="space-y-4 max-w-3xl">
-          {pkg.readingChunks.map((chunk) => (
-            <article
-              key={chunk.id}
-              className="p-4 sm:p-5 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h4 className="text-sm sm:text-base font-extrabold text-[var(--ink)]">{chunk.subheading}</h4>
-                <span className="text-[11px] font-bold text-[var(--text-muted)] font-mono-tabular">
-                  Book p. {chunk.printedPage} · PDF p. {chunk.pdfPage}
-                </span>
-              </div>
-
-              <p className="text-sm text-[var(--ink)] leading-relaxed">{chunk.originalSummary}</p>
-
-              <div className="p-3 rounded-xl bg-amber-500/10 border-l-4 border-amber-500 text-xs sm:text-sm font-semibold text-[var(--ink)]">
-                Key idea: {chunk.keySentenceHighlight}
-              </div>
-
-              {chunk.glossaryTerms.length > 0 && (
-                <div className="flex flex-wrap items-center gap-1.5 text-xs">
-                  <span className="font-bold text-[var(--text-muted)]">Glossary:</span>
-                  {chunk.glossaryTerms.map((g) => (
-                    <button
-                      key={g.term}
-                      type="button"
-                      onClick={() => setActiveGlossary(g)}
-                      className="px-2.5 py-1 rounded-lg border border-[var(--primary)]/30 bg-[var(--surface)] font-bold text-[var(--primary)] hover:bg-[var(--primary-tint)]"
-                    >
-                      {g.term}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              <div className="flex flex-wrap gap-2 pt-1 text-xs">
-                <button
-                  type="button"
-                  onClick={() => setOpenChunkExplain((p) => ({ ...p, [chunk.id]: !p[chunk.id] }))}
-                  className="px-3 py-1.5 min-h-[36px] rounded-xl border border-[var(--line)] bg-[var(--surface)] font-bold text-[var(--ink)]"
-                >
-                  {openChunkExplain[chunk.id] ? 'Hide plain explanation' : 'Explain this chunk'}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setOpenChunkRecall((p) => ({ ...p, [chunk.id]: !p[chunk.id] }))}
-                  className="px-3 py-1.5 min-h-[36px] rounded-xl border border-[var(--line)] bg-[var(--surface)] font-bold text-[var(--primary)]"
-                >
-                  {openChunkRecall[chunk.id] ? 'Hide recall check' : 'What did I just read?'}
-                </button>
-              </div>
-
-              {openChunkExplain[chunk.id] && (
-                <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs sm:text-sm text-[var(--text)]">
-                  <strong>Plain meaning:</strong> {chunk.plainExplanation}
-                </div>
-              )}
-
-              {openChunkRecall[chunk.id] && (
-                <div className="p-3 rounded-xl bg-[var(--info-bg)] border border-[var(--primary)]/25 text-xs sm:text-sm text-[var(--ink)] space-y-1">
-                  <div className="font-bold">{chunk.recallPrompt}</div>
-                  <div><strong>Answer:</strong> {chunk.recallAnswer}</div>
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-
-        {/* Rule A7: Clearly Labelled Updated / Historical Context Note */}
-        {pkg.updatedContextNote && (
-          <div className="p-4 rounded-2xl border border-sky-500/35 bg-sky-500/10 text-xs sm:text-sm space-y-1 max-w-3xl">
-            <div className="font-extrabold text-sky-900 dark:text-sky-200">{pkg.updatedContextNote.label}</div>
-            <p className="text-[var(--text)]"><strong>Textbook note:</strong> {pkg.updatedContextNote.textbookStatement}</p>
-            <p className="text-[var(--ink)]"><strong>Updated context:</strong> {pkg.updatedContextNote.updatedContext}</p>
-            <div className="text-[11px] text-[var(--text-muted)]">Source: {pkg.updatedContextNote.datedSource}</div>
-          </div>
-        )}
-      </section>
+          )}
+        </section>
+      )}
 
       {/* STAGE 9: FINISH & NEXT */}
       <section
@@ -780,13 +843,12 @@ export function UnifiedSubsectionPlayer({
                   ? 'Explore the interactive or check your reasoning first, or click again after interacting'
                   : 'Save this subsection as understood on this device'
               }
-              className={`px-4 py-2.5 min-h-[44px] rounded-xl border text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 ${
-                isCompleted
-                  ? 'bg-[var(--success-bg)] border-[var(--success)] text-[var(--success)]'
-                  : userEngaged
-                    ? 'bg-[var(--science)] text-white border-[var(--science)]'
-                    : 'bg-[var(--surface-subtle)] text-[var(--text-muted)] border-[var(--line)] cursor-not-allowed'
-              }`}
+              className={`px-4 py-2.5 min-h-[44px] rounded-xl border text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 ${isCompleted
+                ? 'bg-[var(--success-bg)] border-[var(--success)] text-[var(--success)]'
+                : userEngaged
+                  ? 'bg-[var(--science)] text-white border-[var(--science)]'
+                  : 'bg-[var(--surface-subtle)] text-[var(--text-muted)] border-[var(--line)] cursor-not-allowed'
+                }`}
             >
               <CheckCircle2 className="w-4 h-4" />
               <span>

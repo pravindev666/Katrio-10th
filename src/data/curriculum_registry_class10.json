@@ -10,14 +10,15 @@
   "audit_totals": {
     "subjects": 5,
     "units": 72,
-    "toc_verified_sections": 113,
+    "toc_verified_sections": 116,
     "auto_extracted_candidates": 578,
-    "total_sections": 691,
+    "total_sections": 694,
     "source_page_anchors": 1387,
     "evidence_markers": 370,
     "pass0_corrected_headings": 176,
     "pass0_rejected_candidates": 0,
-    "pilot_lessons_count": 85
+    "pilot_lessons_count": 85,
+    "body_verified_extensions": 3
   },
   "subjects": [
     {
@@ -39750,6 +39751,26 @@
       "accessibility_fallback": "Chronological evidence table with dated cause-and-consequence cards and text map descriptions for The World after World War II.",
       "sections": [
         {
+          "id": "social-history-04-4-1-chinese-revolution",
+          "unit_id": "social-history-04",
+          "subject": "social_science",
+          "strand": "history",
+          "section_number": "4.1",
+          "title": "Chinese Revolution",
+          "route": "/class-10/social_science/social-history-04/social-history-04-4-1-chinese-revolution",
+          "printed_page": 40,
+          "pdf_page": 46,
+          "source_status": "toc_verified",
+          "body_verified_extension": true,
+          "review_status": "pending_review",
+          "content_status": "pilot_ready",
+          "representation_status": "interactive_2d",
+          "activity_template": "TimelineMap",
+          "learning_goal_placeholder": "Trace how China transitioned from Manchu rule and the 1911 Republic to Mao Tse-tung’s Long March (1934) and the People’s Republic of China (1949).",
+          "accessibility_fallback": "Structured chronological outline and cause-effect table of China from 1911 to 1949.",
+          "source_pdf": "Class_10_Social_Science_English_2025_Edition-www.tntextbooks.in.pdf"
+        },
+        {
           "id": "social-history-04-auto-4-2-cold-war-rivalry",
           "unit_id": "social-history-04",
           "subject": "social_science",
@@ -39762,7 +39783,7 @@
           "printed_page": 43,
           "pdf_page": 49,
           "source_status": "auto_extracted_review_required",
-          "content_status": "planned",
+          "content_status": "pilot_ready",
           "review_status": "pass0_pdf_verified_pending_human",
           "interaction_status": "placeholder_scaffold",
           "pass0_audit_action": "corrected",
@@ -39770,7 +39791,7 @@
           "route": "/class-10/social_science/social-history-04/social-history-04-auto-4-2-cold-war-rivalry",
           "activity_template": "TimelineMap",
           "suggested_activity_plan": "EvidenceTimeMap + date/source cards + cause-effect + reflection",
-          "representation_status": "Measured/Observed",
+          "representation_status": "interactive_2d",
           "accessibility_fallback": "Chronological evidence table with dated cause-and-consequence cards and text map descriptions for Cold War: Rivalry between the US and the Soviet Union.",
           "learning_goal_placeholder": "Awaiting educator-verified learning objective for \"Cold War: Rivalry between the US and the Soviet Union\" (History 4, printed p. 43).",
           "assets": [
@@ -39790,6 +39811,26 @@
           ]
         },
         {
+          "id": "social-history-04-4-3-formation-of-military-alliances",
+          "unit_id": "social-history-04",
+          "subject": "social_science",
+          "strand": "history",
+          "section_number": "4.3",
+          "title": "Formation of Military Alliances",
+          "route": "/class-10/social_science/social-history-04/social-history-04-4-3-formation-of-military-alliances",
+          "printed_page": 43,
+          "pdf_page": 49,
+          "source_status": "toc_verified",
+          "body_verified_extension": true,
+          "review_status": "pending_review",
+          "content_status": "pilot_ready",
+          "representation_status": "interactive_2d",
+          "activity_template": "TimelineMap",
+          "learning_goal_placeholder": "Compare NATO (1949), SEATO/Manila Pact (1954), Warsaw Pact (1955), and CENTO/Baghdad Pact (1955) in Cold War geopolitics.",
+          "accessibility_fallback": "Accessible comparison table of Cold War military alliances, founding dates, members, and objectives.",
+          "source_pdf": "Class_10_Social_Science_English_2025_Edition-www.tntextbooks.in.pdf"
+        },
+        {
           "id": "social-history-04-auto-4-4-korean-war",
           "unit_id": "social-history-04",
           "subject": "social_science",
@@ -39801,7 +39842,7 @@
           "printed_page": 44,
           "pdf_page": 50,
           "source_status": "auto_extracted_review_required",
-          "content_status": "planned",
+          "content_status": "pilot_ready",
           "review_status": "pass0_pdf_verified_pending_human",
           "interaction_status": "placeholder_scaffold",
           "pass0_audit_action": "approved",
@@ -39809,7 +39850,7 @@
           "route": "/class-10/social_science/social-history-04/social-history-04-auto-4-4-korean-war",
           "activity_template": "TimelineMap",
           "suggested_activity_plan": "EvidenceTimeMap + date/source cards + cause-effect + reflection",
-          "representation_status": "Measured/Observed",
+          "representation_status": "interactive_2d",
           "accessibility_fallback": "Chronological evidence table with dated cause-and-consequence cards and text map descriptions for Korean War.",
           "learning_goal_placeholder": "Awaiting educator-verified learning objective for \"Korean War\" (History 4, printed p. 44).",
           "assets": [
@@ -39840,7 +39881,7 @@
           "printed_page": 44,
           "pdf_page": 50,
           "source_status": "auto_extracted_review_required",
-          "content_status": "planned",
+          "content_status": "pilot_ready",
           "review_status": "pass0_pdf_verified_pending_human",
           "interaction_status": "placeholder_scaffold",
           "pass0_audit_action": "approved",
@@ -39848,7 +39889,7 @@
           "route": "/class-10/social_science/social-history-04/social-history-04-auto-4-5-non-aligned-movement",
           "activity_template": "TimelineMap",
           "suggested_activity_plan": "EvidenceTimeMap + date/source cards + cause-effect + reflection",
-          "representation_status": "Measured/Observed",
+          "representation_status": "interactive_2d",
           "accessibility_fallback": "Chronological evidence table with dated cause-and-consequence cards and text map descriptions for Non-Aligned Movement.",
           "learning_goal_placeholder": "Awaiting educator-verified learning objective for \"Non-Aligned Movement\" (History 4, printed p. 44).",
           "assets": [
@@ -39879,7 +39920,7 @@
           "printed_page": 44,
           "pdf_page": 50,
           "source_status": "auto_extracted_review_required",
-          "content_status": "planned",
+          "content_status": "pilot_ready",
           "review_status": "pass0_pdf_verified_pending_human",
           "interaction_status": "placeholder_scaffold",
           "pass0_audit_action": "approved",
@@ -39887,7 +39928,7 @@
           "route": "/class-10/social_science/social-history-04/social-history-04-auto-4-6-the-cuban-revolution",
           "activity_template": "TimelineMap",
           "suggested_activity_plan": "EvidenceTimeMap + date/source cards + cause-effect + reflection",
-          "representation_status": "Measured/Observed",
+          "representation_status": "interactive_2d",
           "accessibility_fallback": "Chronological evidence table with dated cause-and-consequence cards and text map descriptions for The Cuban Revolution.",
           "learning_goal_placeholder": "Awaiting educator-verified learning objective for \"The Cuban Revolution\" (History 4, printed p. 44).",
           "assets": [
@@ -39918,7 +39959,7 @@
           "printed_page": 45,
           "pdf_page": 51,
           "source_status": "auto_extracted_review_required",
-          "content_status": "planned",
+          "content_status": "pilot_ready",
           "review_status": "pass0_pdf_verified_pending_human",
           "interaction_status": "placeholder_scaffold",
           "pass0_audit_action": "approved",
@@ -39926,7 +39967,7 @@
           "route": "/class-10/social_science/social-history-04/social-history-04-auto-4-7-arab-israeli-war",
           "activity_template": "TimelineMap",
           "suggested_activity_plan": "EvidenceTimeMap + date/source cards + cause-effect + reflection",
-          "representation_status": "Measured/Observed",
+          "representation_status": "interactive_2d",
           "accessibility_fallback": "Chronological evidence table with dated cause-and-consequence cards and text map descriptions for Arab-Israeli War.",
           "learning_goal_placeholder": "Awaiting educator-verified learning objective for \"Arab-Israeli War\" (History 4, printed p. 45).",
           "assets": [
@@ -39957,7 +39998,7 @@
           "printed_page": 47,
           "pdf_page": 53,
           "source_status": "auto_extracted_review_required",
-          "content_status": "planned",
+          "content_status": "pilot_ready",
           "review_status": "pass0_pdf_verified_pending_human",
           "interaction_status": "placeholder_scaffold",
           "pass0_audit_action": "approved",
@@ -39965,7 +40006,7 @@
           "route": "/class-10/social_science/social-history-04/social-history-04-auto-4-8-vietnam-war",
           "activity_template": "TimelineMap",
           "suggested_activity_plan": "EvidenceTimeMap + date/source cards + cause-effect + reflection",
-          "representation_status": "Measured/Observed",
+          "representation_status": "interactive_2d",
           "accessibility_fallback": "Chronological evidence table with dated cause-and-consequence cards and text map descriptions for Vietnam War.",
           "learning_goal_placeholder": "Awaiting educator-verified learning objective for \"Vietnam War\" (History 4, printed p. 47).",
           "assets": [
@@ -39996,7 +40037,7 @@
           "printed_page": 48,
           "pdf_page": 54,
           "source_status": "auto_extracted_review_required",
-          "content_status": "planned",
+          "content_status": "pilot_ready",
           "review_status": "pass0_pdf_verified_pending_human",
           "interaction_status": "placeholder_scaffold",
           "pass0_audit_action": "approved",
@@ -40004,7 +40045,7 @@
           "route": "/class-10/social_science/social-history-04/social-history-04-auto-4-9-towards-european-union",
           "activity_template": "TimelineMap",
           "suggested_activity_plan": "EvidenceTimeMap + date/source cards + cause-effect + reflection",
-          "representation_status": "Measured/Observed",
+          "representation_status": "interactive_2d",
           "accessibility_fallback": "Chronological evidence table with dated cause-and-consequence cards and text map descriptions for Towards European Union.",
           "learning_goal_placeholder": "Awaiting educator-verified learning objective for \"Towards European Union\" (History 4, printed p. 48).",
           "assets": [
@@ -40022,6 +40063,26 @@
               "pdf_page_end": 54
             }
           ]
+        },
+        {
+          "id": "social-history-04-4-10-fall-of-berlin-wall-and-end-of-cold-war-era",
+          "unit_id": "social-history-04",
+          "subject": "social_science",
+          "strand": "history",
+          "section_number": "4.10",
+          "title": "Fall of Berlin Wall and End of Cold War Era",
+          "route": "/class-10/social_science/social-history-04/social-history-04-4-10-fall-of-berlin-wall-and-end-of-cold-war-era",
+          "printed_page": 48,
+          "pdf_page": 54,
+          "source_status": "toc_verified",
+          "body_verified_extension": true,
+          "review_status": "pending_review",
+          "content_status": "pilot_ready",
+          "representation_status": "interactive_2d",
+          "activity_template": "TimelineMap",
+          "learning_goal_placeholder": "Explain how Glasnost, Perestroika, Eastern European uprisings, the Fall of the Berlin Wall (9 Nov 1989), and the 1991 Soviet dissolution ended the Cold War.",
+          "accessibility_fallback": "Chronological text narrative and cause-effect sequence from 1961 Berlin Wall to 31 December 1991.",
+          "source_pdf": "Class_10_Social_Science_English_2025_Edition-www.tntextbooks.in.pdf"
         }
       ],
       "source_page_anchors": [
@@ -40215,7 +40276,8 @@
           "pdf_page_start": 46,
           "pdf_page_end": 58
         }
-      ]
+      ],
+      "verified_count": 10
     },
     {
       "id": "social-history-05",

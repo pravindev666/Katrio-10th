@@ -64,7 +64,10 @@ if (isMain) {
   ].join('\n');
   fs.writeFileSync(path.resolve(publicDir, 'sitemap.xml'), sitemapXml, 'utf-8');
 
+  const sectionRouteCount = registry.units.reduce((acc, u) => acc + u.sections.length, 0);
   console.log(`=== KATRIO LINK & ROUTE AUDIT ===`);
-  console.log(`Verified ${routes.length} canonical routes (19 top-level/hub routes + 72 unit routes + 691 section routes).`);
+  console.log(
+    `Verified ${routes.length} canonical routes (19 top-level/hub routes + ${registry.units.length} unit routes + ${sectionRouteCount} section routes).`,
+  );
   console.log(`Generated public/sitemap.xml and public/_redirects for Cloudflare Pages.`);
 }

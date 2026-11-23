@@ -21,6 +21,7 @@ import {
 import { Breadcrumbs } from '../components/chrome/Breadcrumbs';
 import { SourcePageDrawer } from '../components/curriculum/SourcePageDrawer';
 import { ChapterMindMapCard } from '../components/curriculum/ChapterMindMapCard';
+import { UnifiedSubsectionPlayer } from '../components/curriculum/UnifiedSubsectionPlayer';
 import { EngineShell } from '../components/engines/EngineShell';
 import { VisualFlashcardDeck } from '../components/engines/VisualFlashcardDeck';
 import {
@@ -31,6 +32,7 @@ import {
   formatSourceStatusLabel,
 } from '../utils/curriculumStore';
 import { getLessonContentBySectionId } from '../data/lesson_content';
+import { getSubsectionLessonById } from '../data/history_unit4_index';
 import { getChapterConceptChecks } from '../data/chapterQuizzes';
 import { useProgress } from '../features/local-progress/ProgressContext';
 import { getSectionProgressStage } from '../features/local-progress/progressStore';
@@ -135,19 +137,21 @@ export function SectionPlayerPage() {
   }
 
   const { unit, section, prevSection, nextSection, nextVerifiedSection } = resolved;
+  const unifiedLesson = getSubsectionLessonById(section.id);
   const lessonPkg = getLessonContentBySectionId(section.id);
   const studentStatus = getStudentSectionStatus(section);
   const sourceStatusMeta = formatSourceStatusLabel(section.source_status);
   const isUnderReview = section.source_status === 'auto_extracted_review_required';
   const isBookmarked = record.bookmarkedSections.includes(section.id);
   const progressStage = getSectionProgressStage(record, section.id);
-  const curiosityQuestion = lessonPkg?.curiosity_hook ?? getUnitCuriosityQuestion(unit);
+  const curiosityQuestion =
+    unifiedLesson?.goalOneLiner ?? lessonPkg?.curiosity_hook ?? getUnitCuriosityQuestion(unit);
 
   const verifiedSections = unit.sections.filter(
-    (s) => s.source_status !== 'auto_extracted_review_required',
+    (s) => s.source_status !== 'auto_extracted_review_required' || Boolean(getSubsectionLessonById(s.id)),
   );
   const reviewSections = unit.sections.filter(
-    (s) => s.source_status === 'auto_extracted_review_required',
+    (s) => s.source_status === 'auto_extracted_review_required' && !getSubsectionLessonById(s.id),
   );
   const reviewOutlineExpanded =
     showReviewSubtopicsInOutline || isUnderReview || verifiedSections.length === 0;
@@ -297,7 +301,10 @@ export function SectionPlayerPage() {
               className={`text-[11px] mt-0.5 ${isCurrent ? 'text-white/85' : 'text-[var(--text-muted)]'
                 }`}
             >
-              p. {sec.printed_page} · {sec.lesson_content_id ? 'Pilot ready' : 'TOC verified'}
+              p. {sec.printed_page} ·{' '}
+              {getSubsectionLessonById(sec.id) || sec.lesson_content_id
+                ? 'Interactive lesson'
+                : 'Book topic'}
             </div>
           </Link>
         );
@@ -312,7 +319,7 @@ export function SectionPlayerPage() {
               aria-expanded={reviewOutlineExpanded}
               className="w-full px-2 py-1.5 text-left text-xs font-bold text-[var(--text-muted)] hover:text-[var(--ink)] flex items-center justify-between gap-1"
             >
-              <span>Subheadings in audit ({reviewSections.length})</span>
+              <span>More chapter subtopics ({reviewSections.length})</span>
               {reviewOutlineExpanded ? (
                 <ChevronDown className="w-3.5 h-3.5 shrink-0" />
               ) : (
@@ -347,7 +354,7 @@ export function SectionPlayerPage() {
                         }`}
                     >
                       p. {sec.printed_page} ·{' '}
-                      {sec.lesson_content_id ? '★ Pilot ready' : 'Awaiting editorial review'}
+                      {sec.lesson_content_id ? 'Interactive lesson' : 'Book topic'}
                     </div>
                   </Link>
                 );
@@ -380,11 +387,6 @@ export function SectionPlayerPage() {
               <span className={`px-2 py-0.5 rounded-md text-[11px] font-bold border ${progressBadge.className}`}>
                 {progressBadge.label}
               </span>
-              {isUnderReview && (
-                <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-[var(--warning-bg)] text-[var(--warning)] border border-[var(--warning)]/30">
-                  {sourceStatusMeta.shortLabel}
-                </span>
-              )}
             </div>
 
             <h1
@@ -427,18 +429,20 @@ export function SectionPlayerPage() {
               </button>
             )}
 
-            <button
-              type="button"
-              onClick={() => updatePreferences({ prefer2DPathway: !preferences.prefer2DPathway })}
-              aria-pressed={preferences.prefer2DPathway}
-              className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition-colors ${preferences.prefer2DPathway
-                ? 'bg-[var(--primary)] text-white border-[var(--primary)]'
-                : 'bg-[var(--surface-subtle)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--primary)]'
-                }`}
-            >
-              <Eye className="w-3.5 h-3.5" />
-              <span>2D view</span>
-            </button>
+            {!unifiedLesson && (
+              <button
+                type="button"
+                onClick={() => updatePreferences({ prefer2DPathway: !preferences.prefer2DPathway })}
+                aria-pressed={preferences.prefer2DPathway}
+                className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition-colors ${preferences.prefer2DPathway
+                  ? 'bg-[var(--primary)] text-white border-[var(--primary)]'
+                  : 'bg-[var(--surface-subtle)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--primary)]'
+                  }`}
+              >
+                <Eye className="w-3.5 h-3.5" />
+                <span>2D view</span>
+              </button>
+            )}
 
             <button
               type="button"
@@ -477,69 +481,71 @@ export function SectionPlayerPage() {
           </div>
         </div>
 
-        {/* Clean Single-Row 4-Step Pill Tabs + Prev/Next Topic */}
-        <div className="pt-2.5 border-t border-[var(--line)] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-          <div
-            role="tablist"
-            aria-label="Lesson learning steps"
-            className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 flex-1"
-          >
-            {LESSON_STEPS.map((step, idx) => {
-              const isSelected = activeStep === step.id;
-              return (
-                <button
-                  key={step.id}
-                  ref={(el) => {
-                    tabRefs.current[step.id] = el;
-                  }}
-                  id={`lesson-tab-${step.id}`}
-                  type="button"
-                  role="tab"
-                  aria-selected={isSelected}
-                  aria-controls={`lesson-panel-${step.id}`}
-                  tabIndex={isSelected ? 0 : -1}
-                  onClick={() => handleStepSelect(step.id)}
-                  onKeyDown={(e) => handleTabKeyDown(e, idx)}
-                  className={`px-3.5 py-2 min-h-[40px] rounded-xl border text-left transition-all flex items-center gap-2 ${isSelected
-                    ? 'bg-[var(--primary)] text-white border-[var(--primary)] shadow-xs'
-                    : 'bg-[var(--surface-subtle)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--primary)]'
-                    }`}
-                >
-                  <span
-                    className={`w-5 h-5 rounded-full text-[11px] font-extrabold inline-flex items-center justify-center shrink-0 ${isSelected
-                      ? 'bg-white text-[var(--primary)]'
-                      : 'bg-[var(--surface)] text-[var(--text-muted)] border border-[var(--line)]'
+        {/* Clean Single-Row 4-Step Pill Tabs (legacy lessons) OR Prev/Next bar (unified lessons) */}
+        {!unifiedLesson && (
+          <div className="pt-2.5 border-t border-[var(--line)] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+            <div
+              role="tablist"
+              aria-label="Lesson learning steps"
+              className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 flex-1"
+            >
+              {LESSON_STEPS.map((step, idx) => {
+                const isSelected = activeStep === step.id;
+                return (
+                  <button
+                    key={step.id}
+                    ref={(el) => {
+                      tabRefs.current[step.id] = el;
+                    }}
+                    id={`lesson-tab-${step.id}`}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
+                    aria-controls={`lesson-panel-${step.id}`}
+                    tabIndex={isSelected ? 0 : -1}
+                    onClick={() => handleStepSelect(step.id)}
+                    onKeyDown={(e) => handleTabKeyDown(e, idx)}
+                    className={`px-3.5 py-2 min-h-[40px] rounded-xl border text-left transition-all flex items-center gap-2 ${isSelected
+                      ? 'bg-[var(--primary)] text-white border-[var(--primary)] shadow-xs'
+                      : 'bg-[var(--surface-subtle)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--primary)]'
                       }`}
                   >
-                    {step.stepNumber}
-                  </span>
-                  <span className="text-xs sm:text-sm font-extrabold leading-tight">{step.label}</span>
-                </button>
-              );
-            })}
-          </div>
+                    <span
+                      className={`w-5 h-5 rounded-full text-[11px] font-extrabold inline-flex items-center justify-center shrink-0 ${isSelected
+                        ? 'bg-white text-[var(--primary)]'
+                        : 'bg-[var(--surface)] text-[var(--text-muted)] border border-[var(--line)]'
+                        }`}
+                    >
+                      {step.stepNumber}
+                    </span>
+                    <span className="text-xs sm:text-sm font-extrabold leading-tight">{step.label}</span>
+                  </button>
+                );
+              })}
+            </div>
 
-          <div className="flex items-center gap-1.5 shrink-0">
-            {prevSection && (
-              <Link
-                to={prevSection.route}
-                className="min-h-[38px] px-3 py-1.5 rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] hover:border-[var(--primary)] text-xs font-bold text-[var(--ink)] inline-flex items-center gap-1"
-              >
-                <ArrowLeft className="w-3.5 h-3.5" />
-                <span>Prev</span>
-              </Link>
-            )}
-            {nextSection && (
-              <Link
-                to={nextSection.route}
-                className="min-h-[38px] px-3 py-1.5 rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] hover:border-[var(--primary)] text-xs font-bold text-[var(--ink)] inline-flex items-center gap-1"
-              >
-                <span>Next</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            )}
+            <div className="flex items-center gap-1.5 shrink-0">
+              {prevSection && (
+                <Link
+                  to={prevSection.route}
+                  className="min-h-[38px] px-3 py-1.5 rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] hover:border-[var(--primary)] text-xs font-bold text-[var(--ink)] inline-flex items-center gap-1"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Prev</span>
+                </Link>
+              )}
+              {nextSection && (
+                <Link
+                  to={nextSection.route}
+                  className="min-h-[38px] px-3 py-1.5 rounded-xl border border-[var(--line)] bg-[var(--surface-subtle)] hover:border-[var(--primary)] text-xs font-bold text-[var(--ink)] inline-flex items-center gap-1"
+                >
+                  <span>Next</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </header>
 
       {/* Mobile Chapter Outline Drawer */}
@@ -615,12 +621,33 @@ export function SectionPlayerPage() {
         )}
 
         <div className={`${showSidebarDesktop ? 'lg:col-span-9' : 'lg:col-span-12'} space-y-6`}>
-          <div
-            id={`lesson-panel-${activeStep}`}
-            role="tabpanel"
-            aria-labelledby={`lesson-tab-${activeStep}`}
-            className="space-y-5"
-          >
+          {unifiedLesson ? (
+            <UnifiedSubsectionPlayer
+              key={unifiedLesson.id}
+              pkg={unifiedLesson}
+              prevRoute={
+                prevSection
+                  ? { label: `${prevSection.section_number} ${prevSection.title}`, to: prevSection.route }
+                  : undefined
+              }
+              nextRoute={
+                nextSection
+                  ? { label: `${nextSection.section_number} ${nextSection.title}`, to: nextSection.route }
+                  : undefined
+              }
+              isCompleted={progressStage === 'completed'}
+              isReviewLater={isBookmarked}
+              onMarkPractised={() => markSectionPractised(section.id)}
+              onMarkCompleted={() => markDemoCompleted(section.id)}
+              onToggleReviewLater={() => toggleBookmarkSection(section.id)}
+            />
+          ) : (
+            <div
+              id={`lesson-panel-${activeStep}`}
+              role="tabpanel"
+              aria-labelledby={`lesson-tab-${activeStep}`}
+              className="space-y-5"
+            >
             {/* STEP 1: EXPLORE — Interactive Lab Immediately Front & Center! */}
             {activeStep === 'explore' && (
               <div className="space-y-4">
@@ -1018,10 +1045,11 @@ export function SectionPlayerPage() {
                 )}
               </div>
             )}
-          </div>
+            </div>
+          )}
 
           {/* Optional Study Tools Below (Flashcards & Recap) */}
-          {lessonPkg && (
+          {!unifiedLesson && lessonPkg && (
             <section
               aria-label="Additional study tools"
               className="rounded-[20px] border border-[var(--line)] bg-[var(--surface)] p-5 space-y-4"
@@ -1150,7 +1178,18 @@ export function SectionPlayerPage() {
                     · Rights review: {lessonPkg.rights_reviewed ? 'Cleared' : 'Pending'}
                   </p>
                 )}
+                {unifiedLesson && (
+                  <p>
+                    <strong className="text-[var(--ink)]">Editorial Gate (360° Pilot):</strong> Status{' '}
+                    <code>{unifiedLesson.source.editorialReviewStatus}</code> · Provenance{' '}
+                    <code>{unifiedLesson.source.provenanceStatus}</code> · Source PDF:{' '}
+                    {unifiedLesson.source.edition} (printed pp.{' '}
+                    {unifiedLesson.source.printedPages.join(', ')}, PDF pp.{' '}
+                    {unifiedLesson.source.pdfPages.join(', ')}) · Pending human TN Class 10 teacher &amp; student sign-off (Gate 4).
+                  </p>
+                )}
                 <p>
+                  <strong className="text-[var(--ink)]">Index status:</strong> {sourceStatusMeta.label}.{' '}
                   <strong className="text-[var(--ink)]">Visual representation:</strong>{' '}
                   {section.representation_status}.
                 </p>

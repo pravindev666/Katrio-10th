@@ -20,6 +20,7 @@ import {
   getStudentSectionStatus,
   getUnitCuriosityQuestion,
 } from '../utils/curriculumStore';
+import { getSubsectionLessonById } from '../data/history_unit4_index';
 import { useProgress } from '../features/local-progress/ProgressContext';
 import { getSectionProgressStage } from '../features/local-progress/progressStore';
 import { NotFoundPage } from './NotFoundPage';
@@ -38,16 +39,24 @@ export function UnitPage() {
   }
 
   const verifiedSections = unit.sections.filter(
-    (s) => s.source_status !== 'auto_extracted_review_required',
+    (s) => s.source_status !== 'auto_extracted_review_required' || Boolean(getSubsectionLessonById(s.id)),
   );
   const reviewSections = unit.sections.filter(
-    (s) => s.source_status === 'auto_extracted_review_required',
+    (s) => s.source_status === 'auto_extracted_review_required' && !getSubsectionLessonById(s.id),
   );
 
   const recommendedSection =
+    unit.sections.find((s) => Boolean(getSubsectionLessonById(s.id))) ??
     unit.sections.find((s) => Boolean(s.lesson_content_id || s.demo_id)) ??
     verifiedSections.find((s) => getSectionProgressStage(record, s.id) !== 'completed') ??
     unit.sections[0];
+
+  const isRecommendedReady = Boolean(
+    recommendedSection &&
+    (getSubsectionLessonById(recommendedSection.id) ||
+      recommendedSection.lesson_content_id ||
+      recommendedSection.demo_id),
+  );
 
   const curiosityQuestion = getUnitCuriosityQuestion(unit);
   const normalizedQuery = topicQuery.trim().toLowerCase();
@@ -178,9 +187,9 @@ export function UnitPage() {
                   <Sparkles className="w-4 h-4" />
                   <span>Recommended next</span>
                 </span>
-                {recommendedSection.lesson_content_id || recommendedSection.demo_id ? (
+                {isRecommendedReady ? (
                   <span className="px-2.5 py-0.5 rounded-full bg-[var(--success-bg)] text-[var(--success)] text-xs font-bold">
-                    Pilot interactive ready
+                    Interactive lesson ready
                   </span>
                 ) : (
                   <span className="px-2.5 py-0.5 rounded-full bg-[var(--surface-subtle)] text-[var(--text-muted)] text-xs font-semibold">
@@ -198,9 +207,9 @@ export function UnitPage() {
                   {recommendedSection.section_number} {recommendedSection.title}
                 </h2>
                 <p className="text-sm text-[var(--text-muted)] mt-1">
-                  {recommendedSection.lesson_content_id || recommendedSection.demo_id
-                    ? 'Hands-on visual exploration, textbook-aligned explanation, flashcards, and concept check ready now.'
-                    : 'Textbook topic indexed to printed pages; interactive lesson package queued for editorial build.'}
+                  {isRecommendedReady
+                    ? 'Simple explanation, interactive visuals, textbook-linked study notes, and untimed practice ready now.'
+                    : 'Textbook topic linked to printed pages; interactive lesson package queued for authoring.'}
                 </p>
               </div>
 
@@ -210,8 +219,8 @@ export function UnitPage() {
               >
                 <Play className="w-4 h-4 fill-current" />
                 <span>
-                  {recommendedSection.lesson_content_id || recommendedSection.demo_id
-                    ? 'Start interactive pilot'
+                  {isRecommendedReady
+                    ? 'Start interactive lesson'
                     : 'Open topic'}
                 </span>
               </Link>
@@ -356,8 +365,8 @@ export function UnitPage() {
                   <div className="flex items-center gap-2 shrink-0">
                     <span
                       className={`px-4 py-2.5 min-h-[44px] rounded-[12px] text-sm font-bold inline-flex items-center gap-1.5 whitespace-nowrap ${isInteractive
-                          ? 'bg-[var(--primary)] text-white'
-                          : 'bg-[var(--surface-subtle)] text-[var(--primary)] border border-[var(--line)]'
+                        ? 'bg-[var(--primary)] text-white'
+                        : 'bg-[var(--surface-subtle)] text-[var(--primary)] border border-[var(--line)]'
                         }`}
                     >
                       <span>{status.ctaLabel}</span>
@@ -387,8 +396,7 @@ export function UnitPage() {
                     : `View all ${matchingReview.length} additional textbook subtopics in this chapter`}
                 </span>
                 <span className="text-xs text-[var(--text-muted)] block">
-                  Numbered textbook subheadings audited against the supplied PDFs and awaiting
-                  human educator sign-off — pilot interactive lessons are marked ready below.
+                  Numbered textbook subtopics matched to printed pages — select any topic to explore.
                 </span>
               </div>
               <span className="px-3.5 py-2 min-h-[40px] rounded-xl bg-[var(--surface)] border border-[var(--line)] text-xs font-bold text-[var(--ink)] inline-flex items-center gap-1.5 shrink-0">
@@ -423,17 +431,12 @@ export function UnitPage() {
                           </span>
                           <span aria-hidden="true">·</span>
                           {isInteractive ? (
-                            <>
-                              <span className="px-2.5 py-0.5 rounded-full bg-[var(--success-bg)] text-[var(--success)] font-bold inline-flex items-center gap-1">
-                                <CheckCircle2 className="w-3.5 h-3.5" />
-                                <span>{status.badgeLabel}</span>
-                              </span>
-                              <span className="px-2 py-0.5 rounded bg-[var(--warning-bg)] text-[var(--warning)] font-semibold">
-                                Heading in review
-                              </span>
-                            </>
+                            <span className="px-2.5 py-0.5 rounded-full bg-[var(--success-bg)] text-[var(--success)] font-bold inline-flex items-center gap-1">
+                              <CheckCircle2 className="w-3.5 h-3.5" />
+                              <span>{status.badgeLabel}</span>
+                            </span>
                           ) : (
-                            <span className="px-2 py-0.5 rounded bg-[var(--warning-bg)] text-[var(--warning)] font-semibold">
+                            <span className="px-2 py-0.5 rounded bg-[var(--surface-subtle)] text-[var(--text-muted)] border border-[var(--line)] font-semibold">
                               {status.badgeLabel}
                             </span>
                           )}
@@ -451,8 +454,8 @@ export function UnitPage() {
 
                       <span
                         className={`text-sm font-bold inline-flex items-center gap-1 whitespace-nowrap ${isInteractive
-                            ? 'px-4 py-2 min-h-[40px] rounded-[12px] bg-[var(--primary)] text-white'
-                            : 'text-[var(--primary)]'
+                          ? 'px-4 py-2 min-h-[40px] rounded-[12px] bg-[var(--primary)] text-white'
+                          : 'text-[var(--primary)]'
                           }`}
                       >
                         <span>{isInteractive ? 'Start interactive pilot' : 'Open topic'}</span>

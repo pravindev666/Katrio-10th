@@ -19,13 +19,16 @@ import {
   getSectionProgressStage,
   getCompletedSectionCount,
 } from '../features/local-progress/progressStore';
+import { HISTORY_UNIT4_SUBSECTION_LESSONS, getSubsectionLessonById } from '../data/history_unit4_index';
+import { validateSubsectionLesson } from '../types/subsectionLesson';
 
-test('curriculum registry satisfies exact canonical handover & Pass 0 audit totals', () => {
+test('curriculum registry satisfies exact canonical handover + verified PDF body extensions', () => {
   assert.equal(curriculumRegistry.audit_totals.subjects, 5);
   assert.equal(curriculumRegistry.audit_totals.units, 72);
-  assert.equal(curriculumRegistry.audit_totals.toc_verified_sections, 113);
+  assert.equal(curriculumRegistry.audit_totals.body_verified_extensions, 3);
+  assert.equal(curriculumRegistry.audit_totals.toc_verified_sections, 116);
   assert.equal(curriculumRegistry.audit_totals.auto_extracted_candidates, 578);
-  assert.equal(curriculumRegistry.audit_totals.total_sections, 691);
+  assert.equal(curriculumRegistry.audit_totals.total_sections, 694);
   assert.equal(curriculumRegistry.audit_totals.source_page_anchors, 1387);
   assert.equal(curriculumRegistry.audit_totals.evidence_markers, 370);
   assert.ok((curriculumRegistry.audit_totals.pilot_lessons_count ?? 0) >= 75);
@@ -205,4 +208,49 @@ test('device progress JSON export/import validation enforces schemaVersion and p
 
   const invalidCheck = validateProgressJson(JSON.stringify({ schemaVersion: 'wrong-v0' }));
   assert.equal(invalidCheck.valid, false);
+});
+
+test('History Unit 4 (4.1–4.10) covers all 10 verified textbook subsections in exact order and passes contract validation', () => {
+  const hist4 = getUnitById('social_science', 'social-history-04');
+  assert.ok(hist4);
+  assert.equal(hist4.title, 'The World after World War II');
+  assert.deepEqual(
+    hist4.sections.map((s) => s.section_number),
+    ['4.1', '4.2', '4.3', '4.4', '4.5', '4.6', '4.7', '4.8', '4.9', '4.10'],
+  );
+  assert.equal(HISTORY_UNIT4_SUBSECTION_LESSONS.length, 10);
+
+  for (const sec of hist4.sections) {
+    const pkg = getSubsectionLessonById(sec.id);
+    assert.ok(pkg, `Missing 9-stage SubsectionLessonPackage for ${sec.id}`);
+    const validationErrors = validateSubsectionLesson(pkg);
+    assert.deepEqual(
+      validationErrors,
+      [],
+      `Validation errors for ${sec.id}: ${validationErrors.join('; ')}`,
+    );
+    assert.equal(pkg.source.editorialReviewStatus, 'pending_human_teacher_review');
+    assert.equal(getStudentSectionStatus(sec).kind, 'interactive_ready');
+  }
+});
+
+test('all four Social Science Unit 4 strands resolve cleanly without route or ID collisions', () => {
+  const unitIds = [
+    'social-history-04',
+    'social-geography-04',
+    'social-civics-04',
+    'social-economics-04',
+  ];
+  const seenRoutes = new Set<string>();
+  for (const uid of unitIds) {
+    const unit = getUnitById('social_science', uid);
+    assert.ok(unit, `Missing Social Science Unit 4 unit ${uid}`);
+    assert.ok(!seenRoutes.has(unit.route), `Colliding unit route ${unit.route}`);
+    seenRoutes.add(unit.route);
+    for (const sec of unit.sections) {
+      assert.ok(!seenRoutes.has(sec.route), `Colliding section route ${sec.route}`);
+      seenRoutes.add(sec.route);
+      assert.ok(sec.route.includes(uid), `Section route ${sec.route} does not scope to ${uid}`);
+    }
+  }
 });

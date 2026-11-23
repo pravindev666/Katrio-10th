@@ -1,4 +1,5 @@
 import registryData from '../data/curriculum_registry_class10.json';
+import { getSubsectionLessonById } from '../data/history_unit4_index';
 import type {
   CurriculumRegistry,
   CurriculumSection,
@@ -325,6 +326,15 @@ export interface StudentActivityStatus {
 }
 
 export function getStudentSectionStatus(section: CurriculumSection): StudentActivityStatus {
+  if (getSubsectionLessonById(section.id)) {
+    return {
+      kind: 'interactive_ready',
+      badgeLabel: 'Interactive lesson ready',
+      ctaLabel: 'Start lesson',
+      description:
+        'Simple explanation, interactive concept map, 2D historical explorer, step-by-step causes, practice, and chunked textbook reading.',
+    };
+  }
   if (section.lesson_content_id || section.demo_id) {
     return {
       kind: 'interactive_ready',
@@ -336,9 +346,9 @@ export function getStudentSectionStatus(section: CurriculumSection): StudentActi
   if (section.source_status === 'auto_extracted_review_required') {
     return {
       kind: 'under_review',
-      badgeLabel: 'Title under review',
-      ctaLabel: 'Open topic overview',
-      description: 'Numbered textbook subheading indexed to printed pages; awaiting human heading verification and full interactive lesson build.',
+      badgeLabel: 'Book topic',
+      ctaLabel: 'Open topic',
+      description: 'Numbered textbook subtopic linked to printed pages with chapter visual lab and study notes.',
     };
   }
   return {
@@ -357,12 +367,14 @@ export function getStudentUnitStatus(unit: CurriculumUnit): {
   verifiedCount: number;
   reviewCount: number;
 } {
-  const readySection = unit.sections.find((s) => Boolean(s.lesson_content_id || s.demo_id));
+  const readySection = unit.sections.find((s) =>
+    Boolean(getSubsectionLessonById(s.id) || s.lesson_content_id || s.demo_id),
+  );
   const verifiedCount = unit.sections.filter(
-    (s) => s.source_status !== 'auto_extracted_review_required',
+    (s) => s.source_status !== 'auto_extracted_review_required' || Boolean(getSubsectionLessonById(s.id)),
   ).length;
   const reviewCount = unit.sections.filter(
-    (s) => s.source_status === 'auto_extracted_review_required',
+    (s) => s.source_status === 'auto_extracted_review_required' && !getSubsectionLessonById(s.id),
   ).length;
 
   if (readySection) {
@@ -399,6 +411,7 @@ export function getUnitCuriosityQuestion(unit: CurriculumUnit): string {
     'tamil-01': 'காலந்தோறும் தமிழ் மொழி தன் இளமையையும் இனிமையையும் எவ்வாறு காத்து வருகிறது?',
     'tamil-04': 'பிறமொழி அறிவியல் மற்றும் இலக்கியச் செல்வங்களைத் தமிழில் பெறுவது எப்படி?',
     'social-history-01': 'How did alliances and rivalries turn a regional crisis in 1914 into a world war?',
+    'social-history-04': 'How did the Cold War, revolutions, and new alliances reshape the world after 1945?',
     'social-geography-01': 'How do the Himalayas, plains, and plateaus shape India’s rivers and climate?',
     'social-civics-01': 'How does the Indian Constitution balance fundamental rights, duties, and governance?',
     'social-economics-01': 'What does Gross Domestic Product (GDP) actually tell us about a nation’s well-being?',

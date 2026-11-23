@@ -126,11 +126,11 @@ export default function ModelExplorer3DCanvas({
     'Photorealistic 3D Human Heart (GLB) · Click any glowing pin or slide Cutaway past 50% to view internal chambers',
   );
 
-  // Auto-switch into internal cutaway view if user pushes Anterior Cutaway slider past 55%
+  // Auto-switch into internal cutaway view only when user actively slides Anterior Cutaway past 60%
   useEffect(() => {
-    if (cutawayAmount >= 55 && modelMode === 'realistic_glb') {
+    if (cutawayAmount >= 60 && modelMode === 'realistic_glb') {
       setModelMode('cutaway_chambers');
-    } else if (cutawayAmount <= 20 && glbLoaded && modelMode === 'cutaway_chambers') {
+    } else if (cutawayAmount <= 25 && glbLoaded && modelMode === 'cutaway_chambers') {
       setModelMode('realistic_glb');
     }
   }, [cutawayAmount, glbLoaded, modelMode]);
@@ -306,7 +306,17 @@ export default function ModelExplorer3DCanvas({
     });
     const matValve = new THREE.MeshPhysicalMaterial({ color: 0xf8fafc, roughness: 0.22, clearcoat: 0.75, side: THREE.DoubleSide });
 
-    const backShell = new THREE.Mesh(buildSculptedHeartGeometry(0.98, 1.05, 0.86, Math.PI * 0.52, Math.PI * 0.96), matMyo);
+    const backShell = new THREE.Mesh(
+      buildSculptedHeartGeometry(1.02, 1.08, 0.84, Math.PI * 0.68, Math.PI * 0.64),
+      new THREE.MeshPhysicalMaterial({
+        color: 0x881337,
+        roughness: 0.55,
+        transparent: true,
+        opacity: 0.24,
+        side: THREE.BackSide,
+      }),
+    );
+    backShell.position.z = -0.22;
     const rv = new THREE.Mesh(buildSculptedHeartGeometry(0.44, 0.58, 0.42), matBlue);
     rv.position.set(-0.34, -0.24, 0.08);
     rv.rotation.z = -0.18;

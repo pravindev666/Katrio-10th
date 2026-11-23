@@ -23,6 +23,7 @@ export type ContentStatus =
 export type ReviewStatus =
   | 'awaiting_human_audit'
   | 'pass0_pdf_verified_pending_human'
+  | 'pending_review'
   | 'toc_verified_scaffold'
   | 'subject_review_pending'
   | 'approved';
@@ -130,6 +131,7 @@ export interface CurriculumSection {
   sources: SourceReference[];
   lesson_content_id?: string;
   demo_id?: string;
+  body_verified_extension?: boolean;
 }
 
 export interface CurriculumUnit {
@@ -211,6 +213,7 @@ export interface CurriculumRegistry {
     pass0_corrected_headings: number;
     pass0_rejected_candidates: number;
     pilot_lessons_count: number;
+    body_verified_extensions?: number;
   };
   subjects: SubjectMeta[];
   units: CurriculumUnit[];

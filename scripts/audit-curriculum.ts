@@ -16,6 +16,7 @@ export function auditCurriculumRegistry(reg: CurriculumRegistry) {
 
   let tocVerifiedCount = 0;
   let autoCandidateCount = 0;
+  let bodyExtensionCount = 0;
   let anchorCount = 0;
 
   // Cross-check against canonical handover IDs when handover folder is present
@@ -54,7 +55,11 @@ export function auditCurriculumRegistry(reg: CurriculumRegistry) {
       seenSectionIds.add(sec.id);
 
       if (canonicalSectionIds.size > 0 && !canonicalSectionIds.has(sec.id)) {
-        errors.push(`Non-canonical section ID not in handover: ${sec.id}`);
+        if (sec.body_verified_extension) {
+          bodyExtensionCount++;
+        } else {
+          errors.push(`Non-canonical section ID not in handover (and not marked body_verified_extension): ${sec.id}`);
+        }
       }
 
       if (sec.unit_id !== unit.id) {
@@ -90,8 +95,15 @@ export function auditCurriculumRegistry(reg: CurriculumRegistry) {
   if (reg.units.length !== 72) {
     errors.push(`Expected 72 units, got ${reg.units.length}`);
   }
-  if (tocVerifiedCount !== 113) {
-    errors.push(`Expected 113 TOC-verified sections, got ${tocVerifiedCount}`);
+  const expectedExtensions = reg.audit_totals.body_verified_extensions ?? 0;
+  if (bodyExtensionCount !== expectedExtensions) {
+    errors.push(
+      `Body-verified extension mismatch: found ${bodyExtensionCount}, audit_totals says ${expectedExtensions}`,
+    );
+  }
+  const expectedTocVerified = 113 + expectedExtensions;
+  if (tocVerifiedCount !== expectedTocVerified) {
+    errors.push(`Expected ${expectedTocVerified} TOC/body-verified sections, got ${tocVerifiedCount}`);
   }
   if (autoCandidateCount !== 578) {
     errors.push(`Expected 578 auto-extracted candidates, got ${autoCandidateCount}`);
@@ -99,10 +111,19 @@ export function auditCurriculumRegistry(reg: CurriculumRegistry) {
   if (anchorCount !== 1387) {
     errors.push(`Expected 1,387 source-page anchors, got ${anchorCount}`);
   }
-  if (canonicalSectionIds.size > 0 && seenSectionIds.size !== canonicalSectionIds.size) {
-    errors.push(
-      `Canonical section ID count mismatch: app has ${seenSectionIds.size}, handover has ${canonicalSectionIds.size}`,
-    );
+  if (canonicalSectionIds.size > 0) {
+    // Every one of the 691 canonical handover IDs MUST still be present (zero dropped or broken routes)
+    for (const cid of canonicalSectionIds) {
+      if (!seenSectionIds.has(cid)) {
+        errors.push(`Canonical handover section ID was dropped: ${cid}`);
+      }
+    }
+    const expectedTotal = canonicalSectionIds.size + expectedExtensions;
+    if (seenSectionIds.size !== expectedTotal) {
+      errors.push(
+        `Section ID count mismatch: app has ${seenSectionIds.size}, expected ${expectedTotal} (${canonicalSectionIds.size} handover + ${expectedExtensions} body-verified extensions)`,
+      );
+    }
   }
 
   return {
@@ -113,6 +134,7 @@ export function auditCurriculumRegistry(reg: CurriculumRegistry) {
       units: reg.units.length,
       toc_verified_sections: tocVerifiedCount,
       auto_extracted_candidates: autoCandidateCount,
+      body_verified_extensions: bodyExtensionCount,
       total_sections: tocVerifiedCount + autoCandidateCount,
       source_page_anchors: anchorCount,
       pass0_corrected_headings: reg.audit_totals.pass0_corrected_headings,
@@ -130,9 +152,11 @@ if (isMain) {
   console.log(`Document ID: ${registry.document_id} (schema ${registry.schema_version})`);
   console.log(`Subjects: ${result.counts.subjects} (expected 5)`);
   console.log(`Units / Chapters: ${result.counts.units} (expected 72)`);
-  console.log(`Manually TOC-Verified Sections: ${result.counts.toc_verified_sections} (expected 113)`);
+  console.log(
+    `TOC & Body-Verified Sections: ${result.counts.toc_verified_sections} (113 handover + ${result.counts.body_verified_extensions} PDF body-verified extensions)`,
+  );
   console.log(`Auto-Extracted Candidates (Awaiting Human Review): ${result.counts.auto_extracted_candidates} (expected 578)`);
-  console.log(`Total Canonical Section Routes: ${result.counts.total_sections} (expected 691)`);
+  console.log(`Total Section Routes: ${result.counts.total_sections} (691 handover + ${result.counts.body_verified_extensions} extensions)`);
   console.log(`Source-Page Anchors: ${result.counts.source_page_anchors} (expected 1,387)`);
   console.log(`Pass 0 Multi-line Headings Recovered: ${result.counts.pass0_corrected_headings}`);
   console.log(`Pass 0 False Positives Flagged: ${result.counts.pass0_rejected_candidates}`);
@@ -141,5 +165,7 @@ if (isMain) {
     console.error('Audit Errors:', result.errors.slice(0, 20));
     process.exit(1);
   }
-  console.log('STATUS: PASS — 100% canonical handover ID parity, zero duplicate IDs, Tamil Unicode intact.');
+  console.log(
+    'STATUS: PASS — 100% canonical handover ID parity (all 691 preserved) + verified PDF body extensions, zero duplicate IDs, Tamil Unicode intact.',
+  );
 }

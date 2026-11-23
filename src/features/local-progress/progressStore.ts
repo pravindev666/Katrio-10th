@@ -21,9 +21,11 @@ export interface DeviceProgressRecord {
   updatedAt: string;
   preferences: AccessibilityPreferences;
   visitedSections: string[];
+  exploredSections?: string[];
   practisedSections: string[];
   bookmarkedSections: string[];
   completedDemos: string[];
+  understoodCheckpoints?: Record<string, { score: number; total: number; verifiedAt: string; mode: string }>;
   flashcardRatings: Record<string, 'know' | 'review_again'>;
   quizCheckpoints: Record<string, { score: number; total: number; completedAt: string }>;
   lastVisitedRoute: string | null;
@@ -46,9 +48,11 @@ export function createInitialProgressRecord(): DeviceProgressRecord {
     updatedAt: new Date().toISOString(),
     preferences: { ...DEFAULT_PREFERENCES },
     visitedSections: [],
+    exploredSections: [],
     practisedSections: [],
     bookmarkedSections: [],
     completedDemos: [],
+    understoodCheckpoints: {},
     flashcardRatings: {},
     quizCheckpoints: {},
     lastVisitedRoute: null,
@@ -60,6 +64,7 @@ export function getCompletedSectionCount(record: DeviceProgressRecord): number {
   const uniqueCompleted = new Set<string>([
     ...(record.completedDemos ?? []),
     ...Object.keys(record.quizCheckpoints ?? {}),
+    ...Object.keys(record.understoodCheckpoints ?? {}),
   ]);
   return uniqueCompleted.size;
 }
@@ -67,16 +72,20 @@ export function getCompletedSectionCount(record: DeviceProgressRecord): number {
 export function getSectionProgressStage(
   record: DeviceProgressRecord,
   sectionId: string,
-): 'not_started' | 'started' | 'practised' | 'completed' {
+): 'not_started' | 'started' | 'explored' | 'practised' | 'completed' {
+  const hasUnderstood = Boolean(record.understoodCheckpoints?.[sectionId]);
   const hasQuiz = Boolean(record.quizCheckpoints[sectionId]);
   const hasCompletedActivity = record.completedDemos.some(
     (id) => id === sectionId || id.endsWith(`-${sectionId}`),
   );
-  if (hasQuiz || hasCompletedActivity) {
+  if (hasUnderstood || hasQuiz || hasCompletedActivity) {
     return 'completed';
   }
   if ((record.practisedSections ?? []).includes(sectionId)) {
     return 'practised';
+  }
+  if ((record.exploredSections ?? []).includes(sectionId)) {
+    return 'explored';
   }
   if (record.visitedSections.includes(sectionId)) {
     return 'started';
@@ -138,6 +147,9 @@ export function validateProgressJson(rawJson: string): {
             : true,
       },
       visitedSections: parsed.visitedSections.filter((x: unknown) => typeof x === 'string'),
+      exploredSections: Array.isArray(parsed.exploredSections)
+        ? parsed.exploredSections.filter((x: unknown) => typeof x === 'string')
+        : [],
       practisedSections: Array.isArray(parsed.practisedSections)
         ? parsed.practisedSections.filter((x: unknown) => typeof x === 'string')
         : [],
@@ -145,6 +157,10 @@ export function validateProgressJson(rawJson: string): {
       completedDemos: Array.isArray(parsed.completedDemos)
         ? parsed.completedDemos.filter((x: unknown) => typeof x === 'string')
         : [],
+      understoodCheckpoints:
+        parsed.understoodCheckpoints && typeof parsed.understoodCheckpoints === 'object'
+          ? parsed.understoodCheckpoints
+          : {},
       flashcardRatings:
         parsed.flashcardRatings && typeof parsed.flashcardRatings === 'object'
           ? parsed.flashcardRatings

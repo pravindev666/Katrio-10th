@@ -19,9 +19,11 @@ interface ProgressContextValue {
     route: string,
     meta?: { title?: string; unitTitle?: string; step?: 'Explore' | 'Understand' | 'Try' | 'Check' },
   ) => void;
+  markSectionExplored: (sectionId: string) => void;
   markSectionPractised: (sectionId: string) => void;
   toggleBookmarkSection: (sectionId: string) => void;
   markDemoCompleted: (demoId: string) => void;
+  markUnderstoodCheckpoint: (sectionId: string, score: number, total: number, mode?: string) => void;
   rateFlashcard: (cardId: string, rating: 'know' | 'review_again') => void;
   recordQuizCheckpoint: (quizId: string, score: number, total: number) => void;
   exportProgressJsonString: () => string;
@@ -113,6 +115,18 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     [],
   );
 
+  const markSectionExplored = useCallback((sectionId: string) => {
+    setRecord((prev) => {
+      const current = prev.exploredSections ?? [];
+      if (current.includes(sectionId)) return prev;
+      return {
+        ...prev,
+        updatedAt: new Date().toISOString(),
+        exploredSections: [...current, sectionId],
+      };
+    });
+  }, []);
+
   const markSectionPractised = useCallback((sectionId: string) => {
     setRecord((prev) => {
       const current = prev.practisedSections ?? [];
@@ -148,6 +162,20 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       };
     });
   }, []);
+
+  const markUnderstoodCheckpoint = useCallback(
+    (sectionId: string, score: number, total: number, mode = 'transfer_checkpoint') => {
+      setRecord((prev) => ({
+        ...prev,
+        updatedAt: new Date().toISOString(),
+        understoodCheckpoints: {
+          ...(prev.understoodCheckpoints ?? {}),
+          [sectionId]: { score, total, verifiedAt: new Date().toISOString(), mode },
+        },
+      }));
+    },
+    [],
+  );
 
   const rateFlashcard = useCallback((cardId: string, rating: 'know' | 'review_again') => {
     setRecord((prev) => ({
@@ -202,9 +230,11 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         storageAvailable,
         updatePreferences,
         markSectionVisited,
+        markSectionExplored,
         markSectionPractised,
         toggleBookmarkSection,
         markDemoCompleted,
+        markUnderstoodCheckpoint,
         rateFlashcard,
         recordQuizCheckpoint,
         exportProgressJsonString,

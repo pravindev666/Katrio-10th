@@ -1,5 +1,6 @@
 import registryData from '../data/curriculum_registry_class10.json';
 import { getSubsectionLessonById } from '../data/history_unit4_index';
+import { getExactLessonExperienceById } from '../data/exactSectionManifest';
 import type {
   CurriculumRegistry,
   CurriculumSection,
@@ -326,13 +327,13 @@ export interface StudentActivityStatus {
 }
 
 export function getStudentSectionStatus(section: CurriculumSection): StudentActivityStatus {
-  if (getSubsectionLessonById(section.id)) {
+  if (getExactLessonExperienceById(section.id) || getSubsectionLessonById(section.id)) {
     return {
       kind: 'interactive_ready',
       badgeLabel: 'Interactive lesson ready',
       ctaLabel: 'Start lesson',
       description:
-        'Simple explanation, interactive concept map, 2D historical explorer, step-by-step causes, practice, and chunked textbook reading.',
+        'Concept-first explanation, interactive mind map, predict-and-experiment 2D lab, worked example, verified challenge, and textbook reading.',
     };
   }
   if (section.lesson_content_id || section.demo_id) {
@@ -368,13 +369,24 @@ export function getStudentUnitStatus(unit: CurriculumUnit): {
   reviewCount: number;
 } {
   const readySection = unit.sections.find((s) =>
-    Boolean(getSubsectionLessonById(s.id) || s.lesson_content_id || s.demo_id),
+    Boolean(
+      getExactLessonExperienceById(s.id) ||
+      getSubsectionLessonById(s.id) ||
+      s.lesson_content_id ||
+      s.demo_id,
+    ),
   );
   const verifiedCount = unit.sections.filter(
-    (s) => s.source_status !== 'auto_extracted_review_required' || Boolean(getSubsectionLessonById(s.id)),
+    (s) =>
+      s.source_status !== 'auto_extracted_review_required' ||
+      Boolean(getExactLessonExperienceById(s.id)) ||
+      Boolean(getSubsectionLessonById(s.id)),
   ).length;
   const reviewCount = unit.sections.filter(
-    (s) => s.source_status === 'auto_extracted_review_required' && !getSubsectionLessonById(s.id),
+    (s) =>
+      s.source_status === 'auto_extracted_review_required' &&
+      !getExactLessonExperienceById(s.id) &&
+      !getSubsectionLessonById(s.id),
   ).length;
 
   if (readySection) {

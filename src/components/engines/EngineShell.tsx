@@ -153,8 +153,8 @@ export function EngineShell({
   const {
     preferences,
     updatePreferences,
+    markSectionExplored,
     markSectionPractised,
-    markDemoCompleted,
     recordQuizCheckpoint,
     record,
   } = useProgress();
@@ -209,13 +209,14 @@ export function EngineShell({
   const displayEngineName = topicAwareLabName ?? engineMeta.name;
 
   const handleInteraction = () => {
-    markSectionPractised(sectionId);
+    markSectionExplored(sectionId);
   };
 
   const handleCompleteMilestone = (reason: string) => {
-    markSectionPractised(sectionId);
-    markDemoCompleted(sectionId);
-    setStatusAnnouncement(reason);
+    // Gate 8 mastery fix: moving a slider or inspecting a visual records 'explored',
+    // never 'completed/mastered'. True completion requires passing a validated checkpoint.
+    markSectionExplored(sectionId);
+    setStatusAnnouncement(`${reason} (Exploration logged — complete the Check step to verify mastery.)`);
   };
 
   // Build Quiz pool from active lesson OR aggregated pilot checks (for /quizzes)
@@ -240,15 +241,14 @@ export function EngineShell({
   const activeEngineMode: 'guided' | 'explore' | '2d_text' =
     viewMode === '2d_text' ? '2d_text' : viewMode === 'explore' ? 'explore' : 'guided';
 
-  const topicLabElement = !lesson
-    ? renderTopicAwareInteractiveLab({
-      sectionId,
-      sectionTitle,
-      reducedMotion: preferences.reducedMotion,
-      onInteract: handleInteraction,
-      onComplete: handleCompleteMilestone,
-    })
-    : null;
+  const topicLabElement = renderTopicAwareInteractiveLab({
+    sectionId,
+    sectionTitle,
+    unitTitle,
+    reducedMotion: preferences.reducedMotion,
+    onInteract: handleInteraction,
+    onComplete: handleCompleteMilestone,
+  });
 
   return (
     <div className="rounded-[22px] border border-[var(--line)] bg-[var(--surface)] overflow-hidden shadow-[var(--shadow-card)]">
@@ -864,12 +864,16 @@ export function EngineShell({
               </button>
             </div>
             <p className="text-sm text-[var(--text)] leading-relaxed">
-              {lesson?.interaction.expected_observations[0] ?? engineMeta.summary}
+              {topicLabElement
+                ? `Explore ${sectionTitle} directly inside the ${displayEngineName} above. Try switching presets or variables, then verify your understanding in the Check Yourself section.`
+                : (lesson?.interaction.expected_observations[0] ?? engineMeta.summary)}
             </p>
             {showHint && (
               <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--primary)]/30 text-xs sm:text-sm text-[var(--ink)]">
                 <strong>Tip: </strong>
-                {lesson?.interaction.expected_observations[1] ?? engineMeta.hint}
+                {topicLabElement
+                  ? `Compare two settings in ${displayEngineName} and trace how the diagram or formula updates immediately — anchored to ${unitTitle}, printed p. ${printedPage}.`
+                  : (lesson?.interaction.expected_observations[1] ?? engineMeta.hint)}
               </div>
             )}
           </div>

@@ -107,17 +107,13 @@ export default function BiologyCell3DCanvas({
       animId = requestAnimationFrame(animate);
       t += 0.036;
       if (!reducedMotionRef.current) {
-        const segs = animRef.current.tailSegments;
-        for (let i = 0; i < segs.length; i++) {
-          segs[i].position.y = Math.sin(t * 2.2 - i * 0.45) * (0.04 + i * 0.018);
-        }
         if (animRef.current.impulseSpark) {
           const p = (t * 0.28) % 1;
           animRef.current.impulseSpark.position.x = THREE.MathUtils.lerp(-1.9, 2.0, p);
           animRef.current.impulseSpark.position.y = Math.sin(p * Math.PI * 2) * 0.25;
         }
         if (animRef.current.spinGroup) {
-          animRef.current.spinGroup.rotation.y += 0.0065;
+          animRef.current.spinGroup.rotation.y += 0.004;
         }
       }
       controls.update();
@@ -338,28 +334,29 @@ export default function BiologyCell3DCanvas({
       group.add(spin);
       animRef.current.spinGroup = spin;
     } else if (kind === 'gametogenesis') {
+      // Calm, matte, neutral-palette static educational reference model (primary view is calm 2D medical SVG)
+      const calmMat = (hex: number, id: string, opacity = 1) =>
+        new THREE.MeshStandardMaterial({
+          color: hex,
+          roughness: 0.72,
+          metalness: 0.02,
+          transparent: opacity < 1,
+          opacity,
+          emissive: selectedPart === id ? new THREE.Color(0x94a3b8) : new THREE.Color(0x000000),
+          emissiveIntensity: selectedPart === id ? 0.25 : 0,
+        });
+
       const spermGroup = new THREE.Group();
       spermGroup.position.set(-1.45, 0.15, 0);
 
-      const tissue = getOrganicTissueTextures('cardiac_blue');
-      const head = new THREE.Mesh(
-        new THREE.SphereGeometry(0.42, 28, 22),
-        new THREE.MeshPhysicalMaterial({
-          color: 0x38bdf8,
-          map: tissue.map,
-          roughness: 0.25,
-          clearcoat: 0.75,
-          emissive: selectedPart === 'head' ? 0xfbbf24 : 0x000000,
-          emissiveIntensity: selectedPart === 'head' ? 0.45 : 0,
-        }),
-      );
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.42, 24, 20), calmMat(0x93c5fd, 'head'));
       head.scale.set(1.35, 0.88, 0.75);
       head.position.set(-0.65, 0, 0);
       pickMapRef.current.set(head, 'head');
 
       const acrosome = new THREE.Mesh(
-        new THREE.SphereGeometry(0.43, 24, 18, 0, Math.PI * 2, 0, Math.PI * 0.44),
-        hlMat(0xf59e0b, 'acrosome'),
+        new THREE.SphereGeometry(0.43, 22, 16, 0, Math.PI * 2, 0, Math.PI * 0.44),
+        calmMat(0xfde68a, 'acrosome'),
       );
       acrosome.rotation.z = Math.PI / 2;
       acrosome.scale.set(0.88, 1.38, 0.76);
@@ -367,66 +364,40 @@ export default function BiologyCell3DCanvas({
       pickMapRef.current.set(acrosome, 'acrosome');
 
       const midPiece = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.16, 0.13, 0.72, 20),
-        hlMat(0x10b981, 'middle_piece'),
+        new THREE.CylinderGeometry(0.15, 0.12, 0.72, 18),
+        calmMat(0xa7f3d0, 'middle_piece'),
       );
       midPiece.rotation.z = Math.PI / 2;
       midPiece.position.set(0.18, 0, 0);
       pickMapRef.current.set(midPiece, 'middle_piece');
 
-      const helixPts: THREE.Vector3[] = [];
-      for (let i = 0; i <= 36; i++) {
-        const u = i / 36;
-        const ang = u * Math.PI * 8;
-        helixPts.push(new THREE.Vector3(-0.15 + u * 0.66, Math.cos(ang) * 0.18, Math.sin(ang) * 0.18));
-      }
-      const mitoCoil = new THREE.Mesh(
-        new THREE.TubeGeometry(new THREE.CatmullRomCurve3(helixPts), 48, 0.032, 8, false),
-        new THREE.MeshStandardMaterial({ color: 0xfbbf24, emissive: 0xd97706, emissiveIntensity: 0.4, roughness: 0.3 }),
+      const tailCurve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(0.55, 0, 0),
+        new THREE.Vector3(1.3, 0.03, 0),
+        new THREE.Vector3(2.2, -0.02, 0),
+      ]);
+      const tailMesh = new THREE.Mesh(
+        new THREE.TubeGeometry(tailCurve, 24, 0.045, 10, false),
+        calmMat(0xcbd5e1, 'tail'),
       );
+      pickMapRef.current.set(tailMesh, 'tail');
 
-      for (let i = 0; i < 14; i++) {
-        const seg = new THREE.Mesh(
-          new THREE.SphereGeometry(Math.max(0.035, 0.095 - i * 0.0045), 12, 10),
-          hlMat(0x93c5fd, 'tail'),
-        );
-        seg.position.set(0.62 + i * 0.16, 0, 0);
-        pickMapRef.current.set(seg, 'tail');
-        spermGroup.add(seg);
-        animRef.current.tailSegments.push(seg);
-      }
-
-      const spermLbl = createFloatingLabelSprite('Human Sperm (Fig. 17.15)', 'Haploid (n=23) · Acrosome + Mitochondria + Tail', '#38bdf8');
+      const spermLbl = createFloatingLabelSprite('Human Sperm (Fig. 17.15)', 'Calm Schematic · Not to Relative Scale', '#cbd5e1');
       spermLbl.position.set(0.3, 1.05, 0);
-      spermGroup.add(head, acrosome, midPiece, mitoCoil, spermLbl);
+      spermGroup.add(head, acrosome, midPiece, tailMesh, spermLbl);
       group.add(spermGroup);
 
       const ovumGroup = new THREE.Group();
       ovumGroup.position.set(2.05, 0.05, 0);
-      const zona = new THREE.Mesh(new THREE.SphereGeometry(1.06, 32, 24), hlMat(0xf472b6, 'zona', 0.28));
-      const cytoplasm = new THREE.Mesh(new THREE.SphereGeometry(0.84, 30, 24), hlMat(0xfda4af, 'ovum', 0.62));
-      const ovumNucleus = new THREE.Mesh(new THREE.SphereGeometry(0.32, 24, 18), hlMat(0x7c3aed, 'ovum'));
+      const zona = new THREE.Mesh(new THREE.SphereGeometry(1.02, 28, 22), calmMat(0xfbcfe8, 'zona', 0.32));
+      const cytoplasm = new THREE.Mesh(new THREE.SphereGeometry(0.82, 26, 20), calmMat(0xfed7aa, 'ovum', 0.58));
+      const ovumNucleus = new THREE.Mesh(new THREE.SphereGeometry(0.3, 22, 18), calmMat(0x93c5fd, 'ovum'));
       pickMapRef.current.set(zona, 'zona');
       pickMapRef.current.set(cytoplasm, 'ovum');
       pickMapRef.current.set(ovumNucleus, 'ovum');
 
-      for (let i = 0; i < 16; i++) {
-        const phi = Math.acos(-1 + (2 * i) / 16);
-        const theta = Math.sqrt(16 * Math.PI) * phi;
-        const cell = new THREE.Mesh(
-          new THREE.SphereGeometry(0.12, 10, 10),
-          new THREE.MeshStandardMaterial({ color: 0xf9a8d4, roughness: 0.45 }),
-        );
-        cell.position.set(
-          Math.cos(theta) * Math.sin(phi) * 1.15,
-          Math.sin(theta) * Math.sin(phi) * 1.15,
-          Math.cos(phi) * 1.15,
-        );
-        ovumGroup.add(cell);
-      }
-
-      const ovumLbl = createFloatingLabelSprite('Human Ovum (Fig. 17.16)', 'Corona Radiata · Zona Pellucida · Haploid Nucleus', '#f472b6');
-      ovumLbl.position.set(0, 1.65, 0);
+      const ovumLbl = createFloatingLabelSprite('Human Ovum (Fig. 17.16)', 'Corona Radiata · Zona Pellucida · Nucleus', '#fbcfe8');
+      ovumLbl.position.set(0, 1.55, 0);
       ovumGroup.add(zona, cytoplasm, ovumNucleus, ovumLbl);
       group.add(ovumGroup);
     } else if (kind === 'dna') {

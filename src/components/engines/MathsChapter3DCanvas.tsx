@@ -287,10 +287,20 @@ export default function MathsChapter3DCanvas(props: MathsChapter3DCanvasProps) {
       addRod(B, C, 0x10b981, 0.08);
       addRod(D, E, 0xfbbf24, 0.085); // Parallel cut DE || BC!
 
-      for (const p of [A, B, C, D, E]) {
+      const vertexSpecs: [THREE.Vector3, string, [number, number, number], string][] = [
+        [A, 'Vertex A', [0, 0.42, 0], '#38bdf8'],
+        [B, 'Vertex B', [-0.45, -0.32, 0], '#34d399'],
+        [C, 'Vertex C', [0.45, -0.32, 0], '#34d399'],
+        [D, 'Point D', [-0.52, 0.08, 0], '#fbbf24'],
+        [E, 'Point E', [0.52, 0.08, 0], '#fbbf24'],
+      ];
+      for (const [p, vLabel, offset, hex] of vertexSpecs) {
         const dot = new THREE.Mesh(new THREE.SphereGeometry(0.13, 14, 14), new THREE.MeshBasicMaterial({ color: 0xf8fafc }));
         dot.position.copy(p);
-        group.add(dot);
+        const vSprite = createFloatingLabelSprite(vLabel, '', hex);
+        vSprite.scale.set(1.15, 0.36, 1);
+        vSprite.position.set(p.x + offset[0], p.y + offset[1], p.z + offset[2]);
+        group.add(dot, vSprite);
       }
       const lbl = createFloatingLabelSprite(
         'Thales Theorem (BPT): DE ∥ BC',

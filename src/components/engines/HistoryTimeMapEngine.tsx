@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useState } from 'react';
 import { CheckCircle2, Globe2, Info, Layers } from 'lucide-react';
 import type { HistoryHotspotId } from './HistoryTheatre3DCanvas';
 import type { ModularEngineProps } from './types';
+import { projectLatLonToSvg } from './AccurateGeoMaps2D';
 
 const HistoryTheatre3DCanvas = lazy(() => import('./HistoryTheatre3DCanvas'));
 
@@ -109,7 +110,8 @@ export function HistoryTimeMapEngine({
   onComplete,
 }: ModularEngineProps) {
   const [selectedIdx, setSelectedIdx] = useState(0);
-  const [mapView, setMapView] = useState<'3d' | '2d'>(mode === '2d_text' ? '2d' : '3d');
+  // Accurate 2D real-coastline satellite map is the crisp primary view for all History maps!
+  const [mapView, setMapView] = useState<'3d' | '2d'>('2d');
   const [layers, setLayers] = useState({
     allies: true,
     central: true,
@@ -243,94 +245,83 @@ export function HistoryTimeMapEngine({
               />
             </Suspense>
           ) : (
-            <div className="bg-[var(--surface)] rounded-[16px] border border-[var(--line)] p-3">
+            <div className="bg-slate-950 rounded-[16px] border border-[var(--line)] overflow-hidden">
               <svg
-                viewBox="0 0 420 230"
-                className="w-full h-auto"
+                viewBox="365 48 290 155"
+                className="w-full h-auto block"
                 role="img"
-                aria-label="Schematic 1914 to 1918 World War I alliances and global turning-point map, not to scale, showing Britain, France, Germany, Austria-Hungary, Sarajevo, Russia, Ottoman Empire, and India (Madras)"
+                aria-label="Accurate 2D satellite map of World War I theatres from Paris and Berlin to Sarajevo, Petrograd, and Madras"
               >
-                {/* Ocean background */}
-                <rect x="0" y="0" width="420" height="230" rx="10" fill="#EFF6FF" />
+                <image href="/textures/earth/earth-color-4k.jpg" x="0" y="0" width="800" height="400" preserveAspectRatio="none" />
+                <rect x="0" y="0" width="800" height="400" fill="#020617" opacity="0.22" />
 
-                {/* Allies / Entente Schematic Regions */}
-                {layers.allies && (
-                  <g>
-                    <rect x="35" y="45" width="54" height="32" rx="8" fill="#2563EB" fillOpacity="0.22" stroke="#1D4ED8" strokeWidth="1.8" />
-                    <text x="62" y="65" textAnchor="middle" fill="#1E3A8A" fontSize="10" fontWeight="bold">Britain</text>
-
-                    <rect x="52" y="88" width="60" height="40" rx="8" fill="#2563EB" fillOpacity="0.22" stroke="#1D4ED8" strokeWidth="1.8" />
-                    <text x="82" y="112" textAnchor="middle" fill="#1E3A8A" fontSize="10" fontWeight="bold">France</text>
-
-                    <rect x="225" y="28" width="128" height="72" rx="10" fill="#2563EB" fillOpacity="0.18" stroke="#1D4ED8" strokeWidth="1.8" />
-                    <text x="289" y="62" textAnchor="middle" fill="#1E3A8A" fontSize="10.5" fontWeight="bold">Russian Empire</text>
-                    <text x="289" y="76" textAnchor="middle" fill="#1E40AF" fontSize="8.5">(Exits Mar 1918)</text>
-
-                    <rect x="318" y="138" width="82" height="58" rx="10" fill="#2563EB" fillOpacity="0.18" stroke="#1D4ED8" strokeWidth="1.8" />
-                    <text x="359" y="162" textAnchor="middle" fill="#1E3A8A" fontSize="10" fontWeight="bold">British India</text>
-                    <text x="359" y="177" textAnchor="middle" fill="#1E40AF" fontSize="8.5">Madras (Emden)</text>
-                  </g>
-                )}
-
-                {/* Central Powers Schematic Regions */}
-                {layers.central && (
-                  <g>
-                    <rect x="122" y="62" width="76" height="40" rx="8" fill="#B45309" fillOpacity="0.25" stroke="#92400E" strokeWidth="1.8" />
-                    <text x="160" y="86" textAnchor="middle" fill="#78350F" fontSize="10" fontWeight="bold">Germany</text>
-
-                    <rect x="134" y="108" width="84" height="38" rx="8" fill="#B45309" fillOpacity="0.25" stroke="#92400E" strokeWidth="1.8" />
-                    <text x="176" y="131" textAnchor="middle" fill="#78350F" fontSize="9.5" fontWeight="bold">Austria-Hungary</text>
-
-                    <rect x="218" y="138" width="78" height="42" rx="8" fill="#B45309" fillOpacity="0.22" stroke="#92400E" strokeWidth="1.8" />
-                    <text x="257" y="162" textAnchor="middle" fill="#78350F" fontSize="9.5" fontWeight="bold">Ottoman Emp.</text>
-                  </g>
-                )}
-
-                {/* Highlighted Active Hotspot Pins */}
+                {/* Highlighted Accurate GPS Hotspot Pins */}
                 {layers.hotspots && (
                   <g>
                     {[
-                      { id: 'berlin', x: 158, y: 74, label: 'Berlin' },
-                      { id: 'paris', x: 96, y: 102, label: 'Marne/Verdun' },
-                      { id: 'versailles', x: 80, y: 118, label: 'Versailles' },
-                      { id: 'sarajevo', x: 185, y: 142, label: 'Sarajevo' },
-                      { id: 'petrograd', x: 252, y: 46, label: 'Petrograd' },
-                      { id: 'madras', x: 355, y: 184, label: 'Madras' },
-                    ].map((pin) => {
-                      const isActive = activeEvent.locationId === pin.id;
-                      return (
-                        <g key={pin.id}>
-                          <circle
-                            cx={pin.x}
-                            cy={pin.y}
-                            r={isActive ? 9 : 5}
-                            fill={isActive ? '#C35243' : '#13213A'}
-                            stroke="#FFFFFF"
-                            strokeWidth="2"
-                          />
-                          {isActive && (
+                      { id: 'berlin' as const, lat: 52.52, lon: 13.4, label: 'Berlin', side: 'central' },
+                      { id: 'paris' as const, lat: 48.86, lon: 2.35, label: 'Paris / Marne', side: 'allies' },
+                      { id: 'versailles' as const, lat: 47.4, lon: 1.5, label: 'Versailles', side: 'allies' },
+                      { id: 'sarajevo' as const, lat: 43.86, lon: 18.41, label: 'Sarajevo', side: 'central' },
+                      { id: 'petrograd' as const, lat: 59.93, lon: 30.33, label: 'Petrograd', side: 'allies' },
+                      { id: 'madras' as const, lat: 13.08, lon: 80.27, label: 'Madras (India)', side: 'allies' },
+                    ]
+                      .filter((pin) => (pin.side === 'allies' ? layers.allies : layers.central))
+                      .map((pin) => {
+                        const pt = projectLatLonToSvg(pin.lat, pin.lon, 'world');
+                        const isActive = activeEvent.locationId === pin.id;
+                        const fill = pin.side === 'allies' ? '#2563eb' : '#d97706';
+                        return (
+                          <g
+                            key={pin.id}
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => handlePinSelect(pin.id)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                handlePinSelect(pin.id);
+                              }
+                            }}
+                            className="cursor-pointer"
+                          >
+                            {isActive && <circle cx={pt.x} cy={pt.y} r="9" fill="#ef4444" opacity="0.35" />}
+                            <circle
+                              cx={pt.x}
+                              cy={pt.y}
+                              r={isActive ? 5.2 : 3.6}
+                              fill={isActive ? '#ef4444' : fill}
+                              stroke="#ffffff"
+                              strokeWidth="1.4"
+                            />
+                            <rect
+                              x={pt.x + 6}
+                              y={pt.y - 5.5}
+                              width={pin.label.length * 4.1 + 8}
+                              height="10"
+                              rx="2.5"
+                              fill={isActive ? '#f59e0b' : '#0f172a'}
+                              opacity="0.92"
+                            />
                             <text
-                              x={pin.x}
-                              y={pin.y - 13}
-                              textAnchor="middle"
-                              fill="#991B1B"
-                              fontSize="10"
-                              fontWeight="bold"
+                              x={pt.x + 9.5}
+                              y={pt.y + 1.8}
+                              fill={isActive ? '#0f172a' : '#ffffff'}
+                              fontSize="6.5"
+                              fontWeight="800"
                             >
-                              ★ {pin.label}
+                              {pin.label}
                             </text>
-                          )}
-                        </g>
-                      );
-                    })}
+                          </g>
+                        );
+                      })}
                   </g>
                 )}
-
-                {/* Explicit Cartographic Honesty Legend */}
-                <text x="12" y="218" fill="#475569" fontSize="9.5" fontWeight="bold">
-                  Schematic Theatre Diagram (1914–1918) · NOT TO SCALE · Blue: Allies/Entente · Amber: Central Powers
-                </text>
               </svg>
+              <div className="px-3 py-1.5 bg-slate-900 border-t border-slate-800 text-[10px] text-slate-300 flex items-center justify-between">
+                <span>Accurate 2D NASA Satellite Projection (1914–1919) · Click any GPS pin to jump timeline</span>
+                <span>Blue: Allies · Amber: Central Powers</span>
+              </div>
             </div>
           )}
         </div>

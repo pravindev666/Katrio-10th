@@ -59,9 +59,12 @@ export const ALL_PILOT_LESSONS: LessonContentPackage[] = [
   science14BloodGroups as unknown as LessonContentPackage,
 ];
 
+const DIRECT_LESSON_IDS = new Set<string>(ALL_PILOT_LESSONS.map((l) => l.section_id));
 const LESSON_MAP = new Map<string, LessonContentPackage>();
 for (const lesson of ALL_PILOT_LESSONS) {
   LESSON_MAP.set(lesson.section_id, lesson);
+}
+for (const lesson of ALL_PILOT_LESSONS) {
   if (lesson.related_section_ids) {
     for (const relId of lesson.related_section_ids) {
       if (!LESSON_MAP.has(relId)) {
@@ -69,6 +72,10 @@ for (const lesson of ALL_PILOT_LESSONS) {
       }
     }
   }
+}
+
+export function isDirectPilotLessonId(sectionId: string): boolean {
+  return DIRECT_LESSON_IDS.has(sectionId);
 }
 
 export function getLessonContentBySectionId(

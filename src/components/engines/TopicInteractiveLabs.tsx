@@ -7,20 +7,22 @@ import {
   computeEchoSimulation,
   computeThinLensImage,
 } from '../../utils/physicsSimulations';
+import { evaluateSolubilityState } from '../../utils/conceptFirstSimulations';
 import {
   MathsAlgebra3DLab,
   MathsCoordinate3DLab,
-  MathsGeometry3DLab,
   MathsProbability3DLab,
   MathsRelations3DLab,
   MathsSequences3DLab,
 } from './MathsInteractiveLabs';
-import {
-  CivicsGovernance3DLab,
-  Economics3DStudioLab,
-  GeographyChapters3DStudio,
-  HistoryChapters3DStudio,
-} from './SocialInteractiveLabs';
+import { PlantAndEndocrineHormones2D } from './PlantAndEndocrineHormones2D';
+import { Unit17ReproductionSuite2D } from './Unit17ReproductionSuite2D';
+import { ElectricityExtensions2D } from './ElectricityExtensions2D';
+import { ScienceMismatchFixes2D } from './ScienceMismatchFixes2D';
+import { MathsExtensions2D } from './MathsExtensions2D';
+import { SocialExtensions2D } from './SocialExtensions2D';
+import { SubchapterDifferentiatedLabs2D } from './SubchapterDifferentiatedLabs2D';
+import { LanguageStudioUnified2D } from './LanguageStudioUnified2D';
 
 const PhysicsLab3DCanvas = lazy(() => import('./PhysicsLab3DCanvas'));
 const BiologyCell3DCanvas = lazy(() => import('./BiologyCell3DCanvas'));
@@ -37,6 +39,7 @@ function renderLatex(tex: string): string {
 export interface TopicLabProps {
   sectionId: string;
   sectionTitle: string;
+  unitTitle?: string;
   reducedMotion: boolean;
   onInteract: () => void;
   onComplete: (reason: string) => void;
@@ -90,8 +93,8 @@ export function AcousticsEchoLab({ reducedMotion, onInteract, onComplete }: Topi
             />
             <span
               className={`px-2.5 py-1 rounded-full font-extrabold border ${echo.isDistinctEcho
-                  ? 'bg-[var(--success-bg)] text-[var(--success)] border-[var(--success)]/35'
-                  : 'bg-[var(--warning-bg)] text-[var(--warning)] border-[var(--warning)]/35'
+                ? 'bg-[var(--success-bg)] text-[var(--success)] border-[var(--success)]/35'
+                : 'bg-[var(--warning-bg)] text-[var(--warning)] border-[var(--warning)]/35'
                 }`}
             >
               {echo.isDistinctEcho
@@ -163,8 +166,8 @@ export function AcousticsEchoLab({ reducedMotion, onInteract, onComplete }: Topi
                     onInteract();
                   }}
                   className={`px-2 py-2 rounded-xl border text-[11px] font-bold ${medium === m
-                      ? 'bg-[var(--science)] text-white border-[var(--science)]'
-                      : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
+                    ? 'bg-[var(--science)] text-white border-[var(--science)]'
+                    : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
                     }`}
                 >
                   {label}
@@ -290,8 +293,8 @@ export function OpticsRayBenchLab({ reducedMotion, onInteract, onComplete }: Top
                 onComplete('Explored 3D Convex vs Concave Ray Optics image formation!');
               }}
               className={`flex-1 py-2.5 rounded-xl border font-bold capitalize ${lensType === t
-                  ? 'bg-[var(--science)] text-white border-[var(--science)]'
-                  : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
+                ? 'bg-[var(--science)] text-white border-[var(--science)]'
+                : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
                 }`}
             >
               {t} Lens
@@ -405,8 +408,8 @@ export function ElectricityCircuitLab({ reducedMotion, onInteract, onComplete }:
                 onComplete('Compared 3D Series vs Parallel circuits and bulb power!');
               }}
               className={`flex-1 py-2.5 rounded-xl border font-bold capitalize ${topology === t
-                  ? 'bg-[var(--science)] text-white border-[var(--science)]'
-                  : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
+                ? 'bg-[var(--science)] text-white border-[var(--science)]'
+                : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
                 }`}
             >
               {t} Circuit
@@ -494,9 +497,8 @@ export function ElectricalResistivity3DLab({ reducedMotion, onInteract, onComple
                 onInteract();
                 onComplete('Compared Copper, Nichrome & Insulator resistivity in 3D!');
               }}
-              className={`py-2 px-2 rounded-xl border font-bold capitalize ${
-                material === m ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
-              }`}
+              className={`py-2 px-2 rounded-xl border font-bold capitalize ${material === m ? 'bg-[var(--science)] text-white border-[var(--science)]' : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
+                }`}
             >
               {m}
             </button>
@@ -778,8 +780,8 @@ export function Gametogenesis3DLab({ sectionId, reducedMotion, onInteract, onCom
                   onComplete('Explored Gametogenesis structures in 3D!');
                 }}
                 className={`px-2.5 py-1.5 rounded-lg border text-[11px] font-bold ${selectedPart === id
-                    ? 'bg-[var(--science)] text-white border-[var(--science)]'
-                    : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--science)]'
+                  ? 'bg-[var(--science)] text-white border-[var(--science)]'
+                  : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--science)]'
                   }`}
               >
                 {info.title.split(' (')[0]}
@@ -982,19 +984,54 @@ export function PeriodicTrendsLab({ reducedMotion, onInteract, onComplete }: Top
 }
 
 /**
- * 10. SCIENCE UNIT 9 — SOLUTIONS: 3D Glass Beaker, Bunsen Burner & Crystal Precipitation Lab
+ * 10. SCIENCE UNIT 9 — SOLUTIONS: Chemically Accurate Solubility, Saturation & True Supersaturation Lab
+ * Fixes confirmed scientific defect: excess undissolved solute at constant T is SATURATED + UNDISSOLVED EXCESS
+ * (NOT supersaturated!). True supersaturation requires dissolving at higher T and cooling calmly without disturbance.
  */
-export function SolubilityMixerLab({ reducedMotion, onInteract, onComplete }: TopicLabProps) {
-  const [spoons, setSpoons] = useState(3);
+export function SolubilityMixerLab({ reducedMotion, onInteract }: TopicLabProps) {
+  const [addedGrams, setAddedGrams] = useState(24);
   const [tempC, setTempC] = useState(25);
-  const maxDissolved = Math.round(2 + (tempC - 10) * 0.08);
-  const excess = Math.max(0, spoons - maxDissolved);
-  const state =
-    spoons < maxDissolved
-      ? 'Unsaturated Solution (More solute can dissolve)'
-      : spoons === maxDissolved
-        ? 'Saturated Solution (Exact Limit Reached!)'
-        : 'Supersaturated — 3D Crystals Precipitating!';
+  const [maxDissolvedEver, setMaxDissolvedEver] = useState(24);
+  const [disturbed, setDisturbed] = useState(false);
+
+  const sol = evaluateSolubilityState(addedGrams, tempC, maxDissolvedEver, disturbed);
+
+  const handleAddSolute = () => {
+    const nextG = Math.min(96, addedGrams + 12);
+    const limitAtT = Math.round(36 + (tempC - 25) * 1.2);
+    setAddedGrams(nextG);
+    setDisturbed(true);
+    if (nextG <= limitAtT) {
+      setMaxDissolvedEver(Math.max(maxDissolvedEver, nextG));
+    }
+    onInteract();
+  };
+
+  const handleTempChange = (nextT: number) => {
+    const prevT = tempC;
+    setTempC(nextT);
+    const limitAtNextT = Math.round(36 + (nextT - 25) * 1.2);
+    if (nextT >= prevT) {
+      // Heating dissolves more solute up to the new solubility limit
+      if (addedGrams <= limitAtNextT) {
+        setMaxDissolvedEver(addedGrams);
+        setDisturbed(false);
+      } else {
+        setMaxDissolvedEver(Math.max(maxDissolvedEver, limitAtNextT));
+      }
+    }
+    onInteract();
+  };
+
+  const handleReset = () => {
+    setAddedGrams(24);
+    setTempC(25);
+    setMaxDissolvedEver(24);
+    setDisturbed(false);
+  };
+
+  const visualSpoons = Math.max(1, Math.round(addedGrams / 10));
+  const visualExcess = Math.round(sol.undissolvedExcessG / 8);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
@@ -1002,34 +1039,97 @@ export function SolubilityMixerLab({ reducedMotion, onInteract, onComplete }: To
         <Suspense fallback={<div className="h-[320px] rounded-2xl bg-slate-950 flex items-center justify-center text-slate-300 text-sm">Loading 3D Solubility Beaker...</div>}>
           <ChemistryNuclear3DCanvas
             kind="solubility"
-            spoons={spoons}
+            spoons={visualSpoons}
             tempC={tempC}
-            excessCrystals={excess}
+            excessCrystals={visualExcess}
             reducedMotion={reducedMotion}
           />
         </Suspense>
-        <div className="px-3.5 py-2 rounded-xl bg-[var(--surface-subtle)] border border-[var(--line)] text-xs font-extrabold text-[var(--science)]">
-          {state}
+        <div
+          className={`px-3.5 py-2.5 rounded-xl border text-xs space-y-1 ${sol.classification === 'supersaturated_metastable'
+              ? 'bg-purple-50 dark:bg-purple-950/30 border-purple-400 text-purple-900 dark:text-purple-200'
+              : sol.classification === 'saturated_with_excess'
+                ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-400 text-amber-900 dark:text-amber-200'
+                : 'bg-[var(--surface-subtle)] border-[var(--line)] text-[var(--science)]'
+            }`}
+        >
+          <div className="font-extrabold">{sol.headline}</div>
+          <p className="text-[11px] leading-relaxed text-[var(--text)]">{sol.explanation}</p>
         </div>
       </div>
       <div className="lg:col-span-5 p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3 text-xs">
         <div className="font-extrabold uppercase tracking-wider text-[var(--science)]">
-          3D Solubility &amp; Bunsen Heating Lab (Unit 9)
+          Solubility &amp; Saturation Lab (TN Science pp. 126–128)
+        </div>
+        <div className="grid grid-cols-3 gap-1.5 text-center font-mono-tabular">
+          <div className="p-2 rounded-xl bg-[var(--surface)] border border-[var(--line)]">
+            <div className="text-[10px] text-[var(--text-muted)]">Added</div>
+            <div className="font-extrabold text-[var(--ink)]">{addedGrams} g</div>
+          </div>
+          <div className="p-2 rounded-xl bg-[var(--surface)] border border-[var(--line)]">
+            <div className="text-[10px] text-[var(--text-muted)]">Dissolved</div>
+            <div className="font-extrabold text-emerald-700 dark:text-emerald-300">{sol.dissolvedG} g</div>
+          </div>
+          <div className="p-2 rounded-xl bg-[var(--surface)] border border-[var(--line)]">
+            <div className="text-[10px] text-[var(--text-muted)]">Settled Solid</div>
+            <div className="font-extrabold text-amber-700 dark:text-amber-300">{sol.undissolvedExcessG} g</div>
+          </div>
         </div>
         <div className="flex gap-2">
-          <button type="button" onClick={() => { setSpoons((s) => Math.min(10, s + 1)); onInteract(); onComplete('Tested 3D saturation & crystal precipitation!'); }} className="flex-1 py-2.5 rounded-xl bg-[var(--science)] text-white font-bold">
-            + Add Solute Spoon ({spoons})
+          <button
+            type="button"
+            onClick={handleAddSolute}
+            className="flex-1 min-h-[40px] py-2 rounded-xl bg-[var(--science)] text-white font-bold"
+          >
+            + Add 12 g Solute
           </button>
-          <button type="button" onClick={() => setSpoons(1)} className="px-3.5 py-2.5 rounded-xl border border-[var(--line)] bg-[var(--surface)] font-bold text-[var(--ink)]">
+          <button
+            type="button"
+            onClick={handleReset}
+            className="min-h-[40px] px-3.5 py-2 rounded-xl border border-[var(--line)] bg-[var(--surface)] font-bold text-[var(--ink)]"
+          >
             Reset
           </button>
         </div>
         <label className="block font-bold text-[var(--ink)]">
-          Bunsen Burner Temperature: {tempC} °C (Capacity ≈ {maxDissolved} spoons)
-          <input type="range" min={10} max={90} step={5} value={tempC} onChange={(e) => { setTempC(Number(e.target.value)); onInteract(); }} className="w-full accent-orange-500 mt-1" />
+          Water Temperature: {tempC} °C (Solubility limit ≈ {sol.solubilityLimitG} g / 100 g water)
+          <input
+            type="range"
+            min={15}
+            max={80}
+            step={5}
+            value={tempC}
+            onChange={(e) => handleTempChange(Number(e.target.value))}
+            className="w-full accent-orange-500 mt-1"
+          />
         </label>
-        <p className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-[var(--text)]">
-          <strong>Try this in 3D:</strong> Add 6 spoons so gleaming 3D crystals pile on the beaker floor, then raise the <strong>Bunsen Burner</strong> to 75°C and watch them dissolve!
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => {
+              // Demonstrate genuine two-step supersaturation: dissolve 60 g at 60 °C, then cool calmly to 25 °C!
+              setAddedGrams(60);
+              setMaxDissolvedEver(60);
+              setTempC(25);
+              setDisturbed(false);
+              onInteract();
+            }}
+            className="min-h-[38px] flex-1 px-2.5 py-1.5 rounded-xl bg-purple-700 text-white font-bold"
+          >
+            Create True Supersaturated (Heat 60 °C → Cool 25 °C)
+          </button>
+          {sol.classification === 'supersaturated_metastable' && (
+            <button
+              type="button"
+              onClick={() => { setDisturbed(true); onInteract(); }}
+              className="min-h-[38px] px-3 py-1.5 rounded-xl bg-amber-600 text-white font-bold"
+            >
+              Drop Seed Crystal (Precipitate!)
+            </button>
+          )}
+        </div>
+        <p className="p-2.5 rounded-xl bg-[var(--surface)] border border-[var(--line)] text-[11px] text-[var(--text)]">
+          <strong>Key Science Rule:</strong> Excess solid resting on the bottom at constant 25 °C is a <strong>saturated solution with undissolved excess</strong> — NOT supersaturated! True supersaturation holds extra <em>dissolved</em> solute metastably until disturbed.
         </p>
       </div>
     </div>
@@ -1350,79 +1450,516 @@ export function VisualCommunication3DLab({ sectionTitle, reducedMotion, onIntera
 }
 
 /**
- * 15. SUBTOPIC-FIRST TOPIC LABEL & DISPATCHER ACROSS ALL 72 CHAPTERS!
- * Guarantees 100% subject-accurate interactive 3D/2D labs across Science, Maths, English, Tamil, and Social Science!
+ * 15. STRICT TOPIC-ACCURATE DISPATCHER (Full Curriculum Concept-First Expansion)
+ * Guarantees EVERY Science, Mathematics, and Social Science subsection routes to an
+ * interactive model matching its actual textbook concept — zero irrelevant 3D fallthroughs!
  */
+const SCIENCE_04_CONCEPT_FIRST_IDS = new Set([
+  'science-04-auto-4-3-electric-potential-and',
+  'science-04-auto-4-3-1-electric-potential',
+  'science-04-auto-4-8-heating-effect',
+  'science-04-auto-4-8-1-joule-s-law-of-heating',
+]);
+
+const SCIENCE_04_CIRCUIT_EXACT_IDS = new Set([
+  'science-04-auto-4-1-electric-current',
+  'science-04-auto-4-1-2-si-unit-of-electric-current',
+  'science-04-auto-4-2-electric-circuit',
+  'science-04-auto-4-2-consists-of-different-components-such',
+  'science-04-auto-4-2-1-electrical-components',
+  'science-04-auto-4-5-resistance-of-a',
+  'science-04-auto-4-5-1-unit-of-resistance',
+  'science-04-auto-4-7-system-of-resistors',
+  'science-04-auto-4-7-1-resistors-in-series',
+  'science-04-auto-4-7-2-resistances-in-parallel',
+  'science-04-auto-4-7-3-series-connection-of',
+  'science-04-auto-4-7-5-difference-between-series',
+]);
+
+const SCIENCE_16_CONCEPT_FIRST_IDS = new Set([
+  'science-16-auto-16-1-5-ethylene',
+  'science-16-auto-16-2-1-pituitary-gland',
+]);
+
+const SCIENCE_17_CONCEPT_FIRST_IDS = new Set([
+  'science-17-auto-17-8-gametogenesis',
+  'science-17-auto-17-8-1-structure-of-human',
+  'science-17-auto-17-8-2-structure-of-human-ovum',
+]);
+
+function isScience01TorqueOrGravity(id: string): boolean {
+  return (
+    id.includes('1-4-5') ||
+    id.includes('1-4-6') ||
+    id.includes('1-4-7') ||
+    id.includes('torque') ||
+    id.includes('moment') ||
+    id.includes('1-9-') ||
+    id.includes('1-10') ||
+    id.includes('1-11') ||
+    id.includes('1-12') ||
+    id.includes('grav') ||
+    id.includes('weight')
+  );
+}
+
+function isScience02EyeOrScattering(id: string): boolean {
+  return (
+    id.includes('2-3-') ||
+    id.includes('2-4-') ||
+    id.includes('2-16-') ||
+    id.includes('2-17-') ||
+    id.includes('2-18-') ||
+    id.includes('2-19-') ||
+    id.includes('eye') ||
+    id.includes('scatter') ||
+    id.includes('disper')
+  );
+}
+
+function isScience03Expansion(id: string): boolean {
+  return id.includes('3-1') || id.includes('3-2') || id.includes('3-3');
+}
+
+function isScience06DecayOrSafety(id: string): boolean {
+  return (
+    id.includes('6-1') ||
+    id.includes('6-2') ||
+    id.includes('6-4') ||
+    id.includes('6-5') ||
+    id.includes('6-6')
+  );
+}
+
+function isScience08MetallurgyOrCorrosion(id: string): boolean {
+  return (
+    id.includes('8-4-') ||
+    id.includes('8-5-') ||
+    id.includes('8-6') ||
+    id.includes('8-7-') ||
+    id.includes('8-8-') ||
+    id.includes('8-9-') ||
+    id.includes('8-10') ||
+    id.includes('8-11') ||
+    id.includes('metall') ||
+    id.includes('corros') ||
+    id.includes('alloy')
+  );
+}
+
+function isMaths03Matrices(id: string): boolean {
+  return id === 'maths-03-09' || id.includes('3-9') || id.includes('matri');
+}
+
+function isMaths03AlgebraNonQuadratic(id: string): boolean {
+  return (
+    id === 'maths-03-01' ||
+    id === 'maths-03-02' ||
+    id === 'maths-03-03' ||
+    id === 'maths-03-04' ||
+    id === 'maths-03-05' ||
+    id.includes('3-2-') ||
+    id.includes('3-3-') ||
+    id.includes('3-4-') ||
+    id.includes('3-5-')
+  );
+}
+
+function isMaths08Statistics(id: string): boolean {
+  return (
+    id === 'maths-08-01' ||
+    id === 'maths-08-02' ||
+    id === 'maths-08-03' ||
+    id.includes('8-2-') ||
+    id.includes('deviation') ||
+    id.includes('variance') ||
+    id.includes('range')
+  );
+}
+
 export function getTopicAwareLabLabel(sectionId: string): string | null {
   const id = sectionId.toLowerCase();
-  if (id.includes('nervous') || id.includes('neuron') || id.includes('brain') || id.includes('reflex'))
-    return 'Real 3D Human Brain & US NIH Neuron Explorer';
-  if (id.startsWith('science-04') && id.includes('resist'))
-    return '3D Electrical Resistivity Wire Chamber (R = ρL/A)';
-  if (id.startsWith('science-01')) return '3D Laws of Motion & Force Track Lab';
-  if (id.startsWith('science-02')) return '3D Optics — Interactive Laser Lens Bench';
-  if (id.startsWith('science-03')) return '3D Thermal Physics — Gas Piston & Expansion Lab';
-  if (id.startsWith('science-04')) return '3D Electricity — Copper Circuit & Glowing Bulb Lab';
+
+  // Dedicated 10-stage ConceptFirstLessonPlayer units handled upstream
+  if (id.startsWith('maths-04')) return null;
+  if (SCIENCE_04_CONCEPT_FIRST_IDS.has(id)) return null;
+  if (SCIENCE_16_CONCEPT_FIRST_IDS.has(id)) return null;
+  if (SCIENCE_17_CONCEPT_FIRST_IDS.has(id)) return null;
+
+  // Science Unit 16 (remaining 5 hormones/glands — 100% authentic 2D!)
+  if (id.startsWith('science-16')) {
+    if (id.includes('auxin')) return '2D Plant Hormone Lab — Went’s Auxin Coleoptile Experiment (16.1.1)';
+    if (id.includes('cytokinin')) return '2D Plant Tissue Culture — Cytokinin Morphogenesis & Richmond–Lang Effect';
+    if (id.includes('gibberellin')) return '2D Plant Hormone Lab — Gibberellin Stem Elongation & Bolting';
+    if (id.includes('abscisic')) return '2D Stress Hormone Lab — Abscisic Acid Stomatal Closure';
+    return '2D Endocrine Lab — Pancreas Islets of Langerhans (Insulin vs Glucagon)';
+  }
+
+  // Science Unit 17 (remaining 14 reproduction & hygiene routes — 100% authentic 2D!)
+  if (id.startsWith('science-17')) {
+    if (id.includes('17-2')) return '2D Asexual Reproduction Lab — Rhizopus Spores, Budding & Bryophyllum';
+    if (id.includes('17-3')) return '2D Angiosperm Ovule Lab — 7-Celled, 8-Nucleate Embryo Sac (Fig. 17.10)';
+    if (id.includes('17-5')) return '2D Cross-Pollination Agents — Anemophily, Entomophily & Hydrophily';
+    if (id.includes('17-6')) return '2D Plant Fertilization Lab — Syngamy (2n) & Triple Fusion (3n)';
+    if (id.includes('17-7')) return '2D Human Male Reproductive Organ — Structure of Testes (Fig. 17.13)';
+    if (id.includes('17-9')) return '2D 28-Day Menstrual Cycle & LH/Progesterone Phase Chart (Table 17.1)';
+    if (id.includes('17-10')) return '2D Fertilization to Foetal Development — 280-Day Gestation Timeline';
+    return '2D Reproductive Health, Family Planning, UTI & Personal Hygiene Guide';
+  }
+
+  // Science Unit 4 (all remaining electricity subtopics cleanly separated!)
+  if (id.startsWith('science-04')) {
+    if (id.includes('4-4-ohm')) return '2D Ohm’s Law Linear V–I Graph Workbench (Fig. 4.5)';
+    if (id.includes('resist')) return '3D Electrical Resistivity Wire Chamber (R = ρL/A)';
+    if (id.includes('4-9-electric-power')) return '2D Electric Power (P = VI) & Commercial Unit (1 kWh) Calculator';
+    if (id.includes('4-10')) return '2D Domestic Electric Circuit (220 V), Earthing & MCB Safety Lab';
+    if (id.includes('4-11') || id.includes('4-12')) return '2D LED Bulb, Interactive Seven-Segment Display (a–g) & LED TV Lab';
+    if (SCIENCE_04_CIRCUIT_EXACT_IDS.has(id)) return '3D Electricity — Copper Circuit & Resistor Lab';
+    return null;
+  }
+
+  // Science Unit 13 MUST precede generic 'nervous' match so Leech/Rabbit never get Human Brain/Kidney!
+  if (id.startsWith('science-13')) {
+    return '2D Structural Organisation of Animals — Indian Cattle Leech & Rabbit Anatomy';
+  }
+
+  if (id.startsWith('science-01')) {
+    return isScience01TorqueOrGravity(id)
+      ? '2D Torque (Principle of Moments) & Gravitation / Apparent Weight Lab'
+      : '3D Laws of Motion & Force Track Lab';
+  }
+  if (id.startsWith('science-02')) {
+    return isScience02EyeOrScattering(id)
+      ? '2D Human Eye Defects (Myopia/Hypermetropia) & Rayleigh Scattering Lab'
+      : '3D Optics — Interactive Laser Lens Bench';
+  }
+  if (id.startsWith('science-03')) {
+    return isScience03Expansion(id)
+      ? '2D Thermal Expansion (ΔL = αL₀ΔT) & Kelvin Absolute Scale Lab'
+      : '3D Thermal Physics — Gas Piston & Boyle/Charles Laws Lab';
+  }
   if (id.startsWith('science-05')) return '3D Acoustics — Sound Reflection, Echo & Doppler Lab';
-  if (id.startsWith('science-06')) return 'Nuclear Physics — U-235 Chain Reaction & Control Rod Lab';
-  if (id.startsWith('science-08')) return 'Periodic Classification — Atomic Radius & Trends Lab';
-  if (id.startsWith('science-09')) return 'Solutions — Solubility & Saturation Beaker Lab';
-  if (id.startsWith('science-13')) return 'Real 3D Human Kidney & US NIH Animal Cell Studio';
-  if (id.startsWith('science-15') || id.startsWith('science-16')) return 'Real 3D Human Brain, Neuron & Hormone Studio';
-  if (id.startsWith('science-17')) return '3D Reproduction (Sperm, Ovum & Angiosperm Flower)';
-  if (id.startsWith('science-18') || id.startsWith('science-19') || id.startsWith('science-20'))
-    return '3D DNA Double Helix & Mendelian Genetics Lab';
-  if (id.startsWith('science-21') || id.startsWith('science-22'))
-    return 'Real US NIH 3D Health, Immunity & Ecology Studio';
+  if (id.startsWith('science-06')) {
+    return isScience06DecayOrSafety(id)
+      ? '2D Alpha/Beta/Gamma Penetrating Power, Displacement Law & ICRP Dosimeter Lab'
+      : '3D Nuclear Fission — U-235 Chain Reaction & Control Rod Reactor Lab';
+  }
+  if (id.startsWith('science-07')) {
+    if (id.includes('7-1') || id.includes('7-5') || id.includes('7-6') || id.includes('7-7') || id.includes('7-8')) {
+      return '2D Atoms & Molecules — Isotopes (AAM), Percent Composition & Avogadro / VD Lab';
+    }
+    return null; // 7.2 / 7.3 use 3D MoleculeBuilder
+  }
+  if (id.startsWith('science-08')) {
+    return isScience08MetallurgyOrCorrosion(id)
+      ? '3D Chemical Process Flow — Metallurgy (Al Hall’s Tank, Cu Furnace) & Iron Corrosion Lab'
+      : '3D Periodic Classification — Bohr Atomic Radius & Trends Lab';
+  }
+  if (id.startsWith('science-09')) return 'Solutions — Chemically Accurate Solubility, Saturation & Supersaturation Lab';
+  if (id.startsWith('science-10')) {
+    if (id.includes('10-2') || id.includes('10-4') || id.includes('10-6') || id.includes('10-7') || id.includes('ph')) {
+      return '2D Rate of Chemical Reaction & Interactive pH Scale (0–14) Lab';
+    }
+    return null; // 10.1 uses 3D SafeVirtualLab Reaction Beakers
+  }
+  if (id.startsWith('science-11')) {
+    if (id.includes('11-6') || id.includes('11-7')) {
+      return '3D Organic Chemical Process Flow — Ethanol & Ethanoic Acid Esterification Bath';
+    }
+    if (id.includes('11-5') || id.includes('11-8') || id.includes('11-9')) {
+      return '2D Interactive IUPAC Name Builder & Soap Micelle Cleansing Lab';
+    }
+    return null; // 11.2–11.4 use 3D Hydrocarbon Molecule Builder
+  }
+  if (id.startsWith('science-12')) {
+    if (id.includes('12-9') || id.includes('12-10') || id.includes('12-11')) {
+      return '2D Plant Physiology — Photosynthesis (Calvin Cycle) & Mitochondria Respiration (ATP/RQ)';
+    }
+    return null; // 12.1–12.7 use Plant Anatomy Cutaway
+  }
+  if (id.startsWith('science-15')) {
+    if (id.includes('15-5') || id.includes('15-7')) {
+      return '2D Reflex Arc Circuit & Autonomic Nervous Balance Lab (Fig. 15.9)';
+    }
+    return 'Real 3D Human Brain & US NIH Neuron Studio';
+  }
+  if (id.startsWith('science-18')) {
+    if (id.includes('18-7')) return '2D Human Sex Determination (44+XX × 44+XY) Gamete Fusion Lab';
+    if (id.includes('18-5')) return '2D Chromosome Structure & Centromere Position Classifier (Fig. 18.5)';
+    if (id.includes('18-6')) return '2D Watson–Crick Base-Pairing Builder & Semi-Conservative DNA Replication Lab';
+    return '3D DNA Double Helix & Mendelian Monohybrid Cross Lab';
+  }
+  if (id.startsWith('science-19')) return '2D Origin & Evolution — Homologous/Analogous Organs, Archaeopteryx & ¹⁴C Dating';
+  if (id.startsWith('science-20')) return '2D Breeding & Biotechnology — rDNA Plasmid Splice, Triticale & Stem Cells';
+  if (id.startsWith('science-21')) return '2D Clinical Health, Lifestyle BMI/Diabetes, Protection & HIV/Cancer Facts';
+  if (id.startsWith('science-22')) return '2D Environmental Management — Rainwater Harvesting, Clean Energy & 3R Waste';
   if (id.startsWith('science-23')) return '3D Optical Camera & Visual Communication Studio';
-  if (id.startsWith('maths-01')) return '3D Relations & Functions Mapping Machine';
-  if (id.startsWith('maths-02')) return '3D AP/GP Rising Staircase & Clock Modulo Studio';
-  if (id.startsWith('maths-03')) return '3D Quadratic Parabola & Discriminant Arena';
-  if (id.startsWith('maths-04')) return '3D Thales (BPT) & Triangle Similarity Studio';
-  if (id.startsWith('maths-05')) return '3D Coordinate Geometry Distance & Slope Grid';
-  if (id.startsWith('maths-08')) return '3D Rolling Die & Probability Convergence Arena';
-  if (id.startsWith('social-civics')) return '3D Civics — Constitutional Democracy & Diplomacy Studio';
-  if (id.startsWith('social-economics')) return '3D Economics — Growth Towers, Trade & TN Clusters';
-  if (id.startsWith('social-history-') && !id.startsWith('social-history-01'))
-    return '3D Historical TimeMap & Chronology Studio';
+
+  // Mathematics Chapters (differentiated by exact subtopic!)
+  if (id.startsWith('maths-01')) {
+    if (id.includes('1-6') || id.includes('1-7') || id.includes('1-8') || id.includes('1-9') || id === 'maths-01-06' || id === 'maths-01-07' || id === 'maths-01-08' || id === 'maths-01-09') {
+      return '2D Function Types (One-One/Bijection), Line Tests & Composition f(g(x)) Lab';
+    }
+    return '3D Relations & Functions Mapping Machine';
+  }
+  if (id.startsWith('maths-02')) {
+    if (id === 'maths-02-02' || id === 'maths-02-03' || id === 'maths-02-04' || id === 'maths-02-05' || id === 'maths-02-11' || id.includes('2-4-') || id.includes('2-5-') || id.includes('2-11-')) {
+      return '2D Euclid’s Division Lemma, Modular Arithmetic & Special Series (Σk, Σk², Σk³) Lab';
+    }
+    return '3D AP/GP Rising Staircase & Sequences Studio';
+  }
+  if (id.startsWith('maths-03')) {
+    if (isMaths03Matrices(id)) return '2D Matrices Workbench — Order, Transpose & Row × Column Multiplication';
+    if (isMaths03AlgebraNonQuadratic(id)) return '2D Polynomial GCD/LCM & Rational Excluded Value Explorer';
+    return '3D Quadratic Parabola & Discriminant Arena';
+  }
+  if (id.startsWith('maths-05')) {
+    if (id === 'maths-05-02' || id === 'maths-05-03' || id === 'maths-05-04' || id.includes('5-2-') || id.includes('5-4-')) {
+      return '2D Triangle Area, Collinearity Test & Parallel/Perpendicular Slopes Lab';
+    }
+    return '3D Coordinate Geometry Distance & Straight Line Equations';
+  }
+  if (id.startsWith('maths-08')) {
+    return isMaths08Statistics(id)
+      ? '2D Statistics — Deviations, Variance, Standard Deviation (σ) & CV Lab'
+      : '3D Rolling Die & Probability Convergence Arena';
+  }
+
+  // Languages: English (Units 2–7) & Tamil (இயல்கள் 1–3, 5–9) intuitive dedicated 2D studios!
+  if (id.startsWith('english-') && !id.startsWith('english-01')) {
+    return 'Interactive 2D English Reading, Literary Craft & Vocabulary Studio';
+  }
+  if (id.startsWith('tamil-') && !id.startsWith('tamil-04')) {
+    return 'தமிழ் இலக்கியம், சொல் நயம் & இலக்கணப் பயிற்சியகம் (2D Studio)';
+  }
+
+  // Social Science (Real NASA Accurate 2D Maps for ALL History & Geography + Interactive 2D Civics/Economics!)
+  if (id.startsWith('social-economics-04')) return '2D Direct Income Tax vs Indirect GST Slab Calculator (Economics Unit 4)';
+  if (id.startsWith('social-geography-04')) return 'Accurate 2D India Satellite Map — Mineral Belts & Industrial Clusters';
+  if (id.startsWith('social-civics-04')) return '2D India’s Foreign Policy — Panchsheel, NAM & Article 51 Explorer';
+  if (id.startsWith('social-civics')) return '2D Civics & Constitutional Governance Explorer';
+  if (id.startsWith('social-economics')) return '2D Economics & Tamil Nadu Development Explorer';
+  if (id.startsWith('social-history-') && !id.startsWith('social-history-01') && !id.startsWith('social-history-04'))
+    return 'Accurate 2D Historical Satellite Atlas & Turning-Points Explorer';
   if (id.startsWith('social-geography-') && !id.startsWith('social-geography-01'))
-    return '3D India & Tamil Nadu Geography Relief Atlas';
+    return 'Accurate 2D India & Tamil Nadu Satellite Geography Atlas';
+
   return null;
 }
 
 export function renderTopicAwareInteractiveLab(props: TopicLabProps): React.ReactNode | null {
   const id = props.sectionId.toLowerCase();
-  if (id.includes('nervous') || id.includes('neuron') || id.includes('brain') || id.includes('reflex'))
-    return <NeuronHormone3DLab {...props} />;
-  if (id.startsWith('science-04') && id.includes('resist'))
-    return <ElectricalResistivity3DLab {...props} />;
-  if (id.startsWith('science-01')) return <MotionForce3DLab {...props} />;
-  if (id.startsWith('science-02')) return <OpticsRayBenchLab {...props} />;
-  if (id.startsWith('science-03')) return <ThermalGasPistonLab {...props} />;
-  if (id.startsWith('science-04')) return <ElectricityCircuitLab {...props} />;
+
+  if (id.startsWith('maths-04')) return null;
+  if (SCIENCE_04_CONCEPT_FIRST_IDS.has(id)) return null;
+  if (SCIENCE_16_CONCEPT_FIRST_IDS.has(id)) return null;
+  if (SCIENCE_17_CONCEPT_FIRST_IDS.has(id)) return null;
+
+  // Science Unit 16 (remaining 5 hormones/glands)
+  if (id.startsWith('science-16')) {
+    const variant = id.includes('auxin')
+      ? 'auxins'
+      : id.includes('cytokinin')
+        ? 'cytokinins'
+        : id.includes('gibberellin')
+          ? 'gibberellins'
+          : id.includes('abscisic')
+            ? 'abscisic_acid'
+            : 'pancreas';
+    return <PlantAndEndocrineHormones2D variant={variant} onExplore={props.onInteract} />;
+  }
+
+  // Science Unit 17 (remaining 14 reproduction & hygiene routes)
+  if (id.startsWith('science-17')) {
+    const variant = id.includes('17-2')
+      ? 'asexual_spores'
+      : id.includes('17-3')
+        ? 'flower_ovule'
+        : id.includes('17-5')
+          ? 'pollination_agents'
+          : id.includes('17-6')
+            ? 'double_fertilization'
+            : id.includes('17-7')
+              ? 'human_testes'
+              : id.includes('17-9')
+                ? 'menstrual_cycle'
+                : id.includes('17-10')
+                  ? 'foetal_timeline'
+                  : 'reproductive_health_hygiene';
+    return <Unit17ReproductionSuite2D variant={variant} onExplore={props.onInteract} />;
+  }
+
+  // Science Unit 4 (all distinct electricity concepts)
+  if (id.startsWith('science-04')) {
+    if (id.includes('4-4-ohm')) return <ElectricityExtensions2D variant="ohms_law_graph" onExplore={props.onInteract} />;
+    if (id.includes('resist')) return <ElectricalResistivity3DLab {...props} />;
+    if (id.includes('4-9-electric-power')) return <ElectricityExtensions2D variant="electric_power_kwh" onExplore={props.onInteract} />;
+    if (id.includes('4-10')) return <ElectricityExtensions2D variant="domestic_circuits_safety" onExplore={props.onInteract} />;
+    if (id.includes('4-11') || id.includes('4-12')) return <ElectricityExtensions2D variant="led_seven_segment" onExplore={props.onInteract} />;
+    if (SCIENCE_04_CIRCUIT_EXACT_IDS.has(id)) return <ElectricityCircuitLab {...props} />;
+    return null;
+  }
+
+  // Science Unit 13 (Leech & Rabbit — checked before generic nervous system!)
+  if (id.startsWith('science-13')) {
+    return <ScienceMismatchFixes2D variant="leech_rabbit_anatomy" sectionId={props.sectionId} onExplore={props.onInteract} />;
+  }
+
+  if (id.startsWith('science-01')) {
+    return isScience01TorqueOrGravity(id)
+      ? <ScienceMismatchFixes2D variant="torque_gravitation" sectionId={props.sectionId} onExplore={props.onInteract} />
+      : <MotionForce3DLab {...props} />;
+  }
+  if (id.startsWith('science-02')) {
+    return isScience02EyeOrScattering(id)
+      ? <ScienceMismatchFixes2D variant="optics_eye_scattering" sectionId={props.sectionId} onExplore={props.onInteract} />
+      : <OpticsRayBenchLab {...props} />;
+  }
+  if (id.startsWith('science-03')) {
+    return isScience03Expansion(id)
+      ? <ScienceMismatchFixes2D variant="thermal_expansion" sectionId={props.sectionId} onExplore={props.onInteract} />
+      : <ThermalGasPistonLab {...props} />;
+  }
   if (id.startsWith('science-05')) return <AcousticsEchoLab {...props} />;
-  if (id.startsWith('science-06')) return <NuclearChainReactionLab {...props} />;
-  if (id.startsWith('science-08')) return <PeriodicTrendsLab {...props} />;
+  if (id.startsWith('science-06')) {
+    return isScience06DecayOrSafety(id)
+      ? <ScienceMismatchFixes2D variant="nuclear_decay_safety" sectionId={props.sectionId} onExplore={props.onInteract} />
+      : <NuclearChainReactionLab {...props} />;
+  }
+  if (id.startsWith('science-07')) {
+    if (id.includes('7-1') || id.includes('7-5') || id.includes('7-6') || id.includes('7-7') || id.includes('7-8')) {
+      return <SubchapterDifferentiatedLabs2D variant="atoms_isotopes_avogadro" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    return null;
+  }
+  if (id.startsWith('science-08')) {
+    return isScience08MetallurgyOrCorrosion(id)
+      ? <ScienceMismatchFixes2D variant="metallurgy_corrosion" sectionId={props.sectionId} onExplore={props.onInteract} />
+      : <PeriodicTrendsLab {...props} />;
+  }
   if (id.startsWith('science-09')) return <SolubilityMixerLab {...props} />;
-  if (id.startsWith('science-13')) return <AnimalOrganisation3DLab {...props} />;
-  if (id.startsWith('science-15') || id.startsWith('science-16')) return <NeuronHormone3DLab {...props} />;
-  if (id.startsWith('science-17')) return <Gametogenesis3DLab {...props} />;
-  if (id.startsWith('science-18') || id.startsWith('science-19') || id.startsWith('science-20'))
+  if (id.startsWith('science-10')) {
+    if (id.includes('10-2') || id.includes('10-4') || id.includes('10-6') || id.includes('10-7') || id.includes('ph')) {
+      return <SubchapterDifferentiatedLabs2D variant="chem_rate_ph" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    return null;
+  }
+  if (id.startsWith('science-11')) {
+    if (id.includes('11-5') || id.includes('11-6') || id.includes('11-7') || id.includes('11-8') || id.includes('11-9')) {
+      return <SubchapterDifferentiatedLabs2D variant="organic_iupac_process" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    return null;
+  }
+  if (id.startsWith('science-12')) {
+    if (id.includes('12-9') || id.includes('12-10') || id.includes('12-11')) {
+      return <SubchapterDifferentiatedLabs2D variant="plant_photosynthesis_respiration" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    return null;
+  }
+  if (id.startsWith('science-15')) {
+    if (id.includes('15-5') || id.includes('15-7')) {
+      return <SubchapterDifferentiatedLabs2D variant="nervous_reflex_arc" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    return <NeuronHormone3DLab {...props} />;
+  }
+  if (id.startsWith('science-18')) {
+    if (id.includes('18-7')) {
+      return <SubchapterDifferentiatedLabs2D variant="genetics_sex_determination" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    if (id.includes('18-5')) {
+      return <SubchapterDifferentiatedLabs2D variant="genetics_chromosome" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    if (id.includes('18-6')) {
+      return <SubchapterDifferentiatedLabs2D variant="genetics_dna_replication" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
     return <GeneticsPunnettLab {...props} />;
-  if (id.startsWith('science-21') || id.startsWith('science-22'))
-    return <HealthImmuneEco3DLab {...props} />;
+  }
+  if (id.startsWith('science-19')) {
+    return <ScienceMismatchFixes2D variant="evolution_fossils" sectionId={props.sectionId} onExplore={props.onInteract} />;
+  }
+  if (id.startsWith('science-20')) {
+    return <ScienceMismatchFixes2D variant="biotech_rdna" sectionId={props.sectionId} onExplore={props.onInteract} />;
+  }
+  if (id.startsWith('science-21')) {
+    return <SubchapterDifferentiatedLabs2D variant="health_clinical_2d" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+  }
+  if (id.startsWith('science-22')) {
+    return <ScienceMismatchFixes2D variant="environment_conservation" sectionId={props.sectionId} onExplore={props.onInteract} />;
+  }
   if (id.startsWith('science-23')) return <VisualCommunication3DLab {...props} />;
-  if (id.startsWith('maths-01')) return <MathsRelations3DLab {...props} />;
-  if (id.startsWith('maths-02')) return <MathsSequences3DLab {...props} />;
-  if (id.startsWith('maths-03')) return <MathsAlgebra3DLab {...props} />;
-  if (id.startsWith('maths-04')) return <MathsGeometry3DLab {...props} />;
-  if (id.startsWith('maths-05')) return <MathsCoordinate3DLab {...props} />;
-  if (id.startsWith('maths-08')) return <MathsProbability3DLab {...props} />;
-  if (id.startsWith('social-civics')) return <CivicsGovernance3DLab {...props} />;
-  if (id.startsWith('social-economics')) return <Economics3DStudioLab {...props} />;
-  if (id.startsWith('social-history-') && !id.startsWith('social-history-01'))
-    return <HistoryChapters3DStudio {...props} />;
-  if (id.startsWith('social-geography-') && !id.startsWith('social-geography-01'))
-    return <GeographyChapters3DStudio {...props} />;
+
+  // Mathematics Chapters
+  if (id.startsWith('maths-01')) {
+    if (id.includes('1-6') || id.includes('1-7') || id.includes('1-8') || id.includes('1-9') || id === 'maths-01-06' || id === 'maths-01-07' || id === 'maths-01-08' || id === 'maths-01-09') {
+      return <SubchapterDifferentiatedLabs2D variant="maths1_relations_subtopics" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    return <MathsRelations3DLab {...props} />;
+  }
+  if (id.startsWith('maths-02')) {
+    if (id === 'maths-02-02' || id === 'maths-02-03' || id === 'maths-02-04' || id === 'maths-02-05' || id === 'maths-02-11' || id.includes('2-4-') || id.includes('2-5-') || id.includes('2-11-')) {
+      return <SubchapterDifferentiatedLabs2D variant="maths2_euclid_modulo_series" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    return <MathsSequences3DLab {...props} />;
+  }
+  if (id.startsWith('maths-03')) {
+    if (isMaths03Matrices(id)) return <MathsExtensions2D variant="matrices_ops" onExplore={props.onInteract} />;
+    if (isMaths03AlgebraNonQuadratic(id)) return <MathsExtensions2D variant="algebra_gcd_rational" onExplore={props.onInteract} />;
+    return <MathsAlgebra3DLab {...props} />;
+  }
+  if (id.startsWith('maths-05')) {
+    if (id === 'maths-05-02' || id === 'maths-05-03' || id === 'maths-05-04' || id.includes('5-2-') || id.includes('5-4-')) {
+      return <SubchapterDifferentiatedLabs2D variant="maths5_area_slope_lines" sectionId={props.sectionId} sectionTitle={props.sectionTitle} reducedMotion={props.reducedMotion} onExplore={props.onInteract} />;
+    }
+    return <MathsCoordinate3DLab {...props} />;
+  }
+  if (id.startsWith('maths-08')) {
+    return isMaths08Statistics(id)
+      ? <MathsExtensions2D variant="statistics_dispersion" onExplore={props.onInteract} />
+      : <MathsProbability3DLab {...props} />;
+  }
+
+  // Languages: English (Units 2–7) & Tamil (இயல்கள் 1–3, 5–9) dedicated intuitive 2D studios
+  if (id.startsWith('english-') && !id.startsWith('english-01')) {
+    return (
+      <LanguageStudioUnified2D
+        sectionId={props.sectionId}
+        sectionTitle={props.sectionTitle}
+        unitTitle={props.unitTitle ?? 'Class 10 English'}
+        subject="english"
+        onExplore={props.onInteract}
+      />
+    );
+  }
+  if (id.startsWith('tamil-') && !id.startsWith('tamil-04')) {
+    return (
+      <LanguageStudioUnified2D
+        sectionId={props.sectionId}
+        sectionTitle={props.sectionTitle}
+        unitTitle={props.unitTitle ?? 'பத்தாம் வகுப்புத் தமிழ்'}
+        subject="tamil"
+        onExplore={props.onInteract}
+      />
+    );
+  }
+
+  // Social Science 2D Concept Labs
+  if (id.startsWith('social-economics-04')) {
+    return <SocialExtensions2D variant="economics_taxes_gst" sectionId={props.sectionId} sectionTitle={props.sectionTitle} onExplore={props.onInteract} />;
+  }
+  if (id.startsWith('social-geography-04')) {
+    return <SocialExtensions2D variant="geography_resources_industries" sectionId={props.sectionId} sectionTitle={props.sectionTitle} onExplore={props.onInteract} />;
+  }
+  if (id.startsWith('social-civics-04')) {
+    return <SocialExtensions2D variant="civics_foreign_policy" sectionId={props.sectionId} sectionTitle={props.sectionTitle} onExplore={props.onInteract} />;
+  }
+  if (
+    id.startsWith('social-civics') ||
+    id.startsWith('social-economics') ||
+    (id.startsWith('social-history-') && !id.startsWith('social-history-01') && !id.startsWith('social-history-04')) ||
+    (id.startsWith('social-geography-') && !id.startsWith('social-geography-01'))
+  ) {
+    return <SocialExtensions2D variant="social_chapter_2d" sectionId={props.sectionId} sectionTitle={props.sectionTitle} onExplore={props.onInteract} />;
+  }
+
   return null;
 }

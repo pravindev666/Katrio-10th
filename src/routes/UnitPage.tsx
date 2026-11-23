@@ -21,6 +21,7 @@ import {
   getUnitCuriosityQuestion,
 } from '../utils/curriculumStore';
 import { getSubsectionLessonById } from '../data/history_unit4_index';
+import { getExactLessonExperienceById } from '../data/exactSectionManifest';
 import { useProgress } from '../features/local-progress/ProgressContext';
 import { getSectionProgressStage } from '../features/local-progress/progressStore';
 import { NotFoundPage } from './NotFoundPage';
@@ -39,13 +40,20 @@ export function UnitPage() {
   }
 
   const verifiedSections = unit.sections.filter(
-    (s) => s.source_status !== 'auto_extracted_review_required' || Boolean(getSubsectionLessonById(s.id)),
+    (s) =>
+      s.source_status !== 'auto_extracted_review_required' ||
+      Boolean(getExactLessonExperienceById(s.id)) ||
+      Boolean(getSubsectionLessonById(s.id)),
   );
   const reviewSections = unit.sections.filter(
-    (s) => s.source_status === 'auto_extracted_review_required' && !getSubsectionLessonById(s.id),
+    (s) =>
+      s.source_status === 'auto_extracted_review_required' &&
+      !getExactLessonExperienceById(s.id) &&
+      !getSubsectionLessonById(s.id),
   );
 
   const recommendedSection =
+    unit.sections.find((s) => Boolean(getExactLessonExperienceById(s.id))) ??
     unit.sections.find((s) => Boolean(getSubsectionLessonById(s.id))) ??
     unit.sections.find((s) => Boolean(s.lesson_content_id || s.demo_id)) ??
     verifiedSections.find((s) => getSectionProgressStage(record, s.id) !== 'completed') ??
@@ -53,7 +61,8 @@ export function UnitPage() {
 
   const isRecommendedReady = Boolean(
     recommendedSection &&
-    (getSubsectionLessonById(recommendedSection.id) ||
+    (getExactLessonExperienceById(recommendedSection.id) ||
+      getSubsectionLessonById(recommendedSection.id) ||
       recommendedSection.lesson_content_id ||
       recommendedSection.demo_id),
   );
@@ -111,6 +120,13 @@ export function UnitPage() {
       return (
         <span className="px-2.5 py-0.5 rounded-full bg-[var(--primary-tint)] text-[var(--primary)] text-xs font-bold">
           Practised
+        </span>
+      );
+    }
+    if (stage === 'explored') {
+      return (
+        <span className="px-2.5 py-0.5 rounded-full bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 text-xs font-bold border border-sky-400/35">
+          Explored
         </span>
       );
     }

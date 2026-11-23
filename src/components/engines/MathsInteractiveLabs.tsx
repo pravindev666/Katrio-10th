@@ -182,9 +182,9 @@ export function MathsGeometry3DLab({ reducedMotion, onInteract, onComplete }: To
           <input type="range" min={0.25} max={0.8} step={0.05} value={ratio} onChange={(e) => { setRatio(Number(e.target.value)); onInteract(); onComplete('Verified Basic Proportionality (Thales) Theorem in 3D!'); }} className="w-full accent-[var(--math)] mt-1" />
         </label>
         <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)] space-y-1.5 text-[var(--text)]">
-          <div><strong>1. Thales Theorem (BPT):</strong> A line drawn parallel to one side of a triangle divides the other two sides in the exact same ratio.</div>
-          <div><strong>2. Angle Bisector Theorem:</strong> Internal bisector splits opposite side in ratio of adjacent sides.</div>
-          <div><strong>3. Tangent-Radius Theorem:</strong> Tangent at any point on a circle is perpendicular (90°) to the radius.</div>
+          <div><strong>1. Thales Theorem (BPT):</strong> A line drawn parallel to one side of a triangle divides the other two sides in the exact same ratio (AD/DB = AE/EC).</div>
+          <div><strong>2. Converse of BPT:</strong> Equal ratios (AD/DB = AE/EC) prove DE ∥ BC.</div>
+          <div><strong>Note:</strong> For Angle Bisector Theorem, Pythagoras, and Circles &amp; Tangents, open their dedicated 2D Geometry sections in Chapter 4.</div>
         </div>
       </div>
     </div>

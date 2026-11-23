@@ -2,8 +2,17 @@ import React, { Suspense, lazy, useState } from 'react';
 import { CheckCircle2, Globe2, Layers, Waves } from 'lucide-react';
 import type { IndiaDivisionId } from './IndiaRelief3DCanvas';
 import type { ModularEngineProps } from './types';
+import { AccurateGeoMaps2D, type AccurateMapPin } from './AccurateGeoMaps2D';
 
 const IndiaRelief3DCanvas = lazy(() => import('./IndiaRelief3DCanvas'));
+
+const INDIA_UNIT1_PINS: AccurateMapPin[] = [
+  { id: 'himalayas', label: 'Himalayas (Himadri)', lat: 28.0, lon: 86.9, category: '1. Northern Mountains', detail: 'Young fold mountains (~2,500 km) feeding perennial Indus, Ganga & Brahmaputra rivers (pp. 131–134).', examFact: 'Mt. Everest (8,848 m) & Kanchenjunga (8,586 m) sit in the Greater Himalayas (Himadri).' },
+  { id: 'northern_plains', label: 'Northern Great Plains', lat: 26.8, lon: 81.0, category: '2. Fertile Alluvial Plains', detail: 'Deposited by Indus–Ganga–Brahmaputra systems featuring Bhabar, Tarai, Bhangar & Khadar belts.', examFact: 'Ganga is the longest river originating within India.' },
+  { id: 'peninsular_plateau', label: 'Deccan & Malwa Plateau', lat: 19.5, lon: 77.5, category: '3. Peninsular Plateau', detail: 'Oldest Gondwana landmass (~16 lakh sq. km) bounded by Aravalli, Vindhya, Western & Eastern Ghats.', examFact: 'Narmada & Tapti flow west into Arabian Sea; Godavari, Krishna & Kaveri flow east into Bay of Bengal.' },
+  { id: 'coastal_plains', label: 'Coromandel & Malabar Coasts', lat: 13.0, lon: 80.2, category: '4. Coastal Plains', detail: 'Mainland coastline ~6,100 km (7,516.6 km with islands); Western Malabar backwaters (kayals) & Eastern deltas.', examFact: 'Chilika & Pulicat are major eastern coastal lagoons.' },
+  { id: 'islands', label: 'Andaman & Lakshadweep', lat: 11.6, lon: 92.7, category: '5. Island Groups', detail: 'Andaman & Nicobar (volcanic, Barren Island, Indira Point 6°45′N) and Lakshadweep (coral, Kavaratti).', examFact: 'India & Sri Lanka are separated by the Palk Strait.' },
+];
 
 interface DivisionSpec {
   id: IndiaDivisionId;
@@ -81,7 +90,8 @@ export function IndiaRelief3DEngine({
   const [selectedId, setSelectedId] = useState<IndiaDivisionId>('himalayas');
   const [showRivers, setShowRivers] = useState(true);
   const [showMonsoon, setShowMonsoon] = useState(true);
-  const [viewMode, setViewMode] = useState<'3d' | '2d'>(prefer2DText ? '2d' : '3d');
+  // Accurate 2D NASA satellite map is now the clean primary view for all Geography maps!
+  const [viewMode, setViewMode] = useState<'3d' | '2d'>('2d');
   const [visited, setVisited] = useState<string[]>(['himalayas']);
 
   const effectiveMode = prefer2DText ? '2d' : viewMode;
@@ -115,11 +125,10 @@ export function IndiaRelief3DEngine({
               setShowRivers((r) => !r);
               onInteraction();
             }}
-            className={`px-3 py-2 min-h-[40px] rounded-xl text-xs font-bold border inline-flex items-center gap-1.5 ${
-              showRivers
+            className={`px-3 py-2 min-h-[40px] rounded-xl text-xs font-bold border inline-flex items-center gap-1.5 ${showRivers
                 ? 'bg-sky-600 text-white border-sky-600'
                 : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
-            }`}
+              }`}
           >
             <Waves className="w-3.5 h-3.5" />
             <span>{showRivers ? 'Drainage Rivers: ON' : 'Drainage Rivers: OFF'}</span>
@@ -130,11 +139,10 @@ export function IndiaRelief3DEngine({
               setShowMonsoon((m) => !m);
               onInteraction();
             }}
-            className={`px-3 py-2 min-h-[40px] rounded-xl text-xs font-bold border inline-flex items-center gap-1.5 ${
-              showMonsoon
+            className={`px-3 py-2 min-h-[40px] rounded-xl text-xs font-bold border inline-flex items-center gap-1.5 ${showMonsoon
                 ? 'bg-violet-600 text-white border-violet-600'
                 : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)]'
-            }`}
+              }`}
           >
             <span>{showMonsoon ? 'SW Monsoon Winds: ON' : 'SW Monsoon Winds: OFF'}</span>
           </button>
@@ -173,25 +181,15 @@ export function IndiaRelief3DEngine({
               />
             </Suspense>
           ) : (
-            <div className="p-5 rounded-2xl border border-[var(--line)] bg-[var(--surface-subtle)] space-y-3">
-              <div className="text-xs font-bold uppercase tracking-wider text-[var(--primary)]">
-                2D Structured Physiographic &amp; Drainage Atlas (Not to Scale · No WebGL)
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)]">
-                  <div className="font-bold text-[var(--ink)]">Geographic Extent (p. 129–130)</div>
-                  <p className="text-[var(--text)] mt-1">
-                    8°4′N to 37°6′N · 68°7′E to 97°25′E · Area: 32,87,263 sq. km · Central Meridian (IST): 82°30′E (GMT +5:30).
-                  </p>
-                </div>
-                <div className="p-3 rounded-xl bg-[var(--surface)] border border-[var(--line)]">
-                  <div className="font-bold text-[var(--ink)]">Himalayan vs Peninsular Rivers</div>
-                  <p className="text-[var(--text)] mt-1">
-                    Himalayan rivers (Indus, Ganga, Brahmaputra) are perennial &amp; snow-fed; Peninsular rivers (Godavari, Krishna, Kaveri) are seasonal &amp; rain-fed.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <AccurateGeoMaps2D
+              region="india"
+              title="Geography Unit 1 · India Physiographic Divisions & Rivers"
+              subtitle="Real NASA Blue Marble true-coastline 2D map · 8°4′N–37°6′N, IST 82°30′E (pp. 129–138)"
+              pins={INDIA_UNIT1_PINS}
+              showRiversToggle
+              showMonsoonToggle
+              onExplore={onInteract}
+            />
           )}
         </div>
 
@@ -218,11 +216,10 @@ export function IndiaRelief3DEngine({
                 key={d.id}
                 type="button"
                 onClick={() => handleSelect(d.id)}
-                className={`w-full text-left px-3.5 py-2.5 min-h-[42px] rounded-xl border text-xs font-bold transition-colors ${
-                  selectedId === d.id
+                className={`w-full text-left px-3.5 py-2.5 min-h-[42px] rounded-xl border text-xs font-bold transition-colors ${selectedId === d.id
                     ? 'bg-[var(--primary)] text-white border-[var(--primary)]'
                     : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--line)] hover:border-[var(--primary)]'
-                }`}
+                  }`}
               >
                 {d.title}
               </button>
